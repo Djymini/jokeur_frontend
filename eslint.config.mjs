@@ -6,7 +6,7 @@ import angular from 'angular-eslint';
 export default tseslint.config(
   {
     files: ['**/*.ts'],
-    ignores: ['coverage/**', '**/*.spec.ts', '**/*.server.ts', '**/server.ts'],
+    ignores: ['coverage/**', '**/*.spec.ts', '**/*.page.ts', '**/*.server.ts', '**/server.ts'],
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,

@@ -1,0 +1,21 @@
+section {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  background: var(--surface-1);
+}
+
+.construction-message {
+  padding: var(--size-10);
+  display: grid;
+  gap: var(--size-5);
+}
+
+.construction-img {
+  align-self: stretch;
+}
+
+.construction-img > img {
+  block-size: 100%;
+  object-fit: cover;
+}
