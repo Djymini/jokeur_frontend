@@ -4,70 +4,70 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded';
-    src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
+  font-family: 'MPLUSRounded';
+  src: url('assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
 }
 
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.000 0.000 0);
-  --card: oklch(1.000 0.000 0);
-  --card-foreground: oklch(0.000 0.000 0);
-  --popover: oklch(1.000 0.000 0);
-  --popover-foreground: oklch(0.000 0.000 0);
-  --primary: oklch(41.80% 0.119 250.24);
-  --primary-foreground: oklch(1.000 0.000 0);
+  --foreground: oklch(0 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(41.8% 0.119 250.24);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(70.18% 0.195 38.96);
-  --secondary-foreground: oklch(1.000 0.000 0);
-  --muted: oklch(0.901 0.000 0);
-  --muted-foreground: oklch(65.00% 0.000 89.88);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.901 0 0);
+  --muted-foreground: oklch(65% 0 89.88);
   --accent: oklch(67.71% 0.071 171.63);
-  --accent-foreground: oklch(0.000 0.000 0);
+  --accent-foreground: oklch(0 0 0);
   --destructive: oklch(0.633 0.252 27.385);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -100,7 +100,7 @@
   --primary: oklch(79.03% 0.116 243.18);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(55.87% 0.193 35.57);
-  --secondary-foreground: oklch(1.000 0.000 0);
+  --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(62.83% 0.072 171.23);
@@ -173,13 +173,13 @@
     @apply bg-background text-foreground;
   }
 
-    input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
     appearance: textfield; /* Added for general compatibility */
   }
@@ -200,29 +200,33 @@
   background: var(--muted);
 }
 
-body{
+body {
   font-family: 'MPLUSRounded';
   font-weight: normal;
   background-color: var(--main-background);
 }
 
-h1{
+h1 {
   font-weight: 800;
   font-size: 40px;
 }
 
-h2, h3, h4, h5{
+h2,
+h3,
+h4,
+h5 {
   font-weight: 700;
 }
 
-h2{
+h2 {
   font-size: 32px;
 }
 
-h3{
+h3 {
   font-size: 24px;
 }
 
-h4, p{
+h4,
+p {
   font-size: 16px;
 }
