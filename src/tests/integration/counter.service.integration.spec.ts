@@ -6,7 +6,7 @@ describe('CounterService (integration)', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CounterService], // 👈 Angular DI réel
+      providers: [CounterService],
     });
 
     service = TestBed.inject(CounterService);
