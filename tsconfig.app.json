@@ -10,7 +10,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/tests/unit/counter.service.spec.ts", "src/tests/config/jest.unit.config.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
