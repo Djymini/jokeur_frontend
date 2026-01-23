@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CounterService {
-  private _count:number = 0;
+  private _count: number = 0;
 
   increment(): void {
     this._count++;

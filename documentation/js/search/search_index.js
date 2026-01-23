@@ -1,4 +1,1813 @@
 var COMPODOC_SEARCH_INDEX = {
-    "index": {"version":"2.3.9","fields":["title","body"],"fieldVectors":[["title/components/AppComponent.html",[0,0.521,1,0.976]],["body/components/AppComponent.html",[0,0.785,1,1.582,2,1.286,3,0.936,4,0.768,5,1.388,6,1.388,7,1.388,8,0.768,9,1.725,10,1.388,11,2.461,12,1.658,13,1.908,14,1.908,15,3.512,16,2.371,17,3.074,18,2.371,19,3.074,20,0.936,21,1.286,22,2.709,23,2.709,24,3.512,25,0.936,26,0.075,27,1.388,28,0.768,29,1.137,30,3.074,31,1.388,32,2.237,33,1.286,34,2.237,35,0.768,36,1.725,37,0.936,38,0.768,39,1.388,40,1.562,41,1.908,42,1.388,43,2.347,44,1.388,45,1.286,46,1.388,47,0.936,48,1.908,49,1.388,50,0.936,51,1.388,52,1.137,53,1.388,54,0.05,55,0.05]],["title/injectables/BaseApi.html",[56,0.976,57,1.448]],["body/injectables/BaseApi.html",[3,0.471,4,0.386,8,0.386,13,0.698,20,0.471,21,0.766,22,3.266,23,1.785,25,1.605,26,0.077,27,1.136,28,0.795,29,0.93,31,2.146,33,1.116,35,0.386,37,0.471,38,0.386,45,1.228,54,0.03,55,0.03,56,0.766,57,1.136,58,0.698,59,2.758,60,0.868,61,2.315,62,2.315,63,1.412,64,1.785,65,1.831,66,3.837,67,1.831,68,2.667,69,1.831,70,1.831,71,1.831,72,1.125,73,3.576,74,2.936,75,3.458,76,2.427,77,1.831,78,3.837,79,1.125,80,2.667,81,2.667,82,3.458,83,1.831,84,1.125,85,1.125,86,2.667,87,1.831,88,3.458,89,1.125,90,1.831,91,1.125,92,1.831,93,1.125,94,1.831,95,1.125,96,1.125,97,1.831,98,1.125,99,1.125,100,2.936,101,0.868,102,0.698,103,1.125,104,0.868,105,1.125,106,2.959,107,1.757,108,1.125,109,1.125,110,2.667,111,2.667,112,1.125,113,2.667,114,2.667,115,2.667,116,2.667,117,2.667,118,1.125,119,1.125,120,1.125,121,1.125,122,1.125,123,1.125,124,2.936,125,1.125,126,1.125,127,1.125,128,1.125,129,1.125,130,1.125,131,1.125,132,1.125,133,1.125,134,1.125,135,1.125,136,1.125,137,1.125,138,1.125,139,2.315,140,1.125,141,1.125,142,1.125]],["title/injectables/CounterService.html",[56,0.976,143,1.448]],["body/injectables/CounterService.html",[3,1.087,4,0.893,8,0.893,13,1.614,20,1.087,21,1.422,25,1.087,26,0.076,28,0.893,29,1.321,31,2.352,33,1.087,35,0.893,37,1.087,38,0.893,54,0.055,55,0.055,56,1.422,58,1.614,63,2.623,64,2.923,76,2.623,104,2.005,106,2.005,143,2.111,144,2.005,145,3.4,146,4.019,147,4.019,148,2.6,149,3.79,150,2.6,151,3.4,152,2.111,153,2.6,154,2.6,155,3.4]],["title/components/UnderConstructionComponent.html",[0,0.521,47,0.976]],["body/components/UnderConstructionComponent.html",[0,0.78,1,0.926,2,1.276,3,0.926,4,0.76,5,1.373,6,1.373,7,1.373,8,0.76,10,1.373,11,2.451,12,1.652,14,1.373,16,2.354,18,2.354,26,0.074,33,0.926,35,0.76,37,0.926,38,0.76,39,1.373,40,1.551,41,1.894,42,1.373,43,2.337,44,1.373,45,1.276,46,1.373,47,1.575,48,2.646,49,1.373,50,0.926,51,1.373,52,1.124,53,1.373,54,0.05,55,0.05,156,1.373,157,1.707,158,1.373,159,1.707,160,3.765,161,3.052,162,3.052,163,3.765,164,3.052,165,3.052,166,3.052,167,3.052,168,3.052,169,3.052,170,3.052,171,3.052,172,3.052]],["title/components/UnderConstructionPage.html",[0,0.521,50,0.976]],["body/components/UnderConstructionPage.html",[0,0.815,1,1.008,2,1.352,3,1.008,4,0.828,5,2.007,6,1.495,7,1.495,8,0.828,10,1.495,11,2.525,12,1.702,14,2.007,26,0.075,28,0.828,33,1.352,35,0.828,37,1.008,38,0.828,39,1.495,40,1.643,41,2.007,42,1.495,43,2.421,44,1.495,45,1.352,46,1.495,47,1.631,48,2.421,49,1.495,50,1.631,51,2.265,52,1.224,53,1.495,54,0.053,55,0.053,156,1.495,158,1.495,173,3.649,174,1.858,175,1.858,176,2.409,177,2.409]],["title/coverage.html",[178,2.44]],["body/coverage.html",[0,0.747,1,0.853,8,0.701,9,1.573,12,0.853,25,0.853,26,0.075,47,0.853,50,0.853,54,0.047,55,0.047,56,1.206,57,1.266,59,1.573,60,1.573,102,2.255,107,1.036,143,1.266,144,1.573,152,2.839,156,1.789,157,1.573,158,1.266,159,1.573,174,1.573,175,1.573,178,1.573,179,2.039,180,2.039,181,2.039,182,2.039,183,2.223,184,4.492,185,2.579,186,4.516,187,1.573,188,1.573,189,1.573,190,1.573,191,1.573,192,2.039,193,2.039,194,1.573,195,1.573,196,1.573,197,1.573,198,1.573,199,1.573,200,2.803,201,1.573,202,1.573,203,1.573,204,2.039,205,2.039,206,1.573,207,1.573,208,2.039,209,2.039]],["title/dependencies.html",[210,1.51,211,2.159]],["body/dependencies.html",[26,0.077,35,0.886,36,1.989,38,0.886,54,0.055,55,0.055,101,1.989,211,1.989,212,2.578,213,2.578,214,2.578,215,3.443,216,2.578,217,2.578,218,3.382,219,1.6,220,1.6,221,2.578,222,2.578,223,3.382,224,2.099,225,2.578,226,2.578,227,2.578,228,2.578,229,2.578,230,2.578,231,1.989,232,2.578,233,2.578,234,2.578,235,2.578,236,2.578,237,2.578,238,2.578,239,2.578,240,2.578,241,2.578,242,2.578,243,2.578,244,2.578,245,2.578]],["title/index.html",[20,0.976,246,2.332]],["body/index.html",[0,0.743,2,0.845,4,0.694,26,0.047,28,0.983,52,1.026,54,0.047,55,0.047,107,1.026,215,1.558,219,1.254,220,2.064,224,2.245,247,2.02,248,3.325,249,2.02,250,2.863,251,2.946,252,1.558,253,2.208,254,2.02,255,2.02,256,3.819,257,3.967,258,3.967,259,2.02,260,2.863,261,2.02,262,2.02,263,2.02,264,2.863,265,2.02,266,2.02,267,2.02,268,2.02,269,2.02,270,2.863,271,2.863,272,2.02,273,2.02,274,2.02,275,3.325,276,2.02,277,2.02,278,2.02,279,2.02,280,2.02,281,2.02,282,2.02,283,2.02,284,2.565,285,2.02,286,2.02,287,2.02,288,2.02,289,2.02,290,2.02,291,1.558,292,2.02,293,2.02,294,2.02,295,2.208,296,3.325,297,2.02,298,2.02,299,2.02,300,2.02,301,2.02,302,2.02,303,3.325,304,2.02,305,3.967,306,2.02,307,2.863,308,2.02,309,2.02,310,2.02,311,2.02,312,2.02,313,2.02,314,2.02,315,2.02,316,2.02,317,2.02,318,2.02,319,2.02,320,2.02,321,2.02,322,2.02,323,1.254,324,2.02,325,2.02]],["title/modules.html",[326,2.44]],["body/modules.html",[26,0.068,54,0.068,55,0.068,326,2.797]],["title/overview.html",[323,1.963]],["body/overview.html",[2,1.474,26,0.067,54,0.067,55,0.067,58,2.187,152,2.187,323,2.187,327,3.524,328,3.524]],["title/properties.html",[21,1.171,210,1.51]],["body/properties.html",[21,1.491,26,0.071,54,0.067,55,0.067,252,2.749,329,3.564]],["title/routes.html",[330,2.44]],["body/routes.html",[26,0.068,54,0.068,55,0.068,330,2.797]],["title/miscellaneous/variables.html",[331,1.51,332,2.159]],["body/miscellaneous/variables.html",[12,0.884,20,0.563,25,1.747,26,0.077,27,2.115,28,1.434,29,2.122,40,1.073,45,1.236,54,0.034,55,0.034,102,2.29,107,0.684,183,1.038,185,2.927,187,2.012,188,1.038,189,1.629,190,1.038,191,1.629,194,1.038,195,1.038,196,1.038,197,1.038,198,1.038,199,1.629,200,1.038,201,1.629,202,1.629,203,1.629,206,1.038,207,1.038,219,0.835,220,0.835,224,1.619,231,1.038,251,1.038,253,1.038,284,1.038,291,2.476,295,1.038,331,1.038,332,1.038,333,2.955,334,1.345,335,1.345,336,2.112,337,1.345,338,1.345,339,1.345,340,1.345,341,1.345,342,1.345,343,1.345,344,1.345,345,1.345,346,1.345,347,1.345,348,1.345,349,1.345,350,1.345,351,1.345,352,1.345,353,1.345,354,1.345,355,2.112,356,2.112,357,1.345,358,1.345,359,1.345,360,1.345,361,2.112,362,1.345,363,1.345,364,1.345,365,1.345,366,2.112,367,2.955,368,2.112,369,2.112,370,1.345,371,2.112,372,1.345,373,2.112,374,2.112,375,2.112,376,2.112,377,1.345,378,1.345,379,1.345,380,1.345,381,1.345,382,2.112,383,2.955,384,2.112,385,2.112,386,2.112,387,1.345,388,2.112,389,2.112,390,2.112,391,2.112,392,2.112,393,2.112,394,1.345,395,1.345,396,2.955,397,2.112,398,2.955,399,1.345,400,2.112,401,2.112,402,1.345,403,1.345,404,1.345,405,1.345]]],"invertedIndex":[["",{"_index":26,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{},"dependencies.html":{},"index.html":{},"modules.html":{},"overview.html":{},"properties.html":{},"routes.html":{},"miscellaneous/variables.html":{}}}],["0",{"_index":152,"title":{},"body":{"injectables/CounterService.html":{},"coverage.html":{},"overview.html":{}}}],["0.0.0",{"_index":329,"title":{},"body":{"properties.html":{}}}],["0.16.0",{"_index":245,"title":{},"body":{"dependencies.html":{}}}],["0.562.0",{"_index":234,"title":{},"body":{"dependencies.html":{}}}],["0.7.1",{"_index":228,"title":{},"body":{"dependencies.html":{}}}],["0/1",{"_index":186,"title":{},"body":{"coverage.html":{}}}],["0/2",{"_index":182,"title":{},"body":{"coverage.html":{}}}],["0/4",{"_index":192,"title":{},"body":{"coverage.html":{}}}],["0/9",{"_index":193,"title":{},"body":{"coverage.html":{}}}],["1/1",{"_index":205,"title":{},"body":{"coverage.html":{}}}],["100",{"_index":204,"title":{},"body":{"coverage.html":{}}}],["2",{"_index":328,"title":{},"body":{"overview.html":{}}}],["2.1.1",{"_index":230,"title":{},"body":{"dependencies.html":{}}}],["2.3.0",{"_index":243,"title":{},"body":{"dependencies.html":{}}}],["21.1.0",{"_index":215,"title":{},"body":{"dependencies.html":{},"index.html":{}}}],["21.1.1",{"_index":213,"title":{},"body":{"dependencies.html":{}}}],["3",{"_index":327,"title":{},"body":{"overview.html":{}}}],["3.4.0",{"_index":240,"title":{},"body":{"dependencies.html":{}}}],["4.1.18",{"_index":223,"title":{},"body":{"dependencies.html":{}}}],["400",{"_index":125,"title":{},"body":{"injectables/BaseApi.html":{}}}],["401",{"_index":128,"title":{},"body":{"injectables/BaseApi.html":{}}}],["403",{"_index":131,"title":{},"body":{"injectables/BaseApi.html":{}}}],["404",{"_index":134,"title":{},"body":{"injectables/BaseApi.html":{}}}],["5.1.0",{"_index":232,"title":{},"body":{"dependencies.html":{}}}],["500",{"_index":138,"title":{},"body":{"injectables/BaseApi.html":{}}}],["7.8.0",{"_index":237,"title":{},"body":{"dependencies.html":{}}}],["8.5.6",{"_index":236,"title":{},"body":{"dependencies.html":{}}}],["_count",{"_index":145,"title":{},"body":{"injectables/CounterService.html":{}}}],["_count:number",{"_index":154,"title":{},"body":{"injectables/CounterService.html":{}}}],["_handleerror",{"_index":65,"title":{},"body":{"injectables/BaseApi.html":{}}}],["_handleerror(error",{"_index":71,"title":{},"body":{"injectables/BaseApi.html":{}}}],["abstract",{"_index":105,"title":{},"body":{"injectables/BaseApi.html":{}}}],["actual_component",{"_index":53,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["actuellement",{"_index":167,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["additional",{"_index":315,"title":{},"body":{"index.html":{}}}],["angular",{"_index":224,"title":{},"body":{"dependencies.html":{},"index.html":{},"miscellaneous/variables.html":{}}}],["angular/cdk",{"_index":212,"title":{},"body":{"dependencies.html":{}}}],["angular/common",{"_index":214,"title":{},"body":{"dependencies.html":{}}}],["angular/common/http",{"_index":98,"title":{},"body":{"injectables/BaseApi.html":{}}}],["angular/compiler",{"_index":216,"title":{},"body":{"dependencies.html":{}}}],["angular/core",{"_index":35,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"dependencies.html":{}}}],["angular/forms",{"_index":217,"title":{},"body":{"dependencies.html":{}}}],["angular/platform",{"_index":218,"title":{},"body":{"dependencies.html":{}}}],["angular/router",{"_index":36,"title":{},"body":{"components/AppComponent.html":{},"dependencies.html":{}}}],["angular/ssr",{"_index":221,"title":{},"body":{"dependencies.html":{}}}],["angularapp",{"_index":201,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["angularnodeappengine",{"_index":344,"title":{},"body":{"miscellaneous/variables.html":{}}}],["api",{"_index":380,"title":{},"body":{"miscellaneous/variables.html":{}}}],["api.jokeur.ashleydev.fr",{"_index":400,"title":{},"body":{"miscellaneous/variables.html":{}}}],["apiurl",{"_index":398,"title":{},"body":{"miscellaneous/variables.html":{}}}],["app",{"_index":12,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{},"miscellaneous/variables.html":{}}}],["app.component.html",{"_index":17,"title":{},"body":{"components/AppComponent.html":{}}}],["app.component.scss",{"_index":19,"title":{},"body":{"components/AppComponent.html":{}}}],["appcomponent",{"_index":1,"title":{"components/AppComponent.html":{}},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["appconfig",{"_index":189,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["application",{"_index":264,"title":{},"body":{"index.html":{}}}],["application/json",{"_index":109,"title":{},"body":{"injectables/BaseApi.html":{}}}],["applicationconfig",{"_index":355,"title":{},"body":{"miscellaneous/variables.html":{}}}],["artifacts",{"_index":288,"title":{},"body":{"index.html":{}}}],["async",{"_index":66,"title":{},"body":{"injectables/BaseApi.html":{}}}],["authority",{"_index":227,"title":{},"body":{"dependencies.html":{}}}],["automatically",{"_index":265,"title":{},"body":{"index.html":{}}}],["autoris",{"_index":130,"title":{},"body":{"injectables/BaseApi.html":{}}}],["available",{"_index":279,"title":{},"body":{"index.html":{}}}],["await",{"_index":111,"title":{},"body":{"injectables/BaseApi.html":{}}}],["base_url",{"_index":61,"title":{},"body":{"injectables/BaseApi.html":{}}}],["baseapi",{"_index":57,"title":{"injectables/BaseApi.html":{}},"body":{"injectables/BaseApi.html":{},"coverage.html":{}}}],["bientôt",{"_index":172,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["body",{"_index":88,"title":{},"body":{"injectables/BaseApi.html":{}}}],["bootstrap",{"_index":199,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["bootstrapapplication(appcomponent",{"_index":363,"title":{},"body":{"miscellaneous/variables.html":{}}}],["bootstrapcontext",{"_index":362,"title":{},"body":{"miscellaneous/variables.html":{}}}],["browser",{"_index":219,"title":{},"body":{"dependencies.html":{},"index.html":{},"miscellaneous/variables.html":{}}}],["browserdistfolder",{"_index":202,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["build",{"_index":284,"title":{},"body":{"index.html":{},"miscellaneous/variables.html":{}}}],["buildthis",{"_index":285,"title":{},"body":{"index.html":{}}}],["case",{"_index":124,"title":{},"body":{"injectables/BaseApi.html":{}}}],["catch",{"_index":115,"title":{},"body":{"injectables/BaseApi.html":{}}}],["ce",{"_index":169,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["choose",{"_index":311,"title":{},"body":{"index.html":{}}}],["class",{"_index":38,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"dependencies.html":{}}}],["clearmocks",{"_index":382,"title":{},"body":{"miscellaneous/variables.html":{}}}],["cli",{"_index":251,"title":{},"body":{"index.html":{},"miscellaneous/variables.html":{}}}],["cloud",{"_index":353,"title":{},"body":{"miscellaneous/variables.html":{}}}],["clsx",{"_index":229,"title":{},"body":{"dependencies.html":{}}}],["code",{"_index":270,"title":{},"body":{"index.html":{}}}],["come",{"_index":309,"title":{},"body":{"index.html":{}}}],["command",{"_index":303,"title":{},"body":{"index.html":{}}}],["compile",{"_index":286,"title":{},"body":{"index.html":{}}}],["complete",{"_index":277,"title":{},"body":{"index.html":{}}}],["component",{"_index":0,"title":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{},"index.html":{}}}],["component_template",{"_index":44,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["components",{"_index":2,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"index.html":{},"overview.html":{}}}],["components/under",{"_index":176,"title":{},"body":{"components/UnderConstructionPage.html":{}}}],["config",{"_index":185,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["construction",{"_index":160,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["construction'},{'name",{"_index":49,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["construction.component",{"_index":177,"title":{},"body":{"components/UnderConstructionPage.html":{}}}],["construction.component.html",{"_index":161,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["construction.component.scss",{"_index":162,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["construction.component.ts",{"_index":159,"title":{},"body":{"components/UnderConstructionComponent.html":{},"coverage.html":{}}}],["construction.component/under",{"_index":158,"title":{},"body":{"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["construction.page",{"_index":51,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["construction.page.ts",{"_index":175,"title":{},"body":{"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["construction/components/under",{"_index":157,"title":{},"body":{"components/UnderConstructionComponent.html":{},"coverage.html":{}}}],["construction/pages/under",{"_index":174,"title":{},"body":{"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["content",{"_index":108,"title":{},"body":{"injectables/BaseApi.html":{}}}],["context",{"_index":361,"title":{},"body":{"miscellaneous/variables.html":{}}}],["counterservice",{"_index":143,"title":{"injectables/CounterService.html":{}},"body":{"injectables/CounterService.html":{},"coverage.html":{}}}],["coverage",{"_index":178,"title":{"coverage.html":{}},"body":{"coverage.html":{}}}],["coverage/integration",{"_index":387,"title":{},"body":{"miscellaneous/variables.html":{}}}],["coverage/unit",{"_index":395,"title":{},"body":{"miscellaneous/variables.html":{}}}],["coveragedirectory",{"_index":386,"title":{},"body":{"miscellaneous/variables.html":{}}}],["coverageprovider",{"_index":384,"title":{},"body":{"miscellaneous/variables.html":{}}}],["coveragereporters",{"_index":388,"title":{},"body":{"miscellaneous/variables.html":{}}}],["createnoderequesthandler(app",{"_index":346,"title":{},"body":{"miscellaneous/variables.html":{}}}],["cypress",{"_index":374,"title":{},"body":{"miscellaneous/variables.html":{}}}],["default",{"_index":28,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionPage.html":{},"index.html":{},"miscellaneous/variables.html":{}}}],["defined",{"_index":31,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["delete",{"_index":67,"title":{},"body":{"injectables/BaseApi.html":{}}}],["delete(endpoint",{"_index":77,"title":{},"body":{"injectables/BaseApi.html":{}}}],["dependencies",{"_index":211,"title":{"dependencies.html":{}},"body":{"dependencies.html":{}}}],["detailed",{"_index":320,"title":{},"body":{"index.html":{}}}],["dev",{"_index":350,"title":{},"body":{"miscellaneous/variables.html":{}}}],["development",{"_index":253,"title":{},"body":{"index.html":{},"miscellaneous/variables.html":{}}}],["directive",{"_index":42,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["directives",{"_index":52,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"index.html":{}}}],["directory",{"_index":290,"title":{},"body":{"index.html":{}}}],["displayname",{"_index":369,"title":{},"body":{"miscellaneous/variables.html":{}}}],["dist",{"_index":289,"title":{},"body":{"index.html":{}}}],["documentation",{"_index":179,"title":{},"body":{"coverage.html":{}}}],["dom",{"_index":6,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["during",{"_index":351,"title":{},"body":{"miscellaneous/variables.html":{}}}],["e2e",{"_index":306,"title":{},"body":{"index.html":{}}}],["e2eangular",{"_index":308,"title":{},"body":{"index.html":{}}}],["element",{"_index":41,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["en",{"_index":164,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["end",{"_index":305,"title":{},"body":{"index.html":{}}}],["endpoint",{"_index":81,"title":{},"body":{"injectables/BaseApi.html":{}}}],["environment",{"_index":102,"title":{},"body":{"injectables/BaseApi.html":{},"coverage.html":{},"miscellaneous/variables.html":{}}}],["environment.apiurl",{"_index":92,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error",{"_index":75,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error('accès",{"_index":132,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error('données",{"_index":126,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error('erreur",{"_index":139,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error('non",{"_index":129,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error('ressource",{"_index":135,"title":{},"body":{"injectables/BaseApi.html":{}}}],["error.status",{"_index":123,"title":{},"body":{"injectables/BaseApi.html":{}}}],["eslint",{"_index":225,"title":{},"body":{"dependencies.html":{}}}],["example",{"_index":257,"title":{},"body":{"index.html":{}}}],["execute",{"_index":297,"title":{},"body":{"index.html":{}}}],["export",{"_index":37,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["express",{"_index":231,"title":{},"body":{"dependencies.html":{},"miscellaneous/variables.html":{}}}],["false",{"_index":397,"title":{},"body":{"miscellaneous/variables.html":{}}}],["file",{"_index":8,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["files",{"_index":269,"title":{},"body":{"index.html":{}}}],["firebase",{"_index":352,"title":{},"body":{"miscellaneous/variables.html":{}}}],["firstvaluefrom",{"_index":100,"title":{},"body":{"injectables/BaseApi.html":{}}}],["following",{"_index":302,"title":{},"body":{"index.html":{}}}],["framework",{"_index":310,"title":{},"body":{"index.html":{}}}],["functions",{"_index":354,"title":{},"body":{"miscellaneous/variables.html":{}}}],["generate",{"_index":275,"title":{},"body":{"index.html":{}}}],["generated",{"_index":249,"title":{},"body":{"index.html":{}}}],["get(endpoint",{"_index":83,"title":{},"body":{"injectables/BaseApi.html":{}}}],["getcount",{"_index":146,"title":{},"body":{"injectables/CounterService.html":{}}}],["getheaders",{"_index":68,"title":{},"body":{"injectables/BaseApi.html":{}}}],["handler",{"_index":348,"title":{},"body":{"miscellaneous/variables.html":{}}}],["headers",{"_index":113,"title":{},"body":{"injectables/BaseApi.html":{}}}],["helpbuilding",{"_index":283,"title":{},"body":{"index.html":{}}}],["html",{"_index":40,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"miscellaneous/variables.html":{}}}],["http",{"_index":62,"title":{},"body":{"injectables/BaseApi.html":{}}}],["http://localhost:4200",{"_index":263,"title":{},"body":{"index.html":{}}}],["http://localhost:8080",{"_index":399,"title":{},"body":{"miscellaneous/variables.html":{}}}],["httpclient",{"_index":96,"title":{},"body":{"injectables/BaseApi.html":{}}}],["httperrorresponse",{"_index":97,"title":{},"body":{"injectables/BaseApi.html":{}}}],["httpheaders",{"_index":86,"title":{},"body":{"injectables/BaseApi.html":{}}}],["identifier",{"_index":180,"title":{},"body":{"coverage.html":{}}}],["import",{"_index":33,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["imports",{"_index":14,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["includes",{"_index":272,"title":{},"body":{"index.html":{}}}],["including",{"_index":319,"title":{},"body":{"index.html":{}}}],["inconnue",{"_index":142,"title":{},"body":{"injectables/BaseApi.html":{}}}],["increment",{"_index":147,"title":{},"body":{"injectables/CounterService.html":{}}}],["index",{"_index":20,"title":{"index.html":{}},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"miscellaneous/variables.html":{}}}],["info",{"_index":3,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["information",{"_index":318,"title":{},"body":{"index.html":{}}}],["inject",{"_index":99,"title":{},"body":{"injectables/BaseApi.html":{}}}],["inject(httpclient",{"_index":94,"title":{},"body":{"injectables/BaseApi.html":{}}}],["injectable",{"_index":56,"title":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{}},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"coverage.html":{}}}],["injectables",{"_index":58,"title":{},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"overview.html":{}}}],["instanceof",{"_index":121,"title":{},"body":{"injectables/BaseApi.html":{}}}],["integration",{"_index":370,"title":{},"body":{"miscellaneous/variables.html":{}}}],["interdit",{"_index":133,"title":{},"body":{"injectables/BaseApi.html":{}}}],["invalides",{"_index":127,"title":{},"body":{"injectables/BaseApi.html":{}}}],["jest",{"_index":368,"title":{},"body":{"miscellaneous/variables.html":{}}}],["jest.ts",{"_index":393,"title":{},"body":{"miscellaneous/variables.html":{}}}],["join(import.meta.dirname",{"_index":345,"title":{},"body":{"miscellaneous/variables.html":{}}}],["jokeurfrontend",{"_index":247,"title":{},"body":{"index.html":{}}}],["jsdom",{"_index":376,"title":{},"body":{"miscellaneous/variables.html":{}}}],["legend",{"_index":39,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["list",{"_index":278,"title":{},"body":{"index.html":{}}}],["local",{"_index":255,"title":{},"body":{"index.html":{}}}],["lucide",{"_index":233,"title":{},"body":{"dependencies.html":{}}}],["matching",{"_index":55,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{},"dependencies.html":{},"index.html":{},"modules.html":{},"overview.html":{},"properties.html":{},"routes.html":{},"miscellaneous/variables.html":{}}}],["merge",{"_index":239,"title":{},"body":{"dependencies.html":{}}}],["mergeapplicationconfig(appconfig",{"_index":364,"title":{},"body":{"miscellaneous/variables.html":{}}}],["metadata",{"_index":10,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["methods",{"_index":63,"title":{},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["miscellaneous",{"_index":331,"title":{"miscellaneous/variables.html":{}},"body":{"miscellaneous/variables.html":{}}}],["modify",{"_index":268,"title":{},"body":{"index.html":{}}}],["modules",{"_index":326,"title":{"modules.html":{}},"body":{"modules.html":{}}}],["more",{"_index":317,"title":{},"body":{"index.html":{}}}],["name",{"_index":45,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"miscellaneous/variables.html":{}}}],["namefor",{"_index":276,"title":{},"body":{"index.html":{}}}],["navigate",{"_index":262,"title":{},"body":{"index.html":{}}}],["needs",{"_index":314,"title":{},"body":{"index.html":{}}}],["new",{"_index":107,"title":{},"body":{"injectables/BaseApi.html":{},"coverage.html":{},"index.html":{},"miscellaneous/variables.html":{}}}],["ng",{"_index":258,"title":{},"body":{"index.html":{}}}],["node",{"_index":378,"title":{},"body":{"miscellaneous/variables.html":{}}}],["non",{"_index":136,"title":{},"body":{"injectables/BaseApi.html":{}}}],["nous",{"_index":165,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["number",{"_index":149,"title":{},"body":{"injectables/CounterService.html":{}}}],["object",{"_index":396,"title":{},"body":{"miscellaneous/variables.html":{}}}],["one",{"_index":312,"title":{},"body":{"index.html":{}}}],["open",{"_index":261,"title":{},"body":{"index.html":{}}}],["optimizes",{"_index":292,"title":{},"body":{"index.html":{}}}],["optional",{"_index":74,"title":{},"body":{"injectables/BaseApi.html":{}}}],["ou",{"_index":377,"title":{},"body":{"miscellaneous/variables.html":{}}}],["overview",{"_index":323,"title":{"overview.html":{}},"body":{"index.html":{},"overview.html":{}}}],["package",{"_index":210,"title":{"dependencies.html":{},"properties.html":{}},"body":{}}],["page",{"_index":325,"title":{},"body":{"index.html":{}}}],["parameters",{"_index":73,"title":{},"body":{"injectables/BaseApi.html":{}}}],["path",{"_index":403,"title":{},"body":{"miscellaneous/variables.html":{}}}],["performance",{"_index":293,"title":{},"body":{"index.html":{}}}],["pipes",{"_index":282,"title":{},"body":{"index.html":{}}}],["post",{"_index":69,"title":{},"body":{"injectables/BaseApi.html":{}}}],["post(endpoint",{"_index":87,"title":{},"body":{"injectables/BaseApi.html":{}}}],["postcss",{"_index":235,"title":{},"body":{"dependencies.html":{}}}],["powerful",{"_index":273,"title":{},"body":{"index.html":{}}}],["preset",{"_index":367,"title":{},"body":{"miscellaneous/variables.html":{}}}],["private",{"_index":64,"title":{},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["production",{"_index":291,"title":{},"body":{"index.html":{},"miscellaneous/variables.html":{}}}],["project",{"_index":248,"title":{},"body":{"index.html":{}}}],["promise",{"_index":82,"title":{},"body":{"injectables/BaseApi.html":{}}}],["properties",{"_index":21,"title":{"properties.html":{}},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"properties.html":{}}}],["protected",{"_index":22,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{}}}],["providebrowserglobalerrorlisteners",{"_index":357,"title":{},"body":{"miscellaneous/variables.html":{}}}],["provideclienthydration(witheventreplay",{"_index":359,"title":{},"body":{"miscellaneous/variables.html":{}}}],["providedin",{"_index":104,"title":{},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["providerouter(routes",{"_index":358,"title":{},"body":{"miscellaneous/variables.html":{}}}],["providers",{"_index":356,"title":{},"body":{"miscellaneous/variables.html":{}}}],["provideserverrendering(withroutes(serverroutes",{"_index":365,"title":{},"body":{"miscellaneous/variables.html":{}}}],["providezard",{"_index":360,"title":{},"body":{"miscellaneous/variables.html":{}}}],["pure",{"_index":381,"title":{},"body":{"miscellaneous/variables.html":{}}}],["put",{"_index":70,"title":{},"body":{"injectables/BaseApi.html":{}}}],["put(endpoint",{"_index":90,"title":{},"body":{"injectables/BaseApi.html":{}}}],["readme",{"_index":246,"title":{"index.html":{}},"body":{}}],["readonly",{"_index":23,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{}}}],["reference",{"_index":324,"title":{},"body":{"index.html":{}}}],["references",{"_index":321,"title":{},"body":{"index.html":{}}}],["reload",{"_index":266,"title":{},"body":{"index.html":{}}}],["rendermode",{"_index":404,"title":{},"body":{"miscellaneous/variables.html":{}}}],["rendermode.prerender",{"_index":405,"title":{},"body":{"miscellaneous/variables.html":{}}}],["reqhandler",{"_index":203,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["request",{"_index":347,"title":{},"body":{"miscellaneous/variables.html":{}}}],["resources",{"_index":316,"title":{},"body":{"index.html":{}}}],["results",{"_index":54,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{},"dependencies.html":{},"index.html":{},"modules.html":{},"overview.html":{},"properties.html":{},"routes.html":{},"miscellaneous/variables.html":{}}}],["return",{"_index":106,"title":{},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["returns",{"_index":76,"title":{},"body":{"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["revenez",{"_index":170,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["root",{"_index":13,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{}}}],["root'},{'name",{"_index":46,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["rootdir",{"_index":366,"title":{},"body":{"miscellaneous/variables.html":{}}}],["routeroutlet",{"_index":15,"title":{},"body":{"components/AppComponent.html":{}}}],["routes",{"_index":330,"title":{"routes.html":{}},"body":{"routes.html":{}}}],["run",{"_index":256,"title":{},"body":{"index.html":{}}}],["runner",{"_index":300,"title":{},"body":{"index.html":{}}}],["running",{"_index":260,"title":{},"body":{"index.html":{}}}],["rxjs",{"_index":101,"title":{},"body":{"injectables/BaseApi.html":{},"dependencies.html":{}}}],["réseau",{"_index":141,"title":{},"body":{"injectables/BaseApi.html":{}}}],["scaffolding",{"_index":271,"title":{},"body":{"index.html":{}}}],["schematics",{"_index":280,"title":{},"body":{"index.html":{}}}],["selector",{"_index":11,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["serveonce",{"_index":259,"title":{},"body":{"index.html":{}}}],["server",{"_index":220,"title":{},"body":{"dependencies.html":{},"index.html":{},"miscellaneous/variables.html":{}}}],["serverconfig",{"_index":187,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["serverroute",{"_index":402,"title":{},"body":{"miscellaneous/variables.html":{}}}],["serverroutes",{"_index":191,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["serveur",{"_index":140,"title":{},"body":{"injectables/BaseApi.html":{}}}],["setup",{"_index":392,"title":{},"body":{"miscellaneous/variables.html":{}}}],["setupfilesafterenv",{"_index":391,"title":{},"body":{"miscellaneous/variables.html":{}}}],["shared/services/base.api.ts",{"_index":60,"title":{},"body":{"injectables/BaseApi.html":{},"coverage.html":{}}}],["shared/services/base.api.ts:10",{"_index":95,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:11",{"_index":93,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:13",{"_index":85,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:19",{"_index":84,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:29",{"_index":89,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:39",{"_index":91,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:49",{"_index":79,"title":{},"body":{"injectables/BaseApi.html":{}}}],["shared/services/base.api.ts:59",{"_index":72,"title":{},"body":{"injectables/BaseApi.html":{}}}],["si",{"_index":379,"title":{},"body":{"miscellaneous/variables.html":{}}}],["signal",{"_index":34,"title":{},"body":{"components/AppComponent.html":{}}}],["signal('jokeur_frontend",{"_index":30,"title":{},"body":{"components/AppComponent.html":{}}}],["site",{"_index":163,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["source",{"_index":4,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"index.html":{}}}],["speed",{"_index":294,"title":{},"body":{"index.html":{}}}],["src/.../app.config.server.ts",{"_index":336,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../app.config.ts",{"_index":334,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../app.routes.server.ts",{"_index":343,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../environment.development.ts",{"_index":339,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../environment.production.ts",{"_index":340,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../environment.staging.ts",{"_index":341,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../environment.ts",{"_index":342,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../jest.integration.config.ts",{"_index":337,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../jest.unit.config.ts",{"_index":338,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../main.server.ts",{"_index":335,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/.../server.ts",{"_index":333,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/app/app.component.ts",{"_index":9,"title":{},"body":{"components/AppComponent.html":{},"coverage.html":{}}}],["src/app/app.component.ts:11",{"_index":32,"title":{},"body":{"components/AppComponent.html":{}}}],["src/app/app.config.server.ts",{"_index":183,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/app/app.config.ts",{"_index":188,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/app/app.routes.server.ts",{"_index":190,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/app/features/counter.service.ts",{"_index":144,"title":{},"body":{"injectables/CounterService.html":{},"coverage.html":{}}}],["src/app/features/counter.service.ts:13",{"_index":148,"title":{},"body":{"injectables/CounterService.html":{}}}],["src/app/features/counter.service.ts:7",{"_index":153,"title":{},"body":{"injectables/CounterService.html":{}}}],["src/app/features/counter.service.ts:9",{"_index":150,"title":{},"body":{"injectables/CounterService.html":{}}}],["src/app/features/under",{"_index":156,"title":{},"body":{"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["src/app/internal",{"_index":59,"title":{},"body":{"injectables/BaseApi.html":{},"coverage.html":{}}}],["src/environments/environment",{"_index":103,"title":{},"body":{"injectables/BaseApi.html":{}}}],["src/environments/environment.development.ts",{"_index":194,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/environments/environment.production.ts",{"_index":195,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/environments/environment.staging.ts",{"_index":196,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/environments/environment.ts",{"_index":197,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/main.server.ts",{"_index":198,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/server.ts",{"_index":200,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/tests/config/jest.integration.config.ts",{"_index":206,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/tests/config/jest.unit.config.ts",{"_index":207,"title":{},"body":{"coverage.html":{},"miscellaneous/variables.html":{}}}],["src/tests/integration/**/*.spec.ts",{"_index":372,"title":{},"body":{"miscellaneous/variables.html":{}}}],["src/tests/unit/**/*.spec.ts",{"_index":394,"title":{},"body":{"miscellaneous/variables.html":{}}}],["staging",{"_index":401,"title":{},"body":{"miscellaneous/variables.html":{}}}],["start",{"_index":254,"title":{},"body":{"index.html":{}}}],["statements",{"_index":181,"title":{},"body":{"coverage.html":{}}}],["store",{"_index":287,"title":{},"body":{"index.html":{}}}],["string",{"_index":78,"title":{},"body":{"injectables/BaseApi.html":{}}}],["styles",{"_index":173,"title":{},"body":{"components/UnderConstructionPage.html":{}}}],["styleurl",{"_index":18,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{}}}],["such",{"_index":281,"title":{},"body":{"index.html":{}}}],["suits",{"_index":313,"title":{},"body":{"index.html":{}}}],["summary",{"_index":390,"title":{},"body":{"miscellaneous/variables.html":{}}}],["sur",{"_index":168,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["switch",{"_index":122,"title":{},"body":{"injectables/BaseApi.html":{}}}],["t",{"_index":80,"title":{},"body":{"injectables/BaseApi.html":{}}}],["table",{"_index":209,"title":{},"body":{"coverage.html":{}}}],["tablesort(document.getelementbyid('coverage",{"_index":208,"title":{},"body":{"coverage.html":{}}}],["tailwind",{"_index":238,"title":{},"body":{"dependencies.html":{}}}],["tailwindcss",{"_index":241,"title":{},"body":{"dependencies.html":{}}}],["tailwindcss/postcss",{"_index":222,"title":{},"body":{"dependencies.html":{}}}],["template",{"_index":5,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["templateurl",{"_index":16,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{}}}],["test",{"_index":299,"title":{},"body":{"index.html":{}}}],["testenvironment",{"_index":375,"title":{},"body":{"miscellaneous/variables.html":{}}}],["testing",{"_index":307,"title":{},"body":{"index.html":{}}}],["testmatch",{"_index":371,"title":{},"body":{"miscellaneous/variables.html":{}}}],["testpathignorepatterns",{"_index":373,"title":{},"body":{"miscellaneous/variables.html":{}}}],["testrunning",{"_index":304,"title":{},"body":{"index.html":{}}}],["tests",{"_index":296,"title":{},"body":{"index.html":{}}}],["text",{"_index":389,"title":{},"body":{"miscellaneous/variables.html":{}}}],["this._count",{"_index":155,"title":{},"body":{"injectables/CounterService.html":{}}}],["this._handleerror(error",{"_index":117,"title":{},"body":{"injectables/BaseApi.html":{}}}],["this.getheaders",{"_index":114,"title":{},"body":{"injectables/BaseApi.html":{}}}],["this.http.delete(`${this.base_url}${endpoint",{"_index":120,"title":{},"body":{"injectables/BaseApi.html":{}}}],["this.http.get(`${this.base_url}${endpoint",{"_index":112,"title":{},"body":{"injectables/BaseApi.html":{}}}],["this.http.post(`${this.base_url}${endpoint",{"_index":118,"title":{},"body":{"injectables/BaseApi.html":{}}}],["this.http.put(`${this.base_url}${endpoint",{"_index":119,"title":{},"body":{"injectables/BaseApi.html":{}}}],["throw",{"_index":116,"title":{},"body":{"injectables/BaseApi.html":{}}}],["title",{"_index":24,"title":{},"body":{"components/AppComponent.html":{}}}],["tools",{"_index":274,"title":{},"body":{"index.html":{}}}],["travaillons",{"_index":166,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["tree",{"_index":7,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["trouvée",{"_index":137,"title":{},"body":{"injectables/BaseApi.html":{}}}],["true",{"_index":383,"title":{},"body":{"miscellaneous/variables.html":{}}}],["try",{"_index":110,"title":{},"body":{"injectables/BaseApi.html":{}}}],["très",{"_index":171,"title":{},"body":{"components/UnderConstructionComponent.html":{}}}],["tslib",{"_index":242,"title":{},"body":{"dependencies.html":{}}}],["type",{"_index":25,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"coverage.html":{},"miscellaneous/variables.html":{}}}],["under",{"_index":48,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["underconstructioncomponent",{"_index":47,"title":{"components/UnderConstructionComponent.html":{}},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["underconstructionpage",{"_index":50,"title":{"components/UnderConstructionPage.html":{}},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{},"coverage.html":{}}}],["unit",{"_index":295,"title":{},"body":{"index.html":{},"miscellaneous/variables.html":{}}}],["unknown",{"_index":27,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"miscellaneous/variables.html":{}}}],["use",{"_index":301,"title":{},"body":{"index.html":{}}}],["used",{"_index":349,"title":{},"body":{"miscellaneous/variables.html":{}}}],["using",{"_index":250,"title":{},"body":{"index.html":{}}}],["v8",{"_index":385,"title":{},"body":{"miscellaneous/variables.html":{}}}],["value",{"_index":29,"title":{},"body":{"components/AppComponent.html":{},"injectables/BaseApi.html":{},"injectables/CounterService.html":{},"miscellaneous/variables.html":{}}}],["var",{"_index":43,"title":{},"body":{"components/AppComponent.html":{},"components/UnderConstructionComponent.html":{},"components/UnderConstructionPage.html":{}}}],["variable",{"_index":184,"title":{},"body":{"coverage.html":{}}}],["variables",{"_index":332,"title":{"miscellaneous/variables.html":{}},"body":{"miscellaneous/variables.html":{}}}],["variance",{"_index":226,"title":{},"body":{"dependencies.html":{}}}],["version",{"_index":252,"title":{},"body":{"index.html":{},"properties.html":{}}}],["visit",{"_index":322,"title":{},"body":{"index.html":{}}}],["vitest",{"_index":298,"title":{},"body":{"index.html":{}}}],["void",{"_index":151,"title":{},"body":{"injectables/CounterService.html":{}}}],["whenever",{"_index":267,"title":{},"body":{"index.html":{}}}],["zone.js",{"_index":244,"title":{},"body":{"dependencies.html":{}}}]],"pipeline":["stemmer"]},
-    "store": {"components/AppComponent.html":{"url":"components/AppComponent.html","title":"component - AppComponent","body":"\n                   \n\n\n\n\n\n\n\n\n\n  Components\n  \n  AppComponent\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n        \n            Template\n        \n        \n            DOM Tree\n        \n\n\n\n    \n    File\n\n\n    src/app/app.component.ts\n\n\n\n\n\n\n\n\n    Metadata\n    \n        \n\n\n\n\n\n\n\n\n\n\n\n\n            \n                selector\n                app-root\n            \n\n\n            \n                imports\n                \n                                RouterOutlet\n                \n            \n\n\n\n\n            \n                templateUrl\n                ./app.component.html\n            \n\n\n\n            \n                styleUrl\n                ./app.component.scss\n            \n\n\n\n\n\n        \n    \n\n\n    \n    Index\n    \n        \n                \n                    \n                        Properties\n                    \n                \n                \n                    \n                        \n                            \n                                    Protected\n                                    Readonly\n                                title\n                            \n                        \n                    \n                \n\n\n\n\n\n\n        \n    \n\n\n\n\n\n\n\n\n    \n    \n    \n        Properties\n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Readonly\n                        title\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : signal('jokeur_frontend')\n                    \n                \n                    \n                        \n                                Defined in src/app/app.component.ts:11\n                        \n                    \n\n\n        \n    \n\n\n\n\n\n    \n        import { Component, signal } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  protected readonly title = signal('jokeur_frontend');\n}\n\n    \n\n    \n        \n  \n\n\n  \n\n\n  \n\n\n    \n\n\n    \n        \n        \n            \n                Legend\n            \n            \n                Html element\n            \n            \n                Component\n            \n            \n                Html element with directive\n            \n        \n    \n\n    \n\n\n\n\n\n\n        var COMPONENT_TEMPLATE = '      '\n    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];\n    var DIRECTIVES = [];\n    var ACTUAL_COMPONENT = {'name': 'AppComponent'};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"injectables/BaseApi.html":{"url":"injectables/BaseApi.html","title":"injectable - BaseApi","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n  Injectables\n  BaseApi\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n\n\n\n    \n        \n            File\n        \n        \n            src/app/internal-shared/services/base.api.ts\n        \n\n\n\n\n\n            \n    Index\n    \n        \n                \n                    \n                        Properties\n                    \n                \n                \n                    \n                        \n                            \n                                    Protected\n                                    Readonly\n                                BASE_URL\n                            \n                            \n                                    Protected\n                                http\n                            \n                        \n                    \n                \n\n                \n                    \n                        Methods\n                    \n                \n                \n                    \n                        \n                            \n                                    Private\n                                _handleError\n                            \n                            \n                                    Protected\n                                    Async\n                                delete\n                            \n                            \n                                    Protected\n                                    Async\n                                get\n                            \n                            \n                                    Protected\n                                getHeaders\n                            \n                            \n                                    Protected\n                                    Async\n                                post\n                            \n                            \n                                    Protected\n                                    Async\n                                put\n                            \n                        \n                    \n                \n\n\n\n\n\n        \n    \n\n\n\n            \n    \n    \n        Methods\n    \n    \n        \n            \n                \n                    \n                    \n                            Private\n                        _handleError\n                        \n                    \n                \n            \n            \n                \n                        \n                    _handleError(error: any)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:59\n                        \n                    \n\n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                error\n                                            \n                                                            any\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Error\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        delete\n                        \n                    \n                \n            \n            \n                \n                        \n                    delete(endpoint: string)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:49\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        get\n                        \n                    \n                \n            \n            \n                \n                        \n                    get(endpoint: string)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:19\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                        getHeaders\n                        \n                    \n                \n            \n            \n                \n                        \n                    getHeaders()\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:13\n                        \n                    \n\n\n            \n                \n\n                        \n                            Returns :         HttpHeaders\n\n                        \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        post\n                        \n                    \n                \n            \n            \n                \n                        \n                    post(endpoint: string, body: any)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:29\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                        \n                                                body\n                                            \n                                                            any\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        put\n                        \n                    \n                \n            \n            \n                \n                        \n                    put(endpoint: string, body: any)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:39\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                        \n                                                body\n                                            \n                                                            any\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n\n            \n    \n    \n        Properties\n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Readonly\n                        BASE_URL\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : environment.apiUrl\n                    \n                \n                    \n                        \n                                Defined in src/app/internal-shared/services/base.api.ts:11\n                        \n                    \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                        http\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : inject(HttpClient)\n                    \n                \n                    \n                        \n                                Defined in src/app/internal-shared/services/base.api.ts:10\n                        \n                    \n\n\n        \n    \n\n\n    \n\n\n    \n        import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';\nimport { inject, Injectable } from '@angular/core';\nimport { firstValueFrom } from 'rxjs';\nimport { environment } from 'src/environments/environment';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport abstract class BaseApi {\n  protected http = inject(HttpClient);\n  protected readonly BASE_URL = environment.apiUrl;\n\n  protected getHeaders(): HttpHeaders {\n    return new HttpHeaders({\n      'Content-Type': 'application/json'\n    });\n  }\n\n  protected async get(endpoint: string): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.get(`${this.BASE_URL}${endpoint}`, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  protected async post(endpoint: string, body: any): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.post(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  protected async put(endpoint: string, body: any): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.put(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  protected async delete(endpoint: string): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.delete(`${this.BASE_URL}${endpoint}`, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  private _handleError(error: any): Error {\n    if (error instanceof HttpErrorResponse) {\n      switch (error.status) {\n        case 400: return new Error('Données invalides');\n        case 401: return new Error('Non autorisé');\n        case 403: return new Error('Accès interdit');\n        case 404: return new Error('Ressource non trouvée');\n        case 500: return new Error('Erreur serveur');\n        default:  return new Error('Erreur réseau');\n      }\n    }\n    return new Error('Erreur inconnue');\n  }\n}\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"injectables/CounterService.html":{"url":"injectables/CounterService.html","title":"injectable - CounterService","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n  Injectables\n  CounterService\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n\n\n\n    \n        \n            File\n        \n        \n            src/app/features/counter.service.ts\n        \n\n\n\n\n\n            \n    Index\n    \n        \n                \n                    \n                        Properties\n                    \n                \n                \n                    \n                        \n                            \n                                    Private\n                                _count\n                            \n                        \n                    \n                \n\n                \n                    \n                        Methods\n                    \n                \n                \n                    \n                        \n                            \n                                getCount\n                            \n                            \n                                increment\n                            \n                        \n                    \n                \n\n\n\n\n\n        \n    \n\n\n\n            \n    \n    \n        Methods\n    \n    \n        \n            \n                \n                    \n                    \n                        getCount\n                        \n                    \n                \n            \n            \n                \ngetCount()\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/features/counter.service.ts:13\n                        \n                    \n\n\n            \n                \n\n                        \n                            Returns :         number\n\n                        \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                        increment\n                        \n                    \n                \n            \n            \n                \nincrement()\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/features/counter.service.ts:9\n                        \n                    \n\n\n            \n                \n\n                        \n                            Returns :         void\n\n                        \n                \n            \n        \n    \n\n            \n    \n    \n        Properties\n    \n    \n        \n            \n                \n                    \n                    \n                            Private\n                        _count\n                        \n                    \n                \n            \n                \n                    \n                        Type :         number\n\n                    \n                \n                \n                    \n                        Default value : 0\n                    \n                \n                    \n                        \n                                Defined in src/app/features/counter.service.ts:7\n                        \n                    \n\n\n        \n    \n\n\n    \n\n\n    \n        import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class CounterService {\n  private _count:number = 0;\n\n  increment(): void {\n    this._count++;\n  }\n\n  getCount(): number {\n    return this._count;\n  }\n}\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"components/UnderConstructionComponent.html":{"url":"components/UnderConstructionComponent.html","title":"component - UnderConstructionComponent","body":"\n                   \n\n\n\n\n\n\n\n\n\n  Components\n  \n  UnderConstructionComponent\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n        \n            Template\n        \n        \n            DOM Tree\n        \n\n\n\n    \n    File\n\n\n    src/app/features/under-construction/components/under-construction.component/under-construction.component.ts\n\n\n\n\n\n\n\n\n    Metadata\n    \n        \n\n\n\n\n\n\n\n\n\n\n\n\n            \n                selector\n                app-under-construction\n            \n\n\n\n\n\n\n            \n                templateUrl\n                ./under-construction.component.html\n            \n\n\n\n            \n                styleUrl\n                ./under-construction.component.scss\n            \n\n\n\n\n\n        \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-under-construction',\n  imports: [],\n  templateUrl: './under-construction.component.html',\n  styleUrl: './under-construction.component.scss',\n})\nexport class UnderConstructionComponent {}\n\n    \n\n    \n        \n  \n    \n      Site en construction\n      \n        Nous travaillons actuellement sur ce site.\n        Revenez très bientôt !\n      \n    \n  \n\n  \n    \n  \n\n\n    \n\n\n    \n        \n        \n            \n                Legend\n            \n            \n                Html element\n            \n            \n                Component\n            \n            \n                Html element with directive\n            \n        \n    \n\n    \n\n\n\n\n\n\n        var COMPONENT_TEMPLATE = '            Site en construction              Nous travaillons actuellement sur ce site.        Revenez très bientôt !                    '\n    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];\n    var DIRECTIVES = [];\n    var ACTUAL_COMPONENT = {'name': 'UnderConstructionComponent'};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"components/UnderConstructionPage.html":{"url":"components/UnderConstructionPage.html","title":"component - UnderConstructionPage","body":"\n                   \n\n\n\n\n\n\n\n\n\n  Components\n  \n  UnderConstructionPage\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n        \n            Styles\n        \n        \n            DOM Tree\n        \n\n\n\n    \n    File\n\n\n    src/app/features/under-construction/pages/under-construction.page.ts\n\n\n\n\n\n\n\n\n    Metadata\n    \n        \n\n\n\n\n\n\n\n\n\n\n\n\n            \n                selector\n                app-under-construction.page\n            \n\n\n            \n                imports\n                \n                                UnderConstructionComponent\n                \n            \n\n\n            \n                styles\n                \n            \n\n            \n                template\n                \n            \n\n\n\n\n\n\n\n\n\n        \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        import { Component } from '@angular/core';\nimport { UnderConstructionComponent } from '../components/under-construction.component/under-construction.component';\n\n@Component({\n  selector: 'app-under-construction.page',\n  imports: [UnderConstructionComponent],\n  template: `  `,\n  styles: ``,\n})\nexport default class UnderConstructionPage {}\n\n    \n\n\n    \n            \n\n    \n\n    \n        \n        \n            \n                Legend\n            \n            \n                Html element\n            \n            \n                Component\n            \n            \n                Html element with directive\n            \n        \n    \n\n    \n\n\n\n\n\n\n        var COMPONENT_TEMPLATE = ''\n    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];\n    var DIRECTIVES = [];\n    var ACTUAL_COMPONENT = {'name': 'UnderConstructionPage'};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"coverage.html":{"url":"coverage.html","title":"coverage - coverage","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Documentation coverage\n\n\n\n    \n\n\n\n    \n        \n            File\n            Type\n            Identifier\n            Statements\n        \n    \n    \n        \n            \n                \n                        src/app/app.component.ts\n            \n            component\n            AppComponent\n            \n                0 %\n                (0/2)\n            \n        \n        \n            \n                \n                        src/app/app.config.server.ts\n            \n            variable\n            config\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/app.config.server.ts\n            \n            variable\n            serverConfig\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/app.config.ts\n            \n            variable\n            appConfig\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/app.routes.server.ts\n            \n            variable\n            serverRoutes\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/features/counter.service.ts\n            \n            injectable\n            CounterService\n            \n                0 %\n                (0/4)\n            \n        \n        \n            \n                \n                        src/app/features/under-construction/components/under-construction.component/under-construction.component.ts\n            \n            component\n            UnderConstructionComponent\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/features/under-construction/pages/under-construction.page.ts\n            \n            component\n            UnderConstructionPage\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/internal-shared/services/base.api.ts\n            \n            injectable\n            BaseApi\n            \n                0 %\n                (0/9)\n            \n        \n        \n            \n                \n                        src/environments/environment.development.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/environments/environment.production.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/environments/environment.staging.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/environments/environment.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/main.server.ts\n            \n            variable\n            bootstrap\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            angularApp\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            app\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            browserDistFolder\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            reqHandler\n            \n                100 %\n                (1/1)\n            \n        \n        \n            \n                \n                        src/tests/config/jest.integration.config.ts\n            \n            variable\n            config\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/tests/config/jest.unit.config.ts\n            \n            variable\n            config\n            \n                0 %\n                (0/1)\n            \n        \n    \n\n\n\n\n\n    new Tablesort(document.getElementById('coverage-table'));\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"dependencies.html":{"url":"dependencies.html","title":"package-dependencies - dependencies","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        Dependencies\n    \n    \n        \n            @angular/cdk : ^21.1.1\n        \n            @angular/common : ^21.1.0\n        \n            @angular/compiler : ^21.1.0\n        \n            @angular/core : ^21.1.0\n        \n            @angular/forms : ^21.1.0\n        \n            @angular/platform-browser : ^21.1.0\n        \n            @angular/platform-server : ^21.1.0\n        \n            @angular/router : ^21.1.0\n        \n            @angular/ssr : ^21.1.0\n        \n            @tailwindcss/postcss : ^4.1.18\n        \n            angular-eslint : ^21.1.0\n        \n            class-variance-authority : ^0.7.1\n        \n            clsx : ^2.1.1\n        \n            express : ^5.1.0\n        \n            lucide-angular : ^0.562.0\n        \n            postcss : ^8.5.6\n        \n            rxjs : ~7.8.0\n        \n            tailwind-merge : ^3.4.0\n        \n            tailwindcss : ^4.1.18\n        \n            tslib : ^2.3.0\n        \n            zone.js : ^0.16.0\n    \n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"index.html":{"url":"index.html","title":"readme - index","body":"\n                   \n\n\nJokeurFrontend\nThis project was generated using Angular CLI version 21.1.0.\nDevelopment server\nTo start a local development server, run:\nExample :ng serveOnce the server is running, open your browser and navigate to http://localhost:4200/. The application will automatically reload whenever you modify any of the source files.\nCode scaffolding\nAngular CLI includes powerful code scaffolding tools. To generate a new component, run:\nExample :ng generate component component-nameFor a complete list of available schematics (such as components, directives, or pipes), run:\nExample :ng generate --helpBuilding\nTo build the project run:\nExample :ng buildThis will compile your project and store the build artifacts in the dist/ directory. By default, the production build optimizes your application for performance and speed.\nRunning unit tests\nTo execute unit tests with the Vitest test runner, use the following command:\nExample :ng testRunning end-to-end tests\nFor end-to-end (e2e) testing, run:\nExample :ng e2eAngular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.\nAdditional Resources\nFor more information on using the Angular CLI, including detailed command references, visit the Angular CLI Overview and Command Reference page.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"modules.html":{"url":"modules.html","title":"modules - modules","body":"\n                   \n\n\n\n\n\n\n\n\n    Modules\n\n\n    \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"overview.html":{"url":"overview.html","title":"overview - overview","body":"\n                   \n\n\n\n\n\n\n\n    Overview\n\n    \n\n    \n        \n            \n                \n                    \n                    3 Components\n                \n            \n        \n        \n            \n                \n                    \n                    2 Injectables\n                \n            \n        \n        \n            \n                \n                    \n                    \n                        0 \n                    \n                \n            \n        \n    \n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"properties.html":{"url":"properties.html","title":"package-properties - properties","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        Properties\n    \n    \n        \n            Version : 0.0.0\n    \n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"routes.html":{"url":"routes.html","title":"routes - routes","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Routes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"},"miscellaneous/variables.html":{"url":"miscellaneous/variables.html","title":"miscellaneous-variables - variables","body":"\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  Miscellaneous\n  Variables\n\n\n\n    Index\n    \n        \n            \n                \n                    \n                        \n                            angularApp   (src/.../server.ts)\n                        \n                        \n                            app   (src/.../server.ts)\n                        \n                        \n                            appConfig   (src/.../app.config.ts)\n                        \n                        \n                            bootstrap   (src/.../main.server.ts)\n                        \n                        \n                            browserDistFolder   (src/.../server.ts)\n                        \n                        \n                            config   (src/.../app.config.server.ts)\n                        \n                        \n                            config   (src/.../jest.integration.config.ts)\n                        \n                        \n                            config   (src/.../jest.unit.config.ts)\n                        \n                        \n                            environment   (src/.../environment.development.ts)\n                        \n                        \n                            environment   (src/.../environment.production.ts)\n                        \n                        \n                            environment   (src/.../environment.staging.ts)\n                        \n                        \n                            environment   (src/.../environment.ts)\n                        \n                        \n                            reqHandler   (src/.../server.ts)\n                        \n                        \n                            serverConfig   (src/.../app.config.server.ts)\n                        \n                        \n                            serverRoutes   (src/.../app.routes.server.ts)\n                        \n                    \n                \n            \n        \n    \n\n\n    src/server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        angularApp\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : new AngularNodeAppEngine()\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        app\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : express()\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        browserDistFolder\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : join(import.meta.dirname, '../browser')\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        reqHandler\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : createNodeRequestHandler(app)\n                    \n                \n\n            \n                \n                    Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.\n\n                \n            \n\n        \n    \n\n    src/app/app.config.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        appConfig\n                        \n                    \n                \n            \n                \n                    \n                        Type :     ApplicationConfig\n\n                    \n                \n                \n                    \n                        Default value : {\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes),\n    provideClientHydration(withEventReplay()),\n    provideZard(),\n  ],\n}\n                    \n                \n\n\n        \n    \n\n    src/main.server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        bootstrap\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : (context: BootstrapContext) =>\n  bootstrapApplication(AppComponent, config, context)\n                    \n                \n\n\n        \n    \n\n    src/app/app.config.server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        config\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : mergeApplicationConfig(appConfig, serverConfig)\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        serverConfig\n                        \n                    \n                \n            \n                \n                    \n                        Type :     ApplicationConfig\n\n                    \n                \n                \n                    \n                        Default value : {\n  providers: [provideServerRendering(withRoutes(serverRoutes))],\n}\n                    \n                \n\n\n        \n    \n\n    src/tests/config/jest.integration.config.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        config\n                        \n                    \n                \n            \n                \n                    \n                        Type :     Config\n\n                    \n                \n                \n                    \n                        Default value : {\n  rootDir: '../../../',\n  preset: 'jest-preset-angular',\n  displayName: 'integration',\n\n  testMatch: ['/src/tests/integration/**/*.spec.ts'],\n  testPathIgnorePatterns: ['/cypress/'],\n\n  testEnvironment: 'jsdom', // ou 'node' si API pure\n\n  clearMocks: true,\n  coverageProvider: 'v8',\n  coverageDirectory: '/coverage/integration',\n  coverageReporters: ['html', 'text-summary'],\n\n  setupFilesAfterEnv: ['/setup-jest.ts'],\n}\n                    \n                \n\n\n        \n    \n\n    src/tests/config/jest.unit.config.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        config\n                        \n                    \n                \n            \n                \n                    \n                        Type :     Config\n\n                    \n                \n                \n                    \n                        Default value : {\n  rootDir: '../../../',\n  preset: 'jest-preset-angular',\n  displayName: 'unit',\n\n  testMatch: ['/src/tests/unit/**/*.spec.ts'],\n  testPathIgnorePatterns: ['/cypress/'],\n\n  testEnvironment: 'jsdom',\n\n  clearMocks: true,\n  coverageProvider: 'v8',\n  coverageDirectory: '/coverage/unit',\n  coverageReporters: ['html', 'text-summary'],\n\n  setupFilesAfterEnv: ['/setup-jest.ts'],\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.development.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: false,\n  name: 'development',\n  apiUrl: 'http://localhost:8080',\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.production.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: true,\n  name: 'production',\n  apiUrl: 'api.jokeur.ashleydev.fr',\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.staging.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: true,\n  name: 'staging',\n  apiUrl: 'staging-api.jokeur.ashleydev.fr',\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: false,\n  name: '',\n  apiUrl: '',\n}\n                    \n                \n\n\n        \n    \n\n    src/app/app.routes.server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        serverRoutes\n                        \n                    \n                \n            \n                \n                    \n                        Type :     ServerRoute[]\n\n                    \n                \n                \n                    \n                        Default value : [\n  {\n    path: '**',\n    renderMode: RenderMode.Prerender,\n  },\n]\n                    \n                \n\n\n        \n    \n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n"}}
-}
+  index: {
+    version: '2.3.9',
+    fields: ['title', 'body'],
+    fieldVectors: [
+      ['title/components/AppComponent.html', [0, 0.521, 1, 0.976]],
+      [
+        'body/components/AppComponent.html',
+        [
+          0, 0.785, 1, 1.582, 2, 1.286, 3, 0.936, 4, 0.768, 5, 1.388, 6, 1.388, 7, 1.388, 8, 0.768,
+          9, 1.725, 10, 1.388, 11, 2.461, 12, 1.658, 13, 1.908, 14, 1.908, 15, 3.512, 16, 2.371, 17,
+          3.074, 18, 2.371, 19, 3.074, 20, 0.936, 21, 1.286, 22, 2.709, 23, 2.709, 24, 3.512, 25,
+          0.936, 26, 0.075, 27, 1.388, 28, 0.768, 29, 1.137, 30, 3.074, 31, 1.388, 32, 2.237, 33,
+          1.286, 34, 2.237, 35, 0.768, 36, 1.725, 37, 0.936, 38, 0.768, 39, 1.388, 40, 1.562, 41,
+          1.908, 42, 1.388, 43, 2.347, 44, 1.388, 45, 1.286, 46, 1.388, 47, 0.936, 48, 1.908, 49,
+          1.388, 50, 0.936, 51, 1.388, 52, 1.137, 53, 1.388, 54, 0.05, 55, 0.05,
+        ],
+      ],
+      ['title/injectables/BaseApi.html', [56, 0.976, 57, 1.448]],
+      [
+        'body/injectables/BaseApi.html',
+        [
+          3, 0.471, 4, 0.386, 8, 0.386, 13, 0.698, 20, 0.471, 21, 0.766, 22, 3.266, 23, 1.785, 25,
+          1.605, 26, 0.077, 27, 1.136, 28, 0.795, 29, 0.93, 31, 2.146, 33, 1.116, 35, 0.386, 37,
+          0.471, 38, 0.386, 45, 1.228, 54, 0.03, 55, 0.03, 56, 0.766, 57, 1.136, 58, 0.698, 59,
+          2.758, 60, 0.868, 61, 2.315, 62, 2.315, 63, 1.412, 64, 1.785, 65, 1.831, 66, 3.837, 67,
+          1.831, 68, 2.667, 69, 1.831, 70, 1.831, 71, 1.831, 72, 1.125, 73, 3.576, 74, 2.936, 75,
+          3.458, 76, 2.427, 77, 1.831, 78, 3.837, 79, 1.125, 80, 2.667, 81, 2.667, 82, 3.458, 83,
+          1.831, 84, 1.125, 85, 1.125, 86, 2.667, 87, 1.831, 88, 3.458, 89, 1.125, 90, 1.831, 91,
+          1.125, 92, 1.831, 93, 1.125, 94, 1.831, 95, 1.125, 96, 1.125, 97, 1.831, 98, 1.125, 99,
+          1.125, 100, 2.936, 101, 0.868, 102, 0.698, 103, 1.125, 104, 0.868, 105, 1.125, 106, 2.959,
+          107, 1.757, 108, 1.125, 109, 1.125, 110, 2.667, 111, 2.667, 112, 1.125, 113, 2.667, 114,
+          2.667, 115, 2.667, 116, 2.667, 117, 2.667, 118, 1.125, 119, 1.125, 120, 1.125, 121, 1.125,
+          122, 1.125, 123, 1.125, 124, 2.936, 125, 1.125, 126, 1.125, 127, 1.125, 128, 1.125, 129,
+          1.125, 130, 1.125, 131, 1.125, 132, 1.125, 133, 1.125, 134, 1.125, 135, 1.125, 136, 1.125,
+          137, 1.125, 138, 1.125, 139, 2.315, 140, 1.125, 141, 1.125, 142, 1.125,
+        ],
+      ],
+      ['title/injectables/CounterService.html', [56, 0.976, 143, 1.448]],
+      [
+        'body/injectables/CounterService.html',
+        [
+          3, 1.087, 4, 0.893, 8, 0.893, 13, 1.614, 20, 1.087, 21, 1.422, 25, 1.087, 26, 0.076, 28,
+          0.893, 29, 1.321, 31, 2.352, 33, 1.087, 35, 0.893, 37, 1.087, 38, 0.893, 54, 0.055, 55,
+          0.055, 56, 1.422, 58, 1.614, 63, 2.623, 64, 2.923, 76, 2.623, 104, 2.005, 106, 2.005, 143,
+          2.111, 144, 2.005, 145, 3.4, 146, 4.019, 147, 4.019, 148, 2.6, 149, 3.79, 150, 2.6, 151,
+          3.4, 152, 2.111, 153, 2.6, 154, 2.6, 155, 3.4,
+        ],
+      ],
+      ['title/components/UnderConstructionComponent.html', [0, 0.521, 47, 0.976]],
+      [
+        'body/components/UnderConstructionComponent.html',
+        [
+          0, 0.78, 1, 0.926, 2, 1.276, 3, 0.926, 4, 0.76, 5, 1.373, 6, 1.373, 7, 1.373, 8, 0.76, 10,
+          1.373, 11, 2.451, 12, 1.652, 14, 1.373, 16, 2.354, 18, 2.354, 26, 0.074, 33, 0.926, 35,
+          0.76, 37, 0.926, 38, 0.76, 39, 1.373, 40, 1.551, 41, 1.894, 42, 1.373, 43, 2.337, 44,
+          1.373, 45, 1.276, 46, 1.373, 47, 1.575, 48, 2.646, 49, 1.373, 50, 0.926, 51, 1.373, 52,
+          1.124, 53, 1.373, 54, 0.05, 55, 0.05, 156, 1.373, 157, 1.707, 158, 1.373, 159, 1.707, 160,
+          3.765, 161, 3.052, 162, 3.052, 163, 3.765, 164, 3.052, 165, 3.052, 166, 3.052, 167, 3.052,
+          168, 3.052, 169, 3.052, 170, 3.052, 171, 3.052, 172, 3.052,
+        ],
+      ],
+      ['title/components/UnderConstructionPage.html', [0, 0.521, 50, 0.976]],
+      [
+        'body/components/UnderConstructionPage.html',
+        [
+          0, 0.815, 1, 1.008, 2, 1.352, 3, 1.008, 4, 0.828, 5, 2.007, 6, 1.495, 7, 1.495, 8, 0.828,
+          10, 1.495, 11, 2.525, 12, 1.702, 14, 2.007, 26, 0.075, 28, 0.828, 33, 1.352, 35, 0.828,
+          37, 1.008, 38, 0.828, 39, 1.495, 40, 1.643, 41, 2.007, 42, 1.495, 43, 2.421, 44, 1.495,
+          45, 1.352, 46, 1.495, 47, 1.631, 48, 2.421, 49, 1.495, 50, 1.631, 51, 2.265, 52, 1.224,
+          53, 1.495, 54, 0.053, 55, 0.053, 156, 1.495, 158, 1.495, 173, 3.649, 174, 1.858, 175,
+          1.858, 176, 2.409, 177, 2.409,
+        ],
+      ],
+      ['title/coverage.html', [178, 2.44]],
+      [
+        'body/coverage.html',
+        [
+          0, 0.747, 1, 0.853, 8, 0.701, 9, 1.573, 12, 0.853, 25, 0.853, 26, 0.075, 47, 0.853, 50,
+          0.853, 54, 0.047, 55, 0.047, 56, 1.206, 57, 1.266, 59, 1.573, 60, 1.573, 102, 2.255, 107,
+          1.036, 143, 1.266, 144, 1.573, 152, 2.839, 156, 1.789, 157, 1.573, 158, 1.266, 159, 1.573,
+          174, 1.573, 175, 1.573, 178, 1.573, 179, 2.039, 180, 2.039, 181, 2.039, 182, 2.039, 183,
+          2.223, 184, 4.492, 185, 2.579, 186, 4.516, 187, 1.573, 188, 1.573, 189, 1.573, 190, 1.573,
+          191, 1.573, 192, 2.039, 193, 2.039, 194, 1.573, 195, 1.573, 196, 1.573, 197, 1.573, 198,
+          1.573, 199, 1.573, 200, 2.803, 201, 1.573, 202, 1.573, 203, 1.573, 204, 2.039, 205, 2.039,
+          206, 1.573, 207, 1.573, 208, 2.039, 209, 2.039,
+        ],
+      ],
+      ['title/dependencies.html', [210, 1.51, 211, 2.159]],
+      [
+        'body/dependencies.html',
+        [
+          26, 0.077, 35, 0.886, 36, 1.989, 38, 0.886, 54, 0.055, 55, 0.055, 101, 1.989, 211, 1.989,
+          212, 2.578, 213, 2.578, 214, 2.578, 215, 3.443, 216, 2.578, 217, 2.578, 218, 3.382, 219,
+          1.6, 220, 1.6, 221, 2.578, 222, 2.578, 223, 3.382, 224, 2.099, 225, 2.578, 226, 2.578,
+          227, 2.578, 228, 2.578, 229, 2.578, 230, 2.578, 231, 1.989, 232, 2.578, 233, 2.578, 234,
+          2.578, 235, 2.578, 236, 2.578, 237, 2.578, 238, 2.578, 239, 2.578, 240, 2.578, 241, 2.578,
+          242, 2.578, 243, 2.578, 244, 2.578, 245, 2.578,
+        ],
+      ],
+      ['title/index.html', [20, 0.976, 246, 2.332]],
+      [
+        'body/index.html',
+        [
+          0, 0.743, 2, 0.845, 4, 0.694, 26, 0.047, 28, 0.983, 52, 1.026, 54, 0.047, 55, 0.047, 107,
+          1.026, 215, 1.558, 219, 1.254, 220, 2.064, 224, 2.245, 247, 2.02, 248, 3.325, 249, 2.02,
+          250, 2.863, 251, 2.946, 252, 1.558, 253, 2.208, 254, 2.02, 255, 2.02, 256, 3.819, 257,
+          3.967, 258, 3.967, 259, 2.02, 260, 2.863, 261, 2.02, 262, 2.02, 263, 2.02, 264, 2.863,
+          265, 2.02, 266, 2.02, 267, 2.02, 268, 2.02, 269, 2.02, 270, 2.863, 271, 2.863, 272, 2.02,
+          273, 2.02, 274, 2.02, 275, 3.325, 276, 2.02, 277, 2.02, 278, 2.02, 279, 2.02, 280, 2.02,
+          281, 2.02, 282, 2.02, 283, 2.02, 284, 2.565, 285, 2.02, 286, 2.02, 287, 2.02, 288, 2.02,
+          289, 2.02, 290, 2.02, 291, 1.558, 292, 2.02, 293, 2.02, 294, 2.02, 295, 2.208, 296, 3.325,
+          297, 2.02, 298, 2.02, 299, 2.02, 300, 2.02, 301, 2.02, 302, 2.02, 303, 3.325, 304, 2.02,
+          305, 3.967, 306, 2.02, 307, 2.863, 308, 2.02, 309, 2.02, 310, 2.02, 311, 2.02, 312, 2.02,
+          313, 2.02, 314, 2.02, 315, 2.02, 316, 2.02, 317, 2.02, 318, 2.02, 319, 2.02, 320, 2.02,
+          321, 2.02, 322, 2.02, 323, 1.254, 324, 2.02, 325, 2.02,
+        ],
+      ],
+      ['title/modules.html', [326, 2.44]],
+      ['body/modules.html', [26, 0.068, 54, 0.068, 55, 0.068, 326, 2.797]],
+      ['title/overview.html', [323, 1.963]],
+      [
+        'body/overview.html',
+        [
+          2, 1.474, 26, 0.067, 54, 0.067, 55, 0.067, 58, 2.187, 152, 2.187, 323, 2.187, 327, 3.524,
+          328, 3.524,
+        ],
+      ],
+      ['title/properties.html', [21, 1.171, 210, 1.51]],
+      [
+        'body/properties.html',
+        [21, 1.491, 26, 0.071, 54, 0.067, 55, 0.067, 252, 2.749, 329, 3.564],
+      ],
+      ['title/routes.html', [330, 2.44]],
+      ['body/routes.html', [26, 0.068, 54, 0.068, 55, 0.068, 330, 2.797]],
+      ['title/miscellaneous/variables.html', [331, 1.51, 332, 2.159]],
+      [
+        'body/miscellaneous/variables.html',
+        [
+          12, 0.884, 20, 0.563, 25, 1.747, 26, 0.077, 27, 2.115, 28, 1.434, 29, 2.122, 40, 1.073,
+          45, 1.236, 54, 0.034, 55, 0.034, 102, 2.29, 107, 0.684, 183, 1.038, 185, 2.927, 187,
+          2.012, 188, 1.038, 189, 1.629, 190, 1.038, 191, 1.629, 194, 1.038, 195, 1.038, 196, 1.038,
+          197, 1.038, 198, 1.038, 199, 1.629, 200, 1.038, 201, 1.629, 202, 1.629, 203, 1.629, 206,
+          1.038, 207, 1.038, 219, 0.835, 220, 0.835, 224, 1.619, 231, 1.038, 251, 1.038, 253, 1.038,
+          284, 1.038, 291, 2.476, 295, 1.038, 331, 1.038, 332, 1.038, 333, 2.955, 334, 1.345, 335,
+          1.345, 336, 2.112, 337, 1.345, 338, 1.345, 339, 1.345, 340, 1.345, 341, 1.345, 342, 1.345,
+          343, 1.345, 344, 1.345, 345, 1.345, 346, 1.345, 347, 1.345, 348, 1.345, 349, 1.345, 350,
+          1.345, 351, 1.345, 352, 1.345, 353, 1.345, 354, 1.345, 355, 2.112, 356, 2.112, 357, 1.345,
+          358, 1.345, 359, 1.345, 360, 1.345, 361, 2.112, 362, 1.345, 363, 1.345, 364, 1.345, 365,
+          1.345, 366, 2.112, 367, 2.955, 368, 2.112, 369, 2.112, 370, 1.345, 371, 2.112, 372, 1.345,
+          373, 2.112, 374, 2.112, 375, 2.112, 376, 2.112, 377, 1.345, 378, 1.345, 379, 1.345, 380,
+          1.345, 381, 1.345, 382, 2.112, 383, 2.955, 384, 2.112, 385, 2.112, 386, 2.112, 387, 1.345,
+          388, 2.112, 389, 2.112, 390, 2.112, 391, 2.112, 392, 2.112, 393, 2.112, 394, 1.345, 395,
+          1.345, 396, 2.955, 397, 2.112, 398, 2.955, 399, 1.345, 400, 2.112, 401, 2.112, 402, 1.345,
+          403, 1.345, 404, 1.345, 405, 1.345,
+        ],
+      ],
+    ],
+    invertedIndex: [
+      [
+        '',
+        {
+          _index: 26,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+            'dependencies.html': {},
+            'index.html': {},
+            'modules.html': {},
+            'overview.html': {},
+            'properties.html': {},
+            'routes.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        '0',
+        {
+          _index: 152,
+          title: {},
+          body: { 'injectables/CounterService.html': {}, 'coverage.html': {}, 'overview.html': {} },
+        },
+      ],
+      ['0.0.0', { _index: 329, title: {}, body: { 'properties.html': {} } }],
+      ['0.16.0', { _index: 245, title: {}, body: { 'dependencies.html': {} } }],
+      ['0.562.0', { _index: 234, title: {}, body: { 'dependencies.html': {} } }],
+      ['0.7.1', { _index: 228, title: {}, body: { 'dependencies.html': {} } }],
+      ['0/1', { _index: 186, title: {}, body: { 'coverage.html': {} } }],
+      ['0/2', { _index: 182, title: {}, body: { 'coverage.html': {} } }],
+      ['0/4', { _index: 192, title: {}, body: { 'coverage.html': {} } }],
+      ['0/9', { _index: 193, title: {}, body: { 'coverage.html': {} } }],
+      ['1/1', { _index: 205, title: {}, body: { 'coverage.html': {} } }],
+      ['100', { _index: 204, title: {}, body: { 'coverage.html': {} } }],
+      ['2', { _index: 328, title: {}, body: { 'overview.html': {} } }],
+      ['2.1.1', { _index: 230, title: {}, body: { 'dependencies.html': {} } }],
+      ['2.3.0', { _index: 243, title: {}, body: { 'dependencies.html': {} } }],
+      ['21.1.0', { _index: 215, title: {}, body: { 'dependencies.html': {}, 'index.html': {} } }],
+      ['21.1.1', { _index: 213, title: {}, body: { 'dependencies.html': {} } }],
+      ['3', { _index: 327, title: {}, body: { 'overview.html': {} } }],
+      ['3.4.0', { _index: 240, title: {}, body: { 'dependencies.html': {} } }],
+      ['4.1.18', { _index: 223, title: {}, body: { 'dependencies.html': {} } }],
+      ['400', { _index: 125, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['401', { _index: 128, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['403', { _index: 131, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['404', { _index: 134, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['5.1.0', { _index: 232, title: {}, body: { 'dependencies.html': {} } }],
+      ['500', { _index: 138, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['7.8.0', { _index: 237, title: {}, body: { 'dependencies.html': {} } }],
+      ['8.5.6', { _index: 236, title: {}, body: { 'dependencies.html': {} } }],
+      ['_count', { _index: 145, title: {}, body: { 'injectables/CounterService.html': {} } }],
+      [
+        '_count:number',
+        { _index: 154, title: {}, body: { 'injectables/CounterService.html': {} } },
+      ],
+      ['_handleerror', { _index: 65, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['_handleerror(error', { _index: 71, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['abstract', { _index: 105, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'actual_component',
+        {
+          _index: 53,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'actuellement',
+        { _index: 167, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['additional', { _index: 315, title: {}, body: { 'index.html': {} } }],
+      [
+        'angular',
+        {
+          _index: 224,
+          title: {},
+          body: { 'dependencies.html': {}, 'index.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['angular/cdk', { _index: 212, title: {}, body: { 'dependencies.html': {} } }],
+      ['angular/common', { _index: 214, title: {}, body: { 'dependencies.html': {} } }],
+      ['angular/common/http', { _index: 98, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['angular/compiler', { _index: 216, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'angular/core',
+        {
+          _index: 35,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'dependencies.html': {},
+          },
+        },
+      ],
+      ['angular/forms', { _index: 217, title: {}, body: { 'dependencies.html': {} } }],
+      ['angular/platform', { _index: 218, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'angular/router',
+        {
+          _index: 36,
+          title: {},
+          body: { 'components/AppComponent.html': {}, 'dependencies.html': {} },
+        },
+      ],
+      ['angular/ssr', { _index: 221, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'angularapp',
+        {
+          _index: 201,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'angularnodeappengine',
+        { _index: 344, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['api', { _index: 380, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'api.jokeur.ashleydev.fr',
+        { _index: 400, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['apiurl', { _index: 398, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'app',
+        {
+          _index: 12,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        'app.component.html',
+        { _index: 17, title: {}, body: { 'components/AppComponent.html': {} } },
+      ],
+      [
+        'app.component.scss',
+        { _index: 19, title: {}, body: { 'components/AppComponent.html': {} } },
+      ],
+      [
+        'appcomponent',
+        {
+          _index: 1,
+          title: { 'components/AppComponent.html': {} },
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      [
+        'appconfig',
+        {
+          _index: 189,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['application', { _index: 264, title: {}, body: { 'index.html': {} } }],
+      ['application/json', { _index: 109, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'applicationconfig',
+        { _index: 355, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['artifacts', { _index: 288, title: {}, body: { 'index.html': {} } }],
+      ['async', { _index: 66, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['authority', { _index: 227, title: {}, body: { 'dependencies.html': {} } }],
+      ['automatically', { _index: 265, title: {}, body: { 'index.html': {} } }],
+      ['autoris', { _index: 130, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['available', { _index: 279, title: {}, body: { 'index.html': {} } }],
+      ['await', { _index: 111, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['base_url', { _index: 61, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'baseapi',
+        {
+          _index: 57,
+          title: { 'injectables/BaseApi.html': {} },
+          body: { 'injectables/BaseApi.html': {}, 'coverage.html': {} },
+        },
+      ],
+      [
+        'bientôt',
+        { _index: 172, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['body', { _index: 88, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'bootstrap',
+        {
+          _index: 199,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'bootstrapapplication(appcomponent',
+        { _index: 363, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'bootstrapcontext',
+        { _index: 362, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'browser',
+        {
+          _index: 219,
+          title: {},
+          body: { 'dependencies.html': {}, 'index.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'browserdistfolder',
+        {
+          _index: 202,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'build',
+        { _index: 284, title: {}, body: { 'index.html': {}, 'miscellaneous/variables.html': {} } },
+      ],
+      ['buildthis', { _index: 285, title: {}, body: { 'index.html': {} } }],
+      ['case', { _index: 124, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['catch', { _index: 115, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'ce',
+        { _index: 169, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['choose', { _index: 311, title: {}, body: { 'index.html': {} } }],
+      [
+        'class',
+        {
+          _index: 38,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'dependencies.html': {},
+          },
+        },
+      ],
+      ['clearmocks', { _index: 382, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'cli',
+        { _index: 251, title: {}, body: { 'index.html': {}, 'miscellaneous/variables.html': {} } },
+      ],
+      ['cloud', { _index: 353, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['clsx', { _index: 229, title: {}, body: { 'dependencies.html': {} } }],
+      ['code', { _index: 270, title: {}, body: { 'index.html': {} } }],
+      ['come', { _index: 309, title: {}, body: { 'index.html': {} } }],
+      ['command', { _index: 303, title: {}, body: { 'index.html': {} } }],
+      ['compile', { _index: 286, title: {}, body: { 'index.html': {} } }],
+      ['complete', { _index: 277, title: {}, body: { 'index.html': {} } }],
+      [
+        'component',
+        {
+          _index: 0,
+          title: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+            'index.html': {},
+          },
+        },
+      ],
+      [
+        'component_template',
+        {
+          _index: 44,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'components',
+        {
+          _index: 2,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'index.html': {},
+            'overview.html': {},
+          },
+        },
+      ],
+      [
+        'components/under',
+        { _index: 176, title: {}, body: { 'components/UnderConstructionPage.html': {} } },
+      ],
+      [
+        'config',
+        {
+          _index: 185,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'construction',
+        { _index: 160, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      [
+        "construction'},{'name",
+        {
+          _index: 49,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'construction.component',
+        { _index: 177, title: {}, body: { 'components/UnderConstructionPage.html': {} } },
+      ],
+      [
+        'construction.component.html',
+        { _index: 161, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      [
+        'construction.component.scss',
+        { _index: 162, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      [
+        'construction.component.ts',
+        {
+          _index: 159,
+          title: {},
+          body: { 'components/UnderConstructionComponent.html': {}, 'coverage.html': {} },
+        },
+      ],
+      [
+        'construction.component/under',
+        {
+          _index: 158,
+          title: {},
+          body: {
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      [
+        'construction.page',
+        {
+          _index: 51,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'construction.page.ts',
+        {
+          _index: 175,
+          title: {},
+          body: { 'components/UnderConstructionPage.html': {}, 'coverage.html': {} },
+        },
+      ],
+      [
+        'construction/components/under',
+        {
+          _index: 157,
+          title: {},
+          body: { 'components/UnderConstructionComponent.html': {}, 'coverage.html': {} },
+        },
+      ],
+      [
+        'construction/pages/under',
+        {
+          _index: 174,
+          title: {},
+          body: { 'components/UnderConstructionPage.html': {}, 'coverage.html': {} },
+        },
+      ],
+      ['content', { _index: 108, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['context', { _index: 361, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'counterservice',
+        {
+          _index: 143,
+          title: { 'injectables/CounterService.html': {} },
+          body: { 'injectables/CounterService.html': {}, 'coverage.html': {} },
+        },
+      ],
+      ['coverage', { _index: 178, title: { 'coverage.html': {} }, body: { 'coverage.html': {} } }],
+      [
+        'coverage/integration',
+        { _index: 387, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['coverage/unit', { _index: 395, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'coveragedirectory',
+        { _index: 386, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'coverageprovider',
+        { _index: 384, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'coveragereporters',
+        { _index: 388, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'createnoderequesthandler(app',
+        { _index: 346, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['cypress', { _index: 374, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'default',
+        {
+          _index: 28,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionPage.html': {},
+            'index.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        'defined',
+        {
+          _index: 31,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+          },
+        },
+      ],
+      ['delete', { _index: 67, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['delete(endpoint', { _index: 77, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'dependencies',
+        { _index: 211, title: { 'dependencies.html': {} }, body: { 'dependencies.html': {} } },
+      ],
+      ['detailed', { _index: 320, title: {}, body: { 'index.html': {} } }],
+      ['dev', { _index: 350, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'development',
+        { _index: 253, title: {}, body: { 'index.html': {}, 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'directive',
+        {
+          _index: 42,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'directives',
+        {
+          _index: 52,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'index.html': {},
+          },
+        },
+      ],
+      ['directory', { _index: 290, title: {}, body: { 'index.html': {} } }],
+      ['displayname', { _index: 369, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['dist', { _index: 289, title: {}, body: { 'index.html': {} } }],
+      ['documentation', { _index: 179, title: {}, body: { 'coverage.html': {} } }],
+      [
+        'dom',
+        {
+          _index: 6,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['during', { _index: 351, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['e2e', { _index: 306, title: {}, body: { 'index.html': {} } }],
+      ['e2eangular', { _index: 308, title: {}, body: { 'index.html': {} } }],
+      [
+        'element',
+        {
+          _index: 41,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'en',
+        { _index: 164, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['end', { _index: 305, title: {}, body: { 'index.html': {} } }],
+      ['endpoint', { _index: 81, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'environment',
+        {
+          _index: 102,
+          title: {},
+          body: {
+            'injectables/BaseApi.html': {},
+            'coverage.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      ['environment.apiurl', { _index: 92, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['error', { _index: 75, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ["error('accès", { _index: 132, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ["error('données", { _index: 126, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ["error('erreur", { _index: 139, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ["error('non", { _index: 129, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ["error('ressource", { _index: 135, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['error.status', { _index: 123, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['eslint', { _index: 225, title: {}, body: { 'dependencies.html': {} } }],
+      ['example', { _index: 257, title: {}, body: { 'index.html': {} } }],
+      ['execute', { _index: 297, title: {}, body: { 'index.html': {} } }],
+      [
+        'export',
+        {
+          _index: 37,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'express',
+        {
+          _index: 231,
+          title: {},
+          body: { 'dependencies.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['false', { _index: 397, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'file',
+        {
+          _index: 8,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      ['files', { _index: 269, title: {}, body: { 'index.html': {} } }],
+      ['firebase', { _index: 352, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['firstvaluefrom', { _index: 100, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['following', { _index: 302, title: {}, body: { 'index.html': {} } }],
+      ['framework', { _index: 310, title: {}, body: { 'index.html': {} } }],
+      ['functions', { _index: 354, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['generate', { _index: 275, title: {}, body: { 'index.html': {} } }],
+      ['generated', { _index: 249, title: {}, body: { 'index.html': {} } }],
+      ['get(endpoint', { _index: 83, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['getcount', { _index: 146, title: {}, body: { 'injectables/CounterService.html': {} } }],
+      ['getheaders', { _index: 68, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['handler', { _index: 348, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['headers', { _index: 113, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['helpbuilding', { _index: 283, title: {}, body: { 'index.html': {} } }],
+      [
+        'html',
+        {
+          _index: 40,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      ['http', { _index: 62, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['http://localhost:4200', { _index: 263, title: {}, body: { 'index.html': {} } }],
+      [
+        'http://localhost:8080',
+        { _index: 399, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['httpclient', { _index: 96, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['httperrorresponse', { _index: 97, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['httpheaders', { _index: 86, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['identifier', { _index: 180, title: {}, body: { 'coverage.html': {} } }],
+      [
+        'import',
+        {
+          _index: 33,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'imports',
+        {
+          _index: 14,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['includes', { _index: 272, title: {}, body: { 'index.html': {} } }],
+      ['including', { _index: 319, title: {}, body: { 'index.html': {} } }],
+      ['inconnue', { _index: 142, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['increment', { _index: 147, title: {}, body: { 'injectables/CounterService.html': {} } }],
+      [
+        'index',
+        {
+          _index: 20,
+          title: { 'index.html': {} },
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        'info',
+        {
+          _index: 3,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['information', { _index: 318, title: {}, body: { 'index.html': {} } }],
+      ['inject', { _index: 99, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['inject(httpclient', { _index: 94, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'injectable',
+        {
+          _index: 56,
+          title: { 'injectables/BaseApi.html': {}, 'injectables/CounterService.html': {} },
+          body: {
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      [
+        'injectables',
+        {
+          _index: 58,
+          title: {},
+          body: {
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'overview.html': {},
+          },
+        },
+      ],
+      ['instanceof', { _index: 121, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['integration', { _index: 370, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['interdit', { _index: 133, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['invalides', { _index: 127, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['jest', { _index: 368, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['jest.ts', { _index: 393, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'join(import.meta.dirname',
+        { _index: 345, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['jokeurfrontend', { _index: 247, title: {}, body: { 'index.html': {} } }],
+      ['jsdom', { _index: 376, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'legend',
+        {
+          _index: 39,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['list', { _index: 278, title: {}, body: { 'index.html': {} } }],
+      ['local', { _index: 255, title: {}, body: { 'index.html': {} } }],
+      ['lucide', { _index: 233, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'matching',
+        {
+          _index: 55,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+            'dependencies.html': {},
+            'index.html': {},
+            'modules.html': {},
+            'overview.html': {},
+            'properties.html': {},
+            'routes.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      ['merge', { _index: 239, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'mergeapplicationconfig(appconfig',
+        { _index: 364, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'metadata',
+        {
+          _index: 10,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'methods',
+        {
+          _index: 63,
+          title: {},
+          body: { 'injectables/BaseApi.html': {}, 'injectables/CounterService.html': {} },
+        },
+      ],
+      [
+        'miscellaneous',
+        {
+          _index: 331,
+          title: { 'miscellaneous/variables.html': {} },
+          body: { 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['modify', { _index: 268, title: {}, body: { 'index.html': {} } }],
+      ['modules', { _index: 326, title: { 'modules.html': {} }, body: { 'modules.html': {} } }],
+      ['more', { _index: 317, title: {}, body: { 'index.html': {} } }],
+      [
+        'name',
+        {
+          _index: 45,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      ['namefor', { _index: 276, title: {}, body: { 'index.html': {} } }],
+      ['navigate', { _index: 262, title: {}, body: { 'index.html': {} } }],
+      ['needs', { _index: 314, title: {}, body: { 'index.html': {} } }],
+      [
+        'new',
+        {
+          _index: 107,
+          title: {},
+          body: {
+            'injectables/BaseApi.html': {},
+            'coverage.html': {},
+            'index.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      ['ng', { _index: 258, title: {}, body: { 'index.html': {} } }],
+      ['node', { _index: 378, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['non', { _index: 136, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'nous',
+        { _index: 165, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['number', { _index: 149, title: {}, body: { 'injectables/CounterService.html': {} } }],
+      ['object', { _index: 396, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['one', { _index: 312, title: {}, body: { 'index.html': {} } }],
+      ['open', { _index: 261, title: {}, body: { 'index.html': {} } }],
+      ['optimizes', { _index: 292, title: {}, body: { 'index.html': {} } }],
+      ['optional', { _index: 74, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['ou', { _index: 377, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'overview',
+        {
+          _index: 323,
+          title: { 'overview.html': {} },
+          body: { 'index.html': {}, 'overview.html': {} },
+        },
+      ],
+      [
+        'package',
+        { _index: 210, title: { 'dependencies.html': {}, 'properties.html': {} }, body: {} },
+      ],
+      ['page', { _index: 325, title: {}, body: { 'index.html': {} } }],
+      ['parameters', { _index: 73, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['path', { _index: 403, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['performance', { _index: 293, title: {}, body: { 'index.html': {} } }],
+      ['pipes', { _index: 282, title: {}, body: { 'index.html': {} } }],
+      ['post', { _index: 69, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['post(endpoint', { _index: 87, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['postcss', { _index: 235, title: {}, body: { 'dependencies.html': {} } }],
+      ['powerful', { _index: 273, title: {}, body: { 'index.html': {} } }],
+      ['preset', { _index: 367, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'private',
+        {
+          _index: 64,
+          title: {},
+          body: { 'injectables/BaseApi.html': {}, 'injectables/CounterService.html': {} },
+        },
+      ],
+      [
+        'production',
+        { _index: 291, title: {}, body: { 'index.html': {}, 'miscellaneous/variables.html': {} } },
+      ],
+      ['project', { _index: 248, title: {}, body: { 'index.html': {} } }],
+      ['promise', { _index: 82, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'properties',
+        {
+          _index: 21,
+          title: { 'properties.html': {} },
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'properties.html': {},
+          },
+        },
+      ],
+      [
+        'protected',
+        {
+          _index: 22,
+          title: {},
+          body: { 'components/AppComponent.html': {}, 'injectables/BaseApi.html': {} },
+        },
+      ],
+      [
+        'providebrowserglobalerrorlisteners',
+        { _index: 357, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'provideclienthydration(witheventreplay',
+        { _index: 359, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'providedin',
+        {
+          _index: 104,
+          title: {},
+          body: { 'injectables/BaseApi.html': {}, 'injectables/CounterService.html': {} },
+        },
+      ],
+      [
+        'providerouter(routes',
+        { _index: 358, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['providers', { _index: 356, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'provideserverrendering(withroutes(serverroutes',
+        { _index: 365, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['providezard', { _index: 360, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['pure', { _index: 381, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['put', { _index: 70, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['put(endpoint', { _index: 90, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['readme', { _index: 246, title: { 'index.html': {} }, body: {} }],
+      [
+        'readonly',
+        {
+          _index: 23,
+          title: {},
+          body: { 'components/AppComponent.html': {}, 'injectables/BaseApi.html': {} },
+        },
+      ],
+      ['reference', { _index: 324, title: {}, body: { 'index.html': {} } }],
+      ['references', { _index: 321, title: {}, body: { 'index.html': {} } }],
+      ['reload', { _index: 266, title: {}, body: { 'index.html': {} } }],
+      ['rendermode', { _index: 404, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'rendermode.prerender',
+        { _index: 405, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'reqhandler',
+        {
+          _index: 203,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['request', { _index: 347, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['resources', { _index: 316, title: {}, body: { 'index.html': {} } }],
+      [
+        'results',
+        {
+          _index: 54,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+            'dependencies.html': {},
+            'index.html': {},
+            'modules.html': {},
+            'overview.html': {},
+            'properties.html': {},
+            'routes.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        'return',
+        {
+          _index: 106,
+          title: {},
+          body: { 'injectables/BaseApi.html': {}, 'injectables/CounterService.html': {} },
+        },
+      ],
+      [
+        'returns',
+        {
+          _index: 76,
+          title: {},
+          body: { 'injectables/BaseApi.html': {}, 'injectables/CounterService.html': {} },
+        },
+      ],
+      [
+        'revenez',
+        { _index: 170, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      [
+        'root',
+        {
+          _index: 13,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+          },
+        },
+      ],
+      [
+        "root'},{'name",
+        {
+          _index: 46,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['rootdir', { _index: 366, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['routeroutlet', { _index: 15, title: {}, body: { 'components/AppComponent.html': {} } }],
+      ['routes', { _index: 330, title: { 'routes.html': {} }, body: { 'routes.html': {} } }],
+      ['run', { _index: 256, title: {}, body: { 'index.html': {} } }],
+      ['runner', { _index: 300, title: {}, body: { 'index.html': {} } }],
+      ['running', { _index: 260, title: {}, body: { 'index.html': {} } }],
+      [
+        'rxjs',
+        {
+          _index: 101,
+          title: {},
+          body: { 'injectables/BaseApi.html': {}, 'dependencies.html': {} },
+        },
+      ],
+      ['réseau', { _index: 141, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['scaffolding', { _index: 271, title: {}, body: { 'index.html': {} } }],
+      ['schematics', { _index: 280, title: {}, body: { 'index.html': {} } }],
+      [
+        'selector',
+        {
+          _index: 11,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['serveonce', { _index: 259, title: {}, body: { 'index.html': {} } }],
+      [
+        'server',
+        {
+          _index: 220,
+          title: {},
+          body: { 'dependencies.html': {}, 'index.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'serverconfig',
+        {
+          _index: 187,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['serverroute', { _index: 402, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'serverroutes',
+        {
+          _index: 191,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['serveur', { _index: 140, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['setup', { _index: 392, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'setupfilesafterenv',
+        { _index: 391, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts',
+        { _index: 60, title: {}, body: { 'injectables/BaseApi.html': {}, 'coverage.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:10',
+        { _index: 95, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:11',
+        { _index: 93, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:13',
+        { _index: 85, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:19',
+        { _index: 84, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:29',
+        { _index: 89, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:39',
+        { _index: 91, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:49',
+        { _index: 79, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'shared/services/base.api.ts:59',
+        { _index: 72, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      ['si', { _index: 379, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['signal', { _index: 34, title: {}, body: { 'components/AppComponent.html': {} } }],
+      [
+        "signal('jokeur_frontend",
+        { _index: 30, title: {}, body: { 'components/AppComponent.html': {} } },
+      ],
+      [
+        'site',
+        { _index: 163, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      [
+        'source',
+        {
+          _index: 4,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'index.html': {},
+          },
+        },
+      ],
+      ['speed', { _index: 294, title: {}, body: { 'index.html': {} } }],
+      [
+        'src/.../app.config.server.ts',
+        { _index: 336, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../app.config.ts',
+        { _index: 334, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../app.routes.server.ts',
+        { _index: 343, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../environment.development.ts',
+        { _index: 339, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../environment.production.ts',
+        { _index: 340, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../environment.staging.ts',
+        { _index: 341, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../environment.ts',
+        { _index: 342, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../jest.integration.config.ts',
+        { _index: 337, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../jest.unit.config.ts',
+        { _index: 338, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../main.server.ts',
+        { _index: 335, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/.../server.ts',
+        { _index: 333, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/app/app.component.ts',
+        { _index: 9, title: {}, body: { 'components/AppComponent.html': {}, 'coverage.html': {} } },
+      ],
+      [
+        'src/app/app.component.ts:11',
+        { _index: 32, title: {}, body: { 'components/AppComponent.html': {} } },
+      ],
+      [
+        'src/app/app.config.server.ts',
+        {
+          _index: 183,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/app/app.config.ts',
+        {
+          _index: 188,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/app/app.routes.server.ts',
+        {
+          _index: 190,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/app/features/counter.service.ts',
+        {
+          _index: 144,
+          title: {},
+          body: { 'injectables/CounterService.html': {}, 'coverage.html': {} },
+        },
+      ],
+      [
+        'src/app/features/counter.service.ts:13',
+        { _index: 148, title: {}, body: { 'injectables/CounterService.html': {} } },
+      ],
+      [
+        'src/app/features/counter.service.ts:7',
+        { _index: 153, title: {}, body: { 'injectables/CounterService.html': {} } },
+      ],
+      [
+        'src/app/features/counter.service.ts:9',
+        { _index: 150, title: {}, body: { 'injectables/CounterService.html': {} } },
+      ],
+      [
+        'src/app/features/under',
+        {
+          _index: 156,
+          title: {},
+          body: {
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      [
+        'src/app/internal',
+        { _index: 59, title: {}, body: { 'injectables/BaseApi.html': {}, 'coverage.html': {} } },
+      ],
+      [
+        'src/environments/environment',
+        { _index: 103, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'src/environments/environment.development.ts',
+        {
+          _index: 194,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/environments/environment.production.ts',
+        {
+          _index: 195,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/environments/environment.staging.ts',
+        {
+          _index: 196,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/environments/environment.ts',
+        {
+          _index: 197,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/main.server.ts',
+        {
+          _index: 198,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/server.ts',
+        {
+          _index: 200,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/tests/config/jest.integration.config.ts',
+        {
+          _index: 206,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/tests/config/jest.unit.config.ts',
+        {
+          _index: 207,
+          title: {},
+          body: { 'coverage.html': {}, 'miscellaneous/variables.html': {} },
+        },
+      ],
+      [
+        'src/tests/integration/**/*.spec.ts',
+        { _index: 372, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'src/tests/unit/**/*.spec.ts',
+        { _index: 394, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['staging', { _index: 401, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['start', { _index: 254, title: {}, body: { 'index.html': {} } }],
+      ['statements', { _index: 181, title: {}, body: { 'coverage.html': {} } }],
+      ['store', { _index: 287, title: {}, body: { 'index.html': {} } }],
+      ['string', { _index: 78, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['styles', { _index: 173, title: {}, body: { 'components/UnderConstructionPage.html': {} } }],
+      [
+        'styleurl',
+        {
+          _index: 18,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+          },
+        },
+      ],
+      ['such', { _index: 281, title: {}, body: { 'index.html': {} } }],
+      ['suits', { _index: 313, title: {}, body: { 'index.html': {} } }],
+      ['summary', { _index: 390, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'sur',
+        { _index: 168, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['switch', { _index: 122, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['t', { _index: 80, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['table', { _index: 209, title: {}, body: { 'coverage.html': {} } }],
+      [
+        "tablesort(document.getelementbyid('coverage",
+        { _index: 208, title: {}, body: { 'coverage.html': {} } },
+      ],
+      ['tailwind', { _index: 238, title: {}, body: { 'dependencies.html': {} } }],
+      ['tailwindcss', { _index: 241, title: {}, body: { 'dependencies.html': {} } }],
+      ['tailwindcss/postcss', { _index: 222, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'template',
+        {
+          _index: 5,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'templateurl',
+        {
+          _index: 16,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+          },
+        },
+      ],
+      ['test', { _index: 299, title: {}, body: { 'index.html': {} } }],
+      ['testenvironment', { _index: 375, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['testing', { _index: 307, title: {}, body: { 'index.html': {} } }],
+      ['testmatch', { _index: 371, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'testpathignorepatterns',
+        { _index: 373, title: {}, body: { 'miscellaneous/variables.html': {} } },
+      ],
+      ['testrunning', { _index: 304, title: {}, body: { 'index.html': {} } }],
+      ['tests', { _index: 296, title: {}, body: { 'index.html': {} } }],
+      ['text', { _index: 389, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['this._count', { _index: 155, title: {}, body: { 'injectables/CounterService.html': {} } }],
+      [
+        'this._handleerror(error',
+        { _index: 117, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      ['this.getheaders', { _index: 114, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'this.http.delete(`${this.base_url}${endpoint',
+        { _index: 120, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'this.http.get(`${this.base_url}${endpoint',
+        { _index: 112, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'this.http.post(`${this.base_url}${endpoint',
+        { _index: 118, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      [
+        'this.http.put(`${this.base_url}${endpoint',
+        { _index: 119, title: {}, body: { 'injectables/BaseApi.html': {} } },
+      ],
+      ['throw', { _index: 116, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['title', { _index: 24, title: {}, body: { 'components/AppComponent.html': {} } }],
+      ['tools', { _index: 274, title: {}, body: { 'index.html': {} } }],
+      [
+        'travaillons',
+        { _index: 166, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      [
+        'tree',
+        {
+          _index: 7,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['trouvée', { _index: 137, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      ['true', { _index: 383, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['try', { _index: 110, title: {}, body: { 'injectables/BaseApi.html': {} } }],
+      [
+        'très',
+        { _index: 171, title: {}, body: { 'components/UnderConstructionComponent.html': {} } },
+      ],
+      ['tslib', { _index: 242, title: {}, body: { 'dependencies.html': {} } }],
+      [
+        'type',
+        {
+          _index: 25,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'coverage.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        'under',
+        {
+          _index: 48,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      [
+        'underconstructioncomponent',
+        {
+          _index: 47,
+          title: { 'components/UnderConstructionComponent.html': {} },
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      [
+        'underconstructionpage',
+        {
+          _index: 50,
+          title: { 'components/UnderConstructionPage.html': {} },
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+            'coverage.html': {},
+          },
+        },
+      ],
+      [
+        'unit',
+        { _index: 295, title: {}, body: { 'index.html': {}, 'miscellaneous/variables.html': {} } },
+      ],
+      [
+        'unknown',
+        {
+          _index: 27,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      ['use', { _index: 301, title: {}, body: { 'index.html': {} } }],
+      ['used', { _index: 349, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      ['using', { _index: 250, title: {}, body: { 'index.html': {} } }],
+      ['v8', { _index: 385, title: {}, body: { 'miscellaneous/variables.html': {} } }],
+      [
+        'value',
+        {
+          _index: 29,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'injectables/BaseApi.html': {},
+            'injectables/CounterService.html': {},
+            'miscellaneous/variables.html': {},
+          },
+        },
+      ],
+      [
+        'var',
+        {
+          _index: 43,
+          title: {},
+          body: {
+            'components/AppComponent.html': {},
+            'components/UnderConstructionComponent.html': {},
+            'components/UnderConstructionPage.html': {},
+          },
+        },
+      ],
+      ['variable', { _index: 184, title: {}, body: { 'coverage.html': {} } }],
+      [
+        'variables',
+        {
+          _index: 332,
+          title: { 'miscellaneous/variables.html': {} },
+          body: { 'miscellaneous/variables.html': {} },
+        },
+      ],
+      ['variance', { _index: 226, title: {}, body: { 'dependencies.html': {} } }],
+      ['version', { _index: 252, title: {}, body: { 'index.html': {}, 'properties.html': {} } }],
+      ['visit', { _index: 322, title: {}, body: { 'index.html': {} } }],
+      ['vitest', { _index: 298, title: {}, body: { 'index.html': {} } }],
+      ['void', { _index: 151, title: {}, body: { 'injectables/CounterService.html': {} } }],
+      ['whenever', { _index: 267, title: {}, body: { 'index.html': {} } }],
+      ['zone.js', { _index: 244, title: {}, body: { 'dependencies.html': {} } }],
+    ],
+    pipeline: ['stemmer'],
+  },
+  store: {
+    'components/AppComponent.html': {
+      url: 'components/AppComponent.html',
+      title: 'component - AppComponent',
+      body: "\n                   \n\n\n\n\n\n\n\n\n\n  Components\n  \n  AppComponent\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n        \n            Template\n        \n        \n            DOM Tree\n        \n\n\n\n    \n    File\n\n\n    src/app/app.component.ts\n\n\n\n\n\n\n\n\n    Metadata\n    \n        \n\n\n\n\n\n\n\n\n\n\n\n\n            \n                selector\n                app-root\n            \n\n\n            \n                imports\n                \n                                RouterOutlet\n                \n            \n\n\n\n\n            \n                templateUrl\n                ./app.component.html\n            \n\n\n\n            \n                styleUrl\n                ./app.component.scss\n            \n\n\n\n\n\n        \n    \n\n\n    \n    Index\n    \n        \n                \n                    \n                        Properties\n                    \n                \n                \n                    \n                        \n                            \n                                    Protected\n                                    Readonly\n                                title\n                            \n                        \n                    \n                \n\n\n\n\n\n\n        \n    \n\n\n\n\n\n\n\n\n    \n    \n    \n        Properties\n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Readonly\n                        title\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : signal('jokeur_frontend')\n                    \n                \n                    \n                        \n                                Defined in src/app/app.component.ts:11\n                        \n                    \n\n\n        \n    \n\n\n\n\n\n    \n        import { Component, signal } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  protected readonly title = signal('jokeur_frontend');\n}\n\n    \n\n    \n        \n  \n\n\n  \n\n\n  \n\n\n    \n\n\n    \n        \n        \n            \n                Legend\n            \n            \n                Html element\n            \n            \n                Component\n            \n            \n                Html element with directive\n            \n        \n    \n\n    \n\n\n\n\n\n\n        var COMPONENT_TEMPLATE = '      '\n    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];\n    var DIRECTIVES = [];\n    var ACTUAL_COMPONENT = {'name': 'AppComponent'};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n",
+    },
+    'injectables/BaseApi.html': {
+      url: 'injectables/BaseApi.html',
+      title: 'injectable - BaseApi',
+      body: "\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n  Injectables\n  BaseApi\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n\n\n\n    \n        \n            File\n        \n        \n            src/app/internal-shared/services/base.api.ts\n        \n\n\n\n\n\n            \n    Index\n    \n        \n                \n                    \n                        Properties\n                    \n                \n                \n                    \n                        \n                            \n                                    Protected\n                                    Readonly\n                                BASE_URL\n                            \n                            \n                                    Protected\n                                http\n                            \n                        \n                    \n                \n\n                \n                    \n                        Methods\n                    \n                \n                \n                    \n                        \n                            \n                                    Private\n                                _handleError\n                            \n                            \n                                    Protected\n                                    Async\n                                delete\n                            \n                            \n                                    Protected\n                                    Async\n                                get\n                            \n                            \n                                    Protected\n                                getHeaders\n                            \n                            \n                                    Protected\n                                    Async\n                                post\n                            \n                            \n                                    Protected\n                                    Async\n                                put\n                            \n                        \n                    \n                \n\n\n\n\n\n        \n    \n\n\n\n            \n    \n    \n        Methods\n    \n    \n        \n            \n                \n                    \n                    \n                            Private\n                        _handleError\n                        \n                    \n                \n            \n            \n                \n                        \n                    _handleError(error: any)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:59\n                        \n                    \n\n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                error\n                                            \n                                                            any\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Error\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        delete\n                        \n                    \n                \n            \n            \n                \n                        \n                    delete(endpoint: string)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:49\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        get\n                        \n                    \n                \n            \n            \n                \n                        \n                    get(endpoint: string)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:19\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                        getHeaders\n                        \n                    \n                \n            \n            \n                \n                        \n                    getHeaders()\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:13\n                        \n                    \n\n\n            \n                \n\n                        \n                            Returns :         HttpHeaders\n\n                        \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        post\n                        \n                    \n                \n            \n            \n                \n                        \n                    post(endpoint: string, body: any)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:29\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                        \n                                                body\n                                            \n                                                            any\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Async\n                        put\n                        \n                    \n                \n            \n            \n                \n                        \n                    put(endpoint: string, body: any)\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/internal-shared/services/base.api.ts:39\n                        \n                    \n\n                    \n                        \n                            Type parameters :\n                            \n                                    T\n                            \n                        \n                    \n\n            \n                \n\n                            \n                                Parameters :\n                                \n                                \n                                    \n                                        \n                                            Name\n                                                Type\n                                            Optional\n                                        \n                                    \n                                    \n                                        \n                                                endpoint\n                                            \n                                                            string\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                        \n                                                body\n                                            \n                                                            any\n                                            \n\n                                            \n                                                    No\n                                            \n\n\n                                        \n                                    \n                                \n                            \n                        \n                            Returns :     Promise\n\n                        \n                            \n                                \n                            \n                \n            \n        \n    \n\n            \n    \n    \n        Properties\n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                            Readonly\n                        BASE_URL\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : environment.apiUrl\n                    \n                \n                    \n                        \n                                Defined in src/app/internal-shared/services/base.api.ts:11\n                        \n                    \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                            Protected\n                        http\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : inject(HttpClient)\n                    \n                \n                    \n                        \n                                Defined in src/app/internal-shared/services/base.api.ts:10\n                        \n                    \n\n\n        \n    \n\n\n    \n\n\n    \n        import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';\nimport { inject, Injectable } from '@angular/core';\nimport { firstValueFrom } from 'rxjs';\nimport { environment } from 'src/environments/environment';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport abstract class BaseApi {\n  protected http = inject(HttpClient);\n  protected readonly BASE_URL = environment.apiUrl;\n\n  protected getHeaders(): HttpHeaders {\n    return new HttpHeaders({\n      'Content-Type': 'application/json'\n    });\n  }\n\n  protected async get(endpoint: string): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.get(`${this.BASE_URL}${endpoint}`, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  protected async post(endpoint: string, body: any): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.post(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  protected async put(endpoint: string, body: any): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.put(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  protected async delete(endpoint: string): Promise {\n    try {\n      return await firstValueFrom(\n        this.http.delete(`${this.BASE_URL}${endpoint}`, { headers: this.getHeaders() })\n      );\n    } catch (error) {\n      throw this._handleError(error);\n    }\n  }\n\n  private _handleError(error: any): Error {\n    if (error instanceof HttpErrorResponse) {\n      switch (error.status) {\n        case 400: return new Error('Données invalides');\n        case 401: return new Error('Non autorisé');\n        case 403: return new Error('Accès interdit');\n        case 404: return new Error('Ressource non trouvée');\n        case 500: return new Error('Erreur serveur');\n        default:  return new Error('Erreur réseau');\n      }\n    }\n    return new Error('Erreur inconnue');\n  }\n}\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n",
+    },
+    'injectables/CounterService.html': {
+      url: 'injectables/CounterService.html',
+      title: 'injectable - CounterService',
+      body: '\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n  Injectables\n  CounterService\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n\n\n\n    \n        \n            File\n        \n        \n            src/app/features/counter.service.ts\n        \n\n\n\n\n\n            \n    Index\n    \n        \n                \n                    \n                        Properties\n                    \n                \n                \n                    \n                        \n                            \n                                    Private\n                                _count\n                            \n                        \n                    \n                \n\n                \n                    \n                        Methods\n                    \n                \n                \n                    \n                        \n                            \n                                getCount\n                            \n                            \n                                increment\n                            \n                        \n                    \n                \n\n\n\n\n\n        \n    \n\n\n\n            \n    \n    \n        Methods\n    \n    \n        \n            \n                \n                    \n                    \n                        getCount\n                        \n                    \n                \n            \n            \n                \ngetCount()\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/features/counter.service.ts:13\n                        \n                    \n\n\n            \n                \n\n                        \n                            Returns :         number\n\n                        \n                \n            \n        \n    \n    \n        \n            \n                \n                    \n                    \n                        increment\n                        \n                    \n                \n            \n            \n                \nincrement()\n                \n            \n\n\n                    \n                        \n                            Defined in src/app/features/counter.service.ts:9\n                        \n                    \n\n\n            \n                \n\n                        \n                            Returns :         void\n\n                        \n                \n            \n        \n    \n\n            \n    \n    \n        Properties\n    \n    \n        \n            \n                \n                    \n                    \n                            Private\n                        _count\n                        \n                    \n                \n            \n                \n                    \n                        Type :         number\n\n                    \n                \n                \n                    \n                        Default value : 0\n                    \n                \n                    \n                        \n                                Defined in src/app/features/counter.service.ts:7\n                        \n                    \n\n\n        \n    \n\n\n    \n\n\n    \n        import { Injectable } from \'@angular/core\';\n\n@Injectable({\n  providedIn: \'root\',\n})\nexport class CounterService {\n  private _count:number = 0;\n\n  increment(): void {\n    this._count++;\n  }\n\n  getCount(): number {\n    return this._count;\n  }\n}\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'components/UnderConstructionComponent.html': {
+      url: 'components/UnderConstructionComponent.html',
+      title: 'component - UnderConstructionComponent',
+      body: "\n                   \n\n\n\n\n\n\n\n\n\n  Components\n  \n  UnderConstructionComponent\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n        \n            Template\n        \n        \n            DOM Tree\n        \n\n\n\n    \n    File\n\n\n    src/app/features/under-construction/components/under-construction.component/under-construction.component.ts\n\n\n\n\n\n\n\n\n    Metadata\n    \n        \n\n\n\n\n\n\n\n\n\n\n\n\n            \n                selector\n                app-under-construction\n            \n\n\n\n\n\n\n            \n                templateUrl\n                ./under-construction.component.html\n            \n\n\n\n            \n                styleUrl\n                ./under-construction.component.scss\n            \n\n\n\n\n\n        \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-under-construction',\n  imports: [],\n  templateUrl: './under-construction.component.html',\n  styleUrl: './under-construction.component.scss',\n})\nexport class UnderConstructionComponent {}\n\n    \n\n    \n        \n  \n    \n      Site en construction\n      \n        Nous travaillons actuellement sur ce site.\n        Revenez très bientôt !\n      \n    \n  \n\n  \n    \n  \n\n\n    \n\n\n    \n        \n        \n            \n                Legend\n            \n            \n                Html element\n            \n            \n                Component\n            \n            \n                Html element with directive\n            \n        \n    \n\n    \n\n\n\n\n\n\n        var COMPONENT_TEMPLATE = '            Site en construction              Nous travaillons actuellement sur ce site.        Revenez très bientôt !                    '\n    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];\n    var DIRECTIVES = [];\n    var ACTUAL_COMPONENT = {'name': 'UnderConstructionComponent'};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n",
+    },
+    'components/UnderConstructionPage.html': {
+      url: 'components/UnderConstructionPage.html',
+      title: 'component - UnderConstructionPage',
+      body: "\n                   \n\n\n\n\n\n\n\n\n\n  Components\n  \n  UnderConstructionPage\n\n\n\n        \n            Info\n        \n        \n            Source\n        \n        \n            Styles\n        \n        \n            DOM Tree\n        \n\n\n\n    \n    File\n\n\n    src/app/features/under-construction/pages/under-construction.page.ts\n\n\n\n\n\n\n\n\n    Metadata\n    \n        \n\n\n\n\n\n\n\n\n\n\n\n\n            \n                selector\n                app-under-construction.page\n            \n\n\n            \n                imports\n                \n                                UnderConstructionComponent\n                \n            \n\n\n            \n                styles\n                \n            \n\n            \n                template\n                \n            \n\n\n\n\n\n\n\n\n\n        \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        import { Component } from '@angular/core';\nimport { UnderConstructionComponent } from '../components/under-construction.component/under-construction.component';\n\n@Component({\n  selector: 'app-under-construction.page',\n  imports: [UnderConstructionComponent],\n  template: `  `,\n  styles: ``,\n})\nexport default class UnderConstructionPage {}\n\n    \n\n\n    \n            \n\n    \n\n    \n        \n        \n            \n                Legend\n            \n            \n                Html element\n            \n            \n                Component\n            \n            \n                Html element with directive\n            \n        \n    \n\n    \n\n\n\n\n\n\n        var COMPONENT_TEMPLATE = ''\n    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];\n    var DIRECTIVES = [];\n    var ACTUAL_COMPONENT = {'name': 'UnderConstructionPage'};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n",
+    },
+    'coverage.html': {
+      url: 'coverage.html',
+      title: 'coverage - coverage',
+      body: '\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Documentation coverage\n\n\n\n    \n\n\n\n    \n        \n            File\n            Type\n            Identifier\n            Statements\n        \n    \n    \n        \n            \n                \n                        src/app/app.component.ts\n            \n            component\n            AppComponent\n            \n                0 %\n                (0/2)\n            \n        \n        \n            \n                \n                        src/app/app.config.server.ts\n            \n            variable\n            config\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/app.config.server.ts\n            \n            variable\n            serverConfig\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/app.config.ts\n            \n            variable\n            appConfig\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/app.routes.server.ts\n            \n            variable\n            serverRoutes\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/features/counter.service.ts\n            \n            injectable\n            CounterService\n            \n                0 %\n                (0/4)\n            \n        \n        \n            \n                \n                        src/app/features/under-construction/components/under-construction.component/under-construction.component.ts\n            \n            component\n            UnderConstructionComponent\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/features/under-construction/pages/under-construction.page.ts\n            \n            component\n            UnderConstructionPage\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/app/internal-shared/services/base.api.ts\n            \n            injectable\n            BaseApi\n            \n                0 %\n                (0/9)\n            \n        \n        \n            \n                \n                        src/environments/environment.development.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/environments/environment.production.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/environments/environment.staging.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/environments/environment.ts\n            \n            variable\n            environment\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/main.server.ts\n            \n            variable\n            bootstrap\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            angularApp\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            app\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            browserDistFolder\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/server.ts\n            \n            variable\n            reqHandler\n            \n                100 %\n                (1/1)\n            \n        \n        \n            \n                \n                        src/tests/config/jest.integration.config.ts\n            \n            variable\n            config\n            \n                0 %\n                (0/1)\n            \n        \n        \n            \n                \n                        src/tests/config/jest.unit.config.ts\n            \n            variable\n            config\n            \n                0 %\n                (0/1)\n            \n        \n    \n\n\n\n\n\n    new Tablesort(document.getElementById(\'coverage-table\'));\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'dependencies.html': {
+      url: 'dependencies.html',
+      title: 'package-dependencies - dependencies',
+      body: '\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        Dependencies\n    \n    \n        \n            @angular/cdk : ^21.1.1\n        \n            @angular/common : ^21.1.0\n        \n            @angular/compiler : ^21.1.0\n        \n            @angular/core : ^21.1.0\n        \n            @angular/forms : ^21.1.0\n        \n            @angular/platform-browser : ^21.1.0\n        \n            @angular/platform-server : ^21.1.0\n        \n            @angular/router : ^21.1.0\n        \n            @angular/ssr : ^21.1.0\n        \n            @tailwindcss/postcss : ^4.1.18\n        \n            angular-eslint : ^21.1.0\n        \n            class-variance-authority : ^0.7.1\n        \n            clsx : ^2.1.1\n        \n            express : ^5.1.0\n        \n            lucide-angular : ^0.562.0\n        \n            postcss : ^8.5.6\n        \n            rxjs : ~7.8.0\n        \n            tailwind-merge : ^3.4.0\n        \n            tailwindcss : ^4.1.18\n        \n            tslib : ^2.3.0\n        \n            zone.js : ^0.16.0\n    \n\n\n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'index.html': {
+      url: 'index.html',
+      title: 'readme - index',
+      body: '\n                   \n\n\nJokeurFrontend\nThis project was generated using Angular CLI version 21.1.0.\nDevelopment server\nTo start a local development server, run:\nExample :ng serveOnce the server is running, open your browser and navigate to http://localhost:4200/. The application will automatically reload whenever you modify any of the source files.\nCode scaffolding\nAngular CLI includes powerful code scaffolding tools. To generate a new component, run:\nExample :ng generate component component-nameFor a complete list of available schematics (such as components, directives, or pipes), run:\nExample :ng generate --helpBuilding\nTo build the project run:\nExample :ng buildThis will compile your project and store the build artifacts in the dist/ directory. By default, the production build optimizes your application for performance and speed.\nRunning unit tests\nTo execute unit tests with the Vitest test runner, use the following command:\nExample :ng testRunning end-to-end tests\nFor end-to-end (e2e) testing, run:\nExample :ng e2eAngular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.\nAdditional Resources\nFor more information on using the Angular CLI, including detailed command references, visit the Angular CLI Overview and Command Reference page.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'modules.html': {
+      url: 'modules.html',
+      title: 'modules - modules',
+      body: '\n                   \n\n\n\n\n\n\n\n\n    Modules\n\n\n    \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'overview.html': {
+      url: 'overview.html',
+      title: 'overview - overview',
+      body: '\n                   \n\n\n\n\n\n\n\n    Overview\n\n    \n\n    \n        \n            \n                \n                    \n                    3 Components\n                \n            \n        \n        \n            \n                \n                    \n                    2 Injectables\n                \n            \n        \n        \n            \n                \n                    \n                    \n                        0 \n                    \n                \n            \n        \n    \n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'properties.html': {
+      url: 'properties.html',
+      title: 'package-properties - properties',
+      body: '\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n        Properties\n    \n    \n        \n            Version : 0.0.0\n    \n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'routes.html': {
+      url: 'routes.html',
+      title: 'routes - routes',
+      body: '\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Routes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   \n    \n         results matching ""\n        \n    \n    \n        No results matching ""\n    \n\n',
+    },
+    'miscellaneous/variables.html': {
+      url: 'miscellaneous/variables.html',
+      title: 'miscellaneous-variables - variables',
+      body: "\n                   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  Miscellaneous\n  Variables\n\n\n\n    Index\n    \n        \n            \n                \n                    \n                        \n                            angularApp   (src/.../server.ts)\n                        \n                        \n                            app   (src/.../server.ts)\n                        \n                        \n                            appConfig   (src/.../app.config.ts)\n                        \n                        \n                            bootstrap   (src/.../main.server.ts)\n                        \n                        \n                            browserDistFolder   (src/.../server.ts)\n                        \n                        \n                            config   (src/.../app.config.server.ts)\n                        \n                        \n                            config   (src/.../jest.integration.config.ts)\n                        \n                        \n                            config   (src/.../jest.unit.config.ts)\n                        \n                        \n                            environment   (src/.../environment.development.ts)\n                        \n                        \n                            environment   (src/.../environment.production.ts)\n                        \n                        \n                            environment   (src/.../environment.staging.ts)\n                        \n                        \n                            environment   (src/.../environment.ts)\n                        \n                        \n                            reqHandler   (src/.../server.ts)\n                        \n                        \n                            serverConfig   (src/.../app.config.server.ts)\n                        \n                        \n                            serverRoutes   (src/.../app.routes.server.ts)\n                        \n                    \n                \n            \n        \n    \n\n\n    src/server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        angularApp\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : new AngularNodeAppEngine()\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        app\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : express()\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        browserDistFolder\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : join(import.meta.dirname, '../browser')\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        reqHandler\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : createNodeRequestHandler(app)\n                    \n                \n\n            \n                \n                    Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.\n\n                \n            \n\n        \n    \n\n    src/app/app.config.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        appConfig\n                        \n                    \n                \n            \n                \n                    \n                        Type :     ApplicationConfig\n\n                    \n                \n                \n                    \n                        Default value : {\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes),\n    provideClientHydration(withEventReplay()),\n    provideZard(),\n  ],\n}\n                    \n                \n\n\n        \n    \n\n    src/main.server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        bootstrap\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : (context: BootstrapContext) =>\n  bootstrapApplication(AppComponent, config, context)\n                    \n                \n\n\n        \n    \n\n    src/app/app.config.server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        config\n                        \n                    \n                \n            \n                \n                    \n                        Type :     unknown\n\n                    \n                \n                \n                    \n                        Default value : mergeApplicationConfig(appConfig, serverConfig)\n                    \n                \n\n\n        \n    \n    \n        \n            \n                \n                    \n                    \n                        serverConfig\n                        \n                    \n                \n            \n                \n                    \n                        Type :     ApplicationConfig\n\n                    \n                \n                \n                    \n                        Default value : {\n  providers: [provideServerRendering(withRoutes(serverRoutes))],\n}\n                    \n                \n\n\n        \n    \n\n    src/tests/config/jest.integration.config.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        config\n                        \n                    \n                \n            \n                \n                    \n                        Type :     Config\n\n                    \n                \n                \n                    \n                        Default value : {\n  rootDir: '../../../',\n  preset: 'jest-preset-angular',\n  displayName: 'integration',\n\n  testMatch: ['/src/tests/integration/**/*.spec.ts'],\n  testPathIgnorePatterns: ['/cypress/'],\n\n  testEnvironment: 'jsdom', // ou 'node' si API pure\n\n  clearMocks: true,\n  coverageProvider: 'v8',\n  coverageDirectory: '/coverage/integration',\n  coverageReporters: ['html', 'text-summary'],\n\n  setupFilesAfterEnv: ['/setup-jest.ts'],\n}\n                    \n                \n\n\n        \n    \n\n    src/tests/config/jest.unit.config.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        config\n                        \n                    \n                \n            \n                \n                    \n                        Type :     Config\n\n                    \n                \n                \n                    \n                        Default value : {\n  rootDir: '../../../',\n  preset: 'jest-preset-angular',\n  displayName: 'unit',\n\n  testMatch: ['/src/tests/unit/**/*.spec.ts'],\n  testPathIgnorePatterns: ['/cypress/'],\n\n  testEnvironment: 'jsdom',\n\n  clearMocks: true,\n  coverageProvider: 'v8',\n  coverageDirectory: '/coverage/unit',\n  coverageReporters: ['html', 'text-summary'],\n\n  setupFilesAfterEnv: ['/setup-jest.ts'],\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.development.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: false,\n  name: 'development',\n  apiUrl: 'http://localhost:8080',\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.production.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: true,\n  name: 'production',\n  apiUrl: 'api.jokeur.ashleydev.fr',\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.staging.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: true,\n  name: 'staging',\n  apiUrl: 'staging-api.jokeur.ashleydev.fr',\n}\n                    \n                \n\n\n        \n    \n\n    src/environments/environment.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        environment\n                        \n                    \n                \n            \n                \n                    \n                        Type :         object\n\n                    \n                \n                \n                    \n                        Default value : {\n  production: false,\n  name: '',\n  apiUrl: '',\n}\n                    \n                \n\n\n        \n    \n\n    src/app/app.routes.server.ts\n    \n        \n        \n            \n                \n                    \n                    \n                        serverRoutes\n                        \n                    \n                \n            \n                \n                    \n                        Type :     ServerRoute[]\n\n                    \n                \n                \n                    \n                        Default value : [\n  {\n    path: '**',\n    renderMode: RenderMode.Prerender,\n  },\n]\n                    \n                \n\n\n        \n    \n\n\n\n\n                   \n    \n         results matching \"\"\n        \n    \n    \n        No results matching \"\"\n    \n\n",
+    },
+  },
+};
