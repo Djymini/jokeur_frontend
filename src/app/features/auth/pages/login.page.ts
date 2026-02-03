@@ -4,9 +4,9 @@ import { LoginFormComponent } from '@/features/auth/components/login-form.compon
 @Component({
   selector: 'app-login',
   imports: [LoginFormComponent],
-  template: '<app-login-form></app-login-form>',
+  template: '' +
+    '<h2>Connexion</h2>' +
+    '<app-login-form></app-login-form>',
   styles: '',
 })
-export default class LoginPage {
-
-}
+export default class LoginPage {}
