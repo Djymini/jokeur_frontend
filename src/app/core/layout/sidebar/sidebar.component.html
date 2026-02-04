@@ -1,0 +1,34 @@
+<aside
+  class="sidebar"
+  [class.collapsed]="collapsed()"
+  role="navigation"
+  aria-label="Menu principal"
+>
+  <nav class="sidebar-nav">
+    <div class="logo">
+      <h1 class="h1">Jokeur</h1>
+    </div>
+    <hr />
+    <ul>
+      @for (item of menuItems(); track item.id) {
+        <li>
+          <a
+            [href]="item.route"
+            [class.active]="activeRoute() === item.route"
+            (click)="selectMenu()"
+            [attr.aria-current]="activeRoute() === item.route ? 'page' : null"
+          >
+            <span class="material-icons">{{ item.icon }}</span>
+            @if (!collapsed()) {
+              <span class="menu-label">{{ item.label }}</span>
+            }
+
+            @if (item.badge && item.badge > 0 && !collapsed()) {
+              <span class="menu-badge">{{ item.badge }}</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>
