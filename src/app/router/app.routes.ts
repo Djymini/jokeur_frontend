@@ -23,7 +23,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     title: 'Tableau de bord',
-    loadComponent: () => import('../features/auth/pages/dashboard.page'), canActivate: [authGuard],
+    loadComponent: () => import('../features/auth/pages/dashboard.page'),
+    canActivate: [authGuard],
   },
-
 ];

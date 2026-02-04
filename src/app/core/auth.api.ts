@@ -5,19 +5,20 @@ import { RegisterFormOwnerModel } from '@/features/auth/models/register-form-own
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthApi {
   protected http = inject(HttpClient);
   protected readonly BASE_URL = environment.apiUrl;
 
   protected getHeaders(): HttpHeaders {
     return new HttpHeaders({
-      'Content-Type': 'application/json'});
+      'Content-Type': 'application/json',
+    });
   }
 
   async register(registerForm: FormGroup<RegisterFormOwnerModel>): Promise<RegisterFormOwnerModel> {
     return await firstValueFrom(
-      this.http.post<RegisterFormOwnerModel>(`${this.BASE_URL}/register`, registerForm.value))
+      this.http.post<RegisterFormOwnerModel>(`${this.BASE_URL}/register`, registerForm.value),
+    );
   }
-
 }

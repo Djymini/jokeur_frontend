@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   template: `
     <h1>Dashboard</h1>
     <p>Cette page est protégée.</p>
-  `
+  `,
 })
 export default class DashboardPage {}

@@ -38,6 +38,4 @@ export class LoginFormComponent {
     this._authService.loginMock(email, password);
     this._router.navigate(['/dashboard']);
   }
-
-
 }
