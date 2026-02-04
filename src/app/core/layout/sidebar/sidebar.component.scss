@@ -1,0 +1,120 @@
+.sidebar {
+  color: var(--sidebar-primary-foreground);
+  width: 250px;
+  height: 100vh;
+  background: var(--primary);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: hidden;
+
+  &.collapsed {
+    width: 70px;
+
+    .menu-label, .menu-badge, .sidebar-section {
+      display: none;
+    }
+  }
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+hr {
+  width: 70%;
+  margin: 24px auto;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    position: relative;
+
+    &:hover {
+      background: var(--accent);
+      color: var(--foreground);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--primary);
+      }
+    }
+
+    &.active {
+      background: var(--primary-light);
+      font-weight: 500;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--primary);
+      }
+    }
+
+    .material-icons {
+      font-size: 1.5rem;
+      min-width: 24px;
+
+    }
+
+    .menu-label {
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    .menu-badge {
+      background: var(--destructive);
+      color: white;
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 1rem;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    z-index: 90;
+    transform: translateX(-100%);
+
+    &.show-mobile {
+      transform: translateX(0);
+    }
+  }
+}
