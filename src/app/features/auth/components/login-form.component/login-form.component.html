@@ -1,10 +1,19 @@
 <script src="login-form.component.ts"></script>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
   <div class="field">
     <label for="email">Email :</label>
-    <input id="email" type="email" formControlName="email"
-           [attr.aria-invalid]="loginForm.controls.email.invalid && (loginForm.controls.email.touched || loginForm.controls.email.dirty) ? true : null" aria-describedby="error">
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      [attr.aria-invalid]="
+        loginForm.controls.email.invalid &&
+        (loginForm.controls.email.touched || loginForm.controls.email.dirty)
+          ? true
+          : null
+      "
+      aria-describedby="error"
+    />
     @if (loginForm.controls.email.invalid && loginForm.controls.email.touched) {
       <p class="error">Email invalide</p>
     }
@@ -15,8 +24,5 @@
     <input id="password" type="password" formControlName="password" />
   </div>
 
-  <button type="submit" [disabled]="loginForm.invalid">
-    Connexion
-  </button>
-
+  <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
 </form>

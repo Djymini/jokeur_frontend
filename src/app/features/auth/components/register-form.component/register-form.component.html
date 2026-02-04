@@ -1,6 +1,5 @@
 <script src="register-form.component.ts"></script>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
   <div class="field">
     <label for="username">Pseudo :</label>
     <input id="username" type="text" formControlName="username" />
@@ -23,11 +22,21 @@
 
   <div class="field">
     <label for="email">Email :</label>
-    <input id="email" type="email" formControlName="email"
-      [attr.aria-invalid]="registerForm.controls.email.invalid && (registerForm.controls.email.touched || registerForm.controls.email.dirty) ? true : null" aria-describedby="error">
-   @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
-     <p class="error">Email invalide</p>
-   }
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      [attr.aria-invalid]="
+        registerForm.controls.email.invalid &&
+        (registerForm.controls.email.touched || registerForm.controls.email.dirty)
+          ? true
+          : null
+      "
+      aria-describedby="error"
+    />
+    @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
+      <p class="error">Email invalide</p>
+    }
   </div>
 
   <div class="field">
@@ -47,9 +56,5 @@
     </label>
   </div>
 
-  <button type="submit" [disabled]="registerForm.invalid">
-    S'enregistrer
-  </button>
-
+  <button type="submit" [disabled]="registerForm.invalid">S'enregistrer</button>
 </form>
-

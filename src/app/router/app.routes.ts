@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from '@/router/guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -18,4 +19,11 @@ export const routes: Routes = [
     title: 'Se connecter',
     loadComponent: () => import('../features/auth/pages/login.page'),
   },
+
+  {
+    path: 'dashboard',
+    title: 'Tableau de bord',
+    loadComponent: () => import('../features/auth/pages/dashboard.page'), canActivate: [authGuard],
+  },
+
 ];
