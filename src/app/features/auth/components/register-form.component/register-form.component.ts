@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterFormOwnerModel } from '@/features/auth/models/register-form-owner-model';
+import { AuthApi } from '@/core/auth.api';
 
 @Component({
   selector: 'app-register-form',
@@ -10,6 +11,7 @@ import { RegisterFormOwnerModel } from '@/features/auth/models/register-form-own
 })
 export class RegisterFormComponent {
   private _fb = inject(NonNullableFormBuilder);
+  private _authApi = inject(AuthApi);
 
   registerForm: FormGroup<RegisterFormOwnerModel> = this._fb.group({
     username: this._fb.control('', Validators.required),
@@ -24,5 +26,6 @@ export class RegisterFormComponent {
 
   onSubmit(): void {
     console.log('click OK !');
+    this._authApi.register(this.registerForm);
   }
 }
