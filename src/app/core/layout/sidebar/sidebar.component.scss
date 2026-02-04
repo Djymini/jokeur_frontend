@@ -12,13 +12,15 @@
   &.collapsed {
     width: 70px;
 
-    .menu-label, .menu-badge, .sidebar-section {
+    .menu-label,
+    .menu-badge,
+    .sidebar-section {
       display: none;
     }
   }
 }
 
-.logo{
+.logo {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -85,7 +87,6 @@ hr {
     .material-icons {
       font-size: 1.5rem;
       min-width: 24px;
-
     }
 
     .menu-label {
@@ -102,7 +103,6 @@ hr {
     }
   }
 }
-
 
 @media (max-width: 768px) {
   .sidebar {
