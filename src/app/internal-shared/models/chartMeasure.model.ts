@@ -1,5 +1,5 @@
 export type ChartMeasureModel = {
   name: string;
-  label: string[];
+  labels: string[];
   data: string[];
 };

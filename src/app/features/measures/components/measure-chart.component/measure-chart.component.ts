@@ -13,7 +13,7 @@ export class MeasureChartComponent implements OnInit {
 
   dataMeasure: ChartMeasureModel = {
     name: 'Poids',
-    label: [
+    labels: [
       '2022-05-10',
       '2022-05-11',
       '2022-05-12',
@@ -23,7 +23,7 @@ export class MeasureChartComponent implements OnInit {
       '2022-05-16',
       '2022-05-17',
     ],
-    data: ['542', '542', '536', '327', '17', '0.00', '538', '541'],
+    data: ['5.5', '5.5', '5.4', '5.7', '5.6', '5.5', '5.5', '5.6'],
   };
 
   ngOnInit(): void {

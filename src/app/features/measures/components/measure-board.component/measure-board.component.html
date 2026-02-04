@@ -1,15 +1,14 @@
 <div class="board" xmlns="http://www.w3.org/1999/html">
   <div class="board-header">
     <h3 class="board-title">
-      <z-icon [zType]="icon()" zSize="xl"/>
-      {{title()}}
+      <z-icon [zType]="icon()" zSize="xl" />
+      {{ title() }}
     </h3>
-    <button type="button" z-button zSize="lg">Voir détails</button>
   </div>
 
   <app-measure-chart></app-measure-chart>
 
   <div class="board-footer">
-    <button type="button" z-button zSize="sm" zType="link">Voir plus</button>
+    <button type="button" z-button zSize="sm" zType="link" (click)="openDialog()">Voir plus</button>
   </div>
 </div>

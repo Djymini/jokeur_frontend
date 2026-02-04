@@ -13,7 +13,7 @@ export class ChartManager {
       type: chartType,
 
       data: {
-        labels: measureData.data,
+        labels: measureData.labels,
         datasets: [
           {
             label: measureData.name,

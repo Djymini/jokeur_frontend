@@ -1,4 +1,4 @@
-.board{
+.board {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,11 +10,7 @@
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
-button{
-  padding: 16px;
-}
-
-.board-header{
+.board-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -24,9 +20,10 @@ button{
   display: flex;
   align-items: center;
   gap: 4px;
+  color: var(--text);
 }
 
-.board-footer{
+.board-footer {
   width: 100%;
   display: flex;
   justify-content: end;
