@@ -34,7 +34,7 @@ export class MeasureBoardComponent {
       ] as { id: number; date: string; value: string }[],
       zWidth: '500px',
       zHideFooter: true,
-      zCustomClasses: '!p-8'
+      zCustomClasses: '!p-8',
     });
   }
 }
