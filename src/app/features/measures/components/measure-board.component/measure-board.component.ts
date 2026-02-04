@@ -32,8 +32,9 @@ export class MeasureBoardComponent {
         { id: 7, date: '2022-05-16', value: '5.5' },
         { id: 8, date: '2022-05-17', value: '5.6' },
       ] as { id: number; date: string; value: string }[],
-      zWidth: '425px',
+      zWidth: '500px',
       zHideFooter: true,
+      zCustomClasses: '!p-8'
     });
   }
 }
