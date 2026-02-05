@@ -1,3 +1,5 @@
+import { MeasureModel } from '@/features/measures/models/measureModel';
+
 export type HealthRecordModel = {
   healthRecordNumber: number;
   ownerId: number;
@@ -11,8 +13,8 @@ export type HealthRecordModel = {
   identificationNumber: string;
   tattooNumber: string;
   allergy: string;
-  respiratoryRate: number[];
-  weight: number[];
-  bpm: number[];
-  temperature: number[];
+  respiratoryRate: MeasureModel[];
+  weight: MeasureModel[];
+  bpm: MeasureModel[];
+  temperature: MeasureModel[];
 };

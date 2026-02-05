@@ -15,8 +15,11 @@ export class MeasuresStore {
   public temperatureArray = computed(() => this._temperatureArraySignal());
   public respiratoryRateArray = computed(() => this._respiratoryRateArraySignal());
 
-  private _addMeasure(measure: MeasureModel, arraySignal:WritableSignal<MeasureModel[] | undefined>):void {
-    arraySignal.update(measures => [...(measures as MeasureModel[]), measure])
+  private _addMeasure(
+    measure: MeasureModel,
+    arraySignal: WritableSignal<MeasureModel[] | undefined>,
+  ): void {
+    arraySignal.update((measures) => [...(measures as MeasureModel[]), measure]);
   }
 
   addWeight(weight: MeasureModel): void {
@@ -24,19 +27,22 @@ export class MeasuresStore {
   }
 
   addBpm(bpm: MeasureModel): void {
-    this._addMeasure(bpm, this._bpmArraySignal)
+    this._addMeasure(bpm, this._bpmArraySignal);
   }
 
   addTemperature(temperature: MeasureModel): void {
-    this._addMeasure(temperature, this._temperatureArraySignal)
+    this._addMeasure(temperature, this._temperatureArraySignal);
   }
 
   addRespiratoryRate(respiratoryRate: MeasureModel): void {
-    this._addMeasure(respiratoryRate, this._respiratoryRateArraySignal)
+    this._addMeasure(respiratoryRate, this._respiratoryRateArraySignal);
   }
 
-  private _removeMeasure(id: number, arraySignal:WritableSignal<MeasureModel[] | undefined>): void {
-    arraySignal.update(measures => measures!.filter(measure => measure.id !== id));
+  private _removeMeasure(
+    id: number,
+    arraySignal: WritableSignal<MeasureModel[] | undefined>,
+  ): void {
+    arraySignal.update((measures) => measures!.filter((measure) => measure.id !== id));
   }
 
   removeWeight(id: number): void {
@@ -55,13 +61,13 @@ export class MeasuresStore {
     this._removeMeasure(id, this._respiratoryRateArraySignal);
   }
 
-  private _modifyValueMeasure(id: number, newValue: number, arraySignal:WritableSignal<MeasureModel[] | undefined>): void {
-    arraySignal.update(measures =>
-      measures!.map(measure =>
-        measure.id === id
-          ? { ...measure, value: newValue }
-          : measure
-      )
+  private _modifyValueMeasure(
+    id: number,
+    newValue: number,
+    arraySignal: WritableSignal<MeasureModel[] | undefined>,
+  ): void {
+    arraySignal.update((measures) =>
+      measures!.map((measure) => (measure.id === id ? { ...measure, value: newValue } : measure)),
     );
   }
 
