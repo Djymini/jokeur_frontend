@@ -1,14 +1,14 @@
 <header class="header" role="banner">
-
   <div class="header-left">
-    <button type="button"
+    <button
+      type="button"
       class="menu-toggle"
       (click)="toggleSidebar.emit()"
       aria-label="Toggle sidebar"
     >
-          <span class="material-icons">
-            {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
-          </span>
+      <span class="material-icons">
+        {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
+      </span>
     </button>
   </div>
   <div class="header-right">

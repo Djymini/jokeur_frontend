@@ -3,26 +3,26 @@ import { NgClass } from '@angular/common';
 
 export type Notification = {
   hasNew: boolean;
-  date: string,
-  message: string,
-}
+  date: string;
+  message: string;
+};
 
-export type Reminder =  {
-  date: string,
-  message: string,
-}
+export type Reminder = {
+  date: string;
+  message: string;
+};
 
 export type Appointment = {
-  date: string,
+  date: string;
   title: string;
   status: 'pending' | 'confirmed' | 'completed';
-}
+};
 
 export type Animal = {
   name: string;
   type: string;
   nicknames: string[];
-}
+};
 
 @Component({
   selector: 'app-owner',
@@ -31,7 +31,6 @@ export type Animal = {
   styleUrl: './owner.component.scss',
 })
 export default class OwnerComponent {
-
   // Notifications
   notifications: Notification = {
     date: '28/08/2024',
@@ -55,7 +54,7 @@ export default class OwnerComponent {
     { name: 'Rex', type: 'le chien flic', nicknames: ['Lassie'] },
     { name: 'Beethoven', type: '', nicknames: ['Garfield'] },
     { name: 'Rex', type: 'le chien flic', nicknames: ['Lassie'] },
-    { name: 'Beethoven', type: '', nicknames: ['Garfield'] }
+    { name: 'Beethoven', type: '', nicknames: ['Garfield'] },
   ];
 
   getAppointmentStatusClass(status: string): string {
@@ -70,5 +69,4 @@ export default class OwnerComponent {
         return 'text-gray-500 bg-gray-100';
     }
   }
-
 }

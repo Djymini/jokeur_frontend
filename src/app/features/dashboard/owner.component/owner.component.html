@@ -2,19 +2,17 @@
   <h2 class="text text-card-foreground title">Informations</h2>
 
   <!-- Notifications -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6  parent">
-    <div class="bg-card rounded-lg shadow-sm border  info-card">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 parent">
+    <div class="bg-card rounded-lg shadow-sm border info-card">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Notifications</h3>
         @if (notifications.hasNew) {
           <span class="w-3 h-3 rounded-full bg-destructive animate-pulse"></span>
         }
       </div>
-      <p class="text-muted-foreground mb-2">{{notifications.message}}</p>
-      <p class="text-muted-foreground mb-4">{{notifications.date}}</p>
-      <button type="button" class="text-primary">
-        Accéder à mes notifications
-      </button>
+      <p class="text-muted-foreground mb-2">{{ notifications.message }}</p>
+      <p class="text-muted-foreground mb-4">{{ notifications.date }}</p>
+      <button type="button" class="text-primary">Accéder à mes notifications</button>
     </div>
 
     <!-- Rappels -->
@@ -22,31 +20,30 @@
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Rappel</h3>
       </div>
-      <p class="text-muted-foreground mb-2">{{reminders.message}}</p>
-      <p class="text-sm text-muted-foreground mb-4">{{reminders.date}}</p>
-      <button type="button" class="text-primary ">
-        Accéder à mes rappels
-      </button>
-
+      <p class="text-muted-foreground mb-2">{{ reminders.message }}</p>
+      <p class="text-sm text-muted-foreground mb-4">{{ reminders.date }}</p>
+      <button type="button" class="text-primary">Accéder à mes rappels</button>
     </div>
     <!-- Rendez-vous -->
-    <div class="bg-card rounded-lg shadow-sm border info-card ">
+    <div class="bg-card rounded-lg shadow-sm border info-card">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Rendez-vous</h3>
-        <span class="px-2 py-1 text-xs rounded-full"
-              [ngClass]="getAppointmentStatusClass(appointments.status)">
-                {{appointments.status === 'confirmed' ? '🟢' : ''}}
-              </span>
+        <span
+          class="px-2 py-1 text-xs rounded-full"
+          [ngClass]="getAppointmentStatusClass(appointments.status)"
+        >
+          {{ appointments.status === 'confirmed' ? '🟢' : '' }}
+        </span>
       </div>
-      <p class="text-muted-foreground mb-2">{{appointments.title}}</p>
-      <p class="text-sm text-muted-foreground mb-4">{{appointments.date}}</p>
-      <button type="button"
-              class="text-primary hover:text-primary-dark font-medium transition-colors">
+      <p class="text-muted-foreground mb-2">{{ appointments.title }}</p>
+      <p class="text-sm text-muted-foreground mb-4">{{ appointments.date }}</p>
+      <button
+        type="button"
+        class="text-primary hover:text-primary-dark font-medium transition-colors"
+      >
         Accéder à mes rendez-vous
       </button>
-
     </div>
-
   </div>
 </section>
 
@@ -57,35 +54,36 @@
   </div>
 
   <div class="my-animals">
-  <div class="grid grid-cols-2 grid-rows-5 gap-5">
-    @for (animal of animals; track animal) {
-      <div class="flex items-center justify-between rounded-lg bg-card shadow-lg hover:border transition-colors">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12  flex items-center justify-center">
-            <img class="rounded-full" src="images/jokeur_image1.webp" alt="animal-image">
+    <div class="grid grid-cols-2 grid-rows-5 gap-5">
+      @for (animal of animals; track animal) {
+        <div
+          class="flex items-center justify-between rounded-lg bg-card shadow-lg hover:border transition-colors"
+        >
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 flex items-center justify-center">
+              <img class="rounded-full" src="images/jokeur_image1.webp" alt="animal-image" />
+            </div>
+            <div>
+              <h4 class="font-medium text-lg">{{ animal.name }}</h4>
+              @if (animal.type) {
+                <p class="text-sm text-muted-foreground">{{ animal.type }}</p>
+              }
+            </div>
           </div>
-          <div>
-            <h4 class="font-medium text-lg">{{animal.name}}</h4>
-            @if (animal.type) {
-              <p class="text-sm text-muted-foreground">{{animal.type}}</p>
-            }
-          </div>
-        </div>
 
-        <div class="flex items-center gap-2">
-          @for (nickname of animal.nicknames; track nickname) {
-            <span class="text-sm text-muted-foreground">
-                  {{nickname}}
+          <div class="flex items-center gap-2">
+            @for (nickname of animal.nicknames; track nickname) {
+              <span class="text-sm text-muted-foreground">
+                {{ nickname }}
               </span>
-          }
-          <span class="text-muted-foreground"> ></span>
+            }
+            <span class="text-muted-foreground"> ></span>
+          </div>
         </div>
-      </div>
-    }
+      }
+    </div>
   </div>
-  </div>
-  <button type="button"
-          class="text-primary hover:text-primary-dark font-medium transition-colors">
+  <button type="button" class="text-primary hover:text-primary-dark font-medium transition-colors">
     Accéder à mes animaux
   </button>
 </section>

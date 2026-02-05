@@ -4,11 +4,7 @@ import OwnerComponent from '@/features/dashboard/owner.component/owner.component
 @Component({
   selector: 'app-home.page',
   imports: [OwnerComponent],
-  template: `
-    <app-owner></app-owner>
-  `,
+  template: ` <app-owner></app-owner> `,
   styles: ``,
 })
-export default class HomePage {
-
-}
+export default class HomePage {}

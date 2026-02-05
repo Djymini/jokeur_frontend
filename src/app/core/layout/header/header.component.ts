@@ -1,6 +1,5 @@
 import { Component, input, output } from '@angular/core';
 
-
 @Component({
   selector: 'app-header',
   imports: [],
