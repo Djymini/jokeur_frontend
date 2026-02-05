@@ -4,4 +4,4 @@ export type MeasureDtoRecord = {
   type: string;
   creationDate: string;
   healthRecordNumber: number;
-}
+};

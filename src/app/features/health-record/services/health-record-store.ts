@@ -6,7 +6,7 @@ import { HealthRecordModel } from '@/features/health-record/models/healthRecordM
 })
 export class HealthRecordStore {
   //Todo: complete the health record store
-  private _healthRecordSignal = signal<HealthRecordModel | undefined>( undefined)
+  private _healthRecordSignal = signal<HealthRecordModel | undefined>(undefined);
 
   healthRecord = computed(() => this._healthRecordSignal());
   weightArray = computed(() => this._healthRecordSignal()!.weight);
