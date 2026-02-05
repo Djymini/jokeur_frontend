@@ -11,6 +11,6 @@ export class MeasureSectionRespiratoryFrequency implements MeasureSectionBehavio
   }
 
   initResumeTitle(): string {
-    return 'Dernières fréquences'
+    return 'Dernières fréquences';
   }
 }

@@ -11,6 +11,6 @@ export class MeasureSectionTemperature implements MeasureSectionBehavior {
   }
 
   initResumeTitle(): string {
-    return 'Dernières températures'
+    return 'Dernières températures';
   }
 }

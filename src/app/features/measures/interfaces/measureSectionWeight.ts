@@ -11,6 +11,6 @@ export class MeasureSectionWeight implements MeasureSectionBehavior {
   }
 
   initResumeTitle(): string {
-    return 'Dernières pesées'
+    return 'Dernières pesées';
   }
 }

@@ -11,6 +11,6 @@ export class MeasureSectionBpm implements MeasureSectionBehavior {
   }
 
   initResumeTitle(): string {
-    return 'Dernières fréquences'
+    return 'Dernières fréquences';
   }
 }
