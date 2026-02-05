@@ -1,0 +1,60 @@
+<script src="register-form.component.ts"></script>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label for="username">Pseudo :</label>
+    <input id="username" type="text" formControlName="username" />
+  </div>
+
+  <div class="field">
+    <label for="name">Nom :</label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+
+  <div class="field">
+    <label for="firstname">Prénom :</label>
+    <input id="firstname" type="text" formControlName="firstname" />
+  </div>
+
+  <div class="field">
+    <label for="phone">Téléphone :</label>
+    <input id="phone" type="text" formControlName="phone" />
+  </div>
+
+  <div class="field">
+    <label for="email">Email :</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      [attr.aria-invalid]="
+        registerForm.controls.email.invalid &&
+        (registerForm.controls.email.touched || registerForm.controls.email.dirty)
+          ? true
+          : null
+      "
+      aria-describedby="error"
+    />
+    @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
+      <p class="error">Email invalide</p>
+    }
+  </div>
+
+  <div class="field">
+    <label for="password">Mot de passe :</label>
+    <input id="password" type="password" formControlName="password" />
+  </div>
+
+  <div class="field">
+    <label for="confirmPassword">Confirmer le mot de passe :</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+  </div>
+
+  <div class="field">
+    <label>
+      <input type="checkbox" formControlName="acceptCGU" />
+      Accepter les Conditions Générales d'Utilisation
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid">S'enregistrer</button>
+</form>
