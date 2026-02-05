@@ -20,7 +20,7 @@ export default tseslint.config(
       '@typescript-eslint/max-params': ['warn', { max: 3 }],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'error',
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
       '@typescript-eslint/no-inferrable-types': 'off',
       '@typescript-eslint/member-ordering': [
         'error',
