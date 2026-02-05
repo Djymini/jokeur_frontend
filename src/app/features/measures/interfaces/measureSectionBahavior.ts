@@ -1,7 +1,7 @@
-import { ZardIcon } from '@/shared/components/icon';
+import { MeasureSectionPropertiesModel } from '@/features/measures/models/measureSectionPropertiesModel';
+import { MeasureModel } from '@/features/measures/models/measureModel';
 
 export interface MeasureSectionBehavior {
-  initBoardName(): string;
-  initResumeTitle(): string;
-  initBoardIcon(): ZardIcon;
+  initSectionProperties(): MeasureSectionPropertiesModel;
+  getMeasures(): MeasureModel[];
 }

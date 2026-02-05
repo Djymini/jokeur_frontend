@@ -12,7 +12,8 @@ import { MeasureSectionBehavior } from '@/features/measures/interfaces/measureSe
 export class MeasureSectionComponent {
   measureSection = input.required<MeasureSectionBehavior>();
 
-  boardName = computed(() => this.measureSection().initBoardName());
-  boardIcon = computed(() => this.measureSection().initBoardIcon());
-  resumeTitle = computed(() => this.measureSection().initResumeTitle());
+  boardName = computed(() => this.measureSection().initSectionProperties().boardName);
+  boardIcon = computed(() => this.measureSection().initSectionProperties().boardIcon);
+  resumeTitle = computed(() => this.measureSection().initSectionProperties().resumeTitle);
+  measures = computed(() => this.measureSection().getMeasures())
 }

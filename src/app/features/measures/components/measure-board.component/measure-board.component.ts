@@ -4,6 +4,9 @@ import { MeasureChartComponent } from '@/features/measures/components/measure-ch
 import { ZardIcon, ZardIconComponent } from '@/shared/components/icon';
 import { ZardDialogModule, ZardDialogService } from '@/shared/components/dialog';
 import { MeasureDetailsDialogComponent } from '@/features/measures/components/measure-details-dialog.component/measure-details-dialog.component';
+import {
+  MeasureResumeComponent
+} from '@/features/measures/components/measure-resume.component/measure-resume.component';
 
 @Component({
   selector: 'app-measure-board',
@@ -14,6 +17,7 @@ import { MeasureDetailsDialogComponent } from '@/features/measures/components/me
 export class MeasureBoardComponent {
   icon = input.required<ZardIcon>();
   title = input.required<string>();
+  measures = input.required<MeasureResumeComponent[]>();
 
   dialogService = inject(ZardDialogService);
 
