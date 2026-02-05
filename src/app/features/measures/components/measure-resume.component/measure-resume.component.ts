@@ -2,9 +2,7 @@ import { Component, input } from '@angular/core';
 import { MeasureChartComponent } from '@/features/measures/components/measure-chart.component/measure-chart.component';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardIconComponent } from '@/shared/components/icon';
-import {
-  MeasureResumeItemComponent
-} from '@/features/measures/components/measure-resume-item.component/measure-resume-item.component';
+import { MeasureResumeItemComponent } from '@/features/measures/components/measure-resume-item.component/measure-resume-item.component';
 
 @Component({
   selector: 'app-measure-resume',

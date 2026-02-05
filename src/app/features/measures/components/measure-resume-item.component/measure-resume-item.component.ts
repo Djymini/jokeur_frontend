@@ -8,5 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class MeasureResumeItemComponent {
   value = input.required<string>();
-  date = input.required<string>()
+  date = input.required<string>();
 }

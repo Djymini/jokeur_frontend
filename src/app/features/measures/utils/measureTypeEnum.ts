@@ -1,6 +1,6 @@
 export enum MeasureType {
-  WEIGHT = 'weight',
-  RESPIRATORY_RATE = 'respiratory-rate',
-  BPM = 'bpm',
-  TEMPERATURE = 'temperature',
+  WEIGHT = 0,
+  RESPIRATORY_RATE = 1,
+  BPM = 2,
+  TEMPERATURE = 3,
 }

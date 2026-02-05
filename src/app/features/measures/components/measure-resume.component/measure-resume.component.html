@@ -10,8 +10,11 @@
   </div>
 
   <div class="board-content">
-    @for (measure of measures.slice(0, 5); track measure.id){
-      <app-measure-resume-item [value]="measure.value" [date]="measure.date"></app-measure-resume-item>
+    @for (measure of measures.slice(0, 5); track measure.id) {
+      <app-measure-resume-item
+        [value]="measure.value"
+        [date]="measure.date"
+      ></app-measure-resume-item>
     }
   </div>
 </div>
