@@ -1,8 +1,6 @@
 import { Component, input, OnInit } from '@angular/core';
 import { MeasureBoardComponent } from '@/features/measures/components/measure-board.component/measure-board.component';
-import {
-  MeasureResumeComponent
-} from '@/features/measures/components/measure-resume.component/measure-resume.component';
+import { MeasureResumeComponent } from '@/features/measures/components/measure-resume.component/measure-resume.component';
 import { MeasureType } from '@/features/measures/utils/measureTypeEnum';
 import { ZardIcon } from '@/shared/components/icon';
 
@@ -18,7 +16,6 @@ export class MeasureSectionComponent implements OnInit {
   boardName: string = '';
   boardIcon: ZardIcon = 'check';
   resumeTitle: string = '';
-
 
   ngOnInit(): void {
     switch (this.type()) {
