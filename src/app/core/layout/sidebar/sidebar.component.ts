@@ -4,7 +4,7 @@ type MenuItem = {
   id: string;
   label: string;
   icon: string;
-  route: string;
+  path: string;
   badge?: number;
 };
 
@@ -20,10 +20,10 @@ export default class SidebarComponent {
 
   // Signals internes
   menuItems = signal<MenuItem[]>([
-    { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', route: '/dashboard' },
-    { id: 'animals', label: 'Mes animaux', icon: 'pets', route: '/animals' },
-    { id: 'calendar', label: 'Agenda', icon: 'calendar_today', route: '/calendar' },
-    { id: 'settings', label: 'Paramètres', icon: 'settings', route: '/settings' },
+    { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', path: '/dashboard' },
+    { id: 'animals', label: 'Mes animaux', icon: 'pets', path: '/construction' },
+    { id: 'calendar', label: 'Agenda', icon: 'calendar_today', path: '/construction' },
+    { id: 'settings', label: 'Paramètres', icon: 'settings', path: '/construction' },
   ]);
 
   // Méthodes

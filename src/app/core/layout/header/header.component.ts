@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export default class HeaderComponent {}
+export default class HeaderComponent {
+  sidebarCollapsed = input<boolean>(false);
+  toggleSidebar = output<void>();
+}
