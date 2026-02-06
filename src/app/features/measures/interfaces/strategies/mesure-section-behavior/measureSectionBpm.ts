@@ -5,7 +5,7 @@ import { inject } from '@angular/core';
 import { HealthRecordStore } from '@/features/health-record/services/health-record-store';
 
 export class MeasureSectionBpm implements MeasureSectionBehavior {
-  private _healthRecordStore = inject(HealthRecordStore)
+  private _healthRecordStore = inject(HealthRecordStore);
   initSectionProperties(): MeasureSectionPropertiesModel {
     return {
       boardName: 'Suivi de la fréquence cardiaque',

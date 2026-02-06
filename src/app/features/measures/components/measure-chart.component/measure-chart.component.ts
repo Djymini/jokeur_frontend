@@ -1,9 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { ChartManager } from '@/features/measures/utils/chartManager';
 import { ChartMeasureModel } from '@/internal-shared/models/chartMeasure.model';
-import {
-  MeasureResumeComponent
-} from '@/features/measures/components/measure-resume.component/measure-resume.component';
+import { MeasureResumeComponent } from '@/features/measures/components/measure-resume.component/measure-resume.component';
 
 @Component({
   selector: 'app-measure-chart',
@@ -12,7 +10,7 @@ import {
   styleUrl: './measure-chart.component.scss',
 })
 export class MeasureChartComponent implements OnInit {
-  title = input.required()
+  title = input.required();
   mesures = input.required<MeasureResumeComponent[]>();
   public chart: any;
 

@@ -5,13 +5,13 @@ import { HealthRecordStore } from '@/features/health-record/services/health-reco
 import { MeasureModel } from '@/features/measures/models/measureModel';
 
 export class MeasureSectionWeight implements MeasureSectionBehavior {
-  private _healthRecordStore = inject(HealthRecordStore)
-  initSectionProperties():MeasureSectionPropertiesModel {
+  private _healthRecordStore = inject(HealthRecordStore);
+  initSectionProperties(): MeasureSectionPropertiesModel {
     return {
       boardName: 'Suivi du poids',
       resumeTitle: 'Dernières pesées',
       boardIcon: 'popcorn',
-    }
+    };
   }
 
   getMeasures(): MeasureModel[] {

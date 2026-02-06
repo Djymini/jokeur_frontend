@@ -5,13 +5,13 @@ import { HealthRecordStore } from '@/features/health-record/services/health-reco
 import { MeasureModel } from '@/features/measures/models/measureModel';
 
 export class MeasureSectionRespiratoryFrequency implements MeasureSectionBehavior {
-  private _healthRecordStore = inject(HealthRecordStore)
-  initSectionProperties():MeasureSectionPropertiesModel {
+  private _healthRecordStore = inject(HealthRecordStore);
+  initSectionProperties(): MeasureSectionPropertiesModel {
     return {
       boardName: 'Suivi de la fréquence respiratoire',
       resumeTitle: 'Dernières fréquences',
       boardIcon: 'activity',
-    }
+    };
   }
 
   getMeasures(): MeasureModel[] {

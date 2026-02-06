@@ -5,13 +5,13 @@ import { HealthRecordStore } from '@/features/health-record/services/health-reco
 import { MeasureModel } from '@/features/measures/models/measureModel';
 
 export class MeasureSectionTemperature implements MeasureSectionBehavior {
-  private _healthRecordStore = inject(HealthRecordStore)
-  initSectionProperties():MeasureSectionPropertiesModel {
+  private _healthRecordStore = inject(HealthRecordStore);
+  initSectionProperties(): MeasureSectionPropertiesModel {
     return {
       boardName: 'Suivi des températures',
       resumeTitle: 'Dernières températures',
       boardIcon: 'monitor',
-    }
+    };
   }
 
   getMeasures(): MeasureModel[] {

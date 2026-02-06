@@ -15,5 +15,5 @@ export class MeasureSectionComponent {
   boardName = computed(() => this.measureSection().initSectionProperties().boardName);
   boardIcon = computed(() => this.measureSection().initSectionProperties().boardIcon);
   resumeTitle = computed(() => this.measureSection().initSectionProperties().resumeTitle);
-  measures = computed(() => this.measureSection().getMeasures())
+  measures = computed(() => this.measureSection().getMeasures());
 }

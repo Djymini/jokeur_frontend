@@ -4,4 +4,4 @@ export type MeasureSectionPropertiesModel = {
   boardName: string;
   resumeTitle: string;
   boardIcon: ZardIcon;
-}
+};
