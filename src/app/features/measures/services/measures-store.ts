@@ -159,7 +159,10 @@ export class MeasuresStore {
   public temperatureArray = computed(() => this._temperatureArraySignal());
   public respiratoryRateArray = computed(() => this._respiratoryRateArraySignal());
 
-  private _setMeasures(measures: MeasureModel[], arraySignal: WritableSignal<MeasureModel[] | undefined>): void {
+  private _setMeasures(
+    measures: MeasureModel[],
+    arraySignal: WritableSignal<MeasureModel[] | undefined>,
+  ): void {
     arraySignal.set(measures);
   }
 

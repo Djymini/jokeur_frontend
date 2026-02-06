@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRecord';
 import { MeasureModel } from '@/features/measures/models/measureModel';
 import { MeasureDtoRecord } from '@/features/measures/models/measureDtoRecord';
-import { BaseApi } from '@/internal-shared/services/base.api';
+import { BaseApi } from '../../../internal-shared/services/base.api';
 
 @Injectable({
   providedIn: 'root',
