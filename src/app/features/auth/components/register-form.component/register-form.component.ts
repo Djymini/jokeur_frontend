@@ -25,7 +25,7 @@ export class RegisterFormComponent {
   });
 
   onSubmit(): void {
-    console.log('click OK !');
+    console.log(this.registerForm.value);
     this._authApi.register(this.registerForm);
   }
 }

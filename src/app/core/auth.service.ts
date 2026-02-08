@@ -19,6 +19,7 @@ export class AuthService {
   }
 
   private _hasToken(): boolean {
+    if (!this._isBrowser()) return false;
     return !!localStorage.getItem(this._tokenKey);
   }
 
@@ -27,6 +28,7 @@ export class AuthService {
     return localStorage.getItem(this._tokenKey);
   }
 
+  /*
   loginMock(_username: string, _password: string): void {
     void _username;
     void _password;
@@ -35,12 +37,19 @@ export class AuthService {
     localStorage.setItem(this._tokenKey, 'mock-token');
     this.isLoggedIn.set(true);
   }
+  */
+
+  setToken(token: string): void {
+    if(!this._isBrowser()) return;
+  localStorage.setItem(this._tokenKey, token);
+  this.isLoggedIn.set(true);
+  }
 
   logout(): void {
-    if (!this._isBrowser()) return;
-    localStorage.removeItem(this._tokenKey);
-    this.isLoggedIn.set(false);
-  }
+      if (!this._isBrowser()) return;
+      localStorage.removeItem(this._tokenKey);
+      this.isLoggedIn.set(false);
+    }
 
   isAuthenticated(): boolean {
     return this.getToken() !== null;
