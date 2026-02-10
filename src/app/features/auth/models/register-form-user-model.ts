@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 
-export type RegisterFormOwnerModel = {
+export type RegisterFormUserModel = {
   username: FormControl<string>;
   name: FormControl<string>;
   firstname: FormControl<string>;

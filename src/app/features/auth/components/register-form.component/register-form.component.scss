@@ -131,3 +131,8 @@ button[type='submit']:disabled {
 .ng-invalid.ng-touched {
   border-color: #dc2626 !important;
 }
+
+.div_label{
+  display: flex;
+  justify-content: space-between;
+}

@@ -26,7 +26,7 @@ export class LoginFormComponent {
   private _router = inject(Router);
 
   loginForm: FormGroup<LoginFormModel> = this._fb.group({
-    email: this._fb.control('', Validators.required),
+    email: this._fb.control('', [Validators.required, Validators.email]),
     password: this._fb.control('', Validators.required),
   });
 
@@ -37,7 +37,7 @@ export class LoginFormComponent {
     const password = this.loginForm.get('password')!.value;
 
     const res = await this._authApi.login({ email, password }); // AuthApi
-    this._authService.setToken(res.token);                                                       // AuthService
+    this._authService.setToken(res.token); // AuthService
 
     this._router.navigate(['/dashboard']);
   }

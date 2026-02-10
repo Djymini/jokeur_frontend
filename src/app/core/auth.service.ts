@@ -40,16 +40,16 @@ export class AuthService {
   */
 
   setToken(token: string): void {
-    if(!this._isBrowser()) return;
-  localStorage.setItem(this._tokenKey, token);
-  this.isLoggedIn.set(true);
+    if (!this._isBrowser()) return;
+    localStorage.setItem(this._tokenKey, token);
+    this.isLoggedIn.set(true);
   }
 
   logout(): void {
-      if (!this._isBrowser()) return;
-      localStorage.removeItem(this._tokenKey);
-      this.isLoggedIn.set(false);
-    }
+    if (!this._isBrowser()) return;
+    localStorage.removeItem(this._tokenKey);
+    this.isLoggedIn.set(false);
+  }
 
   isAuthenticated(): boolean {
     return this.getToken() !== null;

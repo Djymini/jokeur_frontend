@@ -42,13 +42,14 @@ form {
   outline: none;
   font-size: 14px;
   background: white;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .field input:focus {
   border-color: var(--secondary);
-  box-shadow: 0 0 0 3px
-  color-mix(in oklab, var(--secondary) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--secondary) 20%, transparent);
 }
 
 /* Erreurs */
