@@ -10,7 +10,7 @@ import { MeasureModel } from '@/features/measures/models/measureModel';
   styleUrl: './measure-chart.component.scss',
 })
 export class MeasureChartComponent implements OnInit {
-  title = input.required();
+  title = input.required<string>();
   mesures = input.required<MeasureModel[]>();
   public chart: any;
 
@@ -23,7 +23,7 @@ export class MeasureChartComponent implements OnInit {
       data.push(measure.value.toString());
     }
     const dataMeasure: ChartMeasureModel = {
-      name: 'Poids',
+      name: this.title(),
       labels: label,
       data: data,
     };

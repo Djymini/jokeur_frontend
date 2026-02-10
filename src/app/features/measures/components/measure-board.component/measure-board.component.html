@@ -6,7 +6,7 @@
     </h3>
   </div>
 
-  <app-measure-chart></app-measure-chart>
+  <app-measure-chart [title]="title()" [mesures]="measures()"></app-measure-chart>
 
   <div class="board-footer">
     <button type="button" z-button zSize="sm" zType="link" (click)="openDialog()">Voir plus</button>

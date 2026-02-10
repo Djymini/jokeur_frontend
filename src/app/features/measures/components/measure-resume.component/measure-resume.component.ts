@@ -6,11 +6,7 @@ import { MeasureModel } from '@/features/measures/models/measureModel';
 
 @Component({
   selector: 'app-measure-resume',
-  imports: [
-    ZardButtonComponent,
-    ZardIconComponent,
-    MeasureResumeItemComponent,
-  ],
+  imports: [ZardButtonComponent, ZardIconComponent, MeasureResumeItemComponent],
   templateUrl: './measure-resume.component.html',
   styleUrl: './measure-resume.component.scss',
 })

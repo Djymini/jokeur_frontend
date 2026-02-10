@@ -14,7 +14,7 @@ import { MeasureModel } from '@/features/measures/models/measureModel';
   styleUrl: './measure-board.component.scss',
 })
 export class MeasureBoardComponent implements OnInit {
-  idHealthRecord = input.required<number>()
+  idHealthRecord = input.required<number>();
   icon = input.required<ZardIcon>();
   title = input.required<string>();
   type = input.required<string>();
@@ -23,7 +23,7 @@ export class MeasureBoardComponent implements OnInit {
   dialogService = inject(ZardDialogService);
   measuresFacade = inject(MeasuresFacade);
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.measuresFacade.initializeMeasureServiceAction(this.type());
   }
 

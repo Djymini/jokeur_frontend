@@ -12,8 +12,8 @@
   <div class="board-content">
     @for (measure of measures().slice(0, 5); track measure.id) {
       <app-measure-resume-item
-        [value]="measure.value"
-        [date]="measure.date"
+        [value]="measure.value.toString()"
+        [date]="measure.creationDate"
       ></app-measure-resume-item>
     }
   </div>
