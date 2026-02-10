@@ -17,4 +17,8 @@ export class MeasureSectionTemperature implements MeasureSectionBehavior {
   getMeasures(): MeasureModel[] {
     return this._healthRecordStore.temperatureArray();
   }
+
+  getType(): string {
+    return "temperature";
+  }
 }

@@ -17,4 +17,8 @@ export class MeasureSectionBpm implements MeasureSectionBehavior {
   getMeasures(): MeasureModel[] {
     return this._healthRecordStore.bpmArray();
   }
+
+  getType(): string {
+    return "bpm"
+  }
 }

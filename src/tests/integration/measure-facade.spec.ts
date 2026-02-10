@@ -2,14 +2,17 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import {MeasuresFacade} from '../../app/features/measures/services/measures-facade'
 import {MeasuresStore} from '../../app/features/measures/services/measures-store'
 import {MeasuresApi} from '../../app/features/measures/services/measures-api'
+import {MeasureServiceActionFactory} from '../../app/features/measures/interfaces/factories/measure-service-action/measureServiceActionFactory'
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { MeasureServiceAction } from '@/features/measures/interfaces/measureServiceAction';
 
 describe('ProductFacade.createProduct (integration)', () => {
   let facade: MeasuresFacade;
   let http: HttpTestingController;
   let store: MeasuresStore;
+  let measureServiceAction: MeasureServiceAction;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -29,6 +32,7 @@ describe('ProductFacade.createProduct (integration)', () => {
 
   it('should call API, get measure', async () => {
     // 1. Arrange
+    facade.initializeMeasureServiceAction("weight");
     const data = 1001;
     const type = 'weight';
     const mockResponse = [
@@ -83,6 +87,7 @@ describe('ProductFacade.createProduct (integration)', () => {
 
   it('should call API, add measure', async () => {
     // 1. Arrange
+    facade.initializeMeasureServiceAction("weight");
     const data = {
         value: 30,
         type: 'weight',
@@ -147,13 +152,9 @@ describe('ProductFacade.createProduct (integration)', () => {
 
   it('should call API, modify measure', async () => {
     // 1. Arrange
-    const data = {
-        id: 6,
-        value: 30,
-        type: 'weight',
-        creationDate: '2025-02-01',
-        healthRecordNumber: 1001,
-      }
+    facade.initializeMeasureServiceAction("weight");
+    const idModification = 6;
+    const valueModification = 30;
 
     const mockResponse = [
       {
@@ -200,19 +201,20 @@ describe('ProductFacade.createProduct (integration)', () => {
       },
     ];
 
-    const promise = facade.modify(data);
+    facade.modify(idModification, valueModification);
 
     //const req = http.expectOne(`${environment.apiUrl}/measure/weight/${data}`);
     //expect(req.request.method).toBe('GET');
 
     //req.flush(mockResponse);
 
-    const result = await promise;
-    expect(result.value).toBe(store.weightArray()![0].value);
+    expect(store.weightArray()![0].value).toBe(valueModification);
   });
 
   it('should call API, remove measure', async () => {
     // 1. Arrange
+    facade.initializeMeasureServiceAction("weight");
+    const idModification = 6;
     const data = {
       id: 6,
       value: 30,
@@ -266,7 +268,7 @@ describe('ProductFacade.createProduct (integration)', () => {
       },
     ];
 
-    facade.remove(data);
+    facade.remove(idModification);
 
     //const req = http.expectOne(`${environment.apiUrl}/measure/weight/${data}`);
     //expect(req.request.method).toBe('GET');

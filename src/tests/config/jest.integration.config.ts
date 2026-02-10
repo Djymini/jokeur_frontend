@@ -19,7 +19,6 @@ const config: Config = {
   },
 
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
-
 };
 
 export default config;

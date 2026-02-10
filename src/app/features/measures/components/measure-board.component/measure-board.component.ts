@@ -15,9 +15,11 @@ import { MeasureResumeComponent } from '@/features/measures/components/measure-r
 export class MeasureBoardComponent {
   icon = input.required<ZardIcon>();
   title = input.required<string>();
+  type = input.required<string>();
   measures = input.required<MeasureResumeComponent[]>();
 
   dialogService = inject(ZardDialogService);
+
 
   openDialog(): void {
     this.dialogService.create({

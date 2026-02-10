@@ -17,4 +17,8 @@ export class MeasureSectionWeight implements MeasureSectionBehavior {
   getMeasures(): MeasureModel[] {
     return this._healthRecordStore.weightArray();
   }
+
+  getType(): string {
+    return "weight";
+  }
 }

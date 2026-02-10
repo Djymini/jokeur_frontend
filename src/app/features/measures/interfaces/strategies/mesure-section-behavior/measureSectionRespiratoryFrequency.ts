@@ -17,4 +17,8 @@ export class MeasureSectionRespiratoryFrequency implements MeasureSectionBehavio
   getMeasures(): MeasureModel[] {
     return this._healthRecordStore.respiratoryRateArray();
   }
+
+  getType(): string {
+    return "respiratory rate";
+  }
 }
