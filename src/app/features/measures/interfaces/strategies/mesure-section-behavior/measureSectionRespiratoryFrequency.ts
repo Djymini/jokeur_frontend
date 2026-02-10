@@ -19,6 +19,6 @@ export class MeasureSectionRespiratoryFrequency implements MeasureSectionBehavio
   }
 
   getType(): string {
-    return "respiratory rate";
+    return 'respiratory rate';
   }
 }

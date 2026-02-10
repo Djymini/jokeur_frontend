@@ -4,6 +4,7 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { ZardTableImports } from '@/shared/components/table';
 import { Z_MODAL_DATA } from '@/shared/components/dialog';
 import { toast } from 'ngx-sonner';
+import { MeasureModel } from '@/features/measures/models/measureModel';
 
 @Component({
   selector: 'app-measure-details-dialog.component',
@@ -12,7 +13,7 @@ import { toast } from 'ngx-sonner';
   styleUrl: './measure-details-dialog.component.scss',
 })
 export class MeasureDetailsDialogComponent {
-  measures: { id: number; date: string; value: string }[] = inject(Z_MODAL_DATA);
+  measures: MeasureModel[] = inject(Z_MODAL_DATA);
 
   deleteMeasure(measureId: number): void {
     console.log('make the delete method for measureId ' + measureId);

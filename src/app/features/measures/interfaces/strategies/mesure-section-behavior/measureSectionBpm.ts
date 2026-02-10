@@ -19,6 +19,6 @@ export class MeasureSectionBpm implements MeasureSectionBehavior {
   }
 
   getType(): string {
-    return "bpm"
+    return 'bpm';
   }
 }

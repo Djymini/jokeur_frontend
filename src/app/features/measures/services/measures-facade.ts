@@ -14,15 +14,25 @@ import { MeasuresStore } from '../services/measures-store';
 export class MeasuresFacade {
   private _measureApi = inject(MeasuresApi);
   private _measureStore = inject(MeasuresStore);
-  measuresServiceAction: MeasureServiceAction = MeasureServiceActionFactory.createMeasureServiceAction('default', this._measureApi, this._measureStore);
 
-  public initializeMeasureServiceAction(type: string):void {
-    this.measuresServiceAction = MeasureServiceActionFactory.createMeasureServiceAction(type, this._measureApi, this._measureStore);;
+  private _measuresServiceAction: MeasureServiceAction =
+    MeasureServiceActionFactory.createMeasureServiceAction(
+      'default',
+      this._measureApi,
+      this._measureStore,
+    );
+
+  public initializeMeasureServiceAction(type: string): void {
+    this._measuresServiceAction = MeasureServiceActionFactory.createMeasureServiceAction(
+      type,
+      this._measureApi,
+      this._measureStore,
+    );
   }
 
   async getMeasure(data: number, type: string): Promise<MeasureModel[]> {
     MeasureRules.validateType(type);
-    return this.measuresServiceAction.getMeasure(data)
+    return this._measuresServiceAction.getMeasure(data);
   }
 
   async addMeasure(data: AddMeasureDtoRecord): Promise<MeasureModel> {
@@ -38,7 +48,7 @@ export class MeasuresFacade {
     };
 
     MeasureRules.validateType(newMeasure.type);
-    this.measuresServiceAction.addMeasure(newMeasure);
+    this._measuresServiceAction.addMeasure(newMeasure);
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
@@ -46,11 +56,11 @@ export class MeasuresFacade {
     return newMeasure;
   }
 
-  async modify(id: number, data: number):Promise<void>  {
+  async modify(id: number, data: number): Promise<void> {
     //TODO: measure facade wait backend for finish
     //const newMeasure = await this._measureApi.modifyMeasure(data);
 
-    this.measuresServiceAction.modify(id, data)
+    this._measuresServiceAction.modify(id, data);
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
@@ -62,7 +72,7 @@ export class MeasuresFacade {
     //const msgConfirmation = await this._measureApi.deleteeasure(data);
     const msgConfirmation = "C'est fait";
 
-    this.measuresServiceAction.remove(id);
+    this._measuresServiceAction.remove(id);
 
     toast.success(msgConfirmation, {
       duration: 2000,

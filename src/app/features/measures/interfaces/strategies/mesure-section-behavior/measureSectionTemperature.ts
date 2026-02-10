@@ -19,6 +19,6 @@ export class MeasureSectionTemperature implements MeasureSectionBehavior {
   }
 
   getType(): string {
-    return "temperature";
+    return 'temperature';
   }
 }

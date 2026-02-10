@@ -1,7 +1,7 @@
 import { MeasuresStore } from '@/features/measures/services/measures-store';
 import { MeasuresApi } from '@/features/measures/services/measures-api';
 
-export class MeasureServiceActionBase{
+export class MeasureServiceActionBase {
   protected _measureStore: MeasuresStore;
   protected _measureApi: MeasuresApi;
 

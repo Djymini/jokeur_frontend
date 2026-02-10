@@ -1,7 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { ChartManager } from '@/features/measures/utils/chartManager';
 import { ChartMeasureModel } from '@/internal-shared/models/chartMeasure.model';
-import { MeasureResumeComponent } from '@/features/measures/components/measure-resume.component/measure-resume.component';
+import { MeasureModel } from '@/features/measures/models/measureModel';
 
 @Component({
   selector: 'app-measure-chart',
@@ -11,25 +11,22 @@ import { MeasureResumeComponent } from '@/features/measures/components/measure-r
 })
 export class MeasureChartComponent implements OnInit {
   title = input.required();
-  mesures = input.required<MeasureResumeComponent[]>();
+  mesures = input.required<MeasureModel[]>();
   public chart: any;
 
-  dataMeasure: ChartMeasureModel = {
-    name: 'Poids',
-    labels: [
-      '2022-05-10',
-      '2022-05-11',
-      '2022-05-12',
-      '2022-05-13',
-      '2022-05-14',
-      '2022-05-15',
-      '2022-05-16',
-      '2022-05-17',
-    ],
-    data: ['5.5', '5.5', '5.4', '5.7', '5.6', '5.5', '5.5', '5.6'],
-  };
-
   ngOnInit(): void {
-    this.chart = ChartManager.createChart('MyChart', 'line', this.dataMeasure);
+    const label: string[] = [];
+    const data: string[] = [];
+
+    for (const measure of this.mesures()) {
+      label.push(measure.creationDate);
+      data.push(measure.value.toString());
+    }
+    const dataMeasure: ChartMeasureModel = {
+      name: 'Poids',
+      labels: label,
+      data: data,
+    };
+    this.chart = ChartManager.createChart('MyChart', 'line', dataMeasure);
   }
 }

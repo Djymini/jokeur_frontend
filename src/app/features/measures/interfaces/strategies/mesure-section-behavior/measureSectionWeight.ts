@@ -19,6 +19,6 @@ export class MeasureSectionWeight implements MeasureSectionBehavior {
   }
 
   getType(): string {
-    return "weight";
+    return 'weight';
   }
 }
