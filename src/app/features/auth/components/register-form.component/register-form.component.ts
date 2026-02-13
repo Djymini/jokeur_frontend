@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { AuthRules } from '@/features/auth/domain/auth.rules';
 import { Router } from '@angular/router';
 import {
   AbstractControl,
@@ -12,6 +13,7 @@ import {
 import { RegisterFormUserModel } from '@/features/auth/models/register-form-user-model';
 import { AuthApi } from '@/core/auth.api';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
+import { passwordMatchValidator } from '@/features/auth/validators/pass-match-validators';
 
 @Component({
   selector: 'app-register-form',
@@ -46,14 +48,7 @@ export class RegisterFormComponent {
     }
 
     // 1- Récupérer les valeurs du formulaire
-    const {
-      username,
-      name,
-      firstname,
-      phone,
-      email,
-      password,
-    } = this.registerForm.getRawValue();
+    const { username, name, firstname, phone, email, password } = this.registerForm.getRawValue();
 
     // 2- Construire le payload API
     const payload: RegisterUserPayload = {
@@ -76,11 +71,3 @@ export class RegisterFormComponent {
     }
   }
 }
-
-export const passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-  const password = control.get('password')?.value;
-  const confirmPassword = control.get('confirmPassword')?.value;
-
-  if (!password || !confirmPassword) return null;
-  return password === confirmPassword ? null : { passwordMismatch: true };
-};

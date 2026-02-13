@@ -1,5 +1,4 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
   <div class="field flex">
     <div class="div_label">
       <label for="username">Pseudo :</label>
@@ -13,7 +12,10 @@
       <label for="name">Nom :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="name" type="text" formControlName="name" />
+    <input id="name"
+           type="text"
+           formControlName="name"
+           placeholder="ex. Doe"/>
   </div>
 
   <div class="field flex">
@@ -21,7 +23,10 @@
       <label for="firstname">Prénom :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="firstname" type="text" formControlName="firstname" />
+    <input id="firstname"
+           type="text"
+           formControlName="firstname"
+           placeholder="ex. John"/>
   </div>
 
   <div class="field flex">
@@ -29,7 +34,10 @@
       <label for="phone">Téléphone :</label>
       <span class="material-icons">phone_enabled</span>
     </div>
-    <input id="phone" type="text" formControlName="phone" />
+    <input id="phone"
+           type="text"
+           formControlName="phone"
+           placeholder="ex. 0612345678"/>
   </div>
 
   <div class="field flex">
@@ -37,18 +45,19 @@
       <label for="email">Email :</label>
       <span class="material-icons">mail</span>
     </div>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        [attr.aria-invalid]="
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      placeholder="johndoe@exemple.fr"
+      [attr.aria-invalid]="
         registerForm.controls.email.invalid &&
         (registerForm.controls.email.touched || registerForm.controls.email.dirty)
           ? true
           : null
       "
-        aria-describedby="email-error"
-      />
+      aria-describedby="email-error"
+    />
     @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
       <p class="error" id="email-error">Email invalide</p>
     }
@@ -59,7 +68,10 @@
       <label for="password">Mot de passe :</label>
       <span class="material-icons">password</span>
     </div>
-    <input id="password" type="password" formControlName="password" />
+    <input id="password"
+           type="password"
+           formControlName="password"
+           placeholder="********"/>
   </div>
 
   <div class="field flex">
@@ -67,14 +79,16 @@
       <label for="confirmPassword">Confirmer le mot de passe :</label>
       <span class="material-icons">password</span>
     </div>
-    <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+    <input id="confirmPassword"
+           type="password"
+           formControlName="confirmPassword"
+           placeholder="********" />
   </div>
 
   @if (
     registerForm.hasError('passwordMismatch') &&
-    (registerForm.controls.confirmPassword.touched ||
-      registerForm.controls.confirmPassword.dirty)
-    ) {
+    (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
+  ) {
     <p class="error">Les mots de passe ne correspondent pas.</p>
   }
 

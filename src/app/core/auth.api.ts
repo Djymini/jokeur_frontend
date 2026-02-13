@@ -17,7 +17,7 @@ export class AuthApi {
 
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     return await firstValueFrom(
-      this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload)
+      this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload),
     );
   }
 
