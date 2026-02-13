@@ -1,72 +1,61 @@
-import { Component } from '@angular/core';
-import { NgClass } from '@angular/common';
-
-export type Notification = {
-  hasNew: boolean;
-  date: string;
-  message: string;
-};
-
-export type Reminder = {
-  date: string;
-  message: string;
-};
-
-export type Appointment = {
-  date: string;
-  title: string;
-  status: 'pending' | 'confirmed' | 'completed';
-};
-
-export type Animal = {
-  name: string;
-  type: string;
-  nicknames: string[];
-};
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { NotificationModel } from '@/internal-shared/domaine/notification-model';
+import { ReminderModel } from '@/internal-shared/domaine/reminder-model';
+import { AppointmentModel } from '@/internal-shared/domaine/appointment-model';
+import { AppointmentApiService } from '@/features/appointment/services/appointment.api.service';
+import { HealthRecordModel } from '@/internal-shared/domaine/HealthRecordModel';
+import { HealthRecordApiService } from '@/features/health-records/services/health-record.api.service';
+import { ZardButtonComponent } from '@/shared/components/button';
+import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { ReminderApiService } from '@/features/reminder/services/reminder.api.service';
+import { NotificationApiService } from '@/features/notification/notification.api.service';
 
 @Component({
   selector: 'app-owner',
-  imports: [NgClass],
+  imports: [ZardButtonComponent, DatePipe, RouterLink],
   templateUrl: './owner.component.html',
   styleUrl: './owner.component.scss',
 })
-export default class OwnerComponent {
-  // Notifications
-  notifications: Notification = {
-    date: '28/08/2024',
-    message: 'Vous avez une nouvelle notification',
-    hasNew: true,
+export class OwnerComponent implements OnInit {
+  appointmentApi = inject(AppointmentApiService);
+  HealthRecordApi = inject(HealthRecordApiService);
+  reminderApi = inject(ReminderApiService);
+  notificationApi = inject(NotificationApiService);
+
+  appointments = signal<AppointmentModel[]>([]);
+  animals = signal<HealthRecordModel[]>([]);
+  reminders = signal<ReminderModel[]>([]);
+  notifications = signal<NotificationModel[]>([]);
+
+  animalTypeMap: Record<string, string> = {
+    CAT: 'Chat',
+    DOG: 'Chien',
   };
 
-  reminders: Reminder = {
-    date: '28/08/2028',
-    message: 'Aucun rappel',
+  reminderTypeMap: Record<string, string> = {
+    VACCINE: 'Vaccin',
+    DEWORMING: 'Vermifuges',
+    FLEA_TICK: 'Anti-puces',
+    SEASONAL: 'Rappels saisonniers',
+    OTHER: 'Autres types',
   };
 
-  appointments: Appointment = {
-    date: '28/08/2024',
-    title: 'Rendez-vous chez le toiletteur',
-    status: 'confirmed',
-  };
+  ngOnInit(): void {
+    this.appointmentApi.getAppointments().then((restult) => {
+      this.appointments.set(restult);
+    });
 
-  // Animals
-  animals: Animal[] = [
-    { name: 'Rex', type: 'le chien flic', nicknames: ['Lassie'] },
-    { name: 'Beethoven', type: '', nicknames: ['Garfield'] },
-    { name: 'Rex', type: 'le chien flic', nicknames: ['Lassie'] },
-    { name: 'Beethoven', type: '', nicknames: ['Garfield'] },
-  ];
+    this.HealthRecordApi.getAnimalInformation().then((restult) => {
+      this.animals.set(restult);
+    });
 
-  getAppointmentStatusClass(status: string): string {
-    switch (status) {
-      case 'confirmed':
-        return 'text-success bg-success-light';
-      case 'pending':
-        return 'text-warning bg-warning-light';
-      case 'completed':
-        return 'text-info bg-info-light';
-      default:
-        return 'text-gray-500 bg-gray-100';
-    }
+    this.reminderApi.getAllReminder().then((restult) => {
+      this.reminders.set(restult);
+    });
+
+    this.notificationApi.getAllNotifications().then((restult) => {
+      this.notifications.set(restult);
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import OwnerComponent from '@/features/dashboard/owner.component/owner.component';
+import { OwnerComponent } from '@/features/dashboard/owner.component/owner.component';
 
 @Component({
   selector: 'app-home.page',

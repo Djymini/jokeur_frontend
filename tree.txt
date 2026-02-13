@@ -1,0 +1,314 @@
+.
+├── angular.json
+├── components.json
+├── cypress.config.ts
+├── docker
+│   ├── Dockerfile.production
+│   └── Dockerfile.staging
+├── documentation
+│   ├── classes
+│   │   ├── ZardDebounceEventManagerPlugin.html
+│   │   └── ZardEventManagerPlugin.html
+│   ├── components
+│   │   ├── AppComponent.html
+│   │   ├── UnderConstructionComponent.html
+│   │   ├── UnderConstructionPage.html
+│   │   ├── ZardButtonComponent.html
+│   │   └── ZardIconComponent.html
+│   ├── coverage.html
+│   ├── dependencies.html
+│   ├── directives
+│   │   ├── ZardIdDirective.html
+│   │   └── ZardStringTemplateOutletDirective.html
+│   ├── fonts
+│   │   ├── ionicons.eot
+│   │   ├── ionicons.svg
+│   │   ├── ionicons.ttf
+│   │   ├── ionicons.woff
+│   │   ├── ionicons.woff2
+│   │   ├── roboto-v15-latin-300.eot
+│   │   ├── roboto-v15-latin-300.svg
+│   │   ├── roboto-v15-latin-300.ttf
+│   │   ├── roboto-v15-latin-300.woff
+│   │   ├── roboto-v15-latin-300.woff2
+│   │   ├── roboto-v15-latin-700.eot
+│   │   ├── roboto-v15-latin-700.svg
+│   │   ├── roboto-v15-latin-700.ttf
+│   │   ├── roboto-v15-latin-700.woff
+│   │   ├── roboto-v15-latin-700.woff2
+│   │   ├── roboto-v15-latin-italic.eot
+│   │   ├── roboto-v15-latin-italic.svg
+│   │   ├── roboto-v15-latin-italic.ttf
+│   │   ├── roboto-v15-latin-italic.woff
+│   │   ├── roboto-v15-latin-italic.woff2
+│   │   ├── roboto-v15-latin-regular.eot
+│   │   ├── roboto-v15-latin-regular.svg
+│   │   ├── roboto-v15-latin-regular.ttf
+│   │   ├── roboto-v15-latin-regular.woff
+│   │   └── roboto-v15-latin-regular.woff2
+│   ├── graph
+│   │   └── dependencies.svg
+│   ├── images
+│   │   ├── compodoc-vectorise-inverted.png
+│   │   ├── compodoc-vectorise-inverted.svg
+│   │   ├── compodoc-vectorise.png
+│   │   ├── compodoc-vectorise.svg
+│   │   ├── coverage-badge-documentation.svg
+│   │   └── favicon.ico
+│   ├── index.html
+│   ├── injectables
+│   │   ├── BaseApi.html
+│   │   ├── CounterService.html
+│   │   └── ZardIdInternalService.html
+│   ├── interfaces
+│   │   └── ZardStringTemplateOutletContext.html
+│   ├── js
+│   │   ├── compodoc.js
+│   │   ├── lazy-load-graphs.js
+│   │   ├── libs
+│   │   │   ├── bootstrap-native.js
+│   │   │   ├── clipboard.min.js
+│   │   │   ├── custom-elements-es5-adapter.js
+│   │   │   ├── custom-elements.min.js
+│   │   │   ├── d3.v3.min.js
+│   │   │   ├── deep-iterator.js
+│   │   │   ├── es6-shim.min.js
+│   │   │   ├── EventDispatcher.js
+│   │   │   ├── htmlparser.js
+│   │   │   ├── innersvg.js
+│   │   │   ├── jszip.min.js
+│   │   │   ├── lit-html.js
+│   │   │   ├── prism.js
+│   │   │   ├── promise.min.js
+│   │   │   ├── svg-pan-zoom.min.js
+│   │   │   ├── tablesort.min.js
+│   │   │   ├── tablesort.number.min.js
+│   │   │   ├── vis-network.min.js
+│   │   │   └── zepto.min.js
+│   │   ├── menu.js
+│   │   ├── menu-wc_es5.js
+│   │   ├── menu-wc.js
+│   │   ├── routes
+│   │   │   └── routes_index.js
+│   │   ├── routes.js
+│   │   ├── search
+│   │   │   ├── lunr.min.js
+│   │   │   ├── search_index.js
+│   │   │   ├── search.js
+│   │   │   └── search-lunr.js
+│   │   ├── sourceCode.js
+│   │   ├── svg-pan-zoom.controls.js
+│   │   ├── tabs.js
+│   │   └── tree.js
+│   ├── miscellaneous
+│   │   ├── functions.html
+│   │   ├── typealiases.html
+│   │   └── variables.html
+│   ├── modules.html
+│   ├── overview.html
+│   ├── properties.html
+│   ├── routes.html
+│   ├── styles
+│   │   ├── bootstrap-card.css
+│   │   ├── bootstrap.min.css
+│   │   ├── compodoc.css
+│   │   ├── dark.css
+│   │   ├── ionicons.min.css
+│   │   ├── laravel.css
+│   │   ├── material.css
+│   │   ├── original.css
+│   │   ├── postmark.css
+│   │   ├── prism.css
+│   │   ├── readthedocs.css
+│   │   ├── reset.css
+│   │   ├── stripe.css
+│   │   ├── style.css
+│   │   ├── tablesort.css
+│   │   └── vagrant.css
+│   ├── template-playground
+│   │   ├── default-templates.json
+│   │   ├── hbs-render.service.ts
+│   │   ├── main.ts
+│   │   ├── template-editor.service.ts
+│   │   ├── template-playground.component.ts
+│   │   ├── template-playground.module.ts
+│   │   └── zip-export.service.ts
+│   └── template-playground-app
+│       ├── app.js
+│       └── index.html
+├── eslint.config.mjs
+├── jest.config.ts
+├── nginx
+│   └── nginx.conf
+├── package.json
+├── package-lock.json
+├── public
+│   ├── favicon.ico
+│   └── images
+│       └── jokeur_image1.webp
+├── README.md
+├── scripts
+│   ├── husky-scripts
+│   │   ├── final-success-message.sh
+│   │   └── pre-commit
+│   │       ├── run-prettier-and-linter.sh
+│   │       ├── run-tests.sh
+│   │       ├── start-message.sh
+│   │       ├── validate-branch-name.sh
+│   │       └── validate-config-files.sh
+│   └── utils.sh
+├── setup-jest.ts
+├── src
+│   ├── app
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.component.ts
+│   │   ├── app.config.server.ts
+│   │   ├── app.config.ts
+│   │   ├── app.routes.server.ts
+│   │   ├── core
+│   │   │   ├── auth.api.ts
+│   │   │   ├── auth.service.ts
+│   │   │   ├── components
+│   │   │   └── layout
+│   │   │       ├── footer
+│   │   │       │   ├── footer.component.html
+│   │   │       │   ├── footer.component.scss
+│   │   │       │   └── footer.component.ts
+│   │   │       ├── header
+│   │   │       │   ├── header.component.html
+│   │   │       │   ├── header.component.scss
+│   │   │       │   └── header.component.ts
+│   │   │       └── sidebar
+│   │   │           ├── sidebar.component.html
+│   │   │           ├── sidebar.component.scss
+│   │   │           └── sidebar.component.ts
+│   │   ├── features
+│   │   │   ├── appointment
+│   │   │   │   └── services
+│   │   │   │       └── appointment.api.service.ts
+│   │   │   ├── auth
+│   │   │   │   ├── components
+│   │   │   │   │   ├── login-form.component
+│   │   │   │   │   │   ├── login-form.component.html
+│   │   │   │   │   │   ├── login-form.component.scss
+│   │   │   │   │   │   └── login-form.component.ts
+│   │   │   │   │   └── register-form.component
+│   │   │   │   │       ├── register-form.component.html
+│   │   │   │   │       ├── register-form.component.scss
+│   │   │   │   │       └── register-form.component.ts
+│   │   │   │   ├── models
+│   │   │   │   │   ├── login-form.models.ts
+│   │   │   │   │   └── register-form-owner-model.ts
+│   │   │   │   └── pages
+│   │   │   │       ├── dashboard.page.ts
+│   │   │   │       ├── login.page.ts
+│   │   │   │       └── register.page.ts
+│   │   │   ├── counter.service.ts
+│   │   │   ├── dashboard
+│   │   │   │   ├── owner.component
+│   │   │   │   │   ├── owner.component.html
+│   │   │   │   │   ├── owner.component.scss
+│   │   │   │   │   └── owner.component.ts
+│   │   │   │   └── pages
+│   │   │   │       └── home.page.ts
+│   │   │   ├── health-records
+│   │   │   │   └── services
+│   │   │   │       └── health-record.api.service.ts
+│   │   │   ├── notification
+│   │   │   │   └── notification.api.service.ts
+│   │   │   ├── reminder
+│   │   │   │   └── services
+│   │   │   │       └── reminder.api.service.ts
+│   │   │   └── under-construction
+│   │   │       ├── components
+│   │   │       │   └── under-construction.component
+│   │   │       │       ├── under-construction.component.html
+│   │   │       │       ├── under-construction.component.scss
+│   │   │       │       └── under-construction.component.ts
+│   │   │       └── pages
+│   │   │           └── under-construction.page.ts
+│   │   ├── internal-shared
+│   │   │   ├── domaine
+│   │   │   │   ├── animal-model.ts
+│   │   │   │   ├── appointment-model.ts
+│   │   │   │   ├── HealthRecordModel.ts
+│   │   │   │   ├── MenuItem.model.ts
+│   │   │   │   ├── notification-model.ts
+│   │   │   │   └── reminder-model.ts
+│   │   │   └── services
+│   │   │       └── base.api.ts
+│   │   ├── router
+│   │   │   ├── app.routes.ts
+│   │   │   └── guards
+│   │   │       └── auth-guard.ts
+│   │   └── shared
+│   │       ├── components
+│   │       │   ├── button
+│   │       │   │   ├── button.component.ts
+│   │       │   │   ├── button.variants.ts
+│   │       │   │   └── index.ts
+│   │       │   └── icon
+│   │       │       ├── icon.component.ts
+│   │       │       ├── icons.ts
+│   │       │       ├── icon.variants.ts
+│   │       │       └── index.ts
+│   │       ├── core
+│   │       │   ├── directives
+│   │       │   │   ├── id.directive.ts
+│   │       │   │   └── string-template-outlet
+│   │       │   │       └── string-template-outlet.directive.ts
+│   │       │   ├── index.ts
+│   │       │   └── provider
+│   │       │       ├── event-manager-plugins
+│   │       │       │   ├── zard-debounce-event-manager-plugin.ts
+│   │       │       │   └── zard-event-manager-plugin.ts
+│   │       │       └── providezard.ts
+│   │       └── utils
+│   │           ├── merge-classes.ts
+│   │           └── number.ts
+│   ├── assets
+│   │   └── fonts
+│   │       └── M_PLUS_Rounded_1c
+│   │           ├── MPLUSRounded1c-Black.ttf
+│   │           ├── MPLUSRounded1c-Bold.ttf
+│   │           ├── MPLUSRounded1c-ExtraBold.ttf
+│   │           ├── MPLUSRounded1c-Light.ttf
+│   │           ├── MPLUSRounded1c-Medium.ttf
+│   │           ├── MPLUSRounded1c-Regular.ttf
+│   │           └── MPLUSRounded1c-Thin.ttf
+│   ├── environments
+│   │   ├── environment.development.ts
+│   │   ├── environment.production.ts
+│   │   ├── environment.staging.ts
+│   │   └── environment.ts
+│   ├── index.html
+│   ├── main.server.ts
+│   ├── main.ts
+│   ├── server.ts
+│   ├── styles.scss
+│   └── tests
+│       ├── config
+│       │   ├── cypress.config.ts
+│       │   ├── jest.integration.config.ts
+│       │   └── jest.unit.config.ts
+│       ├── e2e
+│       │   ├── fixtures
+│       │   │   └── example.json
+│       │   ├── support
+│       │   │   ├── commands.ts
+│       │   │   └── e2e.ts
+│       │   └── use-cases
+│       │       └── hello.cy.ts
+│       ├── integration
+│       │   └── counter.service.integration.spec.ts
+│       └── unit
+│           ├── dashboard-owner.spec.ts
+│           └── hello.spec.ts
+├── tree.txt
+├── tsconfig.app.json
+├── tsconfig.doc.json
+├── tsconfig.json
+└── tsconfig.spec.json
+
+5205 directories, 48323 files

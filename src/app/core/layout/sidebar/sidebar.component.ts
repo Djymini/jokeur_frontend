@@ -1,12 +1,7 @@
 import { Component, input, signal } from '@angular/core';
+import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
 
-type MenuItem = {
-  id: string;
-  label: string;
-  icon: string;
-  path: string;
-  badge?: number;
-};
+
 
 @Component({
   selector: 'app-sidebar',
@@ -14,12 +9,12 @@ type MenuItem = {
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export default class SidebarComponent {
+export class SidebarComponent {
   collapsed = input<boolean>(false);
   activeRoute = input<string>('/dashboard');
 
   // Signals internes
-  menuItems = signal<MenuItem[]>([
+  menuItems = signal<MenuItemModel[]>([
     { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', path: '/dashboard' },
     { id: 'animals', label: 'Mes animaux', icon: 'pets', path: '/construction' },
     { id: 'calendar', label: 'Agenda', icon: 'calendar_today', path: '/construction' },

@@ -6,7 +6,9 @@ import { Component, input, output } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export default class HeaderComponent {
+export class HeaderComponent {
+
   sidebarCollapsed = input<boolean>(false);
+  category = input<string>();
   toggleSidebar = output<void>();
 }
