@@ -12,10 +12,7 @@
       <label for="name">Nom :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="name"
-           type="text"
-           formControlName="name"
-           placeholder="ex. Doe"/>
+    <input id="name" type="text" formControlName="name" placeholder="ex. Doe" />
   </div>
 
   <div class="field flex">
@@ -23,10 +20,7 @@
       <label for="firstname">Prénom :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="firstname"
-           type="text"
-           formControlName="firstname"
-           placeholder="ex. John"/>
+    <input id="firstname" type="text" formControlName="firstname" placeholder="ex. John" />
   </div>
 
   <div class="field flex">
@@ -34,10 +28,7 @@
       <label for="phone">Téléphone :</label>
       <span class="material-icons">phone_enabled</span>
     </div>
-    <input id="phone"
-           type="text"
-           formControlName="phone"
-           placeholder="ex. 0612345678"/>
+    <input id="phone" type="text" formControlName="phone" placeholder="ex. 0612345678" />
   </div>
 
   <div class="field flex">
@@ -68,21 +59,38 @@
       <label for="password">Mot de passe :</label>
       <span class="material-icons">password</span>
     </div>
-    <input id="password"
-           type="password"
-           formControlName="password"
-           placeholder="********"/>
+    <input id="password" type="password" formControlName="password" placeholder="********" />
   </div>
+
+  @if (
+    registerForm.controls.password.errors?.['required'] &&
+    registerForm.controls.password.touched
+    ) {
+    <p class="error">Le mot de passe est obligatoire.</p>
+  }
+
+  @if (
+    registerForm.controls.password.errors?.['minlength'] &&
+    registerForm.controls.password.touched
+    ) {
+    <p class="error">
+      Le mot de passe doit contenir au minimum
+      {{ registerForm.controls.password.errors?.['minlength']?.requiredLength }}
+      caractères.
+    </p>
+  }
 
   <div class="field flex">
     <div class="div_label">
       <label for="confirmPassword">Confirmer le mot de passe :</label>
       <span class="material-icons">password</span>
     </div>
-    <input id="confirmPassword"
-           type="password"
-           formControlName="confirmPassword"
-           placeholder="********" />
+    <input
+      id="confirmPassword"
+      type="password"
+      formControlName="confirmPassword"
+      placeholder="********"
+    />
   </div>
 
   @if (

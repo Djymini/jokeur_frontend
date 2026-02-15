@@ -1,15 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { AuthRules } from '@/features/auth/domain/auth.rules';
 import { Router } from '@angular/router';
-import {
-  AbstractControl,
-  FormGroup,
-  NonNullableFormBuilder,
-  ReactiveFormsModule,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterFormUserModel } from '@/features/auth/models/register-form-user-model';
 import { AuthApi } from '@/core/auth.api';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
@@ -33,7 +24,7 @@ export class RegisterFormComponent {
       firstname: this._fb.control('', Validators.required),
       phone: this._fb.control('', Validators.required),
       email: this._fb.control('', [Validators.required, Validators.email]),
-      password: this._fb.control('', Validators.required),
+      password: this._fb.control('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: this._fb.control('', Validators.required),
       acceptCGU: this._fb.control(false, Validators.requiredTrue),
     },
