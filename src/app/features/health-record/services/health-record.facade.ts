@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HealthRecordFormMetadata, HealthRecordMetadataApi } from './health-record-metadata.api';
 import { HealthRecordApi } from './health-record.api';
+import { HealthRecordStore } from './health-record.store';
 import { CreateHealthRecordDto } from '../models/create-health-record.dto';
 import { HealthRecord } from '../models/health-record.model';
 import { HealthRecordRules } from '../domain/health-record.rules';
@@ -9,6 +10,7 @@ import { HealthRecordRules } from '../domain/health-record.rules';
 export class HealthRecordFacade {
   private readonly _api = inject(HealthRecordApi);
   private readonly _metadataApi = inject(HealthRecordMetadataApi);
+  private readonly _store = inject(HealthRecordStore);
 
   async loadFormMetadata(): Promise<HealthRecordFormMetadata> {
     try {
@@ -17,9 +19,7 @@ export class HealthRecordFacade {
       console.error('[METADATA ERROR]', error);
 
       try {
-        const url = new URL('assets/mocks/health-record-form-metadata.json', document.baseURI).toString();
-        const res = await fetch(url, { cache: 'no-store' });
-
+        const res = await fetch('/mocks/health-record-form-metadata.json', { cache: 'no-store' });
         if (!res.ok) {
           throw new Error(`Failed to load metadata (${res.status})`);
         }
@@ -29,6 +29,19 @@ export class HealthRecordFacade {
         console.error('[FALLBACK ERROR]', fallbackError);
         throw new Error('Impossible de charger les données du formulaire');
       }
+    }
+  }
+
+  async loadHealthRecords(ownerId: number): Promise<HealthRecord[]> {
+    try {
+      const records = await this._api.getHealthRecordsByOwner(ownerId);
+
+      this._store.setHealthRecords(records);
+
+      return records;
+    } catch (error) {
+      console.error('[LOAD HEALTH RECORDS ERROR]', error);
+      throw new Error('Impossible de charger les carnets de santé');
     }
   }
 
@@ -55,6 +68,8 @@ export class HealthRecordFacade {
 
       const healthRecord = await this._api.createHealthRecord(dto);
 
+      this._store.addHealthRecord(healthRecord);
+
       return healthRecord;
 
     } catch (error) {
@@ -65,6 +80,18 @@ export class HealthRecordFacade {
       }
 
       throw new Error('Une erreur inattendue est survenue');
+    }
+  }
+
+  async deleteHealthRecord(healthRecordNumber: number): Promise<void> {
+    try {
+      await this._api.deleteHealthRecord(healthRecordNumber);
+
+      this._store.removeHealthRecord(healthRecordNumber);
+
+    } catch (error) {
+      console.error('[DELETE HEALTH RECORD ERROR]', error);
+      throw new Error('Impossible de supprimer le carnet de santé');
     }
   }
 

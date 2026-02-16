@@ -18,4 +18,12 @@ export class HealthRecordApi extends BaseApi {
   async getAllHealthRecords(): Promise<HealthRecord[]> {
     return this.get<HealthRecord[]>(this._endpoint);
   }
+
+  async getHealthRecordsByOwner(ownerId: number): Promise<HealthRecord[]> {
+    return this.get<HealthRecord[]>(`${this._endpoint}/owner/${ownerId}`);
+  }
+
+  async deleteHealthRecord(healthRecordNumber: number): Promise<void> {
+    return this.delete(`${this._endpoint}/${healthRecordNumber}`);
+  }
 }

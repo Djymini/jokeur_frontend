@@ -12,6 +12,10 @@ export type HealthRecordFormMetadata = {
 @Injectable({ providedIn: 'root' })
 export class HealthRecordMetadataApi extends BaseApi {
   async getMetadata(): Promise<HealthRecordFormMetadata> {
-    return this.get<HealthRecordFormMetadata>('/health-records/form-metadata');
+    const res = await fetch('/mocks/health-record-form-metadata.json', { cache: 'no-store' });
+    if (!res.ok) {
+      throw new Error(`Failed to load metadata (${res.status})`);
+    }
+    return (await res.json()) as HealthRecordFormMetadata;
   }
 }

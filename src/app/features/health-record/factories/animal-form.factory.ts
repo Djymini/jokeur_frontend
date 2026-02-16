@@ -17,7 +17,7 @@ export class AnimalFormFactory {
       title: 'Ajouter un animal',
       submitLabel: 'Ajouter',
       cancelLabel: 'Annuler',
-      fields: this.createAnimalFields()
+      fields: this._createAnimalFields()
     };
   }
 
@@ -27,7 +27,7 @@ export class AnimalFormFactory {
       title: 'Modifier les informations',
       submitLabel: 'Modifier',
       cancelLabel: 'Annuler',
-      fields: this.createAnimalFields()
+      fields: this._createAnimalFields()
     };
   }
 
