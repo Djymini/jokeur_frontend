@@ -9,6 +9,7 @@ const config: Config = {
 
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/app/$1',
+    '^src/(.*)$': '<rootDir>/src/$1',
   },
 };
 
