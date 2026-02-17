@@ -1,8 +1,6 @@
 import { Component, input, signal } from '@angular/core';
 import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
 
-
-
 @Component({
   selector: 'app-sidebar',
   imports: [],

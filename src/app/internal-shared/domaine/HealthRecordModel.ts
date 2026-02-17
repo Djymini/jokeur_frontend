@@ -1,4 +1,3 @@
-
 export interface HealthRecordModel {
   id: number;
   petName: string;
@@ -13,6 +12,4 @@ export interface HealthRecordModel {
   image: string;
   imageType: string;
   AnimalType: string;
-
 }
-

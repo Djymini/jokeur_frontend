@@ -12,10 +12,10 @@ import { SidebarComponent } from '@/core/layout/sidebar/sidebar.component';
 })
 export class AppComponent {
   protected readonly title = signal('jokeur_frontend');
-  // SIGNALS pour l'état du layout
+
   sidebarCollapsed = signal(false);
 
-  // Méthodes
+
   toggleSidebar(): void {
     this.sidebarCollapsed.update((state) => !state);
     console.log('toggleSidebar');

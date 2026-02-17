@@ -6,83 +6,66 @@
     <div class="bg-card rounded-lg shadow-sm border info-card">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Notification</h3>
-        <span
-          class="px-2 py-1 text-md text-destructive bg-orange-100
-             rounded-full" >
-          {{ notifications().length}}
+        <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
+          {{ notifications().length }}
         </span>
       </div>
-        @if (notifications().length > 0) {
-          @for (notification of notifications().slice(0,1); track notification.id) {
-            <p class="text-muted-foreground mb-2 truncate">{{ notification.title }}</p>
-            <p class="text-muted-foreground mb-4">{{ notification.publishedAt | date:'dd/MM/yyyy' }}</p>
-          }
-
-        } @else {
-          <p class="text-muted-foreground mb-2">Auccun notification</p>
+      @if (notifications().length > 0) {
+        @for (notification of notifications().slice(0, 1); track notification.id) {
+          <p class="text-muted-foreground mb-2 truncate">{{ notification.title }}</p>
+          <p class="text-muted-foreground mb-4">
+            {{ notification.publishedAt | date: 'dd/MM/yyyy' }}
+          </p>
         }
+      } @else {
+        <p class="text-muted-foreground mb-2">Auccun notification</p>
+      }
 
-      <a
-        z-button
-        zType="link"
-        routerLink="/"
-      >
-        Accéder à mes notifications
-      </a>
+      <a z-button zType="link" routerLink="/"> Accéder à mes notifications </a>
     </div>
 
     <!-- Rappels -->
     <div class="bg-card rounded-lg shadow-sm border info-card">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Rappel</h3>
-        <span
-          class="px-2 py-1 text-md text-destructive bg-orange-100
-             rounded-full" >
-          {{ reminders().length}}
+        <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
+          {{ reminders().length }}
         </span>
       </div>
       @if (reminders().length > 0) {
-        @for (reminder of reminders().slice(0,1); track reminder.id) {
-          <p class="text-muted-foreground mb-2">{{ reminderTypeMap[reminder.type] ?? reminder.type }}</p>
-          <p class="text-sm text-muted-foreground mb-4">{{ reminder.reminderDate | date: 'dd/MM/yyyy'}}</p>
+        @for (reminder of reminders().slice(0, 1); track reminder.id) {
+          <p class="text-muted-foreground mb-2">
+            {{ reminderTypeMap[reminder.type]}}
+          </p>
+          <p class="text-sm text-muted-foreground mb-4">
+            {{ reminder.reminderDate | date: 'dd/MM/yyyy' }}
+          </p>
         }
       } @else {
         <p class="text-muted-foreground mb-2">Auccun rappel</p>
       }
-      <a
-        z-button
-        zType="link"
-        routerLink="/"
-      >
-        Accéder à mes rappels
-      </a>
+      <a z-button zType="link" routerLink="/"> Accéder à mes rappels </a>
     </div>
     <!-- Rendez-vous -->
     <div class="bg-card rounded-lg shadow-sm border info-card">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Rendez-vous</h3>
-        <span
-          class="px-2 py-1 text-md text-destructive bg-orange-100
-             rounded-full" >
-          {{ appointments().length}}
+        <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
+          {{ appointments().length }}
         </span>
       </div>
       @if (appointments().length > 0) {
         @for (appointment of appointments().slice(0, 1); track appointment.id) {
           <p class="text-muted-foreground mb-2 leading-6">{{ appointment.reason }}</p>
-          <p class="text-sm text-muted-foreground mb-4 leading-6">{{ appointment.dateTime | date:'dd/MM/yyyy'}}</p>
+          <p class="text-sm text-muted-foreground mb-4 leading-6">
+            {{ appointment.dateTime | date: 'dd/MM/yyyy' }}
+          </p>
         }
       } @else {
         <p class="text-muted-foreground mb-2 leading-6">Auccun rendez-vous</p>
       }
 
-        <a
-          z-button
-          zType="link"
-          routerLink="/"
-        >
-          Accéder à mes rendez-vous
-        </a>
+      <a z-button zType="link" routerLink="/"> Accéder à mes rendez-vous </a>
     </div>
   </div>
 </section>
@@ -96,9 +79,7 @@
   <div class="my-animals grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
     @for (animal of animals(); track animal) {
       <div class="rounded-lg bg-card shadow-md hover:shadow-lg transition">
-
         <div class="flex items-center justify-between p-4">
-
           <!-- block de gauche -->
           <div class="flex items-center gap-4">
             <img
@@ -107,7 +88,6 @@
               alt="animal image"
             />
 
-
             <div>
               <h4 class="font-semibold text-base md:text-lg">
                 {{ animal.petName }}
@@ -115,7 +95,7 @@
 
               @if (animal.AnimalType) {
                 <p class="text-sm text-muted-foreground">
-                  {{ animalTypeMap[animal.AnimalType] ?? animal.AnimalType}}
+                  {{ animalTypeMap[animal.AnimalType] }}
                 </p>
               }
             </div>
@@ -124,29 +104,15 @@
           <!-- chovron droit -->
           <a
             [routerLink]="['/', animal.id]"
-            class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12
-                 rounded-full hover:bg-accent m-px transition"
+            class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-accent m-px transition"
             title="Voir les détails"
           >
-          <span class="material-icons text-xl md:text-2xl">
-            chevron_right
-          </span>
+            <span class="material-icons text-xl md:text-2xl"> chevron_right </span>
           </a>
-
         </div>
-
       </div>
     }
   </div>
 
-  <a
-    class="nav-btn"
-    z-button
-    zType="link"
-    routerLink="/"
-  >
-    Accéder à mes animaux
-  </a>
-
-
+  <a class="nav-btn" z-button zType="link" routerLink="/"> Accéder à mes animaux </a>
 </section>
