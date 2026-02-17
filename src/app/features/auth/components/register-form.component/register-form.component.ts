@@ -25,7 +25,7 @@ export class RegisterFormComponent {
       name: this._fb.control('', Validators.required),
       firstname: this._fb.control('', Validators.required),
       phone: this._fb.control('', Validators.required),
-      email: this._fb.control('', [Validators.required, Validators.email]),
+      email: this._fb.control('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
       password: this._fb.control('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: this._fb.control('', Validators.required),
       acceptCGU: this._fb.control(false, Validators.requiredTrue),

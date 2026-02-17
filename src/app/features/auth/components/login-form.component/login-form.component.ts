@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from '@/core/auth.service';
+import { AuthService } from '@/core/services/auth.service';
 import { LoginFormModel } from '@/features/auth/models/login-form.models';
 import { Router } from '@angular/router';
 
