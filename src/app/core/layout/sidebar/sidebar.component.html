@@ -6,24 +6,27 @@
 >
   <nav class="sidebar-nav">
     <div class="logo">
-      <h1 class="h1">Jokeur</h1>
+      <h1 [class.hide]="collapsed()">Jokeur</h1>
+      <span aria-hidden="true">logo</span>
     </div>
     <hr />
     <ul>
       @for (item of menuItems(); track item.id) {
         <li>
           <a
-            [href]="item.route"
-            [class.active]="activeRoute() === item.route"
+            [href]="item.path"
+            [class.active]="activeRoute() === item.path"
             (click)="selectMenu()"
-            [attr.aria-current]="activeRoute() === item.route ? 'page' : null"
+            [attr.aria-current]="activeRoute() === item.path ? 'page' : null"
           >
             <span class="material-icons">{{ item.icon }}</span>
             @if (!collapsed()) {
-              <span class="menu-label">{{ item.label }}</span>
+              <span class="menu-label" [attr.aria-label]="collapsed() ? item.label : null">{{
+                item.label
+              }}</span>
             }
 
-            @if (item.badge && item.badge > 0 && !collapsed()) {
+            @if (item.badge && !collapsed()) {
               <span class="menu-badge">{{ item.badge }}</span>
             }
           </a>

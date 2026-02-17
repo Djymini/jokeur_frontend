@@ -1,12 +1,5 @@
 import { Component, input, signal } from '@angular/core';
-
-type MenuItem = {
-  id: string;
-  label: string;
-  icon: string;
-  route: string;
-  badge?: number;
-};
+import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,16 +7,16 @@ type MenuItem = {
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export default class SidebarComponent {
+export class SidebarComponent {
   collapsed = input<boolean>(false);
   activeRoute = input<string>('/dashboard');
 
   // Signals internes
-  menuItems = signal<MenuItem[]>([
-    { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', route: '/dashboard' },
-    { id: 'animals', label: 'Mes animaux', icon: 'pets', route: '/animals' },
-    { id: 'calendar', label: 'Agenda', icon: 'calendar_today', route: '/calendar' },
-    { id: 'settings', label: 'Paramètres', icon: 'settings', route: '/settings' },
+  menuItems = signal<MenuItemModel[]>([
+    { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', path: '/dashboard' },
+    { id: 'animals', label: 'Mes animaux', icon: 'pets', path: '/construction' },
+    { id: 'calendar', label: 'Agenda', icon: 'calendar_today', path: '/construction' },
+    { id: 'settings', label: 'Paramètres', icon: 'settings', path: '/construction' },
   ]);
 
   // Méthodes

@@ -5,6 +5,11 @@ export const routes: Routes = [
   {
     path: '',
     title: 'Accueil',
+    loadComponent: () => import('../features/dashboard/pages/home.page'),
+  },
+  {
+    path: 'construction',
+    title: 'under-construction',
     loadComponent: () => import('../features/under-construction/pages/under-construction.page'),
   },
 
@@ -23,7 +28,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     title: 'Tableau de bord',
-    loadComponent: () => import('../features/auth/pages/dashboard.page'),
+    loadComponent: () => import('../features/dashboard/pages/home.page'),
     canActivate: [authGuard],
   },
 ];
