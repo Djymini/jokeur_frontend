@@ -29,7 +29,7 @@ export default class HealthRecordFormPage {
 
   constructor() {
     this._bootstrap.init();
-    this._facade.loadFormMetadata().then(m => this.metadata.set(m));
+    this._facade.loadFormMetadata().then((m) => this.metadata.set(m));
   }
 
   protected async onSubmit(payload: Record<string, unknown>): Promise<void> {

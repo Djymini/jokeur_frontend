@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseApi } from '@/internal-shared/services/base.api';
 import { CreateHealthRecordDto } from '../models/create-health-record.dto';
+import { UpdateHealthRecordDto } from '../models/update-health-record.dto';
 import { HealthRecord } from '../models/health-record.model';
 
 @Injectable({ providedIn: 'root' })
@@ -19,11 +20,11 @@ export class HealthRecordApi extends BaseApi {
     return this.get<HealthRecord[]>(this._endpoint);
   }
 
-  async getHealthRecordsByOwner(ownerId: number): Promise<HealthRecord[]> {
-    return this.get<HealthRecord[]>(`${this._endpoint}/owner/${ownerId}`);
+  async updateHealthRecord(id: number, dto: UpdateHealthRecordDto): Promise<HealthRecord> {
+    return this.patch<HealthRecord>(`${this._endpoint}/${id}`, dto);
   }
 
-  async deleteHealthRecord(healthRecordNumber: number): Promise<void> {
-    return this.delete(`${this._endpoint}/${healthRecordNumber}`);
+  async deleteHealthRecord(id: number): Promise<void> {
+    return this.delete(`${this._endpoint}/${id}`);
   }
 }

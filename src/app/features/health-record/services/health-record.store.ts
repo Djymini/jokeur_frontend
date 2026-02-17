@@ -8,18 +8,18 @@ export class HealthRecordStore {
   readonly healthRecords = this._healthRecords.asReadonly();
 
   addHealthRecord(healthRecord: HealthRecord): void {
-    this._healthRecords.update(records => [...records, healthRecord]);
+    this._healthRecords.update((records) => [...records, healthRecord]);
   }
 
   removeHealthRecord(healthRecordNumber: number): void {
-    this._healthRecords.update(records =>
-      records.filter(r => r.healthRecordNumber !== healthRecordNumber)
+    this._healthRecords.update((records) =>
+      records.filter((r) => r.healthRecordNumber !== healthRecordNumber),
     );
   }
 
   updateHealthRecord(updated: HealthRecord): void {
-    this._healthRecords.update(records =>
-      records.map(r => r.healthRecordNumber === updated.healthRecordNumber ? updated : r)
+    this._healthRecords.update((records) =>
+      records.map((r) => (r.healthRecordNumber === updated.healthRecordNumber ? updated : r)),
     );
   }
 

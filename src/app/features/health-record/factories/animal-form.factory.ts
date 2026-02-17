@@ -5,10 +5,7 @@ import { FormDefinition } from '@/shared/models/forms/form-definition.model';
 @Injectable({ providedIn: 'root' })
 export class AnimalFormFactory {
   getDefinitions(): FormDefinition[] {
-    return [
-      this._createAnimalCreateForm(),
-      this._createAnimalEditForm()
-    ];
+    return [this._createAnimalCreateForm(), this._createAnimalEditForm()];
   }
 
   private _createAnimalCreateForm(): FormDefinition {
@@ -17,7 +14,7 @@ export class AnimalFormFactory {
       title: 'Ajouter un animal',
       submitLabel: 'Ajouter',
       cancelLabel: 'Annuler',
-      fields: this._createAnimalFields()
+      fields: this._createAnimalFields(),
     };
   }
 
@@ -27,7 +24,7 @@ export class AnimalFormFactory {
       title: 'Modifier les informations',
       submitLabel: 'Modifier',
       cancelLabel: 'Annuler',
-      fields: this._createAnimalFields()
+      fields: this._createAnimalFields(),
     };
   }
 
@@ -38,33 +35,33 @@ export class AnimalFormFactory {
         label: 'Nom',
         type: 'text',
         placeholder: 'Rex',
-        validators: [Validators.required, Validators.maxLength(50)]
+        validators: [Validators.required, Validators.maxLength(50)],
       },
       {
         key: 'animalType',
         label: "Type d'animal",
         type: 'select',
         validators: [Validators.required],
-        selectSource: { kind: 'metadata', key: 'animalTypes' }
+        selectSource: { kind: 'metadata', key: 'animalTypes' },
       },
       {
         key: 'breed',
         label: 'Race',
         type: 'select',
         validators: [Validators.required, Validators.maxLength(50)],
-        selectSource: { kind: 'metadataBy', key: 'breedsByAnimalType', dependsOn: 'animalType' }
+        selectSource: { kind: 'metadataBy', key: 'breedsByAnimalType', dependsOn: 'animalType' },
       },
       {
         key: 'sex',
         label: 'Sexe',
         type: 'select',
         validators: [Validators.required],
-        selectSource: { kind: 'metadata', key: 'sexes' }
+        selectSource: { kind: 'metadata', key: 'sexes' },
       },
       {
         key: 'birthDate',
         label: 'Date de naissance',
-        type: 'date'
+        type: 'date',
       },
       {
         key: 'currentWeight',
@@ -72,35 +69,35 @@ export class AnimalFormFactory {
         type: 'number',
         placeholder: '9.99',
         inputMode: 'decimal',
-        validators: [Validators.required, Validators.min(0.01), Validators.max(99.99)]
+        validators: [Validators.required, Validators.min(0.01), Validators.max(99.99)],
       },
       {
         key: 'color',
         label: 'Couleur',
         type: 'select',
         validators: [Validators.required, Validators.maxLength(50)],
-        selectSource: { kind: 'metadata', key: 'colors' }
+        selectSource: { kind: 'metadata', key: 'colors' },
       },
       {
         key: 'identificationNumber',
         label: "N° d'identification",
         type: 'text',
         placeholder: 'FR250268500123456',
-        validators: [Validators.maxLength(20)]
+        validators: [Validators.maxLength(20)],
       },
       {
         key: 'tattooNumber',
         label: 'Tatouage',
         type: 'text',
         placeholder: 'ABC123',
-        validators: [Validators.maxLength(50)]
+        validators: [Validators.maxLength(50)],
       },
       {
         key: 'allergy',
         label: 'Allergie',
         type: 'text',
         placeholder: 'Ex : Saumon',
-        validators: [Validators.maxLength(100)]
+        validators: [Validators.maxLength(100)],
       },
     ];
   }

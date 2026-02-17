@@ -3,6 +3,7 @@ import { HealthRecordFormMetadata, HealthRecordMetadataApi } from './health-reco
 import { HealthRecordApi } from './health-record.api';
 import { HealthRecordStore } from './health-record.store';
 import { CreateHealthRecordDto } from '../models/create-health-record.dto';
+import { UpdateHealthRecordDto } from '../models/update-health-record.dto';
 import { HealthRecord } from '../models/health-record.model';
 import { HealthRecordRules } from '../domain/health-record.rules';
 
@@ -13,31 +14,21 @@ export class HealthRecordFacade {
   private readonly _store = inject(HealthRecordStore);
 
   async loadFormMetadata(): Promise<HealthRecordFormMetadata> {
+    // TODO: quand le back sera prêt, _metadataApi.getMetadata() appellera le vrai endpoint
+    // Pour l'instant lit le fichier JSON local dans /mocks/
     try {
       return await this._metadataApi.getMetadata();
     } catch (error) {
       console.error('[METADATA ERROR]', error);
-
-      try {
-        const res = await fetch('/mocks/health-record-form-metadata.json', { cache: 'no-store' });
-        if (!res.ok) {
-          throw new Error(`Failed to load metadata (${res.status})`);
-        }
-
-        return (await res.json()) as HealthRecordFormMetadata;
-      } catch (fallbackError) {
-        console.error('[FALLBACK ERROR]', fallbackError);
-        throw new Error('Impossible de charger les données du formulaire');
-      }
+      throw new Error('Impossible de charger les données du formulaire');
     }
   }
 
-  async loadHealthRecords(ownerId: number): Promise<HealthRecord[]> {
+  async loadHealthRecords(): Promise<HealthRecord[]> {
+    // TODO: quand le back sera prêt, remplacer getAllHealthRecords() par l'endpoint
     try {
-      const records = await this._api.getHealthRecordsByOwner(ownerId);
-
+      const records = await this._api.getAllHealthRecords();
       this._store.setHealthRecords(records);
-
       return records;
     } catch (error) {
       console.error('[LOAD HEALTH RECORDS ERROR]', error);
@@ -67,18 +58,40 @@ export class HealthRecordFacade {
       HealthRecordRules.validate(dto);
 
       const healthRecord = await this._api.createHealthRecord(dto);
-
       this._store.addHealthRecord(healthRecord);
 
       return healthRecord;
-
     } catch (error) {
       console.error('[CREATE HEALTH RECORD ERROR]', error);
+      if (error instanceof Error) throw error;
+      throw new Error('Une erreur inattendue est survenue');
+    }
+  }
 
-      if (error instanceof Error) {
-        throw error;
-      }
+  async updateFromFormPayload(
+    payload: Record<string, unknown>,
+    healthRecordNumber: number,
+  ): Promise<HealthRecord> {
+    try {
+      const dto: UpdateHealthRecordDto = {
+        petName: this._optionalString(payload, 'petName'),
+        breed: this._optionalString(payload, 'breed'),
+        sex: this._optionalString(payload, 'sex'),
+        birthDate: this._optionalString(payload, 'birthDate'),
+        currentWeight: this._requiredNumber(payload, 'currentWeight'),
+        color: this._optionalString(payload, 'color'),
+        identificationNumber: this._optionalString(payload, 'identificationNumber'),
+        tattooNumber: this._optionalString(payload, 'tattooNumber'),
+        allergy: this._optionalString(payload, 'allergy'),
+      };
 
+      const healthRecord = await this._api.updateHealthRecord(healthRecordNumber, dto);
+      this._store.updateHealthRecord(healthRecord);
+
+      return healthRecord;
+    } catch (error) {
+      console.error('[UPDATE HEALTH RECORD ERROR]', error);
+      if (error instanceof Error) throw error;
       throw new Error('Une erreur inattendue est survenue');
     }
   }
@@ -86,9 +99,7 @@ export class HealthRecordFacade {
   async deleteHealthRecord(healthRecordNumber: number): Promise<void> {
     try {
       await this._api.deleteHealthRecord(healthRecordNumber);
-
       this._store.removeHealthRecord(healthRecordNumber);
-
     } catch (error) {
       console.error('[DELETE HEALTH RECORD ERROR]', error);
       throw new Error('Impossible de supprimer le carnet de santé');
@@ -97,9 +108,7 @@ export class HealthRecordFacade {
 
   private _requiredString(payload: Record<string, unknown>, key: string): string {
     const value = String(payload[key] ?? '').trim();
-    if (!value) {
-      throw new Error(`Le champ "${key}" est requis`);
-    }
+    if (!value) throw new Error(`Le champ "${key}" est requis`);
     return value;
   }
 

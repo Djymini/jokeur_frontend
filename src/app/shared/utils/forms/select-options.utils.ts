@@ -6,29 +6,33 @@ export function resolveSelectOptions(
   form: FormGroup,
   metadata: unknown | null,
 ): SelectOption[] {
-  const source = field.selectSource;
-  if (!source) return [];
+  const selectSource = field.selectSource;
+  if (!selectSource) return [];
 
-  if (source.kind === 'static') return source.options;
+  if (selectSource.kind === 'static') return selectSource.options;
 
   if (!metadata || typeof metadata !== 'object') return [];
 
-  const m = metadata as Record<string, unknown>;
+  const metadataObject = metadata as Record<string, unknown>;
 
-  if (source.kind === 'metadata') {
-    const value = m[source.key];
-    return Array.isArray(value) ? (value as SelectOption[]) : [];
+  if (selectSource.kind === 'metadata') {
+    const optionsFromMetadata = metadataObject[selectSource.key];
+    return Array.isArray(optionsFromMetadata)
+      ? (optionsFromMetadata as SelectOption[])
+      : [];
   }
 
-  if (source.kind === 'metadataBy') {
-    const dependsValue = String(form.get(source.dependsOn)?.value ?? '');
-    if (!dependsValue) return [];
+  if (selectSource.kind === 'metadataBy') {
+    const parentFieldValue = String(form.get(selectSource.dependsOn)?.value ?? '');
+    if (!parentFieldValue) return [];
 
-    const dict = m[source.key];
-    if (!dict || typeof dict !== 'object') return [];
+    const optionsByParentValue = metadataObject[selectSource.key];
+    if (!optionsByParentValue || typeof optionsByParentValue !== 'object') return [];
 
-    const options = (dict as Record<string, unknown>)[dependsValue];
-    return Array.isArray(options) ? (options as SelectOption[]) : [];
+    const optionsForSelectedParent = (optionsByParentValue as Record<string, unknown>)[parentFieldValue];
+    return Array.isArray(optionsForSelectedParent)
+      ? (optionsForSelectedParent as SelectOption[])
+      : [];
   }
 
   return [];

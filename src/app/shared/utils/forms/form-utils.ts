@@ -11,7 +11,7 @@ export function buildDynamicForm(
     const initialValue = getInitialValue(field);
     groupConfig[field.key] = new FormControl(
       { value: initialValue, disabled: !!field.readonly },
-      { validators: field.validators ?? [] }
+      { validators: field.validators ?? [] },
     );
   }
 

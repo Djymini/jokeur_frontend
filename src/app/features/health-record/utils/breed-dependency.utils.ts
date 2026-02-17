@@ -18,7 +18,7 @@ export function applyBreedDependencyRule(
   }
 
   const options: SelectOption[] = metadata.breedsByAnimalType?.[animalType] ?? [];
-  const allowed = options.map(o => o.code);
+  const allowed = options.map((o) => o.code);
   const current = String(breedCtrl.value ?? '');
 
   if (current && !allowed.includes(current)) {
