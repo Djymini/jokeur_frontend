@@ -54,25 +54,35 @@
     }
   </div>
 
-  <div class="field flex">
+  <div class="field flex password-field">
     <div class="div_label">
       <label for="password">Mot de passe :</label>
       <span class="material-icons">password</span>
     </div>
-    <input id="password" type="password" formControlName="password" placeholder="********" />
+
+    <div class="input-wrapper">
+      <input
+        id="password"
+        [type]="showPassword ? 'text' : 'password'"
+        formControlName="password"
+        placeholder="********"
+      />
+
+      <span class="eye" (click)="togglePassword()">
+        <span class="material-icons">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
+      </span>
+    </div>
   </div>
 
   @if (
-    registerForm.controls.password.errors?.['required'] &&
-    registerForm.controls.password.touched
-    ) {
+    registerForm.controls.password.errors?.['required'] && registerForm.controls.password.touched
+  ) {
     <p class="error">Le mot de passe est obligatoire.</p>
   }
 
   @if (
-    registerForm.controls.password.errors?.['minlength'] &&
-    registerForm.controls.password.touched
-    ) {
+    registerForm.controls.password.errors?.['minlength'] && registerForm.controls.password.touched
+  ) {
     <p class="error">
       Le mot de passe doit contenir au minimum
       {{ registerForm.controls.password.errors?.['minlength']?.requiredLength }}
@@ -80,25 +90,35 @@
     </p>
   }
 
-  <div class="field flex">
+  <div class="field flex password-field">
     <div class="div_label">
       <label for="confirmPassword">Confirmer le mot de passe :</label>
       <span class="material-icons">password</span>
     </div>
-    <input
-      id="confirmPassword"
-      type="password"
-      formControlName="confirmPassword"
-      placeholder="********"
-    />
+
+    <div class="input-wrapper">
+      <input
+        id="confirmPassword"
+        [type]="showConfirmPassword ? 'text' : 'password'"
+        formControlName="confirmPassword"
+        placeholder="********"
+      />
+
+      <span class="eye" (click)="toggleConfirmPassword()">
+      <span class="material-icons">
+        {{ showConfirmPassword ? 'visibility_off' : 'visibility' }}
+      </span>
+    </span>
+    </div>
+
+    @if (
+      registerForm.hasError('passwordMismatch') &&
+      (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
+      ) {
+      <p class="error">Les mots de passe ne correspondent pas.</p>
+    }
   </div>
 
-  @if (
-    registerForm.hasError('passwordMismatch') &&
-    (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
-  ) {
-    <p class="error">Les mots de passe ne correspondent pas.</p>
-  }
 
   <div class="field">
     <label>

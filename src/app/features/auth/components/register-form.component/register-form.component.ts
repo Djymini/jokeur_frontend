@@ -16,6 +16,8 @@ export class RegisterFormComponent {
   private _fb = inject(NonNullableFormBuilder);
   private _authApi = inject(AuthApi);
   private _router = inject(Router);
+  showPassword = false;
+  showConfirmPassword = false;
 
   registerForm: FormGroup<RegisterFormUserModel> = this._fb.group(
     {
@@ -31,8 +33,15 @@ export class RegisterFormComponent {
     { validators: [passwordMatchValidator] },
   );
 
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPassword(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+
   async onSubmit(): Promise<void> {
-    // if (this.registerForm.invalid) return;
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
       return;
@@ -58,7 +67,7 @@ export class RegisterFormComponent {
       // 4- Redirection login
       await this._router.navigateByUrl('/login');
     } catch (error) {
-      console.error('Probleme inscription:', error);
+      console.error("Probleme d'inscription:", error);
     }
   }
 }

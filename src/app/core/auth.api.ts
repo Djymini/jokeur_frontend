@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -9,11 +9,22 @@ export class AuthApi {
   protected http = inject(HttpClient);
   protected readonly BASE_URL = environment.apiUrl;
 
+  // début modif
   /* protected getHeaders(): HttpHeaders {
     return new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     });
+  }
+
+  protected async register<payload>(payload: RegisterUserPayload) {
+    try {
+      return await firstValueFrom(
+        this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload),
+    }
+
   } */
+
+  // fin modif
 
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     return await firstValueFrom(
@@ -21,7 +32,6 @@ export class AuthApi {
     );
   }
 
-  // fait par chatGPT à vérifier avec eshop si identique
   async login(payload: {
     email: string;
     password: string;
