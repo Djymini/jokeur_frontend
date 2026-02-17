@@ -1,8 +1,8 @@
 <div class="layout-container">
   <div class="layout-content">
-    <app-sidebar />
+    <app-sidebar [collapsed]="sidebarCollapsed()" />
     <main class="main-content">
-      <app-header />
+      <app-header [sidebarCollapsed]="sidebarCollapsed()" (toggleSidebar)="toggleSidebar()" />
       <router-outlet />
       <z-toaster></z-toaster>
       <app-footer />

@@ -8,7 +8,7 @@ const config: Config = {
   testMatch: ['<rootDir>/src/tests/integration/**/*.spec.ts'],
   testPathIgnorePatterns: ['<rootDir>/cypress/'],
 
-  testEnvironment: 'jsdom', // ou 'node' si API pure
+  testEnvironment: 'jsdom',
 
   clearMocks: true,
   coverageProvider: 'v8',
@@ -19,6 +19,11 @@ const config: Config = {
   },
 
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/app/$1',
+    '^src/(.*)$': '<rootDir>/src/$1',
+  },
 };
 
 export default config;
