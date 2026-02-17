@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import HeaderComponent from '@/core/layout/header/header.component';
 import { FooterComponent } from '@/core/layout/footer/footer.component';
-import SidebarComponent from '@/core/layout/sidebar/sidebar.component';
+import { HeaderComponent } from '@/core/layout/header/header.component';
+import { SidebarComponent } from '@/core/layout/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +12,12 @@ import SidebarComponent from '@/core/layout/sidebar/sidebar.component';
 })
 export class AppComponent {
   protected readonly title = signal('jokeur_frontend');
+
+  sidebarCollapsed = signal(false);
+
+
+  toggleSidebar(): void {
+    this.sidebarCollapsed.update((state) => !state);
+    console.log('toggleSidebar');
+  }
 }

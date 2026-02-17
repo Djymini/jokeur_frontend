@@ -6,6 +6,11 @@ const config: Config = {
   clearMocks: true,
   coverageProvider: 'v8',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/app/$1',
+    '^src/(.*)$': '<rootDir>/src/$1',
+  },
 };
 
 export default config;
