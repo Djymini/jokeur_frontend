@@ -10,7 +10,7 @@ export class BpmServiceAction extends MeasureServiceActionBase implements Measur
   }
 
   getEndpoint(healthRecordNumber: number): string {
-    return '/measure/bpm/' + healthRecordNumber;
+    return healthRecordNumber + '/bpm';
   }
 
   async getMeasure(data: number): Promise<MeasureModel[]> {
@@ -18,21 +18,21 @@ export class BpmServiceAction extends MeasureServiceActionBase implements Measur
 
     if (!currentData || currentData.length === 0) {
       const response = await this._measureApi.getMeasure(this.getEndpoint(data));
-      this._measureStore.setRespiratoryRate(response);
+      this._measureStore.setBpm(response);
     }
 
     return this._measureStore.respiratoryRateArray() || [];
   }
 
-  public addMeasure(data: MeasureModel): void {
-    this._measureStore.addRespiratoryRate(data);
+  public addMeasure(measureToModify: MeasureModel): void {
+    this._measureStore.addBpm(measureToModify);
   }
 
   public modify(id: number, newValue: number): void {
-    this._measureStore.modifyRespiratoryRate(id, newValue);
+    this._measureStore.modifyBpm(id, newValue);
   }
 
   public remove(id: number): void {
-    this._measureStore.removeRespiratoryRate(id);
+    this._measureStore.removeBpm(id);
   }
 }

@@ -13,8 +13,10 @@ export type HealthRecordModel = {
   identificationNumber: string;
   tattooNumber: string;
   allergy: string;
-  respiratoryRate: MeasureModel[];
-  weight: MeasureModel[];
-  bpm: MeasureModel[];
-  temperature: MeasureModel[];
+  measures: {
+    temperature: MeasureModel[];
+    weight: MeasureModel[];
+    respiratoryRate: MeasureModel[];
+    bpm: MeasureModel[];
+  };
 };

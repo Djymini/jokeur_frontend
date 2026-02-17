@@ -1,7 +1,7 @@
 export type MeasureDtoRecord = {
   id: number;
   value: number;
-  type: string;
+  measureType: string;
   creationDate: string;
-  healthRecordNumber: number;
+  healthRecordId: number;
 };

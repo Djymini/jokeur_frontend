@@ -12,7 +12,7 @@ export class RespiratoryRateServiceAction
     super(measureApi, measureStore);
   }
   getEndpoint(healthRecordNumber: number): string {
-    return '/measure/respiratory-rate/' + healthRecordNumber;
+    return healthRecordNumber + '/respiratory_rate';
   }
 
   async getMeasure(data: number): Promise<MeasureModel[]> {
@@ -26,8 +26,8 @@ export class RespiratoryRateServiceAction
     return this._measureStore.respiratoryRateArray() || [];
   }
 
-  public addMeasure(data: MeasureModel): void {
-    this._measureStore.addRespiratoryRate(data);
+  public addMeasure(measureToModify: MeasureModel): void {
+    this._measureStore.addRespiratoryRate(measureToModify);
   }
 
   public modify(id: number, newValue: number): void {

@@ -1,5 +1,5 @@
 export type AddMeasureDtoRecord = {
   value: number;
-  type: string;
-  healthRecordNumber: number;
+  measureType: string;
+  healthRecordId: number;
 };

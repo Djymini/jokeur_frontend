@@ -10,7 +10,7 @@ export class WeightServiceAction extends MeasureServiceActionBase implements Mea
   }
 
   getEndpoint(healthRecordNumber: number): string {
-    return '/measure/weight/' + healthRecordNumber;
+    return healthRecordNumber + '/weight';
   }
 
   async getMeasure(data: number): Promise<MeasureModel[]> {
@@ -24,8 +24,8 @@ export class WeightServiceAction extends MeasureServiceActionBase implements Mea
     return this._measureStore.weightArray() || [];
   }
 
-  public addMeasure(data: MeasureModel): void {
-    this._measureStore.addWeight(data);
+  public addMeasure(measureToModify: MeasureModel): void {
+    this._measureStore.addWeight(measureToModify);
   }
 
   public modify(id: number, newValue: number): void {

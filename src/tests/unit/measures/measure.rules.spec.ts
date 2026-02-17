@@ -16,11 +16,13 @@ describe('MeasureRules (unit tests)', () => {
   });
 
   it('should pass if type is good', () => {
-    expect(() => MeasureRules.validateType(measure.type)).not.toThrow();
+    const valdate = MeasureRules.validateType(measure.type);
+    expect(valdate).toBe(true);
   });
 
   it('should throw error if type is wrong', () => {
     measure.type = 'respiratory';
-    expect(() => MeasureRules.validateType(measure.type)).toThrow(Error);
+    const invalidate = MeasureRules.validateType(measure.type);
+    expect(invalidate).toBe(false);
   });
 });

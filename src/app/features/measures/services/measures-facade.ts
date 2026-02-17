@@ -7,6 +7,7 @@ import { MeasureServiceAction } from '@/features/measures/interfaces/measureServ
 import { MeasureServiceActionFactory } from '../../measures/interfaces/factories/measure-service-action/measureServiceActionFactory';
 import { MeasuresApi } from '../services/measures-api';
 import { MeasuresStore } from '../services/measures-store';
+import { MeasureDtoRecord } from '@/features/measures/models/measureDtoRecord';
 
 @Injectable({
   providedIn: 'root',
@@ -30,24 +31,20 @@ export class MeasuresFacade {
     );
   }
 
-  async getMeasure(data: number, type: string): Promise<MeasureModel[]> {
-    MeasureRules.validateType(type);
-    return this._measuresServiceAction.getMeasure(data);
+  async getMeasure(healthRecordNumber: number, type: string): Promise<MeasureModel[]> {
+    if (!MeasureRules.validateType(type)) {
+      toast.error("L'action n'a pas pu aboutir", {
+        duration: 3000,
+      });
+      throw new Error('Type invalide');
+    }
+    return this._measuresServiceAction.getMeasure(healthRecordNumber);
   }
 
   async addMeasure(data: AddMeasureDtoRecord): Promise<MeasureModel> {
-    //TODO: measure facade wait backend for finish
-    //const newMeasure: MeasureModel = await this._measureApi.addMeasure(data);
-    console.log(data);
-    const newMeasure: MeasureModel = {
-      id: 50,
-      value: data.value,
-      type: data.type,
-      creationDate: '2025-02-05',
-      healthRecordNumber: data.healthRecordNumber,
-    };
+    const newMeasure: MeasureModel = await this._measureApi.addMeasure(data);
 
-    MeasureRules.validateType(newMeasure.type);
+    MeasureRules.validateType(newMeasure.measureType);
     this._measuresServiceAction.addMeasure(newMeasure);
 
     toast.success('Valeur ajoutée au carnet', {
@@ -56,23 +53,28 @@ export class MeasuresFacade {
     return newMeasure;
   }
 
-  async modify(id: number, data: number): Promise<void> {
-    //TODO: measure facade wait backend for finish
-    //const newMeasure = await this._measureApi.modifyMeasure(data);
+  async modify(measure: MeasureModel, newValue: number): Promise<void> {
+    const measureForUpdate: MeasureDtoRecord = {
+      id: measure.id,
+      value: newValue,
+      measureType: measure.measureType,
+      creationDate: measure.creationDate,
+      healthRecordId: measure.healthRecordId,
+    };
 
-    this._measuresServiceAction.modify(id, data);
+    const newMeasure = await this._measureApi.modifyMeasure(measureForUpdate);
+
+    this._measuresServiceAction.modify(newMeasure.id, newMeasure.value);
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
     });
   }
 
-  async remove(id: number): Promise<void> {
-    //TODO: measure facade wait backend for finish
-    //const msgConfirmation = await this._measureApi.deleteeasure(data);
-    const msgConfirmation = "C'est fait";
+  async remove(measure: MeasureDtoRecord): Promise<void> {
+    const msgConfirmation = await this._measureApi.deleteMeasure(measure);
 
-    this._measuresServiceAction.remove(id);
+    this._measuresServiceAction.remove(measure.id);
 
     toast.success(msgConfirmation, {
       duration: 2000,

@@ -4,16 +4,13 @@ import { MeasureServiceActionBase } from '../measure-service-action/MeasureServi
 import { MeasuresApi } from '@/features/measures/services/measures-api';
 import { MeasuresStore } from '@/features/measures/services/measures-store';
 
-export class TemperatureServiceAction
-  extends MeasureServiceActionBase
-  implements MeasureServiceAction
-{
+export class TemperatureServiceAction extends MeasureServiceActionBase implements MeasureServiceAction {
   constructor(measureApi: MeasuresApi, measureStore: MeasuresStore) {
     super(measureApi, measureStore);
   }
 
   getEndpoint(healthRecordNumber: number): string {
-    return '/measure/temperature/' + healthRecordNumber;
+    return healthRecordNumber + '/temperature';
   }
 
   async getMeasure(data: number): Promise<MeasureModel[]> {
@@ -27,8 +24,8 @@ export class TemperatureServiceAction
     return this._measureStore.temperatureArray() || [];
   }
 
-  public addMeasure(data: MeasureModel): void {
-    this._measureStore.addTemperature(data);
+  public addMeasure(measureToModify: MeasureModel): void {
+    this._measureStore.addTemperature(measureToModify);
   }
 
   public modify(id: number, newValue: number): void {
