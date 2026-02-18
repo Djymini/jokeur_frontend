@@ -42,8 +42,12 @@ export class OwnerComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.appointmentApi.getAppointments().then((restult) => {
-      this.appointments.set(restult);
+    this._initDatas();
+  }
+
+  _initDatas(): void {
+    this.appointmentApi.getAppointments().then((result) => {
+      this.appointments.set(result);
     });
 
     this.HealthRecordApi.getAnimalInformation().then((restult) => {
@@ -56,6 +60,5 @@ export class OwnerComponent implements OnInit {
 
     this.notificationApi.getAllNotifications().then((restult) => {
       this.notifications.set(restult);
-    });
-  }
+    });}
 }
