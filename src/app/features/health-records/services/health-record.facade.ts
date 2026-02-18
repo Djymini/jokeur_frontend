@@ -35,11 +35,11 @@ export class HealthRecordFacade {
 
   async createFromFormPayload(
     payload: Record<string, unknown>,
-    idOwner: number,
+    ownerId: number,
   ): Promise<HealthRecord> {
     try {
       const dto: CreateHealthRecordDto = {
-        idOwner,
+        ownerId,
         petName: this._requiredString(payload, 'petName'),
         animalType: this._requiredString(payload, 'animalType'),
         breed: this._optionalString(payload, 'breed'),
@@ -54,26 +54,7 @@ export class HealthRecordFacade {
 
       HealthRecordRules.validate(dto);
 
-      console.log('DTO envoyé au back:', dto);
-      const healthRecord: HealthRecord = {
-        id: Date.now(),
-        image: '',
-        imageType: '',
-        measures: {
-          temperature: [],
-          weight: [],
-          respiratoryRate: [],
-          bpm: [],
-        },
-        ...dto,
-        breed: dto.breed ?? 'Inconnu',
-        birthDate: dto.birthDate ? new Date(dto.birthDate) : new Date(),
-        color: dto.color ?? '',
-        identificationNumber: dto.identificationNumber ?? '',
-        tattoo: Number(dto.tattoo) || 0,
-        allergy: Number(dto.allergy) || 0,
-      };
-
+      const healthRecord = await this._api.createHealthRecord(dto);
       this._store.addHealthRecord(healthRecord);
 
       return healthRecord;
