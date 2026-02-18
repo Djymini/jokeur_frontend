@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import { SelectOption } from '@/shared/models/forms/form-field.model';
-import { HealthRecordFormMetadata } from '@/features/health-record/services/health-record-metadata.api';
+import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 
 export function applyBreedDependencyRule(
   form: FormGroup,

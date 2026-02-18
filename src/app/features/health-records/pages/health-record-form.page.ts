@@ -1,9 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
-import { HealthRecordFacade } from '@/features/health-record/services/health-record.facade';
-import { HealthRecordFormBootstrapService } from '@/features/health-record/services/health-record-form-bootstrap.service';
-import { HealthRecordFormMetadata } from '@/features/health-record/services/health-record-metadata.api';
+import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
+import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
+import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 
 @Component({
   standalone: true,

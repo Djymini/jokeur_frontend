@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { FormRegistryService } from '@/shared/services/forms/form-registry.service';
-import { AnimalFormFactory } from '@/features/health-record/factories/animal-form.factory';
+import { AnimalFormFactory } from '@/features/health-records/factories/animal-form.factory';
 
 @Injectable({ providedIn: 'root' })
 export class HealthRecordFormBootstrapService {

@@ -1,4 +1,4 @@
-import { AnimalFormFactory } from '../../app/features/health-record/factories/animal-form.factory';
+import { AnimalFormFactory } from '@/features/health-records/factories/animal-form.factory';
 describe('AnimalFormFactory', () => {
   let factory: AnimalFormFactory;
 

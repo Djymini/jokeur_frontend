@@ -1,21 +1,19 @@
 import { Injectable, inject } from '@angular/core';
 import { HealthRecordFormMetadata, HealthRecordMetadataApi } from './health-record-metadata.api';
-import { HealthRecordApi } from './health-record.api';
 import { HealthRecordStore } from './health-record.store';
 import { CreateHealthRecordDto } from '../models/create-health-record.dto';
 import { UpdateHealthRecordDto } from '../models/update-health-record.dto';
 import { HealthRecord } from '../models/health-record.model';
 import { HealthRecordRules } from '../domain/health-record.rules';
+import { HealthRecordApiService } from '@/features/health-records/services/health-record.api.service';
 
 @Injectable({ providedIn: 'root' })
 export class HealthRecordFacade {
-  private readonly _api = inject(HealthRecordApi);
+  private readonly _api = inject(HealthRecordApiService);
   private readonly _metadataApi = inject(HealthRecordMetadataApi);
   private readonly _store = inject(HealthRecordStore);
 
   async loadFormMetadata(): Promise<HealthRecordFormMetadata> {
-    // TODO: quand le back sera prêt, _metadataApi.getMetadata() appellera le vrai endpoint
-    // Pour l'instant il lit toujours le fichier JSON local dans /mocks/
     try {
       return await this._metadataApi.getMetadata();
     } catch (error) {
@@ -25,7 +23,6 @@ export class HealthRecordFacade {
   }
 
   async loadHealthRecords(): Promise<HealthRecord[]> {
-    // TODO: quand le back sera prêt, remplacer getAllHealthRecords() par l'endpoint
     try {
       const records = await this._api.getAllHealthRecords();
       this._store.setHealthRecords(records);
@@ -57,13 +54,9 @@ export class HealthRecordFacade {
 
       HealthRecordRules.validate(dto);
 
-      // TODO: décommenter quand le back sera prêt et supprimer le mock
-      // const healthRecord = await this._api.createHealthRecord(dto);
-
-      // MOCK temporaire - simule la réponse du back
-      console.log('DTO qui serait envoyé au back:', dto);
+      console.log('DTO envoyé au back:', dto);
       const healthRecord: HealthRecord = {
-        healthRecordNumber: Date.now(), // ID temporaire
+        healthRecordNumber: Date.now(),
         ...dto,
       };
 
@@ -133,5 +126,4 @@ export class HealthRecordFacade {
     }
     return value;
   }
-
 }

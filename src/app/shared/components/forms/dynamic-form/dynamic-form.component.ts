@@ -13,8 +13,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { FormDefinition } from '@/shared/models/forms/form-definition.model';
 import { FormField, SelectOption } from '@/shared/models/forms/form-field.model';
-import { HealthRecordFormMetadata } from '@/features/health-record/services/health-record-metadata.api';
-import { applyBreedDependencyRule } from '@/features/health-record/utils/breed-dependency.utils';
+import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
+import { applyBreedDependencyRule } from '@/features/health-records/utils/breed-dependency.utils';
 import { resolveSelectOptions } from '@/shared/utils/forms/select-options.utils';
 import { buildDynamicForm } from '@/shared/utils/forms/form-utils';
 

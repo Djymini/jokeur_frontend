@@ -10,7 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormRegistryService } from '@/shared/services/forms/form-registry.service';
 import { FormDefinition } from '@/shared/models/forms/form-definition.model';
-import { HealthRecordFormMetadata } from '@/features/health-record/services/health-record-metadata.api';
+import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { DynamicFormComponent } from '@/shared/components/forms/dynamic-form/dynamic-form.component';
 
 type FormPayload = Record<string, unknown>;
