@@ -66,7 +66,7 @@ export class RegisterFormComponent {
     try {
       // 3- Appel backend
       await this._authApi.register(payload).then((result) => {
-        console.log("message result", result)
+        console.log('message result', result);
       });
 
       // 4- Redirection login
