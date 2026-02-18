@@ -1,0 +1,98 @@
+<form class="form" [formGroup]="formGroup()" (ngSubmit)="onSubmit()">
+  @for (field of fields(); track $index) {
+    <div class="field">
+      <label class="label" [attr.for]="field.key">{{ field.label }}</label>
+
+      @if (field.type === 'text') {
+        <input
+          class="control"
+          [id]="field.key"
+          type="text"
+          [placeholder]="field.placeholder ?? ''"
+          [attr.aria-label]="field.ariaLabel ?? field.label"
+          [readOnly]="!!field.readonly"
+          [formControlName]="field.key"
+        />
+      }
+
+      @if (field.type === 'number') {
+        <input
+          class="control"
+          [id]="field.key"
+          type="number"
+          [placeholder]="field.placeholder ?? ''"
+          [attr.inputmode]="field.inputMode ?? 'decimal'"
+          [attr.aria-label]="field.ariaLabel ?? field.label"
+          [readOnly]="!!field.readonly"
+          [formControlName]="field.key"
+        />
+      }
+
+      @if (field.type === 'date') {
+        <input
+          class="control"
+          [id]="field.key"
+          type="date"
+          [attr.aria-label]="field.ariaLabel ?? field.label"
+          [readOnly]="!!field.readonly"
+          [formControlName]="field.key"
+        />
+      }
+
+      @if (field.type === 'textarea') {
+        <textarea
+          class="control textarea"
+          [id]="field.key"
+          rows="3"
+          [placeholder]="field.placeholder ?? ''"
+          [attr.aria-label]="field.ariaLabel ?? field.label"
+          [readOnly]="!!field.readonly"
+          [formControlName]="field.key"
+        ></textarea>
+      }
+
+      @if (field.type === 'file') {
+        <input
+          class="control"
+          [id]="field.key"
+          type="file"
+          [attr.accept]="field.accept ?? null"
+          (change)="onFileSelected(field, $event)"
+        />
+      }
+
+      @if (field.type === 'select') {
+        <select
+          class="control"
+          [id]="field.key"
+          [attr.aria-label]="field.ariaLabel ?? field.label"
+          [formControlName]="field.key"
+        >
+          <option value="" disabled>— Sélectionner —</option>
+
+          @for (opt of getSelectOptions(field); track $index) {
+            <option [value]="opt.code">{{ opt.label }}</option>
+          }
+        </select>
+      }
+
+      @if (formGroup().get(field.key)?.touched && formGroup().get(field.key)?.invalid) {
+        <p class="error">Champ invalide</p>
+      }
+    </div>
+  }
+
+  <div class="actions">
+    <button z-button zType="outline" type="button" (click)="onCancel()">
+      {{ definition().cancelLabel }}
+    </button>
+
+    <button z-button zType="default" type="submit">
+      {{ definition().submitLabel }}
+    </button>
+  </div>
+
+  @if (debugPayload()) {
+    <pre class="debug">{{ debugPayload() | json }}</pre>
+  }
+</form>

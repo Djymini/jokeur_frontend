@@ -31,4 +31,10 @@ export const routes: Routes = [
     loadComponent: () => import('../features/dashboard/pages/home.page'),
     canActivate: [authGuard],
   },
+
+  {
+    path: 'form',
+    title: 'Formulaire',
+    loadComponent: () => import('@/features/health-records/pages/health-record-form.page'),
+  },
 ];
