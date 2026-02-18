@@ -46,6 +46,16 @@ export abstract class BaseApi {
     }
   }
 
+  protected async patch<T>(endpoint: string, body: any): Promise<T> {
+    try {
+      return await firstValueFrom(
+        this.http.patch<T>(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() }),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
   protected async delete<T>(endpoint: string): Promise<T> {
     try {
       return await firstValueFrom(
