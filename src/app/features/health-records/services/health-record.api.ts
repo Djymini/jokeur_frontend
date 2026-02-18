@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BaseApi } from '@/internal-shared/services/base.api';
-import { HealthRecordModel } from '@/internal-shared/domaine/HealthRecordModel';
 import { CreateHealthRecordDto } from '../models/create-health-record.dto';
 import { UpdateHealthRecordDto } from '../models/update-health-record.dto';
 import { HealthRecord } from '../models/health-record.model';
 
 @Injectable({ providedIn: 'root' })
-export class HealthRecordApiService extends BaseApi {
+export class HealthRecordApi extends BaseApi {
   private readonly _endpoint = '/health-records';
 
-  async getAnimalInformation(): Promise<HealthRecordModel[]> {
+  async getAnimalInformation(): Promise<HealthRecord[]> {
     const idOwner = 1;
-    return this.get<HealthRecordModel[]>(this._endpoint + `?idOwner=${idOwner}`);
+    return this.get<HealthRecord[]>(this._endpoint + `?idOwner=${idOwner}`);
   }
 
   async createHealthRecord(dto: CreateHealthRecordDto): Promise<HealthRecord> {

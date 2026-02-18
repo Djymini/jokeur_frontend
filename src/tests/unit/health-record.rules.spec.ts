@@ -15,7 +15,7 @@ describe('HealthRecordRules', () => {
         birthDate: '2020-01-01',
         color: 'Brown',
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -34,7 +34,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -53,7 +53,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -73,7 +73,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -92,7 +92,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -112,7 +112,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -131,7 +131,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -151,7 +151,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -170,7 +170,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -189,7 +189,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -208,7 +208,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -227,7 +227,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 
@@ -245,7 +245,7 @@ describe('HealthRecordRules', () => {
         birthDate: null,
         color: null,
         identificationNumber: null,
-        tattooNumber: null,
+        tattoo: null,
         allergy: null
       };
 

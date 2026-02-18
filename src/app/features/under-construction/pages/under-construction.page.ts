@@ -4,7 +4,7 @@ import { UnderConstructionComponent } from '../components/under-construction.com
 @Component({
   selector: 'app-under-construction.page',
   imports: [UnderConstructionComponent],
-  template: ` <app-under-construction></app-under-construction> `,
+  template: `<app-under-construction></app-under-construction>`,
   styles: ``,
 })
 export default class UnderConstructionPage {}

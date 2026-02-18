@@ -1,0 +1,35 @@
+.board {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  border-radius: 20px;
+  padding: 34px 24px;
+  gap: 24px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.board-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 16px;
+}
+
+.board-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text);
+}
+
+.board-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
