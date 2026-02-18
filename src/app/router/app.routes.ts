@@ -37,6 +37,6 @@ export const routes: Routes = [
     path: 'health-record/:id',
     title: 'Carnet de santé',
     loadComponent: () => import('../features/health-record/pages/health-record.page'),
-    resolve: {healthRecord: healthRecordResolver},
+    resolve: { healthRecord: healthRecordResolver },
   },
 ];

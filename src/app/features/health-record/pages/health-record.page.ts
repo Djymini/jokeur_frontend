@@ -2,27 +2,19 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HealthRecordModel } from '@/features/health-record/models/healthRecordModel';
 import { HealthRecordFacade } from '@/features/health-record/services/health-record-facade';
-import {
-  MeasureSectionComponent
-} from '@/features/measures/components/measure-section.component/measure-section.component';
-import {
-  MeasureSectionWeight
-} from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionWeight';
+import { MeasureSectionComponent } from '@/features/measures/components/measure-section.component/measure-section.component';
+import { MeasureSectionWeight } from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionWeight';
 import { MeasureSectionBehavior } from '@/features/measures/interfaces/measureSectionBahavior';
 import { MeasureSectionBpm } from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionBpm';
-import {
-  MeasureSectionTemperature
-} from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionTemperature';
-import {
-  MeasureSectionRespiratoryFrequency
-} from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionRespiratoryFrequency';
+import { MeasureSectionTemperature } from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionTemperature';
+import { MeasureSectionRespiratoryFrequency } from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionRespiratoryFrequency';
 
 @Component({
   selector: 'app-health-record.page',
   imports: [MeasureSectionComponent],
   template: `
     <div class="container">
-      @for (section of measureSectionArray; track $index){
+      @for (section of measureSectionArray; track $index) {
         <app-measure-section [measureSection]="section"></app-measure-section>
       }
     </div>
@@ -39,7 +31,6 @@ export default class HealthRecordPage {
     new MeasureSectionWeight(),
     new MeasureSectionBpm(),
     new MeasureSectionTemperature(),
-    new MeasureSectionRespiratoryFrequency()
-    ]
-
+    new MeasureSectionRespiratoryFrequency(),
+  ];
 }

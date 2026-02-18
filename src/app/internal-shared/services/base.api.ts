@@ -48,7 +48,7 @@ export abstract class BaseApi {
 
   protected async delete<T>(endpoint: string): Promise<T> {
     try {
-      console.log(`${this.BASE_URL}${endpoint}`)
+      console.log(`${this.BASE_URL}${endpoint}`);
       return await firstValueFrom(
         this.http.delete<T>(`${this.BASE_URL}${endpoint}`, { headers: this.getHeaders() }),
       );

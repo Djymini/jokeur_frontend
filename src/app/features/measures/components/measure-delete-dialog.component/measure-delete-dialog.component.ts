@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './measure-delete-dialog.component.html',
   styleUrl: './measure-delete-dialog.component.scss',
 })
-export class MeasureDeleteDialogComponent {
-
-}
+export class MeasureDeleteDialogComponent {}

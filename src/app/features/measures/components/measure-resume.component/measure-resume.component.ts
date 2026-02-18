@@ -4,12 +4,11 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { MeasureResumeItemComponent } from '@/features/measures/components/measure-resume-item.component/measure-resume-item.component';
 import { MeasureModel } from '@/features/measures/models/measureModel';
 import { ZardDialogService } from '@/shared/components/dialog';
-import {
-  MeasureModifyDialogComponent
-} from '@/features/measures/components/measure-modify-dialog.component/measure-modify-dialog.component';
+import { MeasureModifyDialogComponent } from '@/features/measures/components/measure-modify-dialog.component/measure-modify-dialog.component';
 import { toast } from 'ngx-sonner';
 import { MeasuresFacade } from '@/features/measures/services/measures-facade';
 import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRecord';
+import { HealthRecordStore } from '@/features/health-record/services/health-record-store';
 
 @Component({
   selector: 'app-measure-resume',
@@ -20,12 +19,13 @@ import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRec
 export class MeasureResumeComponent {
   private _dialogService = inject(ZardDialogService);
   private _measuresFacade = inject(MeasuresFacade);
+  private _healthRecordStore = inject(HealthRecordStore);
+
   title = input.required<string>();
   type = input.required<string>();
-  healthRecordId = input.required<number>();
   measures = input.required<MeasureModel[]>();
 
-  openDialogAdd():void {
+  openDialogAdd(): void {
     this._dialogService.create({
       zTitle: `Ajouter une mesure`,
       zDescription: `Entrez votre valeur`,
@@ -38,9 +38,9 @@ export class MeasureResumeComponent {
           id: 0,
           value: formValue!,
           measureType: this.type(),
-          healthRecordId: this.healthRecordId(),
+          healthRecordId: this._healthRecordStore.healthRecord()!.id,
           creationDate: new Date().toISOString(),
-        }
+        };
 
         try {
           await this._measuresFacade.addMeasure(addMeasure);

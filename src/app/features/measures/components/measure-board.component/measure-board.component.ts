@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { MeasureChartComponent } from '@/features/measures/components/measure-chart.component/measure-chart.component';
 import { ZardIcon, ZardIconComponent } from '@/shared/components/icon';

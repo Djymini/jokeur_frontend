@@ -11,8 +11,11 @@ export class HealthRecordFacade {
   private _healthRecordApi = inject(HealthRecordApi);
   private _healthRecordStore = inject(HealthRecordStore);
 
-  async getHealthRecordById(id: string): Promise<HealthRecordModel>{
-    if (this._healthRecordStore.healthRecord() === undefined || this._healthRecordStore.healthRecord()!.id.toString() !== id) {
+  async getHealthRecordById(id: string): Promise<HealthRecordModel> {
+    if (
+      this._healthRecordStore.healthRecord() === undefined ||
+      this._healthRecordStore.healthRecord()!.id.toString() !== id
+    ) {
       const newHealthRecord = await this._healthRecordApi.getHealthRecord(id);
       this._healthRecordStore.setHealthRecord(newHealthRecord);
     }

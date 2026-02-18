@@ -7,7 +7,7 @@ export const healthRecordResolver: ResolveFn<HealthRecordModel> = (route, state)
   let idParams = route.paramMap.get('id');
   const url = state.url;
   const healthRecordFacade = inject(HealthRecordFacade);
-  if(!idParams){
+  if (!idParams) {
     idParams = '0';
     url.toString();
   }
