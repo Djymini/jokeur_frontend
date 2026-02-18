@@ -7,7 +7,7 @@ describe('HealthRecordRules', () => {
 
     it('should pass validation with valid data', () => {
       const validDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',
@@ -26,7 +26,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when petName is empty string', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: '',
         animalType: 'DOG',
         sex: 'MALE',
@@ -45,7 +45,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when petName is only whitespace', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: '   ',
         animalType: 'DOG',
         sex: 'MALE',
@@ -65,7 +65,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when animalType is empty string', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: '',
         sex: 'MALE',
@@ -84,7 +84,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when animalType is only whitespace', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: '   ',
         sex: 'MALE',
@@ -104,7 +104,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when sex is empty string', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: '',
@@ -123,7 +123,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when sex is only whitespace', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: '   ',
@@ -143,7 +143,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when currentWeight is zero', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',
@@ -162,7 +162,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when currentWeight is negative', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',
@@ -181,7 +181,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when currentWeight is NaN', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',
@@ -200,7 +200,7 @@ describe('HealthRecordRules', () => {
 
     it('should throw error when currentWeight is Infinity', () => {
       const invalidDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',
@@ -219,7 +219,7 @@ describe('HealthRecordRules', () => {
 
     it('should pass with valid positive weight', () => {
       const validDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',
@@ -237,7 +237,7 @@ describe('HealthRecordRules', () => {
 
     it('should pass with large weight', () => {
       const validDto: CreateHealthRecordDto = {
-        ownerId: 1,
+        idOwner: 1,
         petName: 'Rex',
         animalType: 'DOG',
         sex: 'MALE',

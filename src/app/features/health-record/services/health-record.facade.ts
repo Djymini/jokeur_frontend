@@ -15,7 +15,7 @@ export class HealthRecordFacade {
 
   async loadFormMetadata(): Promise<HealthRecordFormMetadata> {
     // TODO: quand le back sera prêt, _metadataApi.getMetadata() appellera le vrai endpoint
-    // Pour l'instant lit le fichier JSON local dans /mocks/
+    // Pour l'instant il lit toujours le fichier JSON local dans /mocks/
     try {
       return await this._metadataApi.getMetadata();
     } catch (error) {
@@ -38,11 +38,11 @@ export class HealthRecordFacade {
 
   async createFromFormPayload(
     payload: Record<string, unknown>,
-    ownerId: number,
+    idOwner: number,
   ): Promise<HealthRecord> {
     try {
       const dto: CreateHealthRecordDto = {
-        ownerId,
+        idOwner,
         petName: this._requiredString(payload, 'petName'),
         animalType: this._requiredString(payload, 'animalType'),
         breed: this._optionalString(payload, 'breed'),
@@ -57,7 +57,16 @@ export class HealthRecordFacade {
 
       HealthRecordRules.validate(dto);
 
-      const healthRecord = await this._api.createHealthRecord(dto);
+      // TODO: décommenter quand le back sera prêt et supprimer le mock
+      // const healthRecord = await this._api.createHealthRecord(dto);
+
+      // MOCK temporaire - simule la réponse du back
+      console.log('DTO qui serait envoyé au back:', dto);
+      const healthRecord: HealthRecord = {
+        healthRecordNumber: Date.now(), // ID temporaire
+        ...dto,
+      };
+
       this._store.addHealthRecord(healthRecord);
 
       return healthRecord;
@@ -124,4 +133,5 @@ export class HealthRecordFacade {
     }
     return value;
   }
+
 }

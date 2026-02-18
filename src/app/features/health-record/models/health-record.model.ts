@@ -1,6 +1,6 @@
 export type HealthRecord = {
   healthRecordNumber: number;
-  ownerId: number;
+  idOwner: number;
   petName: string;
   animalType: string;
   breed?: string | null;
