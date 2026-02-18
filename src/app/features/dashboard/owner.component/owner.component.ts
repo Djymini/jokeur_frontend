@@ -12,9 +12,7 @@ import { HealthRecordApi } from '@/features/health-records/services/health-recor
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardIconComponent } from '@/shared/components/icon';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
-import {
-  HealthRecordFormBootstrapService
-} from '@/features/health-records/services/health-record-form-bootstrap.service';
+import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 
