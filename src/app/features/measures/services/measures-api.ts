@@ -24,7 +24,6 @@ export class MeasuresApi extends BaseApi {
   }
 
   async deleteMeasure(measureRecord: MeasureDtoRecord): Promise<string> {
-    console.log('heoh');
     return this.delete<string>(`/measures/${measureRecord.healthRecordId}/${measureRecord.id}`);
   }
 }

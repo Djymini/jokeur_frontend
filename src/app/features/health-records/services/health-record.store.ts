@@ -19,9 +19,7 @@ export class HealthRecordStore {
   }
 
   removeHealthRecord(healthRecordNumber: number): void {
-    this._healthRecords.update((records) =>
-      records.filter((r) => r.id !== healthRecordNumber),
-    );
+    this._healthRecords.update((records) => records.filter((r) => r.id !== healthRecordNumber));
   }
 
   updateHealthRecord(updated: HealthRecord): void {

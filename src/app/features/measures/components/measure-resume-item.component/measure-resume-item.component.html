@@ -1,4 +1,4 @@
 <div class="item">
-  <h4 class="item-title">{{ value() }}</h4>
+  <h4 class="item-title">{{ parseInt(value()) | measure: type() }}</h4>
   <div class="item-date">{{ date() }}</div>
 </div>

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { OwnerComponent } from '@/features/dashboard/owner.component/owner.component';
 import { AppointmentApiService } from '@/features/appointment/services/appointment.api.service';
-import { HealthRecordApi } from '@/features/health-record/services/health-record-api';
+import { HealthRecordApi } from '@/features/health-records/services/health-record.api';
 
 describe('OwnerComponent', () => {
   let component: OwnerComponent;

@@ -57,8 +57,8 @@ export class HealthRecordFacade {
       console.log('DTO envoyé au back:', dto);
       const healthRecord: HealthRecord = {
         id: Date.now(),
-        image: "",
-        imageType: "",
+        image: '',
+        imageType: '',
         measures: {
           temperature: [],
           weight: [],
@@ -141,7 +141,7 @@ export class HealthRecordFacade {
     return value;
   }
 
-  async getHealthRecordById(id: number): Promise<HealthRecord>{
+  async getHealthRecordById(id: number): Promise<HealthRecord> {
     if (this._store.healthRecord() === undefined || this._store.healthRecord()!.id !== id) {
       const newHealthRecord = await this._api.getHealthRecordById(id);
       this._store.setHealthRecord(newHealthRecord);
