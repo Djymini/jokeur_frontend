@@ -8,8 +8,8 @@ import { DatePipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ReminderApiService } from '@/features/reminder/services/reminder.api.service';
 import { NotificationApiService } from '@/features/notification/notification.api.service';
-import { HealthRecordApi } from '@/features/health-record/services/health-record-api';
-import { HealthRecordModel } from '@/features/health-record/models/healthRecordModel';
+import { HealthRecordApi } from '@/features/health-records/services/health-record.api';
+import { HealthRecord } from '@/features/health-records/models/health-record.model';
 
 @Component({
   selector: 'app-owner',
@@ -25,7 +25,7 @@ export class OwnerComponent implements OnInit {
   notificationApi = inject(NotificationApiService);
 
   appointments = signal<AppointmentModel[]>([]);
-  animals = signal<HealthRecordModel[]>([]);
+  animals = signal<HealthRecord[]>([]);
   reminders = signal<ReminderModel[]>([]);
   notifications = signal<NotificationModel[]>([]);
 

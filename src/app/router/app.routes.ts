@@ -34,9 +34,15 @@ export const routes: Routes = [
   },
 
   {
+    path: 'form',
+    title: 'Formulaire',
+    loadComponent: () => import('@/features/health-records/pages/health-record-form.page'),
+  },
+
+  {
     path: 'health-record/:id',
     title: 'Carnet de santé',
-    loadComponent: () => import('../features/health-record/pages/health-record.page'),
+    loadComponent: () => import('../features/health-records/pages/health-record.page'),
     resolve: { healthRecord: healthRecordResolver },
   },
 ];

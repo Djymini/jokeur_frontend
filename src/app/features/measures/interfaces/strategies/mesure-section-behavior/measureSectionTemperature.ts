@@ -1,8 +1,8 @@
 import { MeasureSectionBehavior } from '@/features/measures/interfaces/measureSectionBahavior';
 import { MeasureSectionPropertiesModel } from '@/features/measures/models/measureSectionPropertiesModel';
 import { inject } from '@angular/core';
-import { HealthRecordStore } from '@/features/health-record/services/health-record-store';
 import { MeasureModel } from '@/features/measures/models/measureModel';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 export class MeasureSectionTemperature implements MeasureSectionBehavior {
   private _healthRecordStore = inject(HealthRecordStore);

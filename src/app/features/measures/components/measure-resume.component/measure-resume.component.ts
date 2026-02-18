@@ -8,7 +8,7 @@ import { MeasureModifyDialogComponent } from '@/features/measures/components/mea
 import { toast } from 'ngx-sonner';
 import { MeasuresFacade } from '@/features/measures/services/measures-facade';
 import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRecord';
-import { HealthRecordStore } from '@/features/health-record/services/health-record-store';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 @Component({
   selector: 'app-measure-resume',
