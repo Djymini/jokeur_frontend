@@ -35,7 +35,7 @@
       @if (reminders().length > 0) {
         @for (reminder of reminders().slice(0, 1); track reminder.id) {
           <p class="text-muted-foreground mb-2">
-            {{ reminderTypeMap[reminder.type]}}
+            {{ reminderTypeMap[reminder.type] }}
           </p>
           <p class="text-sm text-muted-foreground mb-4">
             {{ reminder.reminderDate | date: 'dd/MM/yyyy' }}
