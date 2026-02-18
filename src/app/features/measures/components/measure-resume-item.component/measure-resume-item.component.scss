@@ -1,0 +1,16 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--card-background-second);
+  color: var(--text);
+}
+
+.item-date {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+}

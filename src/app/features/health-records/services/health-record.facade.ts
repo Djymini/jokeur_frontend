@@ -5,11 +5,11 @@ import { CreateHealthRecordDto } from '../models/create-health-record.dto';
 import { UpdateHealthRecordDto } from '../models/update-health-record.dto';
 import { HealthRecord } from '../models/health-record.model';
 import { HealthRecordRules } from '../domain/health-record.rules';
-import { HealthRecordApiService } from '@/features/health-records/services/health-record.api.service';
+import { HealthRecordApi } from '@/features/health-records/services/health-record.api';
 
 @Injectable({ providedIn: 'root' })
 export class HealthRecordFacade {
-  private readonly _api = inject(HealthRecordApiService);
+  private readonly _api = inject(HealthRecordApi);
   private readonly _metadataApi = inject(HealthRecordMetadataApi);
   private readonly _store = inject(HealthRecordStore);
 
@@ -48,7 +48,7 @@ export class HealthRecordFacade {
         currentWeight: this._requiredNumber(payload, 'currentWeight'),
         color: this._optionalString(payload, 'color'),
         identificationNumber: this._optionalString(payload, 'identificationNumber'),
-        tattooNumber: this._optionalString(payload, 'tattooNumber'),
+        tattoo: this._optionalString(payload, 'tattooNumber'),
         allergy: this._optionalString(payload, 'allergy'),
       };
 
@@ -56,8 +56,22 @@ export class HealthRecordFacade {
 
       console.log('DTO envoyé au back:', dto);
       const healthRecord: HealthRecord = {
-        healthRecordNumber: Date.now(),
+        id: Date.now(),
+        image: '',
+        imageType: '',
+        measures: {
+          temperature: [],
+          weight: [],
+          respiratoryRate: [],
+          bpm: [],
+        },
         ...dto,
+        breed: dto.breed ?? 'Inconnu',
+        birthDate: dto.birthDate ? new Date(dto.birthDate) : new Date(),
+        color: dto.color ?? '',
+        identificationNumber: dto.identificationNumber ?? '',
+        tattoo: Number(dto.tattoo) || 0,
+        allergy: Number(dto.allergy) || 0,
       };
 
       this._store.addHealthRecord(healthRecord);
@@ -125,5 +139,14 @@ export class HealthRecordFacade {
       throw new Error(`Le champ "${key}" doit être un nombre positif valide`);
     }
     return value;
+  }
+
+  async getHealthRecordById(id: number): Promise<HealthRecord> {
+    if (this._store.healthRecord() === undefined || this._store.healthRecord()!.id !== id) {
+      const newHealthRecord = await this._api.getHealthRecordById(id);
+      this._store.setHealthRecord(newHealthRecord);
+    }
+
+    return this._store.healthRecord()!;
   }
 }

@@ -8,6 +8,6 @@ export type CreateHealthRecordDto = {
   currentWeight: number;
   color?: string | null;
   identificationNumber?: string | null;
-  tattooNumber?: string | null;
+  tattoo?: string | null;
   allergy?: string | null;
 };

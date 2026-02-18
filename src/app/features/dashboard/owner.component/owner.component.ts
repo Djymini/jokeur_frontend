@@ -3,13 +3,13 @@ import { NotificationModel } from '@/internal-shared/domaine/notification-model'
 import { ReminderModel } from '@/internal-shared/domaine/reminder-model';
 import { AppointmentModel } from '@/internal-shared/domaine/appointment-model';
 import { AppointmentApiService } from '@/features/appointment/services/appointment.api.service';
-import { HealthRecordModel } from '@/internal-shared/domaine/HealthRecordModel';
-import { HealthRecordApiService } from '@/features/health-records/services/health-record.api.service';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { DatePipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ReminderApiService } from '@/features/reminder/services/reminder.api.service';
 import { NotificationApiService } from '@/features/notification/notification.api.service';
+import { HealthRecordApi } from '@/features/health-records/services/health-record.api';
+import { HealthRecord } from '@/features/health-records/models/health-record.model';
 
 @Component({
   selector: 'app-owner',
@@ -18,13 +18,14 @@ import { NotificationApiService } from '@/features/notification/notification.api
   styleUrl: './owner.component.scss',
 })
 export class OwnerComponent implements OnInit {
+  router = inject(Router);
   appointmentApi = inject(AppointmentApiService);
-  HealthRecordApi = inject(HealthRecordApiService);
+  HealthRecordApi = inject(HealthRecordApi);
   reminderApi = inject(ReminderApiService);
   notificationApi = inject(NotificationApiService);
 
   appointments = signal<AppointmentModel[]>([]);
-  animals = signal<HealthRecordModel[]>([]);
+  animals = signal<HealthRecord[]>([]);
   reminders = signal<ReminderModel[]>([]);
   notifications = signal<NotificationModel[]>([]);
 
