@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Inject, inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
@@ -9,12 +9,13 @@ import { ErrorService } from '@/core/services/error.service';
 export class AuthApi {
   protected http = inject(HttpClient);
   protected readonly BASE_URL = environment.apiUrl;
-  protected errorService = Inject(ErrorService);
+  protected errorService = inject(ErrorService);
 
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     try {
       return await firstValueFrom(
-        this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload));
+        this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload),
+      );
     } catch (error) {
       throw this.handleError(error);
     }

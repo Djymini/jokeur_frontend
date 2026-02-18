@@ -25,7 +25,10 @@ export class RegisterFormComponent {
       name: this._fb.control('', Validators.required),
       firstname: this._fb.control('', Validators.required),
       phone: this._fb.control('', Validators.required),
-      email: this._fb.control('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
+      email: this._fb.control('', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
+      ]),
       password: this._fb.control('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: this._fb.control('', Validators.required),
       acceptCGU: this._fb.control(false, Validators.requiredTrue),
@@ -62,7 +65,9 @@ export class RegisterFormComponent {
 
     try {
       // 3- Appel backend
-      await this._authApi.register(payload);
+      await this._authApi.register(payload).then((result) => {
+        console.log("message result", result)
+      });
 
       // 4- Redirection login
       await this._router.navigateByUrl('/login');

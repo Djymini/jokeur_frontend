@@ -97,9 +97,13 @@
       </button>
     </div>
 
-    @if (registerForm.controls.password.errors?.['required'] && registerForm.controls.password.touched) {
+    @if (
+      registerForm.controls.password.errors?.['required'] && registerForm.controls.password.touched
+    ) {
       <p class="error" id="password-error" role="alert">Le mot de passe est obligatoire.</p>
-    } @else if (registerForm.controls.password.errors?.['minlength'] && registerForm.controls.password.touched) {
+    } @else if (
+      registerForm.controls.password.errors?.['minlength'] && registerForm.controls.password.touched
+    ) {
       <p class="error" id="password-error" role="alert">
         Le mot de passe doit contenir au minimum
         {{ registerForm.controls.password.errors?.['minlength']?.requiredLength }}
@@ -122,14 +126,17 @@
         formControlName="confirmPassword"
         placeholder="********"
         [attr.aria-invalid]="
-          (registerForm.controls.confirmPassword.invalid || registerForm.hasError('passwordMismatch')) &&
-          (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
+          (registerForm.controls.confirmPassword.invalid ||
+            registerForm.hasError('passwordMismatch')) &&
+          (registerForm.controls.confirmPassword.touched ||
+            registerForm.controls.confirmPassword.dirty)
             ? 'true'
             : null
         "
         [attr.aria-describedby]="
           registerForm.hasError('passwordMismatch') &&
-          (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
+          (registerForm.controls.confirmPassword.touched ||
+            registerForm.controls.confirmPassword.dirty)
             ? 'confirm-password-error'
             : null
         "
@@ -139,7 +146,9 @@
         type="button"
         class="eye"
         (click)="toggleConfirmPassword()"
-        [attr.aria-label]="showConfirmPassword ? 'Masquer la confirmation' : 'Afficher la confirmation'"
+        [attr.aria-label]="
+          showConfirmPassword ? 'Masquer la confirmation' : 'Afficher la confirmation'
+        "
       >
         <span class="material-icons">
           {{ showConfirmPassword ? 'visibility_off' : 'visibility' }}
@@ -150,7 +159,7 @@
     @if (
       registerForm.hasError('passwordMismatch') &&
       (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
-      ) {
+    ) {
       <p class="error" id="confirm-password-error" role="alert">
         Les mots de passe ne correspondent pas.
       </p>
