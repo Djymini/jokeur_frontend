@@ -1,4 +1,5 @@
 import { HttpInterceptorFn } from '@angular/common/http';
+import { DOCUMENT, inject } from '@angular/core';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   // Ne pas ajouter le token aux routes publiques
@@ -6,17 +7,24 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     return next(req);
   }
 
-  const token = localStorage.getItem('jwt_token');
+  const document: Document = inject(DOCUMENT);
+  const localStorage = document.defaultView?.localStorage
 
-  if (token) {
-    return next(
-      req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`,
-        },
-      }),
-    );
+
+  if (localStorage!) {
+    const token = localStorage.getItem('jwt_token');
+
+    if (token) {
+      return next(
+        req.clone({
+          setHeaders: {
+            Authorization: `Bearer ${token}`,
+          },
+        }),
+      );
+    }
   }
+
 
   return next(req);
 };
