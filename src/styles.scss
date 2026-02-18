@@ -1,5 +1,5 @@
 @use 'tailwindcss';
-//@plugin "tailwindcss-animate";
+@plugin "tailwindcss-animated";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -88,6 +88,7 @@
 
   --text: #040316;
   --main-background: #f8f2e8;
+  --card-background-second: rgba(113, 178, 227, 0.25);
 }
 
 .dark {

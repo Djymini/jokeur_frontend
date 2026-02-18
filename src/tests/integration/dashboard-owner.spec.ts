@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { OwnerComponent } from '@/features/dashboard/owner.component/owner.component';
 import { AppointmentApiService } from '@/features/appointment/services/appointment.api.service';
-import { HealthRecordApiService } from '@/features/health-records/services/health-record.api.service';
+import { HealthRecordApi } from '@/features/health-records/services/health-record.api';
 
 describe('OwnerComponent', () => {
   let component: OwnerComponent;
@@ -46,7 +46,7 @@ describe('OwnerComponent', () => {
       imports: [OwnerComponent],
       providers: [
         { provide: AppointmentApiService, useValue: mockAppointmentApi },
-        { provide: HealthRecordApiService, useValue: mockHealthRecordApi },
+        { provide: HealthRecordApi, useValue: mockHealthRecordApi },
         { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     }).compileComponents();

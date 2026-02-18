@@ -1,0 +1,14 @@
+<section class="measure-section">
+  <app-measure-board
+    [idHealthRecord]="1"
+    [title]="boardName()"
+    [icon]="boardIcon()"
+    [type]="type()"
+    [measures]="measures()"
+  ></app-measure-board>
+  <app-measure-resume
+    [title]="resumeTitle()"
+    [measures]="measures()"
+    [type]="type()"
+  ></app-measure-resume>
+</section>

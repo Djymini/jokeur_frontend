@@ -93,9 +93,9 @@
                 {{ animal.petName }}
               </h4>
 
-              @if (animal.AnimalType) {
+              @if (animal.animalType) {
                 <p class="text-sm text-muted-foreground">
-                  {{ animalTypeMap[animal.AnimalType] }}
+                  {{ animalTypeMap[animal.animalType] }}
                 </p>
               }
             </div>
@@ -103,7 +103,7 @@
 
           <!-- chovron droit -->
           <a
-            [routerLink]="['/', animal.id]"
+            [routerLink]="['/health-record/', animal.id]"
             class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-accent m-px transition"
             title="Voir les détails"
           >
