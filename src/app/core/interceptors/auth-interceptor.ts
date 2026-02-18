@@ -8,8 +8,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   const document: Document = inject(DOCUMENT);
-  const localStorage = document.defaultView?.localStorage
-
+  const localStorage = document.defaultView?.localStorage;
 
   if (localStorage!) {
     const token = localStorage.getItem('jwt_token');
@@ -24,7 +23,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       );
     }
   }
-
 
   return next(req);
 };
