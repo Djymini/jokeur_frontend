@@ -9,21 +9,22 @@ import { BaseApi } from '../../../internal-shared/services/base.api';
 })
 export class MeasuresApi extends BaseApi {
   async getMeasure(endpoint: string): Promise<MeasureModel[]> {
-    return this.get<MeasureModel[]>('measures/' + endpoint);
+    return this.get<MeasureModel[]>('/measures/' + endpoint);
   }
 
   async addMeasure(measureRecord: AddMeasureDtoRecord): Promise<MeasureModel> {
-    return this.post<MeasureModel>('measures', measureRecord);
+    return this.post<MeasureModel>('/measures', measureRecord);
   }
 
   async modifyMeasure(measureRecord: MeasureDtoRecord): Promise<MeasureModel> {
     return this.put<MeasureModel>(
-      `measures/${measureRecord.healthRecordId}/${measureRecord.id}`,
-      measureRecord,
+      `/measures/${measureRecord.healthRecordId}/${measureRecord.id}`,
+      measureRecord.value,
     );
   }
 
   async deleteMeasure(measureRecord: MeasureDtoRecord): Promise<string> {
-    return this.delete<string>(`measures/${measureRecord.healthRecordId}/${measureRecord.id}`);
+    console.log("heoh")
+    return this.delete<string>(`/measures/${measureRecord.healthRecordId}/${measureRecord.id}`);
   }
 }

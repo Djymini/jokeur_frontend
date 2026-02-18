@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { MeasureChartComponent } from '@/features/measures/components/measure-chart.component/measure-chart.component';
 import { ZardIcon, ZardIconComponent } from '@/shared/components/icon';
@@ -27,13 +27,15 @@ export class MeasureBoardComponent implements OnInit {
     this.measuresFacade.initializeMeasureServiceAction(this.type());
   }
 
-  openDialog(): void {
+  async openDialog(): Promise<void> {
     this.dialogService.create({
       zTitle: 'Details ' + this.title(),
       zDescription: `Voir l'ensemble des saisis`,
       zContent: MeasureDetailsDialogComponent,
-      zData: this.measuresFacade.getMeasure(this.idHealthRecord(), this.type()),
-      zWidth: '500px',
+      zData: {
+        measures: this.measures(),
+        type: this.type(),
+      },
       zHideFooter: true,
       zCustomClasses: '!p-8',
     });

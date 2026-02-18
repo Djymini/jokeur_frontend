@@ -1,18 +1,19 @@
 import { MeasureModel } from '@/features/measures/models/measureModel';
 
 export type HealthRecordModel = {
-  healthRecordNumber: number;
-  ownerId: number;
+  id: number;
   petName: string;
-  animalType: string;
   breed: string;
   sex: string;
-  birthDate: string;
+  birthDate: Date;
   currentWeight: number;
   color: string;
   identificationNumber: string;
-  tattooNumber: string;
-  allergy: string;
+  tattoo: number;
+  allergy: number;
+  image: string;
+  imageType: string;
+  AnimalType: string;
   measures: {
     temperature: MeasureModel[];
     weight: MeasureModel[];

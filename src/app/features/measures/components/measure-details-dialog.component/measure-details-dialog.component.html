@@ -9,26 +9,26 @@
         </tr>
       </thead>
       <tbody z-table-body>
-        @for (measure of measures; track measure.id) {
+        @for (measure of data.measures; track measure.id) {
           <tr z-table-row>
             <td z-table-cell>
               <div class="lowercase">{{ measure.creationDate }}</div>
             </td>
             <td z-table-cell>
-              <div class="lowercase">{{ measure.value }}</div>
+              <div class="lowercase">{{ measure.value | measure: data.type }}</div>
             </td>
             <td z-table-cell>
               <div class="flex items-center gap-2">
                 <z-button
                   zType="ghost"
-                  (click)="editMeasure(measure.id)"
+                  (click)="openDialogAdd(measure)"
                   title="Modifier la valeur"
                 >
                   <z-icon zType="book-open-text" />
                 </z-button>
                 <z-button
                   zType="ghost"
-                  (click)="deleteMeasure(measure.id)"
+                  (click)="openDialogDelete(measure)"
                   title="Supprimer la valeur"
                 >
                   <z-icon zType="trash" />

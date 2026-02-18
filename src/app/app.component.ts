@@ -16,7 +16,6 @@ export class AppComponent {
 
   sidebarCollapsed = signal(false);
 
-
   toggleSidebar(): void {
     this.sidebarCollapsed.update((state) => !state);
     console.log('toggleSidebar');

@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, input } from '@angular/core';
 import { ChartManager } from '@/features/measures/utils/chartManager';
 import { ChartMeasureModel } from '@/internal-shared/models/chartMeasure.model';
 import { MeasureModel } from '@/features/measures/models/measureModel';
@@ -9,12 +9,13 @@ import { MeasureModel } from '@/features/measures/models/measureModel';
   templateUrl: './measure-chart.component.html',
   styleUrl: './measure-chart.component.scss',
 })
-export class MeasureChartComponent implements OnInit {
+export class MeasureChartComponent implements AfterViewInit {
   title = input.required<string>();
+  type = input.required<string>();
   mesures = input.required<MeasureModel[]>();
   public chart: any;
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     const label: string[] = [];
     const data: string[] = [];
 
@@ -27,6 +28,6 @@ export class MeasureChartComponent implements OnInit {
       labels: label,
       data: data,
     };
-    this.chart = ChartManager.createChart('MyChart', 'line', dataMeasure);
+    this.chart = ChartManager.createChart(this.type(), 'line', dataMeasure);
   }
 }
