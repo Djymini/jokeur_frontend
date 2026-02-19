@@ -13,10 +13,7 @@
     <ul>
       @for (item of menuItems(); track item.id) {
         <li routerLinkActive="active">
-          <a
-            [routerLink]="item.path"
-            routerLinkActive="active"
-          >
+          <a [routerLink]="item.path" routerLinkActive="active">
             <span class="material-icons">{{ item.icon }}</span>
             @if (!collapsed()) {
               <span class="menu-label" [attr.aria-label]="collapsed() ? item.label : null">{{
