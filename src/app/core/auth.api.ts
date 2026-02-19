@@ -1,24 +1,36 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { RegisterFormOwnerModel } from '@/features/auth/models/register-form-owner-model';
 import { firstValueFrom } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { RegisterUserPayload } from '@/core/models/register-user-payload';
+import { ErrorService } from '@/core/services/error.service';
+import { BaseApi } from '@/internal-shared/services/base.api';
 
 @Injectable({ providedIn: 'root' })
-export class AuthApi {
-  protected http = inject(HttpClient);
-  protected readonly BASE_URL = environment.apiUrl;
+export class AuthApi extends BaseApi {
+  protected errorService = inject(ErrorService);
 
-  protected getHeaders(): HttpHeaders {
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
+  async register(payload: RegisterUserPayload): Promise<{ message: string }> {
+    try {
+      return await firstValueFrom(
+        this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
   }
 
-  async register(registerForm: FormGroup<RegisterFormOwnerModel>): Promise<RegisterFormOwnerModel> {
-    return await firstValueFrom(
-      this.http.post<RegisterFormOwnerModel>(`${this.BASE_URL}/register`, registerForm.value),
-    );
+  async login(payload: {
+    email: string;
+    password: string;
+  }): Promise<{ token: string; email: string; role: string }> {
+    try {
+      return await firstValueFrom(
+        this.http.post<{ token: string; email: string; role: string }>(
+          `${this.BASE_URL}/auth/login`,
+          payload,
+        ),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
   }
 }
