@@ -66,7 +66,7 @@ export abstract class BaseApi {
     }
   }
 
-  private _handleError(error: any): Error {
+  protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
       switch (error.status) {
         case 400:
@@ -83,6 +83,7 @@ export abstract class BaseApi {
           return new Error('Erreur réseau');
       }
     }
+    console.error('BASE_API unknown error shape:', error);
     return new Error('Erreur inconnue');
   }
 }
