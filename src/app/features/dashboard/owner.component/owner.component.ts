@@ -61,5 +61,6 @@ export class OwnerComponent implements OnInit {
 
     this.notificationApi.getAllNotifications().then((restult) => {
       this.notifications.set(restult);
-    });}
+    });
+  }
 }
