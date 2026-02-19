@@ -1,11 +1,11 @@
 <section class="mb-8">
   <h2 class="text text-card-foreground title">Informations</h2>
 
-  <!-- Notifications -->
+  <!-- Actualité -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 parent">
     <div class="bg-card rounded-lg shadow-sm border info-card">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="font-medium text-lg">Notification</h3>
+        <h3 class="font-medium text-lg">Actualité</h3>
         <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
           {{ notifications().length }}
         </span>
@@ -18,7 +18,7 @@
           </p>
         }
       } @else {
-        <p class="text-muted-foreground mb-2">Auccun notification</p>
+        <p class="text-muted-foreground mb-2">Auccun actualité</p>
       }
 
       <a z-button zType="link" routerLink="/"> Accéder à mes notifications </a>
@@ -93,9 +93,9 @@
                 {{ animal.petName }}
               </h4>
 
-              @if (animal.AnimalType) {
+              @if (animal.animalType) {
                 <p class="text-sm text-muted-foreground">
-                  {{ animalTypeMap[animal.AnimalType] }}
+                  {{ animalTypeMap[animal.animalType] }}
                 </p>
               }
             </div>
@@ -103,7 +103,7 @@
 
           <!-- chovron droit -->
           <a
-            [routerLink]="['/', animal.id]"
+            [routerLink]="['/health-record/', animal.id]"
             class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-accent m-px transition"
             title="Voir les détails"
           >

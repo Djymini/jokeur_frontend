@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from '@/router/guards/auth-guard';
+import { healthRecordResolver } from '@/router/resolvers/health-record/health-record-resolver';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,18 @@ export const routes: Routes = [
     title: 'Tableau de bord',
     loadComponent: () => import('../features/dashboard/pages/home.page'),
     canActivate: [authGuard],
+  },
+
+  {
+    path: 'form',
+    title: 'Formulaire',
+    loadComponent: () => import('@/features/health-records/pages/health-record-form.page'),
+  },
+
+  {
+    path: 'health-record/:id',
+    title: 'Carnet de santé',
+    loadComponent: () => import('../features/health-records/pages/health-record.page'),
+    resolve: { healthRecord: healthRecordResolver },
   },
 ];

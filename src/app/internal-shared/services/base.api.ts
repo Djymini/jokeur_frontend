@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +40,16 @@ export abstract class BaseApi {
     try {
       return await firstValueFrom(
         this.http.put<T>(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() }),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
+  protected async patch<T>(endpoint: string, body: any): Promise<T> {
+    try {
+      return await firstValueFrom(
+        this.http.patch<T>(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() }),
       );
     } catch (error) {
       throw this._handleError(error);
