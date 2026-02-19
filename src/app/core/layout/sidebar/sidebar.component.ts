@@ -11,6 +11,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class SidebarComponent {
   collapsed = input<boolean>(false);
 
+
   menuItems = signal<MenuItemModel[]>([
     { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', path: '/dashboard' },
     { id: 'animals', label: 'Mes animaux', icon: 'pets', path: '/construction' },

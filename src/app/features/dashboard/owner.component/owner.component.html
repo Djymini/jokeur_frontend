@@ -51,11 +51,11 @@
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-medium text-lg">Rendez-vous</h3>
         <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
-          {{ appointments().length }}
+          {{ appointments().totalElements }}
         </span>
       </div>
-      @if (appointments().length > 0) {
-        @for (appointment of appointments().slice(0, 1); track appointment.id) {
+      @if (appointments().totalElements > 0) {
+        @for (appointment of appointments().content; track appointment.id) {
           <p class="text-muted-foreground mb-2 leading-6">{{ appointment.reason }}</p>
           <p class="text-sm text-muted-foreground mb-4 leading-6">
             {{ appointment.dateTime | date: 'dd/MM/yyyy' }}

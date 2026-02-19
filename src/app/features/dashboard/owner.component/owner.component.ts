@@ -15,6 +15,7 @@ import { HealthRecordFormMetadata } from '@/features/health-records/services/hea
 import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
+import { PageModel } from '@/internal-shared/domaine/page-model';
 
 @Component({
   selector: 'app-owner',
@@ -37,7 +38,7 @@ export class OwnerComponent implements OnInit {
   private readonly _facade = inject(HealthRecordFacade);
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
 
-  appointments = signal<AppointmentModel[]>([]);
+  appointments = signal<PageModel<AppointmentModel>>({content: [], totalElements: 0 });
   animals = signal<HealthRecord[]>([]);
   reminders = signal<ReminderModel[]>([]);
   notifications = signal<NotificationModel[]>([]);
