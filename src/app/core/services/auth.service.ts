@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly _tokenKey = 'access_token';
+  private readonly _tokenKey = 'jwt_token';
   private readonly _platformId = inject(PLATFORM_ID);
 
   readonly isLoggedIn = signal<boolean>(false);
@@ -19,6 +19,7 @@ export class AuthService {
   }
 
   private _hasToken(): boolean {
+    if (!this._isBrowser()) return false;
     return !!localStorage.getItem(this._tokenKey);
   }
 
@@ -27,12 +28,9 @@ export class AuthService {
     return localStorage.getItem(this._tokenKey);
   }
 
-  loginMock(_username: string, _password: string): void {
-    void _username;
-    void _password;
-
+  setToken(token: string): void {
     if (!this._isBrowser()) return;
-    localStorage.setItem(this._tokenKey, 'mock-token');
+    localStorage.setItem(this._tokenKey, token);
     this.isLoggedIn.set(true);
   }
 
