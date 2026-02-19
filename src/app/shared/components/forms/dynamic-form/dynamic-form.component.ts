@@ -17,6 +17,8 @@ import { HealthRecordFormMetadata } from '@/features/health-records/services/hea
 import { applyBreedDependencyRule } from '@/features/health-records/utils/breed-dependency.utils';
 import { resolveSelectOptions } from '@/shared/utils/forms/select-options.utils';
 import { buildDynamicForm } from '@/shared/utils/forms/form-utils';
+import { getFieldErrorMessage } from '@/shared/utils/forms/field-error-message';
+
 
 
 type FormPayload = Record<string, unknown>;
@@ -88,5 +90,10 @@ export class DynamicFormComponent {
 
   protected getSelectOptions(field: FormField): SelectOption[] {
     return resolveSelectOptions(field, this.formGroup(), this.metadata());
+  }
+
+  protected getErrorMessage(field: FormField): string {
+    const control = this.formGroup().get(field.key);
+    return getFieldErrorMessage(control, field.label);
   }
 }

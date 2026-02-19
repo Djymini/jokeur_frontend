@@ -1,7 +1,7 @@
 import { FormBuilder, Validators } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
-import { buildDynamicForm } from '../../app/shared/utils/forms/form-utils';
-import { FormField } from '../../app/shared/models/forms/form-field.model';
+import { buildDynamicForm } from '@/shared/utils/forms/form-utils';
+import { FormField } from '@/shared/models/forms/form-field.model';
 
 describe('buildDynamicForm', () => {
   let formBuilder: FormBuilder;
