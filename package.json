@@ -59,6 +59,7 @@
     "tailwindcss": "^4.1.18",
     "tailwindcss-animated": "^2.0.0",
     "tslib": "^2.3.0",
+    "vitest": "^4.0.18",
     "zone.js": "^0.16.0"
   },
   "devDependencies": {
