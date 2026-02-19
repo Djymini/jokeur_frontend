@@ -12,12 +12,10 @@
     <hr />
     <ul>
       @for (item of menuItems(); track item.id) {
-        <li>
+        <li routerLinkActive="active">
           <a
-            [href]="item.path"
-            [class.active]="activeRoute() === item.path"
-            (click)="selectMenu()"
-            [attr.aria-current]="activeRoute() === item.path ? 'page' : null"
+            [routerLink]="item.path"
+            routerLinkActive="active"
           >
             <span class="material-icons">{{ item.icon }}</span>
             @if (!collapsed()) {
