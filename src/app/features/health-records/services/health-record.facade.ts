@@ -16,8 +16,7 @@ export class HealthRecordFacade {
   async loadFormMetadata(): Promise<HealthRecordFormMetadata> {
     try {
       return await this._metadataApi.getMetadata();
-    } catch (error) {
-      console.error('[METADATA ERROR]', error);
+    } catch {
       throw new Error('Impossible de charger les données du formulaire');
     }
   }
@@ -27,8 +26,7 @@ export class HealthRecordFacade {
       const records = await this._api.getAllHealthRecords();
       this._store.setHealthRecords(records);
       return records;
-    } catch (error) {
-      console.error('[LOAD HEALTH RECORDS ERROR]', error);
+    } catch {
       throw new Error('Impossible de charger les carnets de santé');
     }
   }
@@ -59,7 +57,6 @@ export class HealthRecordFacade {
 
       return healthRecord;
     } catch (error) {
-      console.error('[CREATE HEALTH RECORD ERROR]', error);
       if (error instanceof Error) throw error;
       throw new Error('Une erreur inattendue est survenue');
     }
@@ -87,7 +84,6 @@ export class HealthRecordFacade {
 
       return healthRecord;
     } catch (error) {
-      console.error('[UPDATE HEALTH RECORD ERROR]', error);
       if (error instanceof Error) throw error;
       throw new Error('Une erreur inattendue est survenue');
     }
@@ -97,8 +93,7 @@ export class HealthRecordFacade {
     try {
       await this._api.deleteHealthRecord(healthRecordNumber);
       this._store.removeHealthRecord(healthRecordNumber);
-    } catch (error) {
-      console.error('[DELETE HEALTH RECORD ERROR]', error);
+    } catch {
       throw new Error('Impossible de supprimer le carnet de santé');
     }
   }
