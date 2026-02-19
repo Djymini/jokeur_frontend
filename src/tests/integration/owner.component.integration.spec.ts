@@ -1,12 +1,12 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { HealthRecordFacade } from '../../app/features/health-records/services/health-record.facade';
-import { HealthRecordStore } from '../../app/features/health-records/services/health-record.store';
-import { HealthRecordApi } from '../../app/features/health-records/services/health-record.api';
-import { HealthRecordMetadataApi } from '../../app/features/health-records/services/health-record-metadata.api';
-import { HealthRecord } from '../../app/features/health-records/models/health-record.model';
-import { CreateHealthRecordDto } from '../../app/features/health-records/models/create-health-record.dto';
+import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
+import { HealthRecordApi } from '@/features/health-records/services/health-record.api';
+import { HealthRecordMetadataApi } from '@/features/health-records/services/health-record-metadata.api';
+import { HealthRecord } from '@/features/health-records/models/health-record.model';
+import { CreateHealthRecordDto } from '@/features/health-records/models/create-health-record.dto';
 
 const mockRecord = (overrides: Partial<HealthRecord> = {}): HealthRecord => ({
   id: 1,
