@@ -1,10 +1,9 @@
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import {MeasuresFacade} from '../../app/features/measures/services/measures-facade'
-import {MeasuresStore} from '../../app/features/measures/services/measures-store'
-import {MeasuresApi} from '../../app/features/measures/services/measures-api'
+import {MeasuresFacade} from '@/features/measures/services/measures-facade'
+import {MeasuresStore} from '@/features/measures/services/measures-store'
+import {MeasuresApi} from '@/features/measures/services/measures-api'
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { MeasureServiceAction } from '@/features/measures/interfaces/measureServiceAction';
 import { MeasureModel } from '@/features/measures/models/measureModel';
 import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRecord';
 
@@ -76,9 +75,11 @@ describe('ProductFacade.createProduct (integration)', () => {
     // 1. Arrange
     facade.initializeMeasureServiceAction("weight");
     const newValue: AddMeasureDtoRecord = {
+      id: 1,
         value: 5.7,
         measureType: "WEIGHT",
         healthRecordId: 1,
+      creationDate: "2025-12-01"
       };
 
     const promise = facade.addMeasure(newValue);
