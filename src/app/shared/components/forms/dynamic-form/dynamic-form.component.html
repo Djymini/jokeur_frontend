@@ -77,7 +77,7 @@
       }
 
       @if (formGroup().get(field.key)?.touched && formGroup().get(field.key)?.invalid) {
-        <p class="error">Champ invalide</p>
+        <p class="error">{{ getErrorMessage(field) }}</p>
       }
     </div>
   }
