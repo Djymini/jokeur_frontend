@@ -1,5 +1,5 @@
-import { HealthRecordRules } from '../../app/features/health-records/domain/health-record.rules';
-import { CreateHealthRecordDto } from '../../app/features/health-records/models/create-health-record.dto';
+import { HealthRecordRules } from '@/features/health-records/domain/health-record.rules';
+import { CreateHealthRecordDto } from '@/features/health-records/models/create-health-record.dto';
 
 describe('HealthRecordRules', () => {
   describe('validate', () => {
