@@ -1,4 +1,5 @@
-import { AuthRules, RegisterFormValue } from '@/features/auth/domain/auth.rules';
+//import { AuthRules, RegisterFormValue } from '@/features/auth/domain/auth.rules';
+import { AuthRules, RegisterFormValue } from '../../app/features/auth/domain/auth.rules';
 
 describe('AuthRules (unit tests)', () => {
   let form: RegisterFormValue;

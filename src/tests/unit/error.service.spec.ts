@@ -1,4 +1,4 @@
-import { ErrorService } from '@/core/services/error.service'
+import { ErrorService } from '../../app/core/services/error.service'
 
 describe('ErrorService (unit tests)', () => {
   it('should start with null error', () => {
