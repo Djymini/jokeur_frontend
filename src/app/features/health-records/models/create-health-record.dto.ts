@@ -1,5 +1,5 @@
 export type CreateHealthRecordDto = {
-  idOwner: number;
+  ownerId: number;
   petName: string;
   animalType: string;
   breed?: string | null;
