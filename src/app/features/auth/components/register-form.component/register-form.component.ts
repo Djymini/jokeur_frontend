@@ -5,10 +5,7 @@ import { RegisterFormUserModel } from '@/features/auth/models/register-form-user
 import { AuthApi } from '@/core/auth.api';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { passwordMatchValidator } from '@/features/auth/validators/pass-match-validators';
-import {
-  PASSWORD_MIN_LENGTH,
-  PASSWORD_REGEX,
-} from '@/features/auth/domain/password.rules';
+import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from '@/features/auth/domain/password.rules';
 
 @Component({
   selector: 'app-register-form',
@@ -37,7 +34,7 @@ export class RegisterFormComponent {
         Validators.required,
         Validators.minLength(PASSWORD_MIN_LENGTH),
         Validators.pattern(PASSWORD_REGEX),
-        ]),
+      ]),
       confirmPassword: this._fb.control('', Validators.required),
       acceptCGU: this._fb.control(false, Validators.requiredTrue),
     },
