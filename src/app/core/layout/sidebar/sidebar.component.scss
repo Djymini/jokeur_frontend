@@ -76,6 +76,8 @@ hr {
     &.active {
       background: var(--primary-light);
       font-weight: 500;
+      border-left: 2px solid white;
+      margin-left: 2px;
 
       &::before {
         content: '';

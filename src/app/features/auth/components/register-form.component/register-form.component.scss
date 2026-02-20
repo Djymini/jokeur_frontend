@@ -1,13 +1,12 @@
 :host {
   --blue: #004e89;
   --green: #68a691;
-  --bg: #f6f7f9;
   --border: #e3e6ea;
   --text: #1f2937;
 
   display: block;
   min-height: 100vh;
-  background: var(--bg);
+  margin: 16px auto;
   color: var(--text);
   font-family:
     system-ui,
@@ -16,6 +15,13 @@
     Roboto,
     Arial,
     sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  color: var(--secondary);
 }
 
 /* Container global */

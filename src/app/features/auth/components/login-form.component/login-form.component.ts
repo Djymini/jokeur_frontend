@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '@/core/services/auth.service';
 import { LoginFormModel } from '@/features/auth/models/login-form.models';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import {
   FormGroup,
@@ -15,7 +15,7 @@ import { AuthApi } from '@/core/auth.api';
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
 })
@@ -37,7 +37,8 @@ export class LoginFormComponent {
     const password = this.loginForm.get('password')!.value;
 
     const res = await this._authApi.login({ email, password }); // AuthApi
-    this._authService.setToken(res.token); // AuthService
+    this._authService.updateUser(res);
+    this._authService.setToken(res.token);
 
     this._router.navigate(['/dashboard']);
   }

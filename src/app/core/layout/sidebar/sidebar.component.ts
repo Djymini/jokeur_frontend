@@ -1,15 +1,19 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
+import { AuthService } from '@/core/services/auth.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent {
   collapsed = input<boolean>(false);
   activeRoute = input<string>('/dashboard');
+
+  isVisible = inject(AuthService).isLoggedIn;
 
   // Signals internes
   menuItems = signal<MenuItemModel[]>([

@@ -247,3 +247,15 @@ body {
 main {
   flex: 1;
 }
+
+z-dialog {
+  padding: 32px !important;
+}
+
+z-dialog footer {
+  gap: 32px !important;
+}
+
+z-dialog button {
+  padding: 8px !important;
+}
