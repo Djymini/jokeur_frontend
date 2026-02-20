@@ -8,9 +8,8 @@ import { HealthRecord } from '../models/health-record.model';
 export class HealthRecordApi extends BaseApi {
   private readonly _endpoint = '/health-records';
 
-  async getAnimalInformation(): Promise<HealthRecord[]> {
-    const idOwner = 1;
-    return this.get<HealthRecord[]>(this._endpoint + `?idOwner=${idOwner}`);
+  async getAnimalInformation(userId: number): Promise<HealthRecord[]> {
+    return this.get<HealthRecord[]>(this._endpoint + `?userId=${userId}`);
   }
 
   async createHealthRecord(dto: CreateHealthRecordDto): Promise<HealthRecord> {

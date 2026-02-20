@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormDefinition } from '@/shared/models/forms/form-definition.model';
+import { birthDateValidator } from '@/shared/utils/forms/date-validators';
 
 @Injectable({ providedIn: 'root' })
 export class AnimalFormFactory {
@@ -62,6 +63,7 @@ export class AnimalFormFactory {
         key: 'birthDate',
         label: 'Date de naissance',
         type: 'date',
+        validators: [birthDateValidator()],
       },
       {
         key: 'currentWeight',

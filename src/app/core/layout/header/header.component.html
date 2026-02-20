@@ -1,21 +1,45 @@
-<header class="header" role="banner">
-  <div class="header-left">
-    <button
-      type="button"
-      class="menu-toggle"
-      (click)="toggleSidebar.emit()"
-      aria-label="Toggle sidebar"
-    >
-      <span class="material-icons">
-        {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
-      </span>
-    </button>
-  </div>
-  <div class="header-right">
-    <!-- User Profile -->
-    <div class="user-profile">
-      <span class="material-icons">account_circle</span>
-      <span class="user-name">Propriétaire</span>
+@if (isVisible()) {
+  <header class="header" role="banner">
+    <div class="header-left">
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="toggleSidebar.emit()"
+        aria-label="Toggle sidebar"
+      >
+        <span class="material-icons">
+          {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
+        </span>
+      </button>
     </div>
-  </div>
-</header>
+    <div class="header-right">
+      <!-- User Profile -->
+      <div class="user-profile" z-dropdown [zDropdownMenu]="menu">
+        <span class="material-icons">account_circle</span>
+        <span class="user-name">
+          {{ user() ? user()!.name + ' ' + user()!.firstName : 'inconnue' }}
+        </span>
+        <z-dropdown-menu-content #menu="zDropdownMenuContent" class="w-56">
+          <z-menu-label>Mon compte</z-menu-label>
+
+          <z-dropdown-menu-item (click)="onDashboard()">
+            Tableau de bord
+            <z-menu-shortcut>⇧⌘P</z-menu-shortcut>
+          </z-dropdown-menu-item>
+
+          <z-dropdown-menu-item (click)="onSettings()">
+            Settings
+            <z-menu-shortcut>⌘S</z-menu-shortcut>
+          </z-dropdown-menu-item>
+
+          <z-divider zSpacing="sm" class="-mx-1" />
+
+          <z-dropdown-menu-item (click)="onLogout()">
+            Log out
+            <z-menu-shortcut>⇧⌘Q</z-menu-shortcut>
+          </z-dropdown-menu-item>
+        </z-dropdown-menu-content>
+      </div>
+    </div>
+  </header>
+}

@@ -1,37 +1,39 @@
-<aside
-  class="sidebar"
-  [class.collapsed]="collapsed()"
-  role="navigation"
-  aria-label="Menu principal"
->
-  <nav class="sidebar-nav">
-    <div class="logo">
-      <h1 [class.hide]="collapsed()">Jokeur</h1>
-      <span aria-hidden="true">logo</span>
-    </div>
-    <hr />
-    <ul>
-      @for (item of menuItems(); track item.id) {
-        <li>
-          <a
-            [href]="item.path"
-            [class.active]="activeRoute() === item.path"
-            (click)="selectMenu()"
-            [attr.aria-current]="activeRoute() === item.path ? 'page' : null"
-          >
-            <span class="material-icons">{{ item.icon }}</span>
-            @if (!collapsed()) {
-              <span class="menu-label" [attr.aria-label]="collapsed() ? item.label : null">{{
-                item.label
-              }}</span>
-            }
+@if (isVisible()) {
+  <aside
+    class="sidebar"
+    [class.collapsed]="collapsed()"
+    role="navigation"
+    aria-label="Menu principal"
+  >
+    <nav class="sidebar-nav">
+      <div class="logo">
+        <h1 [class.hide]="collapsed()">Jokeur</h1>
+        <span aria-hidden="true">logo</span>
+      </div>
+      <hr />
+      <ul>
+        @for (item of menuItems(); track item.id) {
+          <li>
+            <a
+              [routerLink]="item.path"
+              [class.active]="activeRoute() === item.path"
+              (click)="selectMenu()"
+              [attr.aria-current]="activeRoute() === item.path ? 'page' : null"
+            >
+              <span class="material-icons">{{ item.icon }}</span>
+              @if (!collapsed()) {
+                <span class="menu-label" [attr.aria-label]="collapsed() ? item.label : null">{{
+                  item.label
+                }}</span>
+              }
 
-            @if (item.badge && !collapsed()) {
-              <span class="menu-badge">{{ item.badge }}</span>
-            }
-          </a>
-        </li>
-      }
-    </ul>
-  </nav>
-</aside>
+              @if (item.badge && !collapsed()) {
+                <span class="menu-badge">{{ item.badge }}</span>
+              }
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </aside>
+}
