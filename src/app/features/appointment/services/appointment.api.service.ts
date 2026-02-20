@@ -10,6 +10,8 @@ export class AppointmentApiService extends BaseApi {
   async getAppointments(): Promise<PageModel<AppointmentModel>> {
     // TODO récupere idOwner depuis localstorage
     const idOwner = 1;
-    return this.get<PageModel<AppointmentModel>>(this._endpoint + `?idOwner=${idOwner}&page=0&size=1`);
+    return this.get<PageModel<AppointmentModel>>(
+      this._endpoint + `?idOwner=${idOwner}&page=0&size=1`,
+    );
   }
 }

@@ -6,6 +6,7 @@ export const routes: Routes = [
   {
     path: '',
     title: 'Accueil',
+    canActivate: [authGuard],
     loadComponent: () => import('../features/dashboard/pages/home.page'),
   },
   {

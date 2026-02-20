@@ -38,7 +38,7 @@ export class OwnerComponent implements OnInit {
   private readonly _facade = inject(HealthRecordFacade);
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
 
-  appointments = signal<PageModel<AppointmentModel>>({content: [], totalElements: 0 });
+  appointments = signal<PageModel<AppointmentModel>>({ content: [], totalElements: 0 });
   animals = signal<HealthRecord[]>([]);
   reminders = signal<ReminderModel[]>([]);
   notifications = signal<NotificationModel[]>([]);
