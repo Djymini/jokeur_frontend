@@ -2,7 +2,7 @@ import { MeasureModel } from '@/features/measures/models/measureModel';
 
 export type HealthRecord = {
   id: number;
-  ownerId: number;
+  userId: number;
   petName: string;
   breed: string;
   sex: string;

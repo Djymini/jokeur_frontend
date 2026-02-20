@@ -8,6 +8,7 @@ import { MeasureServiceActionFactory } from '../../measures/interfaces/factories
 import { MeasuresApi } from '../services/measures-api';
 import { MeasuresStore } from '../services/measures-store';
 import { MeasureDtoRecord } from '@/features/measures/models/measureDtoRecord';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ import { MeasureDtoRecord } from '@/features/measures/models/measureDtoRecord';
 export class MeasuresFacade {
   private _measureApi = inject(MeasuresApi);
   private _measureStore = inject(MeasuresStore);
+  private _healthRecordStore = inject(HealthRecordStore);
 
   private _measuresServiceAction: MeasureServiceAction =
     MeasureServiceActionFactory.createMeasureServiceAction(
@@ -46,6 +48,10 @@ export class MeasuresFacade {
 
     MeasureRules.validateType(newMeasure.measureType);
     this._measuresServiceAction.addMeasure(newMeasure);
+    this._healthRecordStore.addMeasureToCurrentRecord(
+      newMeasure,
+      data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
+    );
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
@@ -65,6 +71,14 @@ export class MeasuresFacade {
     const newMeasure = await this._measureApi.modifyMeasure(measureForUpdate);
 
     this._measuresServiceAction.modify(newMeasure.id, newMeasure.value);
+    this._healthRecordStore.modifyMeasureInCurrentRecord(
+      measureForUpdate,
+      measureForUpdate.measureType.toLowerCase() as
+        | 'temperature'
+        | 'weight'
+        | 'respiratoryRate'
+        | 'bpm',
+    );
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
@@ -75,6 +89,10 @@ export class MeasuresFacade {
     const msgConfirmation = await this._measureApi.deleteMeasure(measure);
 
     this._measuresServiceAction.remove(measure.id);
+    this._healthRecordStore.removeMeasureFromCurrentRecord(
+      measure.id,
+      measure.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
+    );
 
     toast.success(msgConfirmation, {
       duration: 2000,

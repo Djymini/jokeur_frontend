@@ -6,9 +6,8 @@ import { AppointmentModel } from '@/internal-shared/domaine/appointment-model';
 export class AppointmentApiService extends BaseApi {
   private readonly _endpoint = '/appointment';
 
-  async getAppointments(): Promise<AppointmentModel[]> {
+  async getAppointments(userId: number): Promise<AppointmentModel[]> {
     // TODO récupere idOwner depuis localstorage
-    const idOwner = 1;
-    return this.get<AppointmentModel[]>(this._endpoint + `?idOwner=${idOwner}`);
+    return this.get<AppointmentModel[]>(this._endpoint + `?userId=${userId}`);
   }
 }

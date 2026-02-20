@@ -12,4 +12,5 @@ export class MeasureResumeItemComponent {
   date = input.required<string>();
   type = input.required<string>();
   protected readonly parseInt = parseInt;
+  protected readonly parseFloat = parseFloat;
 }

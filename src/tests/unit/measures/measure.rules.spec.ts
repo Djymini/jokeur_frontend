@@ -1,5 +1,5 @@
-import { MeasureModel } from '../../../app/features/measures/models/measureModel';
-import { MeasureRules } from '../../../app/features/measures/domain/measure.rules';
+import { MeasureModel } from '@/features/measures/models/measureModel';
+import { MeasureRules } from '@/features/measures/domain/measure.rules';
 
 
 describe('MeasureRules (unit tests)', () => {
@@ -9,20 +9,20 @@ describe('MeasureRules (unit tests)', () => {
     measure = {
       id: 1,
       value: 22,
-      type: 'respiratory rate',
+      measureType: 'respiratory rate',
       creationDate: '2025-02-01',
-      healthRecordNumber: 1001,
+      healthRecordId: 1001,
     };
   });
 
   it('should pass if type is good', () => {
-    const valdate = MeasureRules.validateType(measure.type);
+    const valdate = MeasureRules.validateType(measure.measureType);
     expect(valdate).toBe(true);
   });
 
   it('should throw error if type is wrong', () => {
-    measure.type = 'respiratory';
-    const invalidate = MeasureRules.validateType(measure.type);
+    measure.measureType = 'respiratory';
+    const invalidate = MeasureRules.validateType(measure.measureType);
     expect(invalidate).toBe(false);
   });
 });

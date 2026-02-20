@@ -18,7 +18,17 @@ import { HealthRecordFacade } from '@/features/health-records/services/health-re
       }
     </div>
   `,
-  styles: ``,
+  styles: `
+    :host {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      padding: 32px;
+    }
+  `,
 })
 export default class HealthRecordPage {
   private route = inject(ActivatedRoute);

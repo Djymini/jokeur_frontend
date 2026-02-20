@@ -1,7 +1,7 @@
 import { MeasureSectionBehavior } from '@/features/measures/interfaces/measureSectionBahavior';
 import { MeasureSectionPropertiesModel } from '@/features/measures/models/measureSectionPropertiesModel';
 import { MeasureModel } from '@/features/measures/models/measureModel';
-import { inject } from '@angular/core';
+import { inject, Signal } from '@angular/core';
 import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 export class MeasureSectionBpm implements MeasureSectionBehavior {
@@ -14,8 +14,8 @@ export class MeasureSectionBpm implements MeasureSectionBehavior {
     };
   }
 
-  getMeasures(): MeasureModel[] {
-    return this._healthRecordStore.bpmArray();
+  getMeasures(): Signal<MeasureModel[]> {
+    return this._healthRecordStore.bpmArray;
   }
 
   getType(): string {
