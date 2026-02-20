@@ -50,10 +50,8 @@ export class RegisterFormComponent {
       return;
     }
 
-    // 1- Récupérer les valeurs du formulaire
     const { username, name, firstname, phone, email, password } = this.registerForm.getRawValue();
 
-    // 2- Construire le payload API
     const payload: RegisterUserPayload = {
       username,
       name,
@@ -64,12 +62,10 @@ export class RegisterFormComponent {
     };
 
     try {
-      // 3- Appel backend
       await this._authApi.register(payload).then((result) => {
         console.log('message result', result);
       });
 
-      // 4- Redirection login
       await this._router.navigateByUrl('/login');
     } catch (error) {
       console.error("Probleme d'inscription:", error);

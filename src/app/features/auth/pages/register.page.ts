@@ -4,7 +4,7 @@ import { RegisterFormComponent } from '@/features/auth/components/register-form.
 @Component({
   selector: 'app-register',
   imports: [RegisterFormComponent],
-  template: '' + '<h2>Inscription</h2>' + '<app-register-form></app-register-form>',
+  template: '<app-register-form></app-register-form>',
   styles: '',
 })
 export default class RegisterPage {}

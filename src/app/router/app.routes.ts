@@ -21,10 +21,7 @@ export const routes: Routes = [
     loadComponent: () => import('../features/auth/pages/login.page'),
   },
 
-  { path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
   {
     path: 'dashboard',

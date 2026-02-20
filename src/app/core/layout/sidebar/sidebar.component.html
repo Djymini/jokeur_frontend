@@ -1,4 +1,4 @@
-@if (isVisible()){
+@if (isVisible()) {
   <aside
     class="sidebar"
     [class.collapsed]="collapsed()"
@@ -23,8 +23,8 @@
               <span class="material-icons">{{ item.icon }}</span>
               @if (!collapsed()) {
                 <span class="menu-label" [attr.aria-label]="collapsed() ? item.label : null">{{
-                    item.label
-                  }}</span>
+                  item.label
+                }}</span>
               }
 
               @if (item.badge && !collapsed()) {
@@ -36,5 +36,4 @@
       </ul>
     </nav>
   </aside>
-
 }
