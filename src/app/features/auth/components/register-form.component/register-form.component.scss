@@ -17,6 +17,13 @@
     sans-serif;
 }
 
+.title {
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  color: var(--secondary);
+}
+
 /* Container global */
 .auth-shell {
   max-width: 920px;
