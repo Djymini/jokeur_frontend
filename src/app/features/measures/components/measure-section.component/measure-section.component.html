@@ -1,11 +1,13 @@
 <section class="measure-section">
-  <app-measure-board
-    [idHealthRecord]="1"
-    [title]="boardName()"
-    [icon]="boardIcon()"
-    [type]="type()"
-    [measures]="measures()"
-  ></app-measure-board>
+  @if (measures().length > 0) {
+    <app-measure-board
+      [idHealthRecord]="1"
+      [title]="boardName()"
+      [icon]="boardIcon()"
+      [type]="type()"
+      [measures]="measures()"
+    ></app-measure-board>
+  }
   <app-measure-resume
     [title]="resumeTitle()"
     [measures]="measures()"

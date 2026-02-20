@@ -20,7 +20,7 @@ const mockRecord = (overrides: Partial<HealthRecord> = {}): HealthRecord => ({
   allergy: 0,
   image: '',
   imageType: '',
-  ownerId: 1,
+  userId: 1,
   measures: { weight: [], bpm: [], temperature: [], respiratoryRate: [] },
   ...overrides
 });
@@ -99,7 +99,7 @@ describe('HealthRecordFacade', () => {
       expect(dto.petName).toBe('Rex');
       expect(dto.animalType).toBe('DOG');
       expect(dto.sex).toBe('MALE');
-      expect(dto.ownerId).toBe(1);
+      expect(dto.userId).toBe(1);
       expect(dto.currentWeight).toBe(10);
     });
 

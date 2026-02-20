@@ -37,6 +37,7 @@ export class LoginFormComponent {
     const password = this.loginForm.get('password')!.value;
 
     const res = await this._authApi.login({ email, password }); // AuthApi
+    this._authService.updateUser(res);
     this._authService.setToken(res.token);
 
     this._router.navigate(['/dashboard']);

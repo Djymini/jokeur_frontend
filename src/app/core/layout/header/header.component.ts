@@ -28,6 +28,7 @@ export class HeaderComponent {
   toggleSidebar = output<void>();
 
   isVisible = this._authService.isLoggedIn;
+  user = this._authService.user;
 
   onDashboard(): void {
     this._router.navigate(['/dashboard']);

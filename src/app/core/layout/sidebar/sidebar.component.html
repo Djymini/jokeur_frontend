@@ -15,7 +15,7 @@
         @for (item of menuItems(); track item.id) {
           <li>
             <a
-              [href]="item.path"
+              [routerLink]="item.path"
               [class.active]="activeRoute() === item.path"
               (click)="selectMenu()"
               [attr.aria-current]="activeRoute() === item.path ? 'page' : null"

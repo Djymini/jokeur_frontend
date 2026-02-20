@@ -1,0 +1,74 @@
+/* Conteneur principal */
+[z-table] {
+  width: 100%;
+  caption-side: bottom;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+/* En-tête */
+[z-table-header] {
+  background-color: #f8fafc; /* Gris très léger */
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[z-table-head] {
+  height: 3rem;
+  padding: 0 1rem;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 600;
+  color: #64748b; /* Slate-500 */
+}
+
+/* Corps du tableau */
+[z-table-body] {
+  & [z-table-row]:last-child {
+    border-bottom: 0;
+  }
+}
+
+[z-table-row] {
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(241, 245, 249, 0.5); /* Effet de survol discret */
+  }
+}
+
+[z-table-cell] {
+  padding: 1rem;
+  vertical-align: middle;
+  color: #1e293b; /* Slate-800 */
+}
+
+/* Style spécifique pour les valeurs */
+.lowercase {
+  font-variant-numeric: tabular-nums; /* Aligne mieux les chiffres */
+  font-weight: 500;
+}
+
+/* Boutons d'actions */
+z-button[zType='ghost'] {
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #64748b;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #f1f5f9;
+    color: var(--chart-2); /* Utilise votre couleur de thème */
+  }
+
+  /* Style spécifique pour le bouton trash au hover */
+  &:has(z-icon[zType='trash']):hover {
+    background-color: #fef2f2;
+    color: #ef4444;
+  }
+}

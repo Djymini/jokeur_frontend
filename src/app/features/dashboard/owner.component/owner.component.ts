@@ -15,6 +15,7 @@ import { HealthRecordFormMetadata } from '@/features/health-records/services/hea
 import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
+import { AuthService } from '@/core/services/auth.service';
 
 @Component({
   selector: 'app-owner',
@@ -37,6 +38,7 @@ export class OwnerComponent implements OnInit {
   private readonly _facade = inject(HealthRecordFacade);
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
 
+  user = inject(AuthService).user;
   appointments = signal<AppointmentModel[]>([]);
   animals = signal<HealthRecord[]>([]);
   reminders = signal<ReminderModel[]>([]);
@@ -63,15 +65,15 @@ export class OwnerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appointmentApi.getAppointments().then((restult) => {
+    this.appointmentApi.getAppointments(this.user()!.id).then((restult) => {
       this.appointments.set(restult);
     });
 
-    this.HealthRecordApi.getAnimalInformation().then((restult) => {
+    this.HealthRecordApi.getAnimalInformation(this.user()!.id).then((restult) => {
       this.animals.set(restult);
     });
 
-    this.reminderApi.getAllReminder().then((restult) => {
+    this.reminderApi.getAllReminder(this.user()!.id).then((restult) => {
       this.reminders.set(restult);
     });
 

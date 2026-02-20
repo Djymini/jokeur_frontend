@@ -3,6 +3,7 @@ import { firstValueFrom } from 'rxjs';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { ErrorService } from '@/core/services/error.service';
 import { BaseApi } from '@/internal-shared/services/base.api';
+import { UserModel } from '@/core/models/user-model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApi extends BaseApi {
@@ -18,16 +19,10 @@ export class AuthApi extends BaseApi {
     }
   }
 
-  async login(payload: {
-    email: string;
-    password: string;
-  }): Promise<{ token: string; email: string; role: string }> {
+  async login(payload: { email: string; password: string }): Promise<UserModel> {
     try {
       return await firstValueFrom(
-        this.http.post<{ token: string; email: string; role: string }>(
-          `${this.BASE_URL}/auth/login`,
-          payload,
-        ),
+        this.http.post<UserModel>(`${this.BASE_URL}/auth/login`, payload),
       );
     } catch (error) {
       throw this._handleError(error);
