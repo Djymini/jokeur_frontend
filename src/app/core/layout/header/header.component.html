@@ -1,21 +1,23 @@
-<header class="header" role="banner">
-  <div class="header-left">
-    <button
-      type="button"
-      class="menu-toggle"
-      (click)="toggleSidebar.emit()"
-      aria-label="Toggle sidebar"
-    >
+@if (isVisible()){
+  <header class="header" role="banner">
+    <div class="header-left">
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="toggleSidebar.emit()"
+        aria-label="Toggle sidebar"
+      >
       <span class="material-icons">
         {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
       </span>
-    </button>
-  </div>
-  <div class="header-right">
-    <!-- User Profile -->
-    <div class="user-profile">
-      <span class="material-icons">account_circle</span>
-      <span class="user-name">Propriétaire</span>
+      </button>
     </div>
-  </div>
-</header>
+    <div class="header-right">
+      <!-- User Profile -->
+      <div class="user-profile">
+        <span class="material-icons">account_circle</span>
+        <span class="user-name">Propriétaire</span>
+      </div>
+    </div>
+  </header>
+}

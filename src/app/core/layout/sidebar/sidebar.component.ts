@@ -1,5 +1,6 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
+import { AuthApi } from '@/core/auth.api';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +11,8 @@ import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
 export class SidebarComponent {
   collapsed = input<boolean>(false);
   activeRoute = input<string>('/dashboard');
+
+  isVisible = inject(AuthApi).isLogged();
 
   // Signals internes
   menuItems = signal<MenuItemModel[]>([

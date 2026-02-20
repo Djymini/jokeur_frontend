@@ -4,11 +4,6 @@ import { healthRecordResolver } from '@/router/resolvers/health-record/health-re
 
 export const routes: Routes = [
   {
-    path: '',
-    title: 'Accueil',
-    loadComponent: () => import('../features/dashboard/pages/home.page'),
-  },
-  {
     path: 'construction',
     title: 'under-construction',
     loadComponent: () => import('../features/under-construction/pages/under-construction.page'),
@@ -24,6 +19,11 @@ export const routes: Routes = [
     path: 'login',
     title: 'Se connecter',
     loadComponent: () => import('../features/auth/pages/login.page'),
+  },
+
+  { path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
 
   {

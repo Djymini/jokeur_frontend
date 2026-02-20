@@ -1,4 +1,5 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
+import { AuthApi } from '@/core/auth.api';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,6 @@ export class HeaderComponent {
   sidebarCollapsed = input<boolean>(false);
   category = input<string>();
   toggleSidebar = output<void>();
+
+  isVisible = inject(AuthApi).isLogged();
 }
