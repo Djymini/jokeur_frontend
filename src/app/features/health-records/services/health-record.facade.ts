@@ -33,11 +33,11 @@ export class HealthRecordFacade {
 
   async createFromFormPayload(
     payload: Record<string, unknown>,
-    ownerId: number,
+    userId: number,
   ): Promise<HealthRecord> {
     try {
       const dto: CreateHealthRecordDto = {
-        ownerId,
+        userId: userId,
         petName: this._requiredString(payload, 'petName'),
         animalType: this._requiredString(payload, 'animalType'),
         breed: this._optionalString(payload, 'breed'),

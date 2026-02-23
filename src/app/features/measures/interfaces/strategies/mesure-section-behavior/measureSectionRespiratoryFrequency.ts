@@ -1,6 +1,6 @@
 import { MeasureSectionBehavior } from '@/features/measures/interfaces/measureSectionBahavior';
 import { MeasureSectionPropertiesModel } from '@/features/measures/models/measureSectionPropertiesModel';
-import { inject } from '@angular/core';
+import { inject, Signal } from '@angular/core';
 import { MeasureModel } from '@/features/measures/models/measureModel';
 import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
@@ -14,8 +14,8 @@ export class MeasureSectionRespiratoryFrequency implements MeasureSectionBehavio
     };
   }
 
-  getMeasures(): MeasureModel[] {
-    return this._healthRecordStore.respiratoryRateArray();
+  getMeasures(): Signal<MeasureModel[]> {
+    return this._healthRecordStore.respiratoryRateArray;
   }
 
   getType(): string {

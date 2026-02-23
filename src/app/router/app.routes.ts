@@ -27,6 +27,8 @@ export const routes: Routes = [
     loadComponent: () => import('../features/auth/pages/login.page'),
   },
 
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+
   {
     path: 'dashboard',
     title: 'Tableau de bord',

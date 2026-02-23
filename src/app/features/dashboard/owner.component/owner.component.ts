@@ -16,6 +16,7 @@ import { HealthRecordFormBootstrapService } from '@/features/health-records/serv
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 import { PageModel } from '@/internal-shared/domaine/page-model';
+import { AuthService } from '@/core/services/auth.service';
 
 @Component({
   selector: 'app-owner',
@@ -39,6 +40,7 @@ export class OwnerComponent implements OnInit {
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
 
   appointments = signal<PageModel<AppointmentModel>>({ content: [], totalElements: 0 });
+  user = inject(AuthService).user;
   animals = signal<HealthRecord[]>([]);
   reminders = signal<ReminderModel[]>([]);
   notifications = signal<NotificationModel[]>([]);
@@ -68,15 +70,15 @@ export class OwnerComponent implements OnInit {
   }
 
   _initDatas(): void {
-    this.appointmentApi.getAppointments().then((result) => {
-      this.appointments.set(result);
+    this.appointmentApi.getAppointments(this.user()!.id).then((restult) => {
+      this.appointments.set(restult);
     });
 
-    this.HealthRecordApi.getAnimalInformation().then((restult) => {
+    this.HealthRecordApi.getAnimalInformation(this.user()!.id).then((restult) => {
       this.animals.set(restult);
     });
 
-    this.reminderApi.getAllReminder().then((restult) => {
+    this.reminderApi.getAllReminder(this.user()!.id).then((restult) => {
       this.reminders.set(restult);
     });
 

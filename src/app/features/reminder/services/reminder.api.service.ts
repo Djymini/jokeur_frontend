@@ -6,8 +6,7 @@ import { BaseApi } from '@/internal-shared/services/base.api';
 export class ReminderApiService extends BaseApi {
   private readonly _endpoint = '/reminder';
 
-  async getAllReminder(): Promise<ReminderModel[]> {
-    const idOwner = 1;
-    return this.get<ReminderModel[]>(this._endpoint + `?idOwner=${idOwner}`);
+  async getAllReminder(userId: number): Promise<ReminderModel[]> {
+    return this.get<ReminderModel[]>(this._endpoint + `?userId=${userId}`);
   }
 }

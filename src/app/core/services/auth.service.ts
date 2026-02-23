@@ -1,5 +1,6 @@
 import { Injectable, inject, signal, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { UserModel } from '@/core/models/user-model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -7,6 +8,7 @@ export class AuthService {
   private readonly _platformId = inject(PLATFORM_ID);
 
   readonly isLoggedIn = signal<boolean>(false);
+  readonly user = signal<UserModel | undefined>(undefined);
 
   constructor() {
     if (this._isBrowser()) {
@@ -38,9 +40,14 @@ export class AuthService {
     if (!this._isBrowser()) return;
     localStorage.removeItem(this._tokenKey);
     this.isLoggedIn.set(false);
+    this.user.set(undefined);
   }
 
   isAuthenticated(): boolean {
-    return this.getToken() !== null;
+    return this.getToken() !== null && this.user() !== undefined;
+  }
+
+  updateUser(user: UserModel): void {
+    this.user.set(user);
   }
 }

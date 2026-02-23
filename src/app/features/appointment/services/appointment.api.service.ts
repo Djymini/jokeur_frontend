@@ -7,11 +7,9 @@ import { PageModel } from '@/internal-shared/domaine/page-model';
 export class AppointmentApiService extends BaseApi {
   private readonly _endpoint = '/appointment';
 
-  async getAppointments(): Promise<PageModel<AppointmentModel>> {
-    // TODO récupere idOwner depuis localstorage
-    const idOwner = 1;
+  async getAppointments(userId: number): Promise<PageModel<AppointmentModel>> {
     return this.get<PageModel<AppointmentModel>>(
-      this._endpoint + `?idOwner=${idOwner}&page=0&size=1`,
+      this._endpoint + `?userId=${userId}&page=0&size=1`,
     );
   }
 }

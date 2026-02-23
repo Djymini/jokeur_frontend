@@ -5,6 +5,7 @@ import { HealthRecordFacade } from '@/features/health-records/services/health-re
 
 export const healthRecordResolver: ResolveFn<HealthRecord> = (route, state) => {
   let idParams = route.paramMap.get('id');
+  console.log('Heoh');
   const url = state.url;
   const healthRecordFacade = inject(HealthRecordFacade);
   if (!idParams) {
@@ -12,5 +13,5 @@ export const healthRecordResolver: ResolveFn<HealthRecord> = (route, state) => {
     url.toString();
   }
 
-  return healthRecordFacade.getHealthRecordById(parseInt(idParams));
+  return healthRecordFacade.getHealthRecordById(parseInt(idParams, 10));
 };

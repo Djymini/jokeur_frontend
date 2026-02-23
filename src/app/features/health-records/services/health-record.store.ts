@@ -1,5 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { HealthRecord } from '../models/health-record.model';
+import { MeasureModel } from '@/features/measures/models/measureModel';
+import { MeasureDtoRecord } from '@/features/measures/models/measureDtoRecord';
 
 @Injectable({ providedIn: 'root' })
 export class HealthRecordStore {
@@ -38,5 +40,54 @@ export class HealthRecordStore {
 
   setHealthRecord(newHealthRecord: HealthRecord): void {
     this._healthRecordSignal.set(newHealthRecord);
+  }
+
+  addMeasureToCurrentRecord(newMeasure: MeasureModel, type: keyof HealthRecord['measures']): void {
+    const current = this._healthRecordSignal();
+    if (current) {
+      this._healthRecordSignal.set({
+        ...current,
+        measures: {
+          ...current.measures,
+          [type.toLowerCase()]: [...current.measures[type], newMeasure],
+        },
+      });
+    }
+  }
+
+  modifyMeasureInCurrentRecord(
+    updatedMeasure: MeasureDtoRecord,
+    type: keyof HealthRecord['measures'],
+  ): void {
+    const newMeasure: MeasureModel = {
+      id: updatedMeasure.id,
+      value: updatedMeasure.value,
+      healthRecordId: updatedMeasure.healthRecordId,
+      measureType: updatedMeasure.measureType,
+      creationDate: updatedMeasure.creationDate,
+    };
+    const current = this._healthRecordSignal();
+    if (current) {
+      this._healthRecordSignal.set({
+        ...current,
+        measures: {
+          ...current.measures,
+          [type]: current.measures[type].map((m) => (m.id === newMeasure.id ? newMeasure : m)),
+        },
+      });
+    }
+  }
+
+  removeMeasureFromCurrentRecord(measureId: number, type: keyof HealthRecord['measures']): void {
+    const current = this._healthRecordSignal();
+    if (current) {
+      this._healthRecordSignal.set({
+        ...current,
+        measures: {
+          ...current.measures,
+          [type]: current.measures[type].filter((m) => m.id !== measureId),
+        },
+      });
+    }
   }
 }
