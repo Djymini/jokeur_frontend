@@ -13,6 +13,11 @@ export class AuthService {
   constructor() {
     if (this._isBrowser()) {
       this.isLoggedIn.set(this._hasToken());
+
+      const stored = localStorage.getItem('user');
+      if (stored) {
+        this.user.set(JSON.parse(stored));
+      }
     }
   }
 
@@ -36,18 +41,22 @@ export class AuthService {
     this.isLoggedIn.set(true);
   }
 
+  updateUser(user: UserModel): void {
+    this.user.set(user);
+    if (this._isBrowser()) {
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+  }
+
   logout(): void {
     if (!this._isBrowser()) return;
     localStorage.removeItem(this._tokenKey);
+    localStorage.removeItem('user');
     this.isLoggedIn.set(false);
     this.user.set(undefined);
   }
 
   isAuthenticated(): boolean {
     return this.getToken() !== null;
-  }
-
-  updateUser(user: UserModel): void {
-    this.user.set(user);
   }
 }

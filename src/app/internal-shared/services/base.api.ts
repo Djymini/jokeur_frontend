@@ -11,8 +11,10 @@ export abstract class BaseApi {
   protected readonly BASE_URL = environment.apiUrl;
 
   protected getHeaders(): HttpHeaders {
+    const token = typeof localStorage !== 'undefined' ? localStorage.getItem('jwt_token') : null;
     return new HttpHeaders({
       'Content-Type': 'application/json',
+      ...(token ? { 'Authorization': `Bearer ${token}` } : {})
     });
   }
 
@@ -68,6 +70,10 @@ export abstract class BaseApi {
 
   protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
+      const body = error.error;
+      const err = new Error(body?.['message'] ?? 'Erreur réseau') as any;
+      err['status'] = error.status;
+      err['errorCode'] = body?.['error'];
       switch (error.status) {
         case 400:
           return new Error('Données invalides');

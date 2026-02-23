@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, viewChild } from '@angular/core';
 import { NotificationModel } from '@/internal-shared/domaine/notification-model';
 import { ReminderModel } from '@/internal-shared/domaine/reminder-model';
 import { AppointmentModel } from '@/internal-shared/domaine/appointment-model';
@@ -37,6 +37,8 @@ export class OwnerComponent implements OnInit {
   notificationApi = inject(NotificationApiService);
   private readonly _facade = inject(HealthRecordFacade);
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
+  readonly modalRef = viewChild(DynamicFormModalComponent);
+
 
   user = inject(AuthService).user;
   appointments = signal<AppointmentModel[]>([]);
@@ -84,7 +86,7 @@ export class OwnerComponent implements OnInit {
 
   async onSubmit(payload: Record<string, unknown>): Promise<void> {
     try {
-      const newAnimal = await this._facade.createFromFormPayload(payload, 1);
+      const newAnimal = await this._facade.createFromFormPayload(payload, this.user()!.id);
       this.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
     } catch (error) {
