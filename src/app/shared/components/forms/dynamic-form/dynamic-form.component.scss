@@ -43,6 +43,10 @@
   color: #c62828;
 }
 
+.control--error {
+  border-color: #e53e3e;
+}
+
 .actions {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   computed,
   effect,
@@ -36,8 +36,6 @@ export class DynamicFormComponent {
   private readonly formBuilder = inject(FormBuilder);
   protected readonly serverErrors = signal<Record<string, string>>({});
 
-
-
   readonly definition = input.required<FormDefinition>();
   readonly metadata = input<HealthRecordFormMetadata | null>(null);
 
@@ -58,7 +56,6 @@ export class DynamicFormComponent {
     effect(() => {
       const form = buildDynamicForm(this.formBuilder, this.fields());
       this.formGroup.set(form);
-      this.debugPayload.set(null);
     });
 
     effect(() => {
@@ -88,7 +85,6 @@ export class DynamicFormComponent {
     }
 
     const payload: FormPayload = form.getRawValue();
-    this.debugPayload.set(payload);
     this.submitted.emit(payload);
   }
 

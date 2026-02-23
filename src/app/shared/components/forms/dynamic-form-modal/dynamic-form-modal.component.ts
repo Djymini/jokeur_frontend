@@ -12,6 +12,7 @@ import { FormRegistryService } from '@/shared/services/forms/form-registry.servi
 import { FormDefinition } from '@/shared/models/forms/form-definition.model';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { DynamicFormComponent } from '@/shared/components/forms/dynamic-form/dynamic-form.component';
+import { ServerErrorMapperService } from '@/shared/services/forms/server-error-mapper.service';
 
 type FormPayload = Record<string, unknown>;
 
@@ -25,6 +26,8 @@ type FormPayload = Record<string, unknown>;
 })
 export class DynamicFormModalComponent {
   private readonly formRegistry = inject(FormRegistryService);
+  private readonly serverErrorMapper = inject(ServerErrorMapperService);
+
   readonly dynamicForm = viewChild(DynamicFormComponent);
   private readonly cdr = inject(ChangeDetectorRef);
 
@@ -68,9 +71,9 @@ export class DynamicFormModalComponent {
   }
 
   public handleServerError(error: any): void {
-    if (error?.errorCode === 'TATTOO_ALREADY_USED') {
-      this.dynamicForm()?.setServerError('tattooNumber', "Le numéro de tatouage est déjà utilisé.");
-      this.cdr.markForCheck();
+    const resolved = this.serverErrorMapper.resolve(error?.errorCode);
+    if (resolved) {
+      this.dynamicForm()?.setServerError(resolved.field, resolved.message);
     }
   }
 }
