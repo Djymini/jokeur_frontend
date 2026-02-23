@@ -48,6 +48,7 @@ export class MeasuresFacade {
 
     MeasureRules.validateType(newMeasure.measureType);
     this._measuresServiceAction.addMeasure(newMeasure);
+    console.log(newMeasure.measureType.toLowerCase());
     this._healthRecordStore.addMeasureToCurrentRecord(
       newMeasure,
       data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
