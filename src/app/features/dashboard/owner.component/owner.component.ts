@@ -93,8 +93,13 @@ export class OwnerComponent implements OnInit {
       const newAnimal = await this._facade.createFromFormPayload(payload, this.user()!.id);
       this.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.log('catch error:', error, 'status:', error?.status, 'errorCode:', error?.errorCode);
+      if (error?.status === 409) {
+        this.modalRef()?.handleServerError(error);
+      } else {
+        console.error(error);
+      }
     }
   }
 }

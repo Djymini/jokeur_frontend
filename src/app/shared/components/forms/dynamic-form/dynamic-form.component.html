@@ -76,8 +76,12 @@
         </select>
       }
 
-      @if (formGroup().get(field.key)?.touched && formGroup().get(field.key)?.invalid) {
-        <p class="error">{{ getErrorMessage(field) }}</p>
+      @if (formGroup().get(field.key)?.touched && (formGroup().get(field.key)?.invalid || serverErrors()[field.key])) {
+        <p class="error">{{ serverErrors()[field.key] || getErrorMessage(field) }}</p>
+      }
+
+      @if (field.key === 'tattoo') {
+        <p style="color:orange">serverErrors: {{ serverErrors() | json }}</p>
       }
     </div>
   }

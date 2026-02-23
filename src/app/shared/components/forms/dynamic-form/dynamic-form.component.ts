@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   computed,
   effect,
@@ -18,6 +18,7 @@ import { applyBreedDependencyRule } from '@/features/health-records/utils/breed-
 import { resolveSelectOptions } from '@/shared/utils/forms/select-options.utils';
 import { buildDynamicForm } from '@/shared/utils/forms/form-utils';
 import { getFieldErrorMessage } from '@/shared/utils/forms/field-error-message';
+import { take } from 'rxjs';
 
 
 
@@ -33,6 +34,9 @@ type FormPayload = Record<string, unknown>;
 })
 export class DynamicFormComponent {
   private readonly formBuilder = inject(FormBuilder);
+  protected readonly serverErrors = signal<Record<string, string>>({});
+
+
 
   readonly definition = input.required<FormDefinition>();
   readonly metadata = input<HealthRecordFormMetadata | null>(null);
@@ -95,5 +99,25 @@ export class DynamicFormComponent {
   protected getErrorMessage(field: FormField): string {
     const control = this.formGroup().get(field.key);
     return getFieldErrorMessage(control, field.label);
+  }
+
+  public setServerError(fieldKey: string, message: string): void {
+    const control = this.formGroup().get(fieldKey);
+    if (!control) return;
+
+    control.markAsTouched();
+    control.setErrors({ serverError: message });
+    this.serverErrors.update(errors => ({ ...errors, [fieldKey]: message }));
+
+    control.valueChanges.pipe(take(1)).subscribe(() => {
+      const currentErrors = { ...control.errors };
+      delete currentErrors['serverError'];
+      control.setErrors(Object.keys(currentErrors).length ? currentErrors : null);
+      this.serverErrors.update(errors => {
+        const next = { ...errors };
+        delete next[fieldKey];
+        return next;
+      });
+    });
   }
 }

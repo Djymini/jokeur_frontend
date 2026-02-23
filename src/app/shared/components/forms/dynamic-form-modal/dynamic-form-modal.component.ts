@@ -5,7 +5,7 @@ import {
   computed,
   inject,
   input,
-  output,
+  output, viewChild, ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormRegistryService } from '@/shared/services/forms/form-registry.service';
@@ -25,6 +25,9 @@ type FormPayload = Record<string, unknown>;
 })
 export class DynamicFormModalComponent {
   private readonly formRegistry = inject(FormRegistryService);
+  readonly dynamicForm = viewChild(DynamicFormComponent);
+  private readonly cdr = inject(ChangeDetectorRef);
+
 
   readonly formId = input.required<string>();
   readonly isOpen = input(true);
@@ -62,5 +65,12 @@ export class DynamicFormModalComponent {
 
   protected onFormSubmitted(payload: FormPayload): void {
     this.submitted.emit(payload);
+  }
+
+  public handleServerError(error: any): void {
+    if (error?.errorCode === 'TATTOO_ALREADY_USED') {
+      this.dynamicForm()?.setServerError('tattooNumber', "Le numéro de tatouage est déjà utilisé.");
+      this.cdr.markForCheck();
+    }
   }
 }
