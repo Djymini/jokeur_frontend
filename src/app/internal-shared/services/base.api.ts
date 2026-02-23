@@ -16,7 +16,6 @@ export abstract class BaseApi {
     });
   }
 
-
   protected async get<T>(endpoint: string): Promise<T> {
     try {
       return await firstValueFrom(
