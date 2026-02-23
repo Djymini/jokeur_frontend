@@ -16,6 +16,7 @@ export abstract class BaseApi {
     });
   }
 
+
   protected async get<T>(endpoint: string): Promise<T> {
     try {
       return await firstValueFrom(
@@ -68,10 +69,6 @@ export abstract class BaseApi {
 
   protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
-      const body = error.error;
-      const err = new Error(body?.['message'] ?? 'Erreur réseau') as any;
-      err['status'] = error.status;
-      err['errorCode'] = body?.['error'];
       switch (error.status) {
         case 400:
           return new Error('Données invalides');
