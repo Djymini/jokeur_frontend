@@ -11,10 +11,8 @@ export abstract class BaseApi {
   protected readonly BASE_URL = environment.apiUrl;
 
   protected getHeaders(): HttpHeaders {
-    const token = typeof localStorage !== 'undefined' ? localStorage.getItem('jwt_token') : null;
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      ...(token ? { 'Authorization': `Bearer ${token}` } : {})
     });
   }
 

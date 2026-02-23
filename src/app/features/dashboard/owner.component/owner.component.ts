@@ -1,10 +1,10 @@
-import { Component, inject, OnInit, signal, viewChild } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID, signal, viewChild } from '@angular/core';
 import { NotificationModel } from '@/internal-shared/domaine/notification-model';
 import { ReminderModel } from '@/internal-shared/domaine/reminder-model';
 import { AppointmentModel } from '@/internal-shared/domaine/appointment-model';
 import { AppointmentApiService } from '@/features/appointment/services/appointment.api.service';
 import { ZardButtonComponent } from '@/shared/components/button';
-import { DatePipe } from '@angular/common';
+import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ReminderApiService } from '@/features/reminder/services/reminder.api.service';
 import { NotificationApiService } from '@/features/notification/notification.api.service';
@@ -30,6 +30,7 @@ import { AuthService } from '@/core/services/auth.service';
   styleUrl: './owner.component.scss',
 })
 export class OwnerComponent implements OnInit {
+  private readonly _platformId = inject(PLATFORM_ID);
   router = inject(Router);
   appointmentApi = inject(AppointmentApiService);
   HealthRecordApi = inject(HealthRecordApi);
@@ -38,7 +39,6 @@ export class OwnerComponent implements OnInit {
   private readonly _facade = inject(HealthRecordFacade);
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
   readonly modalRef = viewChild(DynamicFormModalComponent);
-
 
   user = inject(AuthService).user;
   appointments = signal<AppointmentModel[]>([]);
@@ -63,10 +63,14 @@ export class OwnerComponent implements OnInit {
 
   constructor() {
     this._bootstrap.init();
-    this._facade.loadFormMetadata().then((m) => this.metadata.set(m));
+    if (isPlatformBrowser(this._platformId)) {
+      this._facade.loadFormMetadata().then((m) => this.metadata.set(m));
+    }
   }
 
   ngOnInit(): void {
+    if (!isPlatformBrowser(this._platformId)) return;
+
     this.appointmentApi.getAppointments(this.user()!.id).then((restult) => {
       this.appointments.set(restult);
     });
