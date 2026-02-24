@@ -36,7 +36,11 @@ export class AnimalFormFactory {
         label: 'Nom',
         type: 'text',
         placeholder: 'Rex',
-        validators: [Validators.required, Validators.maxLength(50), Validators.pattern(/^[A-Z]{2,3}[0-9]{12,15}$/)],
+        validators: [
+          Validators.required,
+          Validators.maxLength(50),
+          Validators.pattern(/^[A-Z]{2,3}[0-9]{12,15}$/),
+        ],
       },
       {
         key: 'animalType',
