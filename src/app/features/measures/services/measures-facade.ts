@@ -44,15 +44,22 @@ export class MeasuresFacade {
   }
 
   async addMeasure(data: AddMeasureDtoRecord): Promise<MeasureModel> {
+    MeasureRules.validateType(data.measureType);
     const newMeasure: MeasureModel = await this._measureApi.addMeasure(data);
-
-    MeasureRules.validateType(newMeasure.measureType);
     this._measuresServiceAction.addMeasure(newMeasure);
-    console.log(newMeasure.measureType.toLowerCase());
-    this._healthRecordStore.addMeasureToCurrentRecord(
-      newMeasure,
-      data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
-    );
+    console.log(newMeasure);
+    console.log(data);
+
+    if (data.measureType === "respiratory_rate"){
+      this._healthRecordStore.addMeasureToCurrentRecord(
+        newMeasure,
+        "respiratoryRate");
+    }else {
+      this._healthRecordStore.addMeasureToCurrentRecord(
+        newMeasure,
+        data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
+      );
+    }
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,

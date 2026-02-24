@@ -9,7 +9,7 @@ describe('MeasureRules (unit tests)', () => {
     measure = {
       id: 1,
       value: 22,
-      measureType: 'respiratory rate',
+      measureType: 'respiratory_rate',
       creationDate: '2025-02-01',
       healthRecordId: 1001,
     };

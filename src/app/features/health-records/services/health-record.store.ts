@@ -49,7 +49,7 @@ export class HealthRecordStore {
         ...current,
         measures: {
           ...current.measures,
-          [type.toLowerCase()]: [...current.measures[type], newMeasure],
+          [type]: [...current.measures[type], newMeasure],
         },
       });
     }
