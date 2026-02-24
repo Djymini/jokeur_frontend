@@ -14,6 +14,10 @@ export function getFieldErrorMessage(control: any, fieldLabel: string): string {
     return `Le champ "${fieldLabel}" ne peut pas dépasser ${max} caractères`;
   }
 
+  if (control.errors['pattern']) {
+    return `Le champ "${fieldLabel}" doit contenir entre 2 et 10 caractères`;
+  }
+
   if (control.errors['min']) {
     const min = control.errors['min'].min;
     return `Le champ "${fieldLabel}" doit être supérieur ou égal à ${min}`;

@@ -39,7 +39,6 @@ export class AnimalFormFactory {
         validators: [
           Validators.required,
           Validators.maxLength(50),
-          Validators.pattern(/^[A-Z]{2,3}[0-9]{12,15}$/),
         ],
       },
       {
@@ -103,7 +102,7 @@ export class AnimalFormFactory {
         label: 'Allergie',
         type: 'text',
         placeholder: 'Ex : Saumon',
-        validators: [Validators.maxLength(100)],
+        validators: [Validators.maxLength(30)],
       },
     ];
   }

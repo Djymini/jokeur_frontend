@@ -74,7 +74,7 @@ export class DynamicFormComponent {
 
   protected isInvalid(key: string): boolean {
     const ctrl = this.formGroup().get(key);
-    return !!(ctrl?.touched && ctrl?.invalid);
+    return !!(ctrl && ctrl.invalid && (ctrl.touched || ctrl.dirty));
   }
 
   protected onCancel(): void {
