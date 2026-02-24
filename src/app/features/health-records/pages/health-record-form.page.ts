@@ -4,6 +4,7 @@ import { ZardButtonComponent } from '@/shared/components/button/button.component
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
+import { AuthService } from '@/core/services/auth.service';
 
 @Component({
   standalone: true,
@@ -23,6 +24,7 @@ import { HealthRecordFormMetadata } from '@/features/health-records/services/hea
 export default class HealthRecordFormPage {
   private readonly _facade = inject(HealthRecordFacade);
   private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
+  protected readonly _user = inject(AuthService).user;
 
   protected readonly isOpen = signal(false);
   protected readonly metadata = signal<HealthRecordFormMetadata | null>(null);
@@ -34,9 +36,9 @@ export default class HealthRecordFormPage {
 
   protected async onSubmit(payload: Record<string, unknown>): Promise<void> {
     try {
-      await this._facade.createFromFormPayload(payload, 1);
+      await this._facade.createFromFormPayload(payload, this._user()!.id);
       this.isOpen.set(false);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
     }
   }
