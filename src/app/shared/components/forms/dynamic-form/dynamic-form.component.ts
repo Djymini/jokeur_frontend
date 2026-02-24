@@ -88,6 +88,11 @@ export class DynamicFormComponent {
     this.submitted.emit(payload);
   }
 
+  protected isInvalid(key: string): boolean {
+    const ctrl = this.formGroup().get(key);
+    return !!(ctrl?.touched && ctrl?.invalid);
+  }
+
   protected getSelectOptions(field: FormField): SelectOption[] {
     return resolveSelectOptions(field, this.formGroup(), this.metadata());
   }
