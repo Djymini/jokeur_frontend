@@ -23,8 +23,8 @@ export class MeasureDetailsDialogComponent {
 
   openDialogAdd(measure: MeasureModel): void {
     this._dialogService.create({
-      zTitle: `${this.data.type}`,
-      zDescription: `Ajouter la nouvelle valeur`,
+      zTitle: `Modifiez la donnée saisie`,
+      zDescription: `Remplacez ${measure.value} saisie le ${measure.creationDate}`,
       zContent: MeasureModifyDialogComponent,
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
@@ -44,8 +44,7 @@ export class MeasureDetailsDialogComponent {
 
   openDialogDelete(measure: MeasureModel): void {
     this._dialogService.create({
-      zTitle: `${this.data.type}`,
-      zDescription: `Voulez-vous supprimer la mesure`,
+      zTitle: `Supprimer ${measure.value} saisie le ${measure.creationDate}`,
       zContent: MeasureDeleteDialogComponent,
       zOkText: 'Supprimer',
       zOnOk: async () => {

@@ -50,11 +50,9 @@ export class MeasuresFacade {
     console.log(newMeasure);
     console.log(data);
 
-    if (data.measureType === "respiratory_rate"){
-      this._healthRecordStore.addMeasureToCurrentRecord(
-        newMeasure,
-        "respiratoryRate");
-    }else {
+    if (data.measureType === 'respiratory_rate') {
+      this._healthRecordStore.addMeasureToCurrentRecord(newMeasure, 'respiratoryRate');
+    } else {
       this._healthRecordStore.addMeasureToCurrentRecord(
         newMeasure,
         data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',

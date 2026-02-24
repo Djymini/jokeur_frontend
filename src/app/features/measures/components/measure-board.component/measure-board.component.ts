@@ -10,7 +10,13 @@ import { ZardSkeletonComponent } from '@/shared/components/skeleton';
 
 @Component({
   selector: 'app-measure-board',
-  imports: [ZardButtonComponent, MeasureChartComponent, ZardIconComponent, ZardDialogModule, ZardSkeletonComponent],
+  imports: [
+    ZardButtonComponent,
+    MeasureChartComponent,
+    ZardIconComponent,
+    ZardDialogModule,
+    ZardSkeletonComponent,
+  ],
   templateUrl: './measure-board.component.html',
   styleUrl: './measure-board.component.scss',
 })
@@ -32,13 +38,13 @@ export class MeasureBoardComponent implements OnInit {
 
   showLoader(isLoaderLoading: boolean): void {
     this.showingLoader.set(isLoaderLoading);
-    console.log(this.showingLoader())
+    console.log(this.showingLoader());
   }
 
   async openDialog(): Promise<void> {
     this.dialogService.create({
       zTitle: 'Details ' + this.title(),
-      zDescription: `Voir l'ensemble des saisis`,
+      zDescription: `Voir l'ensemble des données saisies`,
       zContent: MeasureDetailsDialogComponent,
       zData: {
         measures: this.measures(),

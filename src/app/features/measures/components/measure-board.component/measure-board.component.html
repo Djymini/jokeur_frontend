@@ -15,7 +15,13 @@
     </div>
   </div>
 
-  <app-measure-chart class="chart-fade transition-opacity duration-700 ease-in-out" [title]="title()" [type]="type()" [mesures]="measures()" (isLoading)="showLoader($event)"></app-measure-chart>
+  <app-measure-chart
+    class="chart-fade transition-opacity duration-700 ease-in-out"
+    [title]="title()"
+    [type]="type()"
+    [mesures]="measures()"
+    (isLoading)="showLoader($event)"
+  ></app-measure-chart>
 
   <div class="board-footer">
     <button type="button" z-button zSize="sm" zType="link" (click)="openDialog()">Voir plus</button>

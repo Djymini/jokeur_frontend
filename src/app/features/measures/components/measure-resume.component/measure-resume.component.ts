@@ -4,11 +4,13 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { MeasureResumeItemComponent } from '@/features/measures/components/measure-resume-item.component/measure-resume-item.component';
 import { MeasureModel } from '@/features/measures/models/measureModel';
 import { ZardDialogService } from '@/shared/components/dialog';
-import { MeasureModifyDialogComponent } from '@/features/measures/components/measure-modify-dialog.component/measure-modify-dialog.component';
 import { toast } from 'ngx-sonner';
 import { MeasuresFacade } from '@/features/measures/services/measures-facade';
 import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRecord';
 import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
+import {
+  MeasureAddDialogComponent
+} from '@/features/measures/components/measure-add-dialog.component/measure-add-dialog.component';
 
 @Component({
   selector: 'app-measure-resume',
@@ -28,8 +30,7 @@ export class MeasureResumeComponent {
   openDialogAdd(): void {
     this._dialogService.create({
       zTitle: `Ajouter une mesure`,
-      zDescription: `Entrez votre valeur`,
-      zContent: MeasureModifyDialogComponent,
+      zContent: MeasureAddDialogComponent,
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
         const formValue = instance.form.get('value')?.value;

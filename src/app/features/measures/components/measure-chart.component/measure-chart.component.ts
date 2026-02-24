@@ -18,7 +18,7 @@ import { MeasureModel } from '@/features/measures/models/measureModel';
   templateUrl: './measure-chart.component.html',
   styleUrl: './measure-chart.component.scss',
 })
-export class MeasureChartComponent implements OnDestroy{
+export class MeasureChartComponent implements OnDestroy {
   @ViewChild('chartCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
   title = input.required<string>();
   type = input.required<string>();
@@ -28,7 +28,6 @@ export class MeasureChartComponent implements OnDestroy{
 
   chart = signal<any>(null);
   private _timeoutId: any;
-
 
   constructor() {
     this._timeoutId = setTimeout(() => {
