@@ -36,6 +36,6 @@ export class TemperatureServiceAction
   }
 
   public remove(id: number): void {
-    this._measureStore.removeRespiratoryRate(id);
+    this._measureStore.removeTemperature(id);
   }
 }

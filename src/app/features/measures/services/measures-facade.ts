@@ -44,14 +44,20 @@ export class MeasuresFacade {
   }
 
   async addMeasure(data: AddMeasureDtoRecord): Promise<MeasureModel> {
+    MeasureRules.validateType(data.measureType);
     const newMeasure: MeasureModel = await this._measureApi.addMeasure(data);
-
-    MeasureRules.validateType(newMeasure.measureType);
     this._measuresServiceAction.addMeasure(newMeasure);
-    this._healthRecordStore.addMeasureToCurrentRecord(
-      newMeasure,
-      data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
-    );
+    console.log(newMeasure);
+    console.log(data);
+
+    if (data.measureType === 'respiratory_rate') {
+      this._healthRecordStore.addMeasureToCurrentRecord(newMeasure, 'respiratoryRate');
+    } else {
+      this._healthRecordStore.addMeasureToCurrentRecord(
+        newMeasure,
+        data.measureType.toLowerCase() as 'temperature' | 'weight' | 'respiratoryRate' | 'bpm',
+      );
+    }
 
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
@@ -80,14 +86,13 @@ export class MeasuresFacade {
         | 'bpm',
     );
 
-    toast.success('Valeur ajoutée au carnet', {
+    toast.success('Valeur modifiée dans le carnet', {
       duration: 2000,
     });
   }
 
   async remove(measure: MeasureDtoRecord): Promise<void> {
     const msgConfirmation = await this._measureApi.deleteMeasure(measure);
-
     this._measuresServiceAction.remove(measure.id);
     this._healthRecordStore.removeMeasureFromCurrentRecord(
       measure.id,
