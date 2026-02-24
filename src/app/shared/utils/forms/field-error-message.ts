@@ -28,5 +28,9 @@ export function getFieldErrorMessage(control: any, fieldLabel: string): string {
     return 'La date ne peut pas être dans le futur';
   }
 
+  if (control.errors['minDate']) {
+    return 'La date de naissance semble incorrecte';
+  }
+
   return 'Champ invalide';
 }

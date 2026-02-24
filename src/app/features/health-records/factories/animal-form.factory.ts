@@ -36,7 +36,7 @@ export class AnimalFormFactory {
         label: 'Nom',
         type: 'text',
         placeholder: 'Rex',
-        validators: [Validators.required, Validators.maxLength(50)],
+        validators: [Validators.required, Validators.maxLength(50), Validators.pattern(/^[A-Z]{2,3}[0-9]{12,15}$/)],
       },
       {
         key: 'animalType',
@@ -71,7 +71,7 @@ export class AnimalFormFactory {
         type: 'number',
         placeholder: '9.99',
         inputMode: 'decimal',
-        validators: [Validators.required, Validators.min(0.01), Validators.max(99.99)],
+        validators: [Validators.required, Validators.min(0.01), Validators.max(999.99)],
       },
       {
         key: 'color',
@@ -92,7 +92,7 @@ export class AnimalFormFactory {
         label: 'Tatouage',
         type: 'text',
         placeholder: 'ABC123',
-        validators: [Validators.maxLength(50)],
+        validators: [Validators.maxLength(50), Validators.pattern(/^[A-Za-z0-9]{2,10}$/)],
       },
       {
         key: 'allergy',
