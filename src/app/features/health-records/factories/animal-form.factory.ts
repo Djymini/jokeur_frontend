@@ -36,10 +36,7 @@ export class AnimalFormFactory {
         label: 'Nom',
         type: 'text',
         placeholder: 'Rex',
-        validators: [
-          Validators.required,
-          Validators.maxLength(50),
-        ],
+        validators: [Validators.required, Validators.maxLength(50)],
       },
       {
         key: 'animalType',
