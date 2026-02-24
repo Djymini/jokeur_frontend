@@ -9,19 +9,19 @@ export function getFieldErrorMessage(control: any, fieldLabel: string): string {
     return `Le champ "${fieldLabel}" est requis`;
   }
 
-  if (control.errors['maxLength']) {
-    const max = control.errors['maxLength'].requiredLength;
-    return `${fieldLabel} ne peut pas dépasser ${max} caractères`;
+  if (control.errors['maxlength']) {
+    const max = control.errors['maxlength'].requiredLength;
+    return `Le champ "${fieldLabel}" ne peut pas dépasser ${max} caractères`;
   }
 
   if (control.errors['min']) {
     const min = control.errors['min'].min;
-    return `${fieldLabel} doit être au moins ${min}`;
+    return `Le champ "${fieldLabel}" doit être supérieur ou égal à ${min}`;
   }
 
   if (control.errors['max']) {
     const max = control.errors['max'].max;
-    return `${fieldLabel} ne peut pas dépasser ${max}`;
+    return `Le champ "${fieldLabel}" ne peut pas dépasser ${max}`;
   }
 
   if (control.errors['maxDate']) {
@@ -32,5 +32,5 @@ export function getFieldErrorMessage(control: any, fieldLabel: string): string {
     return 'La date de naissance semble incorrecte';
   }
 
-  return 'Champ invalide';
+  return 'Ce champ est invalide';
 }

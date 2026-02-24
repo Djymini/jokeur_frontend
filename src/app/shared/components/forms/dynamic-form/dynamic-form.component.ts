@@ -72,6 +72,11 @@ export class DynamicFormComponent {
     control?.markAsDirty();
   }
 
+  protected isInvalid(key: string): boolean {
+    const ctrl = this.formGroup().get(key);
+    return !!(ctrl?.touched && ctrl?.invalid);
+  }
+
   protected onCancel(): void {
     this.cancelled.emit();
   }
@@ -86,11 +91,6 @@ export class DynamicFormComponent {
 
     const payload: FormPayload = form.getRawValue();
     this.submitted.emit(payload);
-  }
-
-  protected isInvalid(key: string): boolean {
-    const ctrl = this.formGroup().get(key);
-    return !!(ctrl?.touched && ctrl?.invalid);
   }
 
   protected getSelectOptions(field: FormField): SelectOption[] {
