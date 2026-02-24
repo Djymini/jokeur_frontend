@@ -27,7 +27,12 @@ export class AuthService {
 
   private _hasToken(): boolean {
     if (!this._isBrowser()) return false;
-    return !!localStorage.getItem(this._tokenKey);
+    const token = localStorage.getItem(this._tokenKey);
+    if (!token) {
+      localStorage.removeItem('user');
+      return false;
+    }
+    return true;
   }
 
   getToken(): string | null {
