@@ -11,6 +11,10 @@ export class ServerErrorMapperService {
       field: 'email',
       message: 'Cette adresse email est déjà utilisée.',
     },
+    IDENTIFICATION_NUMBER_ALREADY_USED: {
+      field: 'identificationNumber',
+      message: "Ce numéro d'identification est déjà utilisé.",
+    },
   };
 
   resolve(errorCode: string): { field: string; message: string } | null {
