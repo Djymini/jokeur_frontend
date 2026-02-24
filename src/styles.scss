@@ -249,7 +249,9 @@ main {
 }
 
 z-dialog {
+  max-height: 80vh;
   padding: 32px !important;
+  overflow-y: scroll;
 }
 
 z-dialog input {

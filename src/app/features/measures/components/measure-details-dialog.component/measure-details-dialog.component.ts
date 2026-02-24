@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, InputSignal } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardIconComponent } from '@/shared/components/icon';
 import { ZardTableImports } from '@/shared/components/table';
@@ -19,7 +19,7 @@ import { MeasureDeleteDialogComponent } from '@/features/measures/components/mea
 export class MeasureDetailsDialogComponent {
   private _dialogService = inject(ZardDialogService);
   private _measuresFacade = inject(MeasuresFacade);
-  data: { measures: MeasureModel[]; type: string } = inject(Z_MODAL_DATA);
+  data: { measuresSignal: InputSignal<MeasureModel[]>; type: string } = inject(Z_MODAL_DATA);
 
   openDialogAdd(measure: MeasureModel): void {
     this._dialogService.create({
@@ -33,7 +33,7 @@ export class MeasureDetailsDialogComponent {
         try {
           await this._measuresFacade.modify(measure, formValue!);
         } catch (error) {
-          toast.error('Erreur lors de la modification');
+          toast.error('Erreur lors de la modification de la donnée');
           throw error;
         }
       },
@@ -50,11 +50,11 @@ export class MeasureDetailsDialogComponent {
       zOnOk: async () => {
         try {
           await this._measuresFacade.remove(measure);
-          toast.success('Modification réalisée', {
+          toast.success('Suppression réalisée', {
             duration: 2000,
           });
         } catch (error) {
-          toast.error('Erreur lors de la modification');
+          toast.error('Erreur lors de la suppression de la donnée');
           throw error;
         }
       },

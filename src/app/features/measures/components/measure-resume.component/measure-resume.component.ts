@@ -8,9 +8,7 @@ import { toast } from 'ngx-sonner';
 import { MeasuresFacade } from '@/features/measures/services/measures-facade';
 import { AddMeasureDtoRecord } from '@/features/measures/models/addMeasureDtoRecord';
 import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
-import {
-  MeasureAddDialogComponent
-} from '@/features/measures/components/measure-add-dialog.component/measure-add-dialog.component';
+import { MeasureAddDialogComponent } from '@/features/measures/components/measure-add-dialog.component/measure-add-dialog.component';
 
 @Component({
   selector: 'app-measure-resume',

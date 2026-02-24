@@ -86,14 +86,13 @@ export class MeasuresFacade {
         | 'bpm',
     );
 
-    toast.success('Valeur ajoutée au carnet', {
+    toast.success('Valeur modifiée dans le carnet', {
       duration: 2000,
     });
   }
 
   async remove(measure: MeasureDtoRecord): Promise<void> {
     const msgConfirmation = await this._measureApi.deleteMeasure(measure);
-
     this._measuresServiceAction.remove(measure.id);
     this._healthRecordStore.removeMeasureFromCurrentRecord(
       measure.id,

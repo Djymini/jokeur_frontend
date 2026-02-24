@@ -47,7 +47,7 @@ export class MeasureBoardComponent implements OnInit {
       zDescription: `Voir l'ensemble des données saisies`,
       zContent: MeasureDetailsDialogComponent,
       zData: {
-        measures: this.measures(),
+        measuresSignal: this.measures,
         type: this.type(),
       },
       zHideFooter: true,
