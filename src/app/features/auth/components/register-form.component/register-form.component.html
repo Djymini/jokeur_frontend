@@ -6,7 +6,26 @@
       <label for="username">Pseudo :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="username" type="text" formControlName="username" />
+    <input
+      id="username"
+      type="text"
+      formControlName="username"
+      placeholder="johndoe12345"
+      [attr.aria-invalid]="
+        registerForm.controls.username.invalid && registerForm.controls.username.touched
+          ? 'true'
+          : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.username.invalid && registerForm.controls.username.touched
+          ? 'username-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.username.invalid && registerForm.controls.username.touched) {
+      <p class="error" id="username-error" role="alert">Un pseudo est requis</p>
+    }
   </div>
 
   <div class="field flex">
@@ -14,7 +33,30 @@
       <label for="name">Nom :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="name" type="text" formControlName="name" placeholder="ex. Doe" />
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="ex. Doe"
+      [attr.aria-invalid]="
+        registerForm.controls.name.invalid && registerForm.controls.name.touched ? 'true' : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.name.invalid && registerForm.controls.name.touched
+          ? 'name-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.name.errors?.['required'] && registerForm.controls.name.touched) {
+      <p class="error" id="name-error" role="alert">Un nom est requis.</p>
+    } @else if (
+      registerForm.controls.name.errors?.['pattern'] && registerForm.controls.name.touched
+    ) {
+      <p class="error" id="name-error" role="alert">
+        Le nom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
+      </p>
+    }
   </div>
 
   <div class="field flex">
@@ -22,7 +64,35 @@
       <label for="firstname">Prénom :</label>
       <span class="material-icons">person</span>
     </div>
-    <input id="firstname" type="text" formControlName="firstname" placeholder="ex. John" />
+    <input
+      id="firstname"
+      type="text"
+      formControlName="firstname"
+      placeholder="ex. John"
+      [attr.aria-invalid]="
+        registerForm.controls.firstname.invalid && registerForm.controls.firstname.touched
+          ? 'true'
+          : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.firstname.invalid && registerForm.controls.firstname.touched
+          ? 'firstname-error'
+          : null
+      "
+    />
+
+    @if (
+      registerForm.controls.firstname.errors?.['required'] &&
+      registerForm.controls.firstname.touched
+    ) {
+      <p class="error" id="firstname-error" role="alert">Un prénom est requis</p>
+    } @else if (
+      registerForm.controls.firstname.errors?.['pattern'] && registerForm.controls.firstname.touched
+    ) {
+      <p class="error" id="firstname-error" role="alert">
+        Le prénom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
+      </p>
+    }
   </div>
 
   <div class="field flex">
@@ -30,7 +100,24 @@
       <label for="phone">Téléphone :</label>
       <span class="material-icons">phone_enabled</span>
     </div>
-    <input id="phone" type="text" formControlName="phone" placeholder="ex. 0612345678" />
+    <input
+      id="phone"
+      type="tel"
+      formControlName="phone"
+      placeholder="ex. 0612345678"
+      [attr.aria-invalid]="
+        registerForm.controls.phone.invalid && registerForm.controls.phone.touched ? 'true' : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.phone.invalid && registerForm.controls.phone.touched
+          ? 'phone-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.phone.invalid && registerForm.controls.phone.touched) {
+      <p class="error" id="phone-error" role="alert">Le numéro de téléphone est invalide</p>
+    }
   </div>
 
   <div class="field flex">
@@ -38,7 +125,6 @@
       <label for="email">Email :</label>
       <span class="material-icons">mail</span>
     </div>
-
     <input
       id="email"
       type="email"
@@ -58,7 +144,7 @@
     />
 
     @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
-      <p class="error" id="email-error" role="alert">Email invalide</p>
+      <p class="error" id="email-error" role="alert">L'email est invalide</p>
     }
   </div>
 
@@ -110,6 +196,21 @@
         Le mot de passe doit contenir au minimum
         {{ registerForm.controls.password.errors?.['minlength']?.requiredLength }}
         caractères.
+      </p>
+    } @else if (
+      registerForm.controls.password.errors?.['maxlength'] && registerForm.controls.password.touched
+    ) {
+      <p class="error" id="password-error" role="alert">
+        Le mot de passe doit contenir au maximum
+        {{ registerForm.controls.password.errors?.['maxlength']?.requiredLength }}
+        caractères.
+      </p>
+    } @else if (
+      registerForm.controls.password.errors?.['pattern'] && registerForm.controls.password.touched
+    ) {
+      <p class="error" id="password-error" role="alert">
+        Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère
+        spécial.
       </p>
     }
   </div>

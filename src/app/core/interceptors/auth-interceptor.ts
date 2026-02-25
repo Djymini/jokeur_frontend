@@ -7,21 +7,17 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     return next(req);
   }
 
-  const document: Document = inject(DOCUMENT);
-  const localStorage = document.defaultView?.localStorage;
+  const documentRef = inject(DOCUMENT);
+  const storage = documentRef.defaultView?.localStorage;
 
-  if (localStorage!) {
-    const token = localStorage.getItem('jwt_token');
+  const token = storage?.getItem('jwt_token');
 
-    if (token) {
-      return next(
-        req.clone({
-          setHeaders: {
-            Authorization: `Bearer ${token}`,
-          },
-        }),
-      );
-    }
+  if (token) {
+    return next(
+      req.clone({
+        setHeaders: { Authorization: `Bearer ${token}` },
+      }),
+    );
   }
 
   return next(req);
