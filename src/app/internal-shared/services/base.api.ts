@@ -71,9 +71,7 @@ export abstract class BaseApi {
 
   protected async postFormData<T>(endpoint: string, formData: FormData): Promise<T> {
     try {
-      return await firstValueFrom(
-        this.http.post<T>(`${this.BASE_URL}${endpoint}`, formData),
-      );
+      return await firstValueFrom(this.http.post<T>(`${this.BASE_URL}${endpoint}`, formData));
     } catch (error) {
       throw this._handleError(error);
     }
