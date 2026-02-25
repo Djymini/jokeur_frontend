@@ -69,6 +69,16 @@ export abstract class BaseApi {
     }
   }
 
+  protected async postFormData<T>(endpoint: string, formData: FormData): Promise<T> {
+    try {
+      return await firstValueFrom(
+        this.http.post<T>(`${this.BASE_URL}${endpoint}`, formData),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
   protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
       const backendMessage =

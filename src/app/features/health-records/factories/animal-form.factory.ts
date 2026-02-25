@@ -15,7 +15,15 @@ export class AnimalFormFactory {
       title: 'Ajouter un animal',
       submitLabel: 'Ajouter',
       cancelLabel: 'Annuler',
-      fields: this._createAnimalFields(),
+      fields: [
+        ...this._createAnimalFields(),
+        {
+          key: 'photo',
+          label: 'Photo',
+          type: 'file',
+          accept: 'image/*',
+        },
+      ],
     };
   }
 
