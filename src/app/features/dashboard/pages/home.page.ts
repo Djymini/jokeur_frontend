@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { OwnerComponent } from '@/features/dashboard/owner.component/owner.component';
+import { DashboardComponent } from '@/features/dashboard/components/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-home.page',
-  imports: [OwnerComponent],
-  template: ` <app-owner></app-owner> `,
+  imports: [DashboardComponent],
+  template: ` <app-dashboard></app-dashboard> `,
   styles: ``,
 })
 export default class HomePage {}

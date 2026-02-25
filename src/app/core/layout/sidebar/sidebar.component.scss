@@ -8,6 +8,7 @@
   flex-direction: column;
   transition: width 0.3s ease;
   overflow: hidden;
+  padding-left: 5px;
 
   &.collapsed {
     width: 70px;
@@ -60,7 +61,6 @@ hr {
 
     &:hover {
       background: var(--accent);
-      color: var(--foreground);
 
       &::before {
         content: '';
@@ -76,8 +76,9 @@ hr {
     &.active {
       background: var(--primary-light);
       font-weight: 500;
-      border-left: 2px solid white;
+      border-left: 5px solid white;
       margin-left: 2px;
+      font-size: large;
 
       &::before {
         content: '';

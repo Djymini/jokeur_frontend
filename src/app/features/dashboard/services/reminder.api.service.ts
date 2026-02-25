@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
+import { ReminderModel } from '@/shared/models/reminder-model';
 import { BaseApi } from '@/internal-shared/services/base.api';
-import { AppointmentModel } from '@/shared/models/appointment-model';
 import { PageModel } from '@/shared/models/page-model';
 
 @Injectable({ providedIn: 'root' })
-export class AppointmentApiService extends BaseApi {
-  private readonly _endpoint = '/appointment';
+export class ReminderApiService extends BaseApi {
+  private readonly _endpoint = '/reminder';
 
-  async getAppointments(
+  async getAllReminder(
     userId: number,
     page: number,
     size: number,
-  ): Promise<PageModel<AppointmentModel>> {
-    return this.get<PageModel<AppointmentModel>>(
+  ): Promise<PageModel<ReminderModel>> {
+    return this.get<PageModel<ReminderModel>>(
       this._endpoint + `?userId=${userId}&page=${page}&size=${size}`,
     );
   }

@@ -5,6 +5,7 @@ import { UserModel } from '@/core/models/user-model';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly _tokenKey = 'jwt_token';
+  private readonly _user: string = 'user';
   private readonly _platformId = inject(PLATFORM_ID);
 
   readonly isLoggedIn = signal<boolean>(false);
@@ -44,10 +45,23 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
+    if (this.getToken() !== null) {
+      if (this.user() !== undefined) {
+        return true;
+      }
+      const userStr = localStorage.getItem(this._user);
+      if (userStr) {
+        this.user.set(JSON.parse(userStr));
+        return true;
+      }
+
+      return false;
+    }
     return this.getToken() !== null && this.user() !== undefined;
   }
 
   updateUser(user: UserModel): void {
     this.user.set(user);
+    localStorage.setItem(this._user, JSON.stringify(user));
   }
 }

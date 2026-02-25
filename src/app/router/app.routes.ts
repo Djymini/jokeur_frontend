@@ -5,9 +5,8 @@ import { healthRecordResolver } from '@/router/resolvers/health-record/health-re
 export const routes: Routes = [
   {
     path: '',
-    title: 'Accueil',
-    canActivate: [authGuard],
-    loadComponent: () => import('../features/dashboard/pages/home.page'),
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
     path: 'construction',
@@ -27,13 +26,16 @@ export const routes: Routes = [
     loadComponent: () => import('../features/auth/pages/login.page'),
   },
 
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-
   {
     path: 'dashboard',
     title: 'Tableau de bord',
-    loadComponent: () => import('../features/dashboard/pages/home.page'),
     canActivate: [authGuard],
+    loadComponent: () => import('../features/dashboard/pages/home.page'),
+  },
+  {
+    path: 'news',
+    title: 'Les actualités',
+    loadComponent: () => import('@/features/news/news.component'),
   },
 
   {
