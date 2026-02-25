@@ -5,13 +5,14 @@ import {
   computed,
   inject,
   input,
-  output,
+  output, viewChild, ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormRegistryService } from '@/shared/services/forms/form-registry.service';
 import { FormDefinition } from '@/shared/models/forms/form-definition.model';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { DynamicFormComponent } from '@/shared/components/forms/dynamic-form/dynamic-form.component';
+import { ServerErrorMapperService } from '@/shared/services/forms/server-error-mapper.service';
 
 type FormPayload = Record<string, unknown>;
 
@@ -25,6 +26,11 @@ type FormPayload = Record<string, unknown>;
 })
 export class DynamicFormModalComponent {
   private readonly formRegistry = inject(FormRegistryService);
+  private readonly serverErrorMapper = inject(ServerErrorMapperService);
+
+  readonly dynamicForm = viewChild(DynamicFormComponent);
+  private readonly cdr = inject(ChangeDetectorRef);
+
 
   readonly formId = input.required<string>();
   readonly isOpen = input(true);
@@ -62,5 +68,12 @@ export class DynamicFormModalComponent {
 
   protected onFormSubmitted(payload: FormPayload): void {
     this.submitted.emit(payload);
+  }
+
+  public handleServerError(error: any): void {
+    const resolved = this.serverErrorMapper.resolve(error?.errorCode);
+    if (resolved) {
+      this.dynamicForm()?.setServerError(resolved.field, resolved.message);
+    }
   }
 }
