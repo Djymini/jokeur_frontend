@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody z-table-body>
-        @for (measure of data.measures; track measure.id) {
+        @for (measure of data.measuresSignal(); track measure.id) {
           <tr z-table-row>
             <td z-table-cell>
               <div class="lowercase">{{ measure.creationDate }}</div>

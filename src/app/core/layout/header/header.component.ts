@@ -6,16 +6,10 @@ import {
   ZardDropdownMenuContentComponent,
 } from '@/shared/components/dropdown';
 import { ZardMenuImports } from '@/shared/components/menu';
-import { ZardDividerComponent } from '@/shared/components/divider';
 
 @Component({
   selector: 'app-header',
-  imports: [
-    ZardDropdownMenuContentComponent,
-    ZardDropdownImports,
-    ZardMenuImports,
-    ZardDividerComponent,
-  ],
+  imports: [ZardDropdownMenuContentComponent, ZardDropdownImports, ZardMenuImports],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

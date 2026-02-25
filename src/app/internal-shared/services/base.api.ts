@@ -77,6 +77,12 @@ export abstract class BaseApi {
           return new Error('Accès interdit');
         case 404:
           return new Error('Ressource non trouvée');
+        case 409: {
+          const err = new Error(error.error?.message ?? 'Conflit') as any;
+          err.status = 409;
+          err.errorCode = error.error?.error ?? 'UNKNOWN_CONFLICT';
+          return err;
+        }
         case 500:
           return new Error('Erreur serveur');
         default:

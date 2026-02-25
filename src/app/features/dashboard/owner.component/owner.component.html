@@ -94,12 +94,19 @@
         <div class="flex items-center justify-between p-4">
           <!-- block de gauche -->
           <div class="flex items-center gap-4">
-            <img
-              class="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
-              [src]="'data:' + animal.imageType + ';base64,' + animal.image"
-              alt="animal image"
-            />
-
+            @if (animal.image) {
+              <img
+                class="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
+                [src]="'data:' + animal.imageType + ';base64,' + animal.image"
+                alt="animal image"
+              />
+            } @else {
+              <img
+                class="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
+                src="images/placeholder_dog.png"
+                alt="animal image"
+              />
+            }
             <div>
               <h4 class="font-semibold text-base md:text-lg">
                 {{ animal.petName }}
