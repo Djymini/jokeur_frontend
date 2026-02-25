@@ -138,6 +138,13 @@ button[type='submit']:disabled {
   border-color: #dc2626 !important;
 }
 
+.error {
+  color: #dc2626; // rouge propre (tailwind red-600)
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
 .div_label {
   display: flex;
   justify-content: space-between;

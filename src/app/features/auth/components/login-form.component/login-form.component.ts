@@ -11,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthApi } from '@/core/auth.api';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-login-form',
@@ -31,15 +32,24 @@ export class LoginFormComponent {
   });
 
   async onSubmit(): Promise<void> {
-    if (this.loginForm.invalid) return;
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
 
-    const email = this.loginForm.get('email')!.value;
-    const password = this.loginForm.get('password')!.value;
+    const { email, password } = this.loginForm.getRawValue();
 
-    const res = await this._authApi.login({ email, password }); // AuthApi
-    this._authService.updateUser(res);
-    this._authService.setToken(res.token);
+    try {
+      const res = await this._authApi.login({ email, password }); // AuthApi
 
-    this._router.navigate(['/dashboard']);
+      this._authService.updateUser(res);
+      this._authService.setToken(res.token);
+
+      toast.success('Connexion réussie.');
+
+      await this._router.navigate(['/dashboard']);
+    } catch {
+      // BaseApi gère le toast.error(...)
+    }
   }
 }
