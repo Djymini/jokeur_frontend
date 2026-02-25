@@ -17,8 +17,10 @@
 }
 
 .user-profile {
+  min-width: 200px;
   display: flex;
   align-items: center;
+  justify-content: right;
   gap: 0.75rem;
   cursor: pointer;
   margin-right: 80px;
@@ -48,8 +50,8 @@
 z-dropdown-menu-content {
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border: 1px solid #e2e8f0; /* Couleur grise légère */
+  background-color: var(--popover);
+  border: 1px solid var(--popover-foreground);
   border-radius: 0.5rem;
   padding: 0.25rem;
   box-shadow:
@@ -60,7 +62,6 @@ z-dropdown-menu-content {
   z-index: 1000;
 }
 
-/* Animation d'apparition */
 @keyframes fadeInScale {
   from {
     opacity: 0;
@@ -72,12 +73,10 @@ z-dropdown-menu-content {
   }
 }
 
-/* Les items cliquables */
 z-dropdown-menu-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 0.75rem;
   font-size: 0.875rem;
   color: #1e293b;
   border-radius: 0.375rem;
@@ -85,32 +84,20 @@ z-dropdown-menu-item {
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: #f1f5f9; /* Gris très clair au survol */
-    //color: var(--chart-2); /* Rappel de votre couleur de thème */
+    background-color: #f1f5f9;
   }
 }
 
-/* Le label "Mon compte" (non cliquable) */
 z-menu-label {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 1rem 0.75rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #64748b;
-  letter-spacing: 0.025em;
+  color: var(--primary);
 }
 
-/* Les raccourcis clavier (gris clair, à droite) */
-z-menu-shortcut {
-  margin-left: auto;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  padding-left: 1rem;
-}
-
-/* Le séparateur (z-divider) */
 z-divider {
   height: 1px;
-  background-color: #e2e8f0;
+  background-color: var(--popover-foreground);
   margin: 4px 0;
 }

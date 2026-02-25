@@ -23,7 +23,7 @@ export class MeasureServiceActionFactory {
         return new BpmServiceAction(measureApi, measureStore);
       case 'temperature':
         return new TemperatureServiceAction(measureApi, measureStore);
-      case 'respiratory rate':
+      case 'respiratory_rate':
         return new RespiratoryRateServiceAction(measureApi, measureStore);
       default:
         return new WeightServiceAction(measureApi, measureStore);

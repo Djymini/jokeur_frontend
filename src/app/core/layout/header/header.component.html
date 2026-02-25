@@ -23,20 +23,18 @@
           <z-menu-label>Mon compte</z-menu-label>
 
           <z-dropdown-menu-item (click)="onDashboard()">
+            <span class="material-icons">dashboard</span>
             Tableau de bord
-            <z-menu-shortcut>⇧⌘P</z-menu-shortcut>
           </z-dropdown-menu-item>
 
           <z-dropdown-menu-item (click)="onSettings()">
-            Settings
-            <z-menu-shortcut>⌘S</z-menu-shortcut>
+            <span class="material-icons">settings</span>
+            Paramètres
           </z-dropdown-menu-item>
 
-          <z-divider zSpacing="sm" class="-mx-1" />
-
           <z-dropdown-menu-item (click)="onLogout()">
+            <span class="material-icons">logout</span>
             Log out
-            <z-menu-shortcut>⇧⌘Q</z-menu-shortcut>
           </z-dropdown-menu-item>
         </z-dropdown-menu-content>
       </div>
