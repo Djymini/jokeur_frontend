@@ -1,4 +1,4 @@
-export interface NotificationModel {
+export interface NewsModel {
   id: number;
   title: string;
   summary: string;

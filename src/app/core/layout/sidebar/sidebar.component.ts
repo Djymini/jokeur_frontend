@@ -1,11 +1,11 @@
 import { Component, inject, input, signal } from '@angular/core';
-import { MenuItemModel } from '@/internal-shared/domaine/MenuItem.model';
+import { MenuItemModel } from '@/core/layout/sidebar/model/MenuItem.model';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@/core/services/auth.service';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
@@ -15,7 +15,6 @@ export class SidebarComponent {
 
   isVisible = inject(AuthService).isLoggedIn;
 
-  // Signals internes
   menuItems = signal<MenuItemModel[]>([
     { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', path: '/dashboard' },
     { id: 'animals', label: 'Mes animaux', icon: 'pets', path: '/construction' },

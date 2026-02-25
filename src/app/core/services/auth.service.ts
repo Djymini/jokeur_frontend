@@ -5,6 +5,7 @@ import { UserModel } from '@/core/models/user-model';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly _tokenKey = 'jwt_token';
+  private readonly _user: string = 'user';
   private readonly _platformId = inject(PLATFORM_ID);
 
   readonly isLoggedIn = signal<boolean>(false);
@@ -14,7 +15,7 @@ export class AuthService {
     if (this._isBrowser()) {
       this.isLoggedIn.set(this._hasToken());
 
-      const stored = localStorage.getItem('user');
+      const stored = localStorage.getItem(this._user);
       if (stored) {
         this.user.set(JSON.parse(stored));
       }
@@ -29,7 +30,7 @@ export class AuthService {
     if (!this._isBrowser()) return false;
     const token = localStorage.getItem(this._tokenKey);
     if (!token) {
-      localStorage.removeItem('user');
+      localStorage.removeItem(this._user);
       return false;
     }
     return true;
@@ -49,19 +50,31 @@ export class AuthService {
   updateUser(user: UserModel): void {
     this.user.set(user);
     if (this._isBrowser()) {
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem(this._user, JSON.stringify(user));
     }
   }
 
   logout(): void {
     if (!this._isBrowser()) return;
     localStorage.removeItem(this._tokenKey);
-    localStorage.removeItem('user');
+    localStorage.removeItem(this._user);
     this.isLoggedIn.set(false);
     this.user.set(undefined);
   }
 
   isAuthenticated(): boolean {
-    return this.getToken() !== null;
+    if (this.getToken() !== null) {
+      if (this.user() !== undefined) {
+        return true;
+      }
+      const userStr = localStorage.getItem(this._user);
+      if (userStr) {
+        this.user.set(JSON.parse(userStr));
+        return true;
+      }
+
+      return false;
+    }
+    return this.getToken() !== null && this.user() !== undefined;
   }
 }

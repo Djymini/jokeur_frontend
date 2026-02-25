@@ -1,0 +1,55 @@
+<section>
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-semibold text-card-foreground title">Mes animaux</h2>
+    <button z-button type="button" zType="secondary" class="px-6 mr-14" (click)="isOpen.set(true)">
+      <z-icon zType="plus" />
+      Ajouter un animal
+    </button>
+  </div>
+
+  <z-dynamic-form-modal
+    [isOpen]="isOpen()"
+    formId="animal.create"
+    [metadata]="metadata()"
+    (closed)="isOpen.set(false)"
+    (submitted)="onSubmit($event)"
+  />
+
+  <div class="my-animals grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+    @for (animal of dashboardStore.animals(); track animal) {
+      <div class="rounded-lg bg-card shadow-md hover:shadow-lg transition">
+        <div class="flex items-center justify-between pr-4">
+          <div class="flex items-center gap-4">
+            <img
+              class="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
+              [src]="'data:' + animal.imageType + ';base64,' + animal.image"
+              alt="animal image"
+            />
+
+            <div>
+              <h4 class="font-semibold text-base md:text-lg">
+                {{ animal.petName }}
+              </h4>
+
+              @if (animal.animalType) {
+                <p class="text-sm text-muted-foreground">
+                  {{ animalTypeMap[animal.animalType] }}
+                </p>
+              }
+            </div>
+          </div>
+
+          <a
+            [routerLink]="['/health-record/', animal.id]"
+            class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-accent m-px transition"
+            title="Voir les détails"
+          >
+            <span class="material-icons text-xl md:text-2xl"> chevron_right </span>
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+
+  <a class="nav-btn" z-button zType="link" routerLink="/"> Accéder à mes animaux </a>
+</section>
