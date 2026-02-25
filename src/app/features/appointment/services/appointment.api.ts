@@ -4,7 +4,7 @@ import { AppointmentModel } from '@/shared/models/appointment-model';
 import { PageModel } from '@/shared/models/page-model';
 
 @Injectable({ providedIn: 'root' })
-export class AppointmentApiService extends BaseApi {
+export class AppointmentApi extends BaseApi {
   private readonly _endpoint = '/appointment';
 
   async getAppointments(

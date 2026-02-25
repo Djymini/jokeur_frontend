@@ -6,13 +6,13 @@
   </div>
 
   <div class="grid gap-4" role="list" aria-label="Liste des actualités RSS">
-    @if (newsStore.notifications().content.length === 0) {
+    @if (newsStore.news().content.length === 0) {
       <div class="bg-white p-6 rounded-2xl shadow text-center text-muted-foreground" role="status">
         Aucune actualité disponible.
       </div>
     }
 
-    @for (notification of newsStore.notifications().content; track notification.id) {
+    @for (notification of newsStore.news().content; track notification.id) {
       <article
         role="listitem"
         class="bg-white rounded-2xl shadow p-6 border-l-4 transition"

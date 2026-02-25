@@ -1,8 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { PageModel } from '@/shared/models/page-model';
-import { NotificationModel } from '@/shared/models/notification-model';
+import { NewsModel } from '@/shared/models/news-model';
 
 @Injectable({ providedIn: 'root' })
 export class NewsStore {
-  notifications = signal<PageModel<NotificationModel>>({ content: [], totalElements: 0 });
+  news = signal<PageModel<NewsModel>>({ content: [], totalElements: 0 });
 }

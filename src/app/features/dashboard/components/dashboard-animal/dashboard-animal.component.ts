@@ -6,6 +6,7 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { AuthService } from '@/core/services/auth.service';
 
 @Component({
   selector: 'app-dashboard-animal',
@@ -24,10 +25,14 @@ export class DashboardAnimalComponent {
   protected readonly dashboardStore = inject(DashboardStore);
   isOpen = signal(false);
   metadata = signal<HealthRecordFormMetadata | null>(null);
+  authService = inject(AuthService);
 
   async onSubmit(payload: Record<string, unknown>): Promise<void> {
     try {
-      const newAnimal = await this._facade.createFromFormPayload(payload, 1);
+      const newAnimal = await this._facade.createFromFormPayload(
+        payload,
+        this.authService.user()!.id,
+      );
       this.dashboardStore.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
     } catch (error: any) {

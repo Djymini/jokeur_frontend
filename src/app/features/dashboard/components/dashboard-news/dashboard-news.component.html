@@ -2,12 +2,12 @@
   <div class="flex items-center justify-between mb-4">
     <h3 class="font-medium text-lg">Actualité</h3>
     <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
-      {{ dashboardStore.notifications().totalElements }}
+      {{ dashboardStore.news().totalElements }}
     </span>
   </div>
   <div class="dashboard-info">
-    @if (dashboardStore.notifications().totalElements > 0) {
-      @for (notification of dashboardStore.notifications().content; track notification.id) {
+    @if (dashboardStore.news().totalElements > 0) {
+      @for (notification of dashboardStore.news().content; track notification.id) {
         <p class="truncate">{{ notification.title }}</p>
         <p class="text-sm text-muted-foreground mb-4">
           {{ notification.publishedAt | date: 'dd/MM/yyyy' }}
@@ -17,5 +17,5 @@
       <p class="text-muted-foreground mb-2">Auccun actualité</p>
     }
   </div>
-  <a z-button zType="link" routerLink="/news"> accéder à aux actualités </a>
+  <a z-button zType="link" routerLink="/news"> Accéder à aux actualités </a>
 </div>
