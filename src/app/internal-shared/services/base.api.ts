@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { toast } from 'ngx-sonner';
 
 @Injectable({
   providedIn: 'root',
@@ -68,28 +69,43 @@ export abstract class BaseApi {
 
   protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
-      switch (error.status) {
-        case 400:
-          return new Error('Données invalides');
-        case 401:
-          return new Error('Non autorisé');
-        case 403:
-          return new Error('Accès interdit');
-        case 404:
-          return new Error('Ressource non trouvée');
-        case 409: {
-          const err = new Error(error.error?.message ?? 'Conflit') as any;
-          err.status = 409;
-          err.errorCode = error.error?.error ?? 'UNKNOWN_CONFLICT';
-          return err;
+      const backendMessage =
+        typeof error.error === 'object' && (error.error as any)?.message
+          ? String((error.error as any).message)
+          : null;
+      let message: string;
+
+      if (backendMessage) {
+        message = backendMessage;
+      } else {
+        switch (error.status) {
+          case 400:
+            message = 'Données invalides';
+            break;
+          case 401:
+            message = 'Non autorisé';
+            break;
+          case 403:
+            message = 'Accès interdit';
+            break;
+          case 404:
+            message = 'Ressource non trouvée';
+            break;
+          case 500:
+            message = 'Erreur serveur';
+            break;
+          default:
+            message = 'Erreur réseau';
         }
-        case 500:
-          return new Error('Erreur serveur');
-        default:
-          return new Error('Erreur réseau');
       }
+
+      toast.error(message, { id: message });
+      return new Error(message);
     }
+
     console.error('BASE_API unknown error shape:', error);
+
+    toast.error('Erreur inconnue');
     return new Error('Erreur inconnue');
   }
 }
