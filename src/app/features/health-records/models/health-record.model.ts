@@ -15,6 +15,7 @@ export type HealthRecord = {
   image: string;
   imageType: string;
   animalType: string;
+  photoKey: string;
   measures: {
     temperature: MeasureModel[];
     weight: MeasureModel[];
