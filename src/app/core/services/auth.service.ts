@@ -77,5 +77,4 @@ export class AuthService {
     }
     return this.getToken() !== null && this.user() !== undefined;
   }
-
 }

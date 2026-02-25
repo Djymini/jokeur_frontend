@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, viewChild } from '@angular/core';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 import { RouterLink } from '@angular/router';
 import { ZardButtonComponent } from '@/shared/components/button';
@@ -19,6 +19,7 @@ export class DashboardAnimalComponent {
     DOG: 'Chien',
   };
 
+  readonly modalRef = viewChild(DynamicFormModalComponent);
   private readonly _facade = inject(HealthRecordFacade);
   protected readonly dashboardStore = inject(DashboardStore);
   isOpen = signal(false);
@@ -29,8 +30,13 @@ export class DashboardAnimalComponent {
       const newAnimal = await this._facade.createFromFormPayload(payload, 1);
       this.dashboardStore.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.log('catch error:', error, 'status:', error?.status, 'errorCode:', error?.errorCode);
+      if (error?.status === 409) {
+        this.modalRef()?.handleServerError(error);
+      } else {
+        console.error(error);
+      }
     }
   }
 }
