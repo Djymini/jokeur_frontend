@@ -49,7 +49,6 @@ export class HealthRecordFacade {
         tattoo: this._optionalString(payload, 'tattooNumber'),
         allergy: this._optionalString(payload, 'allergy'),
       };
-      console.log('payload identificationNumber:', payload['identificationNumber']);
 
       HealthRecordRules.validate(dto);
 

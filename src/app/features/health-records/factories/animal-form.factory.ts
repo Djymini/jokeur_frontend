@@ -99,7 +99,7 @@ export class AnimalFormFactory {
         label: 'Allergie',
         type: 'text',
         placeholder: 'Ex : Saumon',
-        validators: [Validators.maxLength(30)],
+        validators: [Validators.maxLength(100)],
       },
     ];
   }

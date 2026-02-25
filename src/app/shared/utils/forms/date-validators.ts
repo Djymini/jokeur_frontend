@@ -7,7 +7,7 @@ export function birthDateValidator(): ValidatorFn {
     const inputDate = new Date(control.value);
     const today = new Date();
     const minDate = new Date();
-    minDate.setFullYear(today.getFullYear() - 30);
+    minDate.setFullYear(today.getFullYear() - 80);
 
     if (inputDate > today) {
       return { maxDate: { max: today, actual: inputDate } };
