@@ -6,6 +6,7 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import { AuthService } from '@/core/services/auth.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard-animal',
@@ -25,6 +26,10 @@ export class DashboardAnimalComponent {
   isOpen = signal(false);
 
   authService = inject(AuthService);
+
+  getPhotoUrl(photoKey: string): string {
+    return `${environment.apiUrl}/uploads/${photoKey}`;
+  }
 
   async onSubmit(payload: Record<string, unknown>): Promise<void> {
     try {

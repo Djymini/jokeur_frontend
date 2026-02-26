@@ -53,8 +53,15 @@ export class HealthRecordFacade {
       HealthRecordRules.validate(dto);
 
       const healthRecord = await this._api.createHealthRecord(dto);
-      this._store.addHealthRecord(healthRecord);
 
+      const photo = payload['photo'];
+      if (photo instanceof File) {
+        const updated = await this._api.uploadPhoto(healthRecord.id, photo);
+        this._store.addHealthRecord(updated);
+        return updated;
+      }
+
+      this._store.addHealthRecord(healthRecord);
       return healthRecord;
     } catch (error) {
       if (error instanceof Error) throw error;

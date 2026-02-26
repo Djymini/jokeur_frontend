@@ -58,14 +58,32 @@
         }
 
         @case ('file') {
-          <input
-            class="control"
-            [class.control--error]="isInvalid(field.key)"
-            [id]="field.key"
-            type="file"
-            [attr.accept]="field.accept ?? null"
-            (change)="onFileSelected(field, $event)"
-          />
+          <label
+            class="file-dropzone"
+            [class.file-dropzone--error]="isInvalid(field.key)"
+            [class.file-dropzone--dragging]="isDragging()[field.key]"
+            [for]="field.key"
+            (dragover)="onDragOver(field, $event)"
+            (dragleave)="onDragLeave(field)"
+            (drop)="onDrop(field, $event)"
+          >
+            @if (fileNames()[field.key]) {
+              <span class="file-dropzone__name">{{ fileNames()[field.key] }}</span>
+            } @else {
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            }
+            <input
+              class="file-dropzone__input"
+              [id]="field.key"
+              type="file"
+              [attr.accept]="field.accept ?? null"
+              (change)="onFileSelected(field, $event)"
+            />
+          </label>
         }
 
         @case ('select') {
