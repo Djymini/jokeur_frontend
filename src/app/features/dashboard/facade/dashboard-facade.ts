@@ -18,17 +18,20 @@ export class DashboardFacade {
   dashboardStore = inject(DashboardStore);
 
   loadDashbooardData(): void {
+    const userId = this.user()?.id;
+    if (!userId) return;
+
     this.appointmentApi
-      .getAppointments(this.user()!.id, this._page, this._pageSize)
+      .getAppointments(userId, this._page, this._pageSize)
       .then((result) => {
         this.dashboardStore.appointments.set(result);
       });
 
-    this.HealthRecordApi.getAnimalInformation(this.user()!.id).then((result) => {
+    this.HealthRecordApi.getAnimalInformation(userId).then((result) => {
       this.dashboardStore.animals.set(result);
     });
 
-    this.reminderApi.getAllReminder(this.user()!.id, this._page, this._pageSize).then((result) => {
+    this.reminderApi.getAllReminder(userId, this._page, this._pageSize).then((result) => {
       this.dashboardStore.reminders.set(result);
     });
 
