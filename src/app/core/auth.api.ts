@@ -6,10 +6,8 @@ import { UserModel } from '@/core/models/user-model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { toast } from 'ngx-sonner';
 
-@Injectable({ providedIn: 'root' })
+/* @Injectable({ providedIn: 'root' })
 export class AuthApi extends BaseApi {
-  // protected errorService = inject(ErrorService);
-
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     try {
       return await firstValueFrom(
@@ -39,5 +37,16 @@ export class AuthApi extends BaseApi {
     } catch (error) {
       throw this._handleError(error);
     }
+  }
+} */
+
+@Injectable({ providedIn: 'root' })
+export class AuthApi extends BaseApi {
+  register(payload: RegisterUserPayload): Promise<{ message: string }> {
+    return this.post<{ message: string }>('/auth/register', payload);
+  }
+
+  login(payload: { email: string; password: string }): Promise<UserModel> {
+    return this.post<UserModel>('/auth/login', payload);
   }
 }
