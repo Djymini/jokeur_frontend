@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+// import { firstValueFrom } from 'rxjs';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { BaseApi } from '@/internal-shared/services/base.api';
 import { UserModel } from '@/core/models/user-model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { toast } from 'ngx-sonner';
+// import { HttpErrorResponse } from '@angular/common/http';
+// import { toast } from 'ngx-sonner';
 
 /* @Injectable({ providedIn: 'root' })
 export class AuthApi extends BaseApi {
