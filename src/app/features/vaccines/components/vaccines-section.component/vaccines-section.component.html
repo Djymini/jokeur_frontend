@@ -1,10 +1,13 @@
-<div class="card">
+<section class="card">
   <div class="card-header">
     <div class="title-group">
-      <span class="icon">💉</span>
+      <span class="material-icons">vaccines</span>
       <h2>Vaccins</h2>
     </div>
-    <button class="btn-add" type="button" (click)="openDialogAdd()">+ Ajouter un vaccin</button>
+    <z-button type="button" (click)="openDialogAdd()">
+      <span class="material-icons">add</span>
+      Ajouter un vaccin
+    </z-button>
   </div>
 
   <div class="vaccine-list">
@@ -20,4 +23,4 @@
   <div class="card-footer">
     <a href="#" class="link-more">Voir plus</a>
   </div>
-</div>
+</section>

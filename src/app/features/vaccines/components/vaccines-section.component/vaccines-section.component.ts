@@ -7,10 +7,11 @@ import { VaccineAddDialogComponent } from '@/features/vaccines/components/vaccin
 import { VaccineRequestDto } from '@/features/vaccines/models/vaccineRequestDto';
 import { VaccinesFacade } from '@/features/vaccines/services/vaccines-facade';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
+import { ZardButtonComponent } from '@/shared/components/button';
 
 @Component({
   selector: 'app-vaccines-section',
-  imports: [VaccineItemComponent],
+  imports: [VaccineItemComponent, ZardButtonComponent],
   templateUrl: './vaccines-section.component.html',
   styleUrl: './vaccines-section.component.scss',
 })
