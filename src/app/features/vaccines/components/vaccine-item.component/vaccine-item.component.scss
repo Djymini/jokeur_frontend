@@ -1,0 +1,53 @@
+.vaccine-item {
+  background-color: #68a58624;
+  border: 1px solid #68a69242;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.item-top {
+  margin-bottom: 16px;
+}
+
+.item-top,
+.item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-bottom {
+  margin-top: 15px;
+  align-items: flex-end;
+}
+
+.text-block .label {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 4px 0;
+}
+
+.text-block .value {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.card-footer {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.link-more {
+  color: var(--text-main);
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  gap: 8px;
+}

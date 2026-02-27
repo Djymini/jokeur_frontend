@@ -1,0 +1,68 @@
+<form [formGroup]="vaccineForm" class="flex flex-col gap-4">
+  <fieldset class="border p-4 rounded-md">
+    <legend class="font-semibold text-gray-700">Informations du vaccin</legend>
+
+    <div class="flex flex-col mb-3">
+      <label for="name" class="text-sm font-medium">Nom du vaccin</label>
+      <input id="name" type="text" formControlName="name" class="border p-2 rounded" />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="vaccinator" class="text-sm font-medium">Vaccinateur</label>
+      <input id="vaccinator" type="text" formControlName="vaccinator" class="border p-2 rounded" />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="vaccineDate" class="text-sm font-medium">Date du vaccin</label>
+      <input
+        id="vaccineDate"
+        type="date"
+        formControlName="vaccineDate"
+        class="border p-2 rounded"
+      />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="description" class="text-sm font-medium">Description / Notes</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="border p-2 rounded"
+      ></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset formGroupName="reminder" class="border p-4 rounded-md mt-2">
+    <legend class="font-semibold text-gray-700">Programmer un rappel</legend>
+
+    <div class="flex flex-col mb-3">
+      <label for="reminderType" class="text-sm font-medium">Type de rappel</label>
+      <input
+        id="reminderType"
+        type="text"
+        formControlName="type"
+        class="border p-2 rounded"
+        placeholder="Ex: Rappel annuel"
+      />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="reminderDate" class="text-sm font-medium">Date du rappel</label>
+      <input
+        id="reminderDate"
+        type="date"
+        formControlName="reminderDate"
+        class="border p-2 rounded"
+      />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="reminderStatus" class="text-sm font-medium">Statut</label>
+      <select id="reminderStatus" formControlName="status" class="border p-2 rounded">
+        <option value="PENDING">En attente</option>
+        <option value="DONE">Réalisé</option>
+        <option value="CANCELLED">Annulé</option>
+      </select>
+    </div>
+  </fieldset>
+</form>

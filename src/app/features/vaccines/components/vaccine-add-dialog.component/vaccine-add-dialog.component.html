@@ -1,0 +1,34 @@
+<form [formGroup]="form" class="grid gap-4 p-4">
+  <h2 class="text-lg font-bold">Ajouter un vaccin</h2>
+
+  <div class="grid gap-2">
+    <label for="name" class="text-sm font-medium">Nom du vaccin</label>
+    <input z-input id="name" formControlName="name" placeholder="ex: Pfizer, BCG..." />
+  </div>
+
+  <div class="grid gap-2">
+    <label for="vaccinator" class="text-sm font-medium">Vaccinateur</label>
+    <input
+      z-input
+      id="vaccinator"
+      formControlName="vaccinator"
+      placeholder="Nom du médecin ou centre"
+    />
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="grid gap-2">
+      <label for="vaccinDate" class="text-sm font-medium">Date de vaccination</label>
+      <input z-input id="vaccinDate" type="date" formControlName="vaccinDate" />
+    </div>
+    <div class="grid gap-2">
+      <label for="vaccinReminderDate" class="text-sm font-medium">Date de rappel</label>
+      <input z-input id="vaccinReminderDate" type="date" formControlName="vaccinReminderDate" />
+    </div>
+  </div>
+
+  <div class="grid gap-2">
+    <label for="description" class="text-sm font-medium">Description / Notes</label>
+    <textarea z-input id="description" formControlName="description" rows="3"></textarea>
+  </div>
+</form>
