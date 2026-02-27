@@ -1,0 +1,20 @@
+<div class="vaccine-item">
+  <div class="item-top">
+    <div class="text-block">
+      <p class="label">{{ vaccine().name }}</p>
+      <p class="value">{{ vaccine().vaccineDate }}</p>
+    </div>
+    <span class="badge badge-orange">{{ vaccine().reminder.type }}</span>
+  </div>
+  <div class="item-bottom">
+    <div class="text-block">
+      <p class="label">{{ vaccine().description }}</p>
+      <p class="value">{{ vaccine().vaccinator }}</p>
+    </div>
+    <div class="text-block">
+      <p class="label">Date de rappel</p>
+      <p class="value">{{ vaccine().reminder.reminderDate }}</p>
+    </div>
+    <button class="btn-delete" type="button">🗑️</button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 64px;
+  background-color: var(--card);
+  border-radius: var(--radius);
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  margin-bottom: 32px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}

@@ -1,0 +1,17 @@
+<app-tab-bar [tabLinks]="tabLinks" (activeTab)="selectTab($event)"></app-tab-bar>
+
+<div class="tab-content">
+  @if (activeTab() === tabLinks[0].name) {
+    <p>En cours de construction</p>
+  } @else if (activeTab() === tabLinks[1].name) {
+    <p>Ici, c'est ton profil.</p>
+  } @else if (activeTab() === tabLinks[2].name) {
+    <app-vaccines-section [healthRecord]="healthRecord()"></app-vaccines-section>
+  } @else if (activeTab() === tabLinks[3].name) {
+    <div class="container">
+      @for (section of measureSectionArray; track $index) {
+        <app-measure-section [measureSection]="section"></app-measure-section>
+      }
+    </div>
+  }
+</div>

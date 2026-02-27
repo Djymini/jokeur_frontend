@@ -47,8 +47,6 @@ export class MeasuresFacade {
     MeasureRules.validateType(data.measureType);
     const newMeasure: MeasureModel = await this._measureApi.addMeasure(data);
     this._measuresServiceAction.addMeasure(newMeasure);
-    console.log(newMeasure);
-    console.log(data);
 
     if (data.measureType === 'respiratory_rate') {
       this._healthRecordStore.addMeasureToCurrentRecord(newMeasure, 'respiratoryRate');

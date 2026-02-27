@@ -1,0 +1,76 @@
+/* Items */
+.vaccine-item {
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.item-top,
+.item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-bottom {
+  margin-top: 15px;
+  align-items: flex-end;
+}
+
+.text-block .label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0 0 4px 0;
+}
+
+.text-block .value {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Badges & Buttons */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.badge-orange {
+  background: #ffd8b1;
+  color: #e67e22;
+}
+.badge-green {
+  background: #c1f0d0;
+  color: #27ae60;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Footer */
+.card-footer {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.link-more {
+  color: var(--text-main);
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 14px;
+}
