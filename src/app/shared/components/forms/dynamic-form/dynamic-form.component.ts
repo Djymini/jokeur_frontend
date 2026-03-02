@@ -69,6 +69,10 @@ export class DynamicFormComponent {
     const inputElement = event.target as HTMLInputElement;
     const selectedFile = inputElement.files?.item(0) ?? null;
 
+    if (selectedFile) {
+      this.fileNames.update(names => ({ ...names, [field.key]: selectedFile.name }));
+    }
+
     const control = this.formGroup().get(field.key);
     control?.setValue(selectedFile);
     control?.markAsDirty();
