@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor() {
     if (this._isBrowser()) {
-      this.isLoggedIn.set(this._hasToken());
+      this.isLoggedIn.set(this.isAuthenticated());
 
       const stored = localStorage.getItem(this._user);
       if (stored) {

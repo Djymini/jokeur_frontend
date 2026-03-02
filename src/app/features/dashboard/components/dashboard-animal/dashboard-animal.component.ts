@@ -3,7 +3,6 @@ import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-for
 import { RouterLink } from '@angular/router';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardIconComponent } from '@/shared/components/icon';
-import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import { AuthService } from '@/core/services/auth.service';
@@ -24,7 +23,7 @@ export class DashboardAnimalComponent {
   private readonly _facade = inject(HealthRecordFacade);
   protected readonly dashboardStore = inject(DashboardStore);
   isOpen = signal(false);
-  metadata = signal<HealthRecordFormMetadata | null>(null);
+
   authService = inject(AuthService);
 
   async onSubmit(payload: Record<string, unknown>): Promise<void> {
