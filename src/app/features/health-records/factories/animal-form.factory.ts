@@ -33,7 +33,15 @@ export class AnimalFormFactory {
       title: 'Modifier les informations',
       submitLabel: 'Modifier',
       cancelLabel: 'Annuler',
-      fields: this._createAnimalFields(),
+      fields: [
+        ...this._createAnimalFields(),
+        {
+          key: 'image',
+          label: 'Changer la photo',
+          type: 'file',
+          accept: 'image/*',
+        },
+      ],
     };
   }
 
