@@ -12,10 +12,8 @@ export type HealthRecord = {
   identificationNumber: string;
   tattoo: number;
   allergy: number;
-  image: string;
-  imageType: string;
   animalType: string;
-  photoKey: string;
+  photoKey?: string | null;
   measures: {
     temperature: MeasureModel[];
     weight: MeasureModel[];
