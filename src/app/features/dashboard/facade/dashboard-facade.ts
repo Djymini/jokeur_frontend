@@ -21,11 +21,9 @@ export class DashboardFacade {
     const userId = this.user()?.id;
     if (!userId) return;
 
-    this.appointmentApi
-      .getAppointments(userId, this._page, this._pageSize)
-      .then((result) => {
-        this.dashboardStore.appointments.set(result);
-      });
+    this.appointmentApi.getAppointments(userId, this._page, this._pageSize).then((result) => {
+      this.dashboardStore.appointments.set(result);
+    });
 
     this.HealthRecordApi.getAnimalInformation(userId).then((result) => {
       this.dashboardStore.animals.set(result);

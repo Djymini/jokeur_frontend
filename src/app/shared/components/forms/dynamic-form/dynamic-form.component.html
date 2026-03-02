@@ -58,11 +58,15 @@
         }
 
         @case ('file') {
-          <label
+          <div
             class="file-dropzone"
             [class.file-dropzone--error]="isInvalid(field.key)"
             [class.file-dropzone--dragging]="isDragging()[field.key]"
-            [for]="field.key"
+            role="button"
+            tabindex="0"
+            (click)="fileInput.click()"
+            (keydown.enter)="fileInput.click()"
+            (keydown.space)="fileInput.click()"
             (dragover)="onDragOver(field, $event)"
             (dragleave)="onDragLeave(field)"
             (drop)="onDrop(field, $event)"
@@ -77,13 +81,14 @@
               </svg>
             }
             <input
+              #fileInput
               class="file-dropzone__input"
               [id]="field.key"
               type="file"
               [attr.accept]="field.accept ?? null"
               (change)="onFileSelected(field, $event)"
             />
-          </label>
+          </div>
         }
 
         @case ('select') {
