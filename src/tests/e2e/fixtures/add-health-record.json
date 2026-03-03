@@ -1,0 +1,22 @@
+{
+  "id": 100,
+  "userId": 1,
+  "petName": "Milou",
+  "AnimalType": "Chien",
+  "breed": "Labrador",
+  "sex": "Femelle",
+  "birthDate": "1995-02-02",
+  "currentWeight": 12,
+  "color": "Noir",
+  "identificationNumber": "FR121212121258",
+  "tattoo": "ABC3333",
+  "allergy": "Aucune",
+  "image": null,
+  "imageType": null,
+  "measures": {
+    "temperature": [],
+    "weight": [],
+    "respiratoryRate": [],
+    "bpm": []
+  }
+}
