@@ -50,4 +50,10 @@ export const routes: Routes = [
     loadComponent: () => import('../features/health-records/pages/health-record.page'),
     resolve: { healthRecord: healthRecordResolver },
   },
+
+  {
+    path: 'forgot-password',
+    title: 'Reinitialisation du mot de passe',
+    loadComponent: () => import('@/features/auth/pages/forgot-password.page'),
+  },
 ];
