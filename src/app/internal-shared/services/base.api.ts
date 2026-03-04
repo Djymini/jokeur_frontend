@@ -29,6 +29,8 @@ export abstract class BaseApi {
 
   protected async post<T>(endpoint: string, body: any): Promise<T> {
     try {
+      console.log('environement : ' + environment.name);
+      console.log('BASE_API : ' + this.BASE_URL);
       return await firstValueFrom(
         this.http.post<T>(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() }),
       );
