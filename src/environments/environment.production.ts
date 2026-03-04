@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   name: 'production',
-  apiUrl: 'api.jokeur.ashleydev.fr',
+  apiUrl: 'http://api.jokeur.ashleydev.fr',
 };
