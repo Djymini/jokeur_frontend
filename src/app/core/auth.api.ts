@@ -12,6 +12,7 @@ export class AuthApi extends BaseApi {
 
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     try {
+      console.log("register : " + this.BASE_URL);
       return await firstValueFrom(this.http.post<{ message: string }>(`/auth/register`, payload));
     } catch (error: unknown) {
       if (error instanceof HttpErrorResponse) {
@@ -31,9 +32,7 @@ export class AuthApi extends BaseApi {
 
   async login(payload: { email: string; password: string }): Promise<UserModel> {
     try {
-      return await firstValueFrom(
-        this.http.post<UserModel>(`/auth/login`, payload),
-      );
+      return await firstValueFrom(this.http.post<UserModel>(`/auth/login`, payload));
     } catch (error) {
       throw this._handleError(error);
     }
