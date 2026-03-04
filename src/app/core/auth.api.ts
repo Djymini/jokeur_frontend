@@ -11,7 +11,6 @@ export class AuthApi extends BaseApi {
 
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     try {
-      console.log('register : ' + this.BASE_URL);
       return this.post<{ message: string }>(`/auth/register`, payload);
     } catch (error: unknown) {
       if (error instanceof HttpErrorResponse) {
