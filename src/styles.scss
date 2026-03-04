@@ -1,5 +1,5 @@
 @use 'tailwindcss';
-//@plugin "tailwindcss-animate";
+@plugin "tailwindcss-animated";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -88,6 +88,7 @@
 
   --text: #040316;
   --main-background: #f8f2e8;
+  --card-background-second: rgba(113, 178, 227, 0.25);
 }
 
 .dark {
@@ -99,7 +100,7 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(79.03% 0.116 243.18);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(55.87% 0.193 35.57);
+  --secondary: oklch(0.559 0.193 35.482 / 0.32);
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
@@ -232,8 +233,6 @@ p {
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -245,4 +244,30 @@ body {
 
 main {
   flex: 1;
+}
+
+z-dialog {
+  max-height: 80vh;
+  padding: 32px !important;
+  overflow-y: scroll;
+}
+
+z-dialog input {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  padding: 0 12px;
+  outline: none;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+}
+
+z-dialog footer {
+  gap: 32px !important;
+}
+
+z-dialog button {
+  padding: 8px !important;
 }

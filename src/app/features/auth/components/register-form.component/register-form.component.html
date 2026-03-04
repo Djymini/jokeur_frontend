@@ -1,0 +1,279 @@
+<h1 class="title">S'inscrire</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="field flex">
+    <div class="div_label">
+      <label for="username">Pseudo :</label>
+      <span class="material-icons">person</span>
+    </div>
+    <input
+      id="username"
+      type="text"
+      formControlName="username"
+      placeholder="johndoe12345"
+      [attr.aria-invalid]="
+        registerForm.controls.username.invalid && registerForm.controls.username.touched
+          ? 'true'
+          : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.username.invalid && registerForm.controls.username.touched
+          ? 'username-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.username.invalid && registerForm.controls.username.touched) {
+      <p class="error" id="username-error" role="alert">Un pseudo est requis</p>
+    }
+  </div>
+
+  <div class="field flex">
+    <div class="div_label">
+      <label for="name">Nom :</label>
+      <span class="material-icons">person</span>
+    </div>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="ex. Doe"
+      [attr.aria-invalid]="
+        registerForm.controls.name.invalid && registerForm.controls.name.touched ? 'true' : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.name.invalid && registerForm.controls.name.touched
+          ? 'name-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.name.errors?.['required'] && registerForm.controls.name.touched) {
+      <p class="error" id="name-error" role="alert">Un nom est requis.</p>
+    } @else if (
+      registerForm.controls.name.errors?.['pattern'] && registerForm.controls.name.touched
+    ) {
+      <p class="error" id="name-error" role="alert">
+        Le nom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
+      </p>
+    }
+  </div>
+
+  <div class="field flex">
+    <div class="div_label">
+      <label for="firstname">Prénom :</label>
+      <span class="material-icons">person</span>
+    </div>
+    <input
+      id="firstname"
+      type="text"
+      formControlName="firstname"
+      placeholder="ex. John"
+      [attr.aria-invalid]="
+        registerForm.controls.firstname.invalid && registerForm.controls.firstname.touched
+          ? 'true'
+          : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.firstname.invalid && registerForm.controls.firstname.touched
+          ? 'firstname-error'
+          : null
+      "
+    />
+
+    @if (
+      registerForm.controls.firstname.errors?.['required'] &&
+      registerForm.controls.firstname.touched
+    ) {
+      <p class="error" id="firstname-error" role="alert">Un prénom est requis</p>
+    } @else if (
+      registerForm.controls.firstname.errors?.['pattern'] && registerForm.controls.firstname.touched
+    ) {
+      <p class="error" id="firstname-error" role="alert">
+        Le prénom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
+      </p>
+    }
+  </div>
+
+  <div class="field flex">
+    <div class="div_label">
+      <label for="phone">Téléphone :</label>
+      <span class="material-icons">phone_enabled</span>
+    </div>
+    <input
+      id="phone"
+      type="tel"
+      formControlName="phone"
+      placeholder="ex. 0612345678"
+      [attr.aria-invalid]="
+        registerForm.controls.phone.invalid && registerForm.controls.phone.touched ? 'true' : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.phone.invalid && registerForm.controls.phone.touched
+          ? 'phone-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.phone.invalid && registerForm.controls.phone.touched) {
+      <p class="error" id="phone-error" role="alert">Le numéro de téléphone est invalide</p>
+    }
+  </div>
+
+  <div class="field flex">
+    <div class="div_label">
+      <label for="email">Email :</label>
+      <span class="material-icons">mail</span>
+    </div>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      placeholder="johndoe@exemple.fr"
+      [attr.aria-invalid]="
+        registerForm.controls.email.invalid &&
+        (registerForm.controls.email.touched || registerForm.controls.email.dirty)
+          ? 'true'
+          : null
+      "
+      [attr.aria-describedby]="
+        registerForm.controls.email.invalid && registerForm.controls.email.touched
+          ? 'email-error'
+          : null
+      "
+    />
+
+    @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
+      <p class="error" id="email-error" role="alert">L'email est invalide</p>
+    }
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="field flex password-field">
+    <div class="div_label">
+      <label for="password">Mot de passe :</label>
+      <span class="material-icons">password</span>
+    </div>
+
+    <div class="input-wrapper">
+      <input
+        id="password"
+        [type]="showPassword ? 'text' : 'password'"
+        formControlName="password"
+        placeholder="********"
+        [attr.aria-invalid]="
+          registerForm.controls.password.invalid && registerForm.controls.password.touched
+            ? 'true'
+            : null
+        "
+        [attr.aria-describedby]="
+          registerForm.controls.password.invalid && registerForm.controls.password.touched
+            ? 'password-error'
+            : null
+        "
+      />
+
+      <button
+        type="button"
+        class="eye"
+        (click)="togglePassword()"
+        [attr.aria-label]="showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'"
+      >
+        <span class="material-icons">
+          {{ showPassword ? 'visibility_off' : 'visibility' }}
+        </span>
+      </button>
+    </div>
+
+    @if (
+      registerForm.controls.password.errors?.['required'] && registerForm.controls.password.touched
+    ) {
+      <p class="error" id="password-error" role="alert">Le mot de passe est obligatoire.</p>
+    } @else if (
+      registerForm.controls.password.errors?.['minlength'] && registerForm.controls.password.touched
+    ) {
+      <p class="error" id="password-error" role="alert">
+        Le mot de passe doit contenir au minimum
+        {{ registerForm.controls.password.errors?.['minlength']?.requiredLength }}
+        caractères.
+      </p>
+    } @else if (
+      registerForm.controls.password.errors?.['maxlength'] && registerForm.controls.password.touched
+    ) {
+      <p class="error" id="password-error" role="alert">
+        Le mot de passe doit contenir au maximum
+        {{ registerForm.controls.password.errors?.['maxlength']?.requiredLength }}
+        caractères.
+      </p>
+    } @else if (
+      registerForm.controls.password.errors?.['pattern'] && registerForm.controls.password.touched
+    ) {
+      <p class="error" id="password-error" role="alert">
+        Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère
+        spécial.
+      </p>
+    }
+  </div>
+
+  <!-- CONFIRM PASSWORD -->
+  <div class="field flex password-field">
+    <div class="div_label">
+      <label for="confirmPassword">Confirmer le mot de passe :</label>
+      <span class="material-icons">password</span>
+    </div>
+
+    <div class="input-wrapper">
+      <input
+        id="confirmPassword"
+        [type]="showConfirmPassword ? 'text' : 'password'"
+        formControlName="confirmPassword"
+        placeholder="********"
+        [attr.aria-invalid]="
+          (registerForm.controls.confirmPassword.invalid ||
+            registerForm.hasError('passwordMismatch')) &&
+          (registerForm.controls.confirmPassword.touched ||
+            registerForm.controls.confirmPassword.dirty)
+            ? 'true'
+            : null
+        "
+        [attr.aria-describedby]="
+          registerForm.hasError('passwordMismatch') &&
+          (registerForm.controls.confirmPassword.touched ||
+            registerForm.controls.confirmPassword.dirty)
+            ? 'confirm-password-error'
+            : null
+        "
+      />
+
+      <button
+        type="button"
+        class="eye"
+        (click)="toggleConfirmPassword()"
+        [attr.aria-label]="
+          showConfirmPassword ? 'Masquer la confirmation' : 'Afficher la confirmation'
+        "
+      >
+        <span class="material-icons">
+          {{ showConfirmPassword ? 'visibility_off' : 'visibility' }}
+        </span>
+      </button>
+    </div>
+
+    @if (
+      registerForm.hasError('passwordMismatch') &&
+      (registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)
+    ) {
+      <p class="error" id="confirm-password-error" role="alert">
+        Les mots de passe ne correspondent pas.
+      </p>
+    }
+  </div>
+
+  <!-- CGU -->
+  <div class="field">
+    <input id="acceptCGU" type="checkbox" formControlName="acceptCGU" />
+    <label for="acceptCGU">Accepter les Conditions Générales d'Utilisation</label>
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid">S'enregistrer</button>
+</form>

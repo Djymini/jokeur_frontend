@@ -1,0 +1,56 @@
+:host {
+  width: 100%;
+}
+
+.board {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  border-radius: 20px;
+  padding: 34px 24px;
+  gap: 24px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.board-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.board-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text);
+}
+
+.board-footer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.relative {
+  position: relative;
+}
+
+.loader-overlay {
+  position: absolute;
+  width: 95%;
+  top: 70px;
+  left: 24px;
+  z-index: 15;
+}
+
+.chart-fade {
+  display: block;
+  opacity: 1;
+}
+
+.opacity-0 {
+  opacity: 0;
+}

@@ -14,6 +14,10 @@ const config: Config = {
   coverageProvider: 'v8',
   coverageDirectory: '<rootDir>/coverage/unit',
   coverageReporters: ['html', 'text-summary'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/app/$1',
+    '^src/(.*)$': '<rootDir>/src/$1',
+  },
 
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
 };

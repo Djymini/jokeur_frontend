@@ -1,0 +1,24 @@
+@if (isOpen()) {
+  <div
+    class="modal-overlay"
+    role="button"
+    tabindex="0"
+    aria-label="Fermer la modale"
+    (click)="onOverlayMouseDown($event)"
+    (keydown)="onOverlayKeydown($event)"
+  >
+    <section class="card" role="dialog" aria-modal="true">
+      <div class="card-header">
+        <h2 class="title">{{ definition().title }}</h2>
+      </div>
+      <div class="card-body">
+        <z-dynamic-form
+          [definition]="definition()"
+          [metadata]="metadata()"
+          (cancelled)="onFormCancelled()"
+          (submitted)="onFormSubmitted($event)"
+        />
+      </div>
+    </section>
+  </div>
+}

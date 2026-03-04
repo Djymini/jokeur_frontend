@@ -1,0 +1,43 @@
+@if (isVisible()) {
+  <header class="header" role="banner">
+    <div class="header-left">
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="toggleSidebar.emit()"
+        aria-label="Toggle sidebar"
+      >
+        <span class="material-icons cursor-pointer">
+          {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
+        </span>
+      </button>
+    </div>
+    <div class="header-right">
+      <!-- User Profile -->
+      <div class="user-profile" z-dropdown [zDropdownMenu]="menu">
+        <span class="material-icons">account_circle</span>
+        <span class="user-name">
+          {{ user() ? user()!.name + ' ' + user()!.firstName : 'inconnue' }}
+        </span>
+        <z-dropdown-menu-content #menu="zDropdownMenuContent" class="w-56">
+          <z-menu-label>Mon compte</z-menu-label>
+
+          <z-dropdown-menu-item (click)="onDashboard()">
+            <span class="material-icons">dashboard</span>
+            Tableau de bord
+          </z-dropdown-menu-item>
+
+          <z-dropdown-menu-item (click)="onSettings()">
+            <span class="material-icons">settings</span>
+            Paramètres
+          </z-dropdown-menu-item>
+
+          <z-dropdown-menu-item (click)="onLogout()">
+            <span class="material-icons">logout</span>
+            Deconnexion
+          </z-dropdown-menu-item>
+        </z-dropdown-menu-content>
+      </div>
+    </div>
+  </header>
+}

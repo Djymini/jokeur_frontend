@@ -1,0 +1,36 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+.card {
+  width: min(520px, 100%);
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+  padding: 18px;
+
+  max-height: calc(100vh - 32px);
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  min-height: 0;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}

@@ -1,0 +1,62 @@
+/* Dans votre composant.scss */
+
+::ng-deep {
+  /* 1. L'arrière-plan (Backdrop) */
+  .z-dialog-backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+  }
+
+  /* 2. Le conteneur de la fenêtre (Content) */
+  z-dialog-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block; /* S'assure que le composant se comporte comme un bloc */
+
+    width: 100%;
+    max-width: 32rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    border: 1px solid #e2e8f0;
+    z-index: 51;
+    animation: dialogShow 0.2s ease-out;
+  }
+
+  /* 3. Éléments internes */
+  z-dialog-header {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  z-dialog-footer {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+}
+
+/* 4. Animation (Peut rester en dehors du ng-deep mais fonctionne mieux dedans) */
+@keyframes dialogShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

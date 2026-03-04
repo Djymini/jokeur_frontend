@@ -1,0 +1,114 @@
+{
+  "animalTypes": [
+    {
+      "code": "DOG",
+      "label": "Chien"
+    },
+    {
+      "code": "CAT",
+      "label": "Chat"
+    }
+  ],
+  "sexes": [
+    {
+      "code": "MALE",
+      "label": "Mâle"
+    },
+    {
+      "code": "FEMALE",
+      "label": "Femelle"
+    },
+    {
+      "code": "UNKNOWN",
+      "label": "Inconnu"
+    }
+  ],
+  "colors": [
+    {
+      "code": "BLACK",
+      "label": "Noir"
+    },
+    {
+      "code": "WHITE",
+      "label": "Blanc"
+    },
+    {
+      "code": "BROWN",
+      "label": "Marron"
+    },
+    {
+      "code": "GINGER",
+      "label": "Roux"
+    },
+    {
+      "code": "GREY",
+      "label": "Gris"
+    },
+    {
+      "code": "OTHER",
+      "label": "Autre"
+    },
+    {
+      "code": "MIXED",
+      "label": "Bicolore / Tricolore"
+    }
+  ],
+  "breedsByAnimalType": {
+    "CAT": [
+      {
+        "code": "PERSIAN",
+        "label": "Persan"
+      },
+      {
+        "code": "EUROPEAN",
+        "label": "Européen"
+      },
+      {
+        "code": "MAINE_COON",
+        "label": "Maine Coon"
+      },
+      {
+        "code": "BRITISH_SHORTHAIR",
+        "label": "British Shorthair"
+      },
+      {
+        "code": "SIAMESE",
+        "label": "Siamois"
+      },
+      {
+        "code": "UNKNOWN",
+        "label": "Inconnu"
+      }
+    ],
+    "DOG": [
+      {
+        "code": "LABRADOR",
+        "label": "Labrador"
+      },
+      {
+        "code": "GERMAN_SHEPHERD",
+        "label": "Berger allemand"
+      },
+      {
+        "code": "GOLDEN_RETRIEVER",
+        "label": "Golden Retriever"
+      },
+      {
+        "code": "BULLDOG",
+        "label": "Bulldog"
+      },
+      {
+        "code": "MIXED",
+        "label": "Croisé"
+      },
+      {
+        "code": "SHIH_TZU",
+        "label": "Shih Tzu"
+      },
+      {
+        "code": "UNKNOWN",
+        "label": "Inconnu"
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+<form class="form" [formGroup]="formGroup()" (ngSubmit)="onSubmit()">
+  @for (field of fields(); track field.key) {
+    <div class="field">
+      <label class="label" [attr.for]="field.key">{{ field.label }}</label>
+
+      @switch (field.type) {
+
+        @case ('text') {
+          <input
+            class="control"
+            [class.control--error]="isInvalid(field.key)"
+            [id]="field.key"
+            type="text"
+            [placeholder]="field.placeholder ?? ''"
+            [attr.aria-label]="field.ariaLabel ?? field.label"
+            [readOnly]="!!field.readonly"
+            [formControlName]="field.key"
+          />
+        }
+
+        @case ('number') {
+          <input
+            class="control"
+            [class.control--error]="isInvalid(field.key)"
+            [id]="field.key"
+            type="number"
+            [placeholder]="field.placeholder ?? ''"
+            [attr.inputmode]="field.inputMode ?? 'decimal'"
+            [attr.aria-label]="field.ariaLabel ?? field.label"
+            [readOnly]="!!field.readonly"
+            [formControlName]="field.key"
+          />
+        }
+
+        @case ('date') {
+          <input
+            class="control"
+            [class.control--error]="isInvalid(field.key)"
+            [id]="field.key"
+            type="date"
+            [attr.aria-label]="field.ariaLabel ?? field.label"
+            [readOnly]="!!field.readonly"
+            [formControlName]="field.key"
+          />
+        }
+
+        @case ('textarea') {
+          <textarea
+            class="control textarea"
+            [class.control--error]="isInvalid(field.key)"
+            [id]="field.key"
+            rows="3"
+            [placeholder]="field.placeholder ?? ''"
+            [attr.aria-label]="field.ariaLabel ?? field.label"
+            [readOnly]="!!field.readonly"
+            [formControlName]="field.key"
+          ></textarea>
+        }
+
+        @case ('file') {
+          <input
+            class="control"
+            [class.control--error]="isInvalid(field.key)"
+            [id]="field.key"
+            type="file"
+            [attr.accept]="field.accept ?? null"
+            (change)="onFileSelected(field, $event)"
+          />
+        }
+
+        @case ('select') {
+          <select
+            class="control"
+            [class.control--error]="isInvalid(field.key)"
+            [id]="field.key"
+            [attr.aria-label]="field.ariaLabel ?? field.label"
+            [formControlName]="field.key"
+          >
+            <option value="" disabled>— Sélectionner —</option>
+            @for (opt of getSelectOptions(field); track opt.code) {
+              <option [value]="opt.code">{{ opt.label }}</option>
+            }
+          </select>
+        }
+
+      }
+
+      @if (isInvalid(field.key)) {
+        <span class="error" role="alert">{{ getErrorMessage(field) }}</span>
+      }
+
+    </div>
+  }
+
+  <div class="actions">
+    <button z-button zType="outline" type="button" (click)="onCancel()">
+      {{ definition().cancelLabel }}
+    </button>
+    <button z-button zType="default" type="submit">
+      {{ definition().submitLabel }}
+    </button>
+  </div>
+</form>
