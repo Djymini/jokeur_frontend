@@ -13,7 +13,7 @@ export class AuthApi extends BaseApi {
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     try {
       return await firstValueFrom(
-        this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload),
+        this.http.post<{ message: string }>(`auth/register`, payload),
       );
     } catch (error: unknown) {
       if (error instanceof HttpErrorResponse) {
