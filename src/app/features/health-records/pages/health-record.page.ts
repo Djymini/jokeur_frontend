@@ -8,6 +8,7 @@ import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-for
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-health-record.page',
@@ -24,10 +25,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
         Retour à mon tableau de bord
       </z-button>
     </div>
-    <app-health-record-header
-      [healthRecord]="healthRecord"
-      (editClicked)="isEditOpen.set(true)"
-    />
+    <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
 
     <z-dynamic-form-modal
@@ -111,6 +109,7 @@ export default class HealthRecordPage {
     try {
       await this.healthRecordFacade.updateFromFormPayload(payload, this.healthRecord.id);
       this.isEditOpen.set(false);
+      toast.success('Données modifiées avec succès');
     } catch (error: any) {
       if (error?.status === 409) {
         this.editModal()?.handleServerError(error);
