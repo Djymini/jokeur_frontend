@@ -6,10 +6,10 @@ import { AuthApi } from '@/core/auth.api';
 import { toast } from 'ngx-sonner';
 
 @Component({
-  selector: 'app-forgot-password-component',
+  selector: 'app-forgot-password',
   imports: [ReactiveFormsModule],
-  templateUrl: './forgot-password-component.html',
-  styleUrl: './forgot-password-component.scss',
+  templateUrl: './forgot-password.component.html',
+  styleUrl: './forgot-password.component.scss',
 })
 export class ForgotPasswordComponent {
   private _fb = inject(NonNullableFormBuilder);

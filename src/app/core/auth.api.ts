@@ -16,4 +16,11 @@ export class AuthApi extends BaseApi {
   forgotPassword(payload: { email: string }): Promise<{ message: string }> {
     return this.post<{ message: string }>('/auth/forgot-password', payload);
   }
+
+  resetPassword(payload: {
+    password: string;
+    confirmPassword: string;
+  }): Promise<{ message: string }> {
+    return this.post<{ message: string }>('/auth/reset-password', payload);
+  }
 }
