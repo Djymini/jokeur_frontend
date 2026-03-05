@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "petName": "Medor",
+    "breed": "LABRADOR",
+    "sex": "MALE",
+    "birthDate": "2023-02-27",
+    "currentWeight": 30.0,
+    "color": "BROWN",
+    "identificationNumber": "hin55ykondpoTLI",
+    "tattoo": "ABC100",
+    "allergy": "Aucune",
+    "image": null,
+    "imageType": null,
+    "AnimalType": "DOG",
+    "measures": {
+      "temperature": [],
+      "weight": [],
+      "respiratoryRate": [],
+      "bpm": []
+    }
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "petName": "Felix",
+    "breed": "SIAMESE",
+    "sex": "FEMALE",
+    "birthDate": "2025-02-27",
+    "currentWeight": 15.0,
+    "color": "BROWN",
+    "identificationNumber": "hin55ykondpoCLI",
+    "tattoo": "ABC101",
+    "allergy": "Aucune",
+    "image": null,
+    "imageType": null,
+    "AnimalType": "CAT",
+    "measures": {
+      "temperature": [],
+      "weight": [],
+      "respiratoryRate": [],
+      "bpm": []
+    }
+  },
+  {
+    "id": 3,
+    "userId": 1,
+    "petName": "Rasta",
+    "breed": "MIXED",
+    "sex": "MALE",
+    "birthDate": "2024-01-10",
+    "currentWeight": 9.99,
+    "color": "BLACK",
+    "identificationNumber": "FR181861688168999",
+    "tattoo": "ABC230",
+    "allergy": "Aucune",
+    "image": null,
+    "imageType": null,
+    "AnimalType": "DOG",
+    "measures": {
+      "temperature": [],
+      "weight": [],
+      "respiratoryRate": [],
+      "bpm": []
+    }
+  }
+]

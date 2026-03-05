@@ -29,6 +29,8 @@ export abstract class BaseApi {
 
   protected async post<T>(endpoint: string, body: any): Promise<T> {
     try {
+      console.log('environement : ' + environment.name);
+      console.log('BASE_API : ' + this.BASE_URL);
       return await firstValueFrom(
         this.http.post<T>(`${this.BASE_URL}${endpoint}`, body, { headers: this.getHeaders() }),
       );
@@ -62,6 +64,14 @@ export abstract class BaseApi {
       return await firstValueFrom(
         this.http.delete<T>(`${this.BASE_URL}${endpoint}`, { headers: this.getHeaders() }),
       );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
+  protected async postFormData<T>(endpoint: string, formData: FormData): Promise<T> {
+    try {
+      return await firstValueFrom(this.http.post<T>(`${this.BASE_URL}${endpoint}`, formData));
     } catch (error) {
       throw this._handleError(error);
     }

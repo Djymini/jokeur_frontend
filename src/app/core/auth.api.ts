@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { BaseApi } from '@/internal-shared/services/base.api';
 import { UserModel } from '@/core/models/user-model';
@@ -12,9 +11,7 @@ export class AuthApi extends BaseApi {
 
   async register(payload: RegisterUserPayload): Promise<{ message: string }> {
     try {
-      return await firstValueFrom(
-        this.http.post<{ message: string }>(`${this.BASE_URL}/auth/register`, payload),
-      );
+      return this.post<{ message: string }>(`/auth/register`, payload);
     } catch (error: unknown) {
       if (error instanceof HttpErrorResponse) {
         const backendMessage = (error.error as any)?.message;
@@ -33,9 +30,7 @@ export class AuthApi extends BaseApi {
 
   async login(payload: { email: string; password: string }): Promise<UserModel> {
     try {
-      return await firstValueFrom(
-        this.http.post<UserModel>(`${this.BASE_URL}/auth/login`, payload),
-      );
+      return this.post<UserModel>(`/auth/login`, payload);
     } catch (error) {
       throw this._handleError(error);
     }

@@ -1,13 +1,23 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordHeaderComponent } from '@/features/health-records/components/health-record-header.component/health-record-header.component';
 import { HealthRecordSectionComponent } from '@/features/health-records/components/health-record-section.component/health-record-section.component';
 import { ZardButtonComponent } from '@/shared/components/button';
+import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
+import { HealthRecord } from '@/features/health-records/models/health-record.model';
+import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
+import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-health-record.page',
-  imports: [HealthRecordHeaderComponent, HealthRecordSectionComponent, ZardButtonComponent],
+  imports: [
+    HealthRecordHeaderComponent,
+    HealthRecordSectionComponent,
+    ZardButtonComponent,
+    DynamicFormModalComponent,
+  ],
   template: `
     <div class="button-container">
       <z-button z-button zSize="lg" zType="link" (click)="returnToDashboard()">
@@ -15,8 +25,18 @@ import { ZardButtonComponent } from '@/shared/components/button';
         Retour à mon tableau de bord
       </z-button>
     </div>
-    <app-health-record-header [healthRecord]="healthRecord"></app-health-record-header>
-    <app-health-record-section [healthRecord]="healthRecord"></app-health-record-section>
+    <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
+    <app-health-record-section [healthRecord]="healthRecord" />
+
+    <z-dynamic-form-modal
+      #editModal
+      [isOpen]="isEditOpen()"
+      formId="animal.edit"
+      [metadata]="dashboardStore.metadata()"
+      [initialValues]="editInitialValues"
+      (closed)="isEditOpen.set(false)"
+      (submitted)="onEditSubmit($event)"
+    />
   `,
   styles: `
     :host {
@@ -40,16 +60,82 @@ import { ZardButtonComponent } from '@/shared/components/button';
       font-weight: bold;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export default class HealthRecordPage {
-  private route = inject(ActivatedRoute);
-  private healthRecordFacade = inject(HealthRecordFacade);
+  private readonly route = inject(ActivatedRoute);
+  private readonly healthRecordFacade = inject(HealthRecordFacade);
+  private readonly bootstrap = inject(HealthRecordFormBootstrapService);
+  protected readonly dashboardStore = inject(DashboardStore);
 
-  healthRecord = this.route.snapshot.data['healthRecord'];
+  readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
+  isEditOpen = signal(false);
 
-  constructor(private router: Router) {}
+  healthRecord: HealthRecord = this._normalizeHealthRecord(
+    this.route.snapshot.data['healthRecord'],
+  );
+  protected editInitialValues: Record<string, unknown> = this._buildInitialValues(
+    this.healthRecord,
+  );
 
-  returnToDashboard() {
+  constructor(private router: Router) {
+    this.bootstrap.init();
+
+    if (!this.dashboardStore.metadata()) {
+      this.healthRecordFacade.loadFormMetadata().then((metadata) => {
+        this.dashboardStore.metadata.set(metadata);
+      });
+    }
+  }
+
+  private _normalizeHealthRecord(rawHealthRecord: Record<string, unknown>): HealthRecord {
+    return {
+      ...rawHealthRecord,
+      animalType: (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as string,
+    } as HealthRecord;
+  }
+
+  private _buildInitialValues(healthRecord: HealthRecord): Record<string, unknown> {
+    const rawHealthRecord = healthRecord as unknown as Record<string, unknown>;
+    const animalType = (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as
+      | string
+      | undefined;
+    return {
+      petName: healthRecord.petName,
+      animalType: animalType ?? null,
+      breed: healthRecord.breed,
+      sex: healthRecord.sex,
+      birthDate: healthRecord.birthDate
+        ? new Date(healthRecord.birthDate).toISOString().substring(0, 10)
+        : null,
+      currentWeight: healthRecord.currentWeight,
+      color: healthRecord.color,
+      identificationNumber: healthRecord.identificationNumber ?? null,
+      tattooNumber: healthRecord.tattoo ?? null,
+      allergy: healthRecord.allergy ?? null,
+    };
+  }
+
+  returnToDashboard(): void {
     this.router.navigate(['/dashboard']);
+  }
+
+  async onEditSubmit(payload: Record<string, unknown>): Promise<void> {
+    try {
+      const updatedHealthRecord = await this.healthRecordFacade.updateFromFormPayload(
+        payload,
+        this.healthRecord.id,
+      );
+      this.healthRecord = updatedHealthRecord;
+      this.editInitialValues = this._buildInitialValues(updatedHealthRecord);
+      this.isEditOpen.set(false);
+      toast.success('Animal modifié avec succès');
+    } catch (error: any) {
+      if (error?.status === 409) {
+        this.editModal()?.handleServerError(error);
+      } else {
+        console.error(error);
+      }
+    }
   }
 }

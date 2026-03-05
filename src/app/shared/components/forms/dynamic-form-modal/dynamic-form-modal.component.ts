@@ -5,7 +5,7 @@ import {
   computed,
   inject,
   input,
-  output, viewChild, ChangeDetectorRef,
+  output, viewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormRegistryService } from '@/shared/services/forms/form-registry.service';
@@ -29,12 +29,11 @@ export class DynamicFormModalComponent {
   private readonly serverErrorMapper = inject(ServerErrorMapperService);
 
   readonly dynamicForm = viewChild(DynamicFormComponent);
-  private readonly cdr = inject(ChangeDetectorRef);
-
 
   readonly formId = input.required<string>();
   readonly isOpen = input(true);
   readonly metadata = input<HealthRecordFormMetadata | null>(null);
+  readonly initialValues = input<Record<string, unknown> | null>(null);
 
   readonly closed = output<void>();
   readonly submitted = output<FormPayload>();
