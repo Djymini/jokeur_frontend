@@ -17,10 +17,7 @@ export class AuthApi extends BaseApi {
     return this.post<{ message: string }>('/auth/forgot-password', payload);
   }
 
-  resetPassword(payload: {
-    password: string;
-    confirmPassword: string;
-  }): Promise<{ message: string }> {
-    return this.post<{ message: string }>('/auth/reset-password', payload);
+  resetPassword(payload: { token: string; newPassword: string }): Promise<void> {
+    return this.post<void>('/auth/reset-password', payload);
   }
 }

@@ -18,6 +18,7 @@ export class RegisterFormComponent {
   private _fb = inject(NonNullableFormBuilder);
   private _authApi = inject(AuthApi);
   private _router = inject(Router);
+
   showPassword = false;
   showConfirmPassword = false;
 
