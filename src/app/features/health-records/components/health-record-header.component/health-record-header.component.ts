@@ -1,7 +1,12 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { ZardBadgeComponent } from '@/shared/components/badge';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardButtonComponent } from '@/shared/components/button';
+import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import {
+  resolveBreedLabel,
+  resolveLabel,
+} from '@/features/health-records/utils/health-record-label.utils';
 
 @Component({
   selector: 'app-health-record-header',
@@ -9,17 +14,23 @@ import { ZardButtonComponent } from '@/shared/components/button';
   templateUrl: './health-record-header.component.html',
   styleUrl: './health-record-header.component.scss',
 })
-export class HealthRecordHeaderComponent implements OnInit {
+export class HealthRecordHeaderComponent {
   healthRecord = input.required<HealthRecord>();
-  date = new Date(Date.now()).getFullYear();
+  readonly editClicked = output<void>();
 
-  badgeContainer: string[] = [];
+  private readonly _dashboardStore = inject(DashboardStore);
 
-  ngOnInit(): void {
-    const age =
-      new Date(Date.now()).getFullYear() - new Date(this.healthRecord().birthDate).getFullYear();
-    this.badgeContainer.push(age.toString() + ' ans');
-    this.badgeContainer.push(this.healthRecord().sex);
-    this.badgeContainer.push(this.healthRecord().currentWeight.toString() + ' kg');
-  }
+  protected readonly breedLabel = computed(() => {
+    const record = this.healthRecord();
+    console.log('breed:', record.breed, 'animalType:', record.animalType);
+    return resolveBreedLabel(record.breed, record.animalType, this._dashboardStore.metadata());
+  });
+
+  protected readonly badges = computed(() => {
+    const record = this.healthRecord();
+    const metadata = this._dashboardStore.metadata();
+    const age = new Date().getFullYear() - new Date(record.birthDate).getFullYear();
+    const sexLabel = resolveLabel(record.sex, metadata?.sexes ?? []);
+    return [age + ' ans', sexLabel, record.currentWeight + ' kg'];
+  });
 }

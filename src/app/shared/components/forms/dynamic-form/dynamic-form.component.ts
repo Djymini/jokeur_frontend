@@ -34,10 +34,14 @@ type FormPayload = Record<string, unknown>;
 })
 export class DynamicFormComponent {
   private readonly formBuilder = inject(FormBuilder);
-  protected readonly serverErrors = signal<Record<string, string>>({});
 
+  protected readonly serverErrors = signal<Record<string, string>>({});
+  protected readonly isDragging = signal<Record<string, boolean>>({});
+  protected readonly fileNames = signal<Record<string, string>>({});
   readonly definition = input.required<FormDefinition>();
   readonly metadata = input<HealthRecordFormMetadata | null>(null);
+  readonly initialValues = input<Record<string, unknown> | null>(null);
+
 
   readonly cancelled = output<void>();
   readonly submitted = output<FormPayload>();
@@ -59,13 +63,25 @@ export class DynamicFormComponent {
     });
 
     effect(() => {
-      applyBreedDependencyRule(this.formGroup(), this.metadata());
+      const metadata = this.metadata();
+      const form = this.formGroup();
+      const values = this.initialValues();
+
+      if (values) {
+        form.patchValue(values);
+      }
+
+      applyBreedDependencyRule(form, metadata);
     });
   }
 
   protected onFileSelected(field: FormField, event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const selectedFile = inputElement.files?.item(0) ?? null;
+
+    if (selectedFile) {
+      this.fileNames.update(names => ({ ...names, [field.key]: selectedFile.name }));
+    }
 
     const control = this.formGroup().get(field.key);
     control?.setValue(selectedFile);
@@ -95,6 +111,28 @@ export class DynamicFormComponent {
 
   protected getSelectOptions(field: FormField): SelectOption[] {
     return resolveSelectOptions(field, this.formGroup(), this.metadata());
+  }
+
+  protected onDragOver(field: FormField, event: DragEvent): void {
+    event.preventDefault();
+    this.isDragging.update(d => ({ ...d, [field.key]: true }));
+  }
+
+  protected onDragLeave(field: FormField): void {
+    this.isDragging.update(d => ({ ...d, [field.key]: false }));
+  }
+
+  protected onDrop(field: FormField, event: DragEvent): void {
+    event.preventDefault();
+    this.isDragging.update(d => ({ ...d, [field.key]: false }));
+
+    const file = event.dataTransfer?.files?.item(0) ?? null;
+    if (!file) return;
+
+    this.fileNames.update(names => ({ ...names, [field.key]: file.name }));
+    const control = this.formGroup().get(field.key);
+    control?.setValue(file);
+    control?.markAsDirty();
   }
 
   protected getErrorMessage(field: FormField): string {

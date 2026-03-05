@@ -53,8 +53,15 @@ export class HealthRecordFacade {
       HealthRecordRules.validate(dto);
 
       const healthRecord = await this._api.createHealthRecord(dto);
-      this._store.addHealthRecord(healthRecord);
 
+      const photo = payload['photo'];
+      if (photo instanceof File) {
+        const updated = await this._api.uploadPhoto(healthRecord.id, photo);
+        this._store.addHealthRecord(updated);
+        return updated;
+      }
+
+      this._store.addHealthRecord(healthRecord);
       return healthRecord;
     } catch (error) {
       if (error instanceof Error) throw error;
@@ -79,13 +86,18 @@ export class HealthRecordFacade {
         allergy: this._optionalString(payload, 'allergy'),
       };
 
-      const healthRecord = await this._api.updateHealthRecord(healthRecordNumber, dto);
-      this._store.updateHealthRecord(healthRecord);
+      let healthRecord = await this._api.updateHealthRecord(healthRecordNumber, dto);
 
+      const photo = payload['image'];
+      if (photo instanceof File) {
+        healthRecord = await this._api.uploadPhoto(healthRecordNumber, photo);
+      }
+
+      this._store.updateHealthRecord(healthRecord);
       return healthRecord;
     } catch (error) {
       if (error instanceof Error) throw error;
-      throw new Error('Une erreur inattendue est survenue');
+      throw new Error('Une erreur est survenue lors de la modification');
     }
   }
 
