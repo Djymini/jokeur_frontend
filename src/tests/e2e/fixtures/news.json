@@ -1,0 +1,37 @@
+{
+  "content": [
+    {
+      "id": 3,
+      "title": "Attachée dans une cave, cette chienne à l’adoption rêve de vivre de belles années dans une famille aimante",
+      "summary": "Vlada a eu un d&eacute;but de vie difficile, qu&rsquo;aucun animal ne devrait conna&icirc;tre. La pauvre chienne &eacute;tait attach&eacute;e dans une cave, jusqu&rsquo;&agrave; ce qu&rsquo;une association d&eacute;couvre sa situation et la sauve. Aujourd&rsquo;hui en refuge, cette magnifique femelle de race Berger Allemand cherche ses adoptants pour la vie.\n\nNous qualifions souvent le chien comme &eacute;tant le &laquo;&nbsp;meilleur...",
+      "link": "https://www.animaux.fr/actualite/attachee-dans-cave-cette-chienne-a-l-adoption-reve-vivre-belles-annees-dans-famille-aimante/",
+      "publishedAt": "2026-02-23T14:52:30",
+      "sent": false
+    }
+  ],
+  "empty": false,
+  "first": true,
+  "last": false,
+  "number": 0,
+  "numberOfElements": 1,
+  "pageable": {
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 1,
+    "paged": true,
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "unpaged": false
+  },
+  "size": 1,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "totalElements": 10,
+  "totalPages": 10
+}
