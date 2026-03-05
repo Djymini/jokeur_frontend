@@ -4,13 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dashboardNotification',
 })
 export class DashboardNotificationPipe implements PipeTransform {
-
   transform(value: number, text: string): string {
-    if (value > 1){
-      return value + " " + text + "s";
+    if (value > 1) {
+      return value + ' ' + text + 's';
     }
 
     return value + ' ' + text;
   }
-
 }

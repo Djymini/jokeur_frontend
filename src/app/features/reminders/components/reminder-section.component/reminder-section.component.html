@@ -8,7 +8,7 @@
   </div>
 
   <div class="section-body">
-    @for (reminder of reminderPage().content; track $index){
+    @for (reminder of reminderPage().content; track $index) {
       <app-date-card [reminder]="reminder" [hasDescription]="false"></app-date-card>
     }
   </div>

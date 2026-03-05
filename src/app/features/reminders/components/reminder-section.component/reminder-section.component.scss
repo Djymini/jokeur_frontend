@@ -1,12 +1,12 @@
-:host{
+:host {
   width: 100%;
 }
 
-section{
+section {
   width: 100%;
 }
 
-.section-header{
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,7 @@ h2 {
   color: var(--secondary);
 }
 
-.section-body{
+.section-body {
   display: flex;
   flex-direction: column;
   gap: 16px;

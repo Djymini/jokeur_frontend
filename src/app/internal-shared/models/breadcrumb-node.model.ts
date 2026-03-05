@@ -1,4 +1,4 @@
-  export type BreadcrumbNode = {
+export type BreadcrumbNode = {
   link: string[];
   name: string;
-}
+};

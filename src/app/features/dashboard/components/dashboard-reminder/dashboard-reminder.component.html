@@ -7,7 +7,11 @@
   </div>
   <div class="dashboard-info">
     @if (dashboardStore.reminders().totalElements > 0) {
-      <p class="mb-2">Vous avez {{ dashboardStore.reminders().totalElements | dashboardNotification: "rappel" }} rappel ce mois-ci</p>
+      <p class="mb-2">
+        Vous avez
+        {{ dashboardStore.reminders().totalElements | dashboardNotification: 'rappel' }} rappel ce
+        mois-ci
+      </p>
     } @else {
       <p class="text-muted-foreground mb-2">Auccun rappel ce mois ci</p>
     }

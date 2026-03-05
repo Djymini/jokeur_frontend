@@ -1,18 +1,18 @@
 <div class="date-card">
   <div class="date-header">
-    <h3 class="date-title">{{reminder().description}}</h3>
-    <z-badge zType="secondary" zShape="pill" class="text-sm p-4">{{reminder().reminderDate | dateCounter}}</z-badge>
+    <h3 class="date-title">{{ reminder().description }}</h3>
+    <z-badge zType="secondary" zShape="pill" class="text-sm p-4">{{
+      reminder().reminderDate | dateCounter
+    }}</z-badge>
   </div>
 
-  @if (hasDescription()){
+  @if (hasDescription()) {
     <div class="date-body">
       <div class="date-date">
         <span class="material-icons">calendar_today</span>
-        {{ reminder().reminderDate | date:'fullDate' }}
+        {{ reminder().reminderDate | date: 'fullDate' }}
       </div>
-      <p class="date-description">
-        A faire
-      </p>
+      <p class="date-description">A faire</p>
     </div>
 
     <div class="date-footer">
@@ -27,7 +27,7 @@
     <div class="date-body">
       <div class="date-date">
         <span class="material-icons">calendar_today</span>
-        {{ reminder().reminderDate | date:'fullDate' }}
+        {{ reminder().reminderDate | date: 'fullDate' }}
       </div>
     </div>
   }

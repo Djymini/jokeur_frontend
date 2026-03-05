@@ -1,9 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { BreadcrumbNode } from '@/internal-shared/models/breadcrumb-node.model';
 import { BreadcrumbComponent } from '@/internal-shared/components/breadcrumb.component/breadcrumb.component';
-import {
-  ReminderSectionComponent
-} from '@/features/reminders/components/reminder-section.component/reminder-section.component';
+import { ReminderSectionComponent } from '@/features/reminders/components/reminder-section.component/reminder-section.component';
 import { ReminderPageStore } from '@/features/reminders/services/reminder-page-store';
 import { ReminderApiService } from '@/features/dashboard/services/reminder.api.service';
 import { AuthService } from '@/core/services/auth.service';
@@ -44,7 +42,11 @@ export default class ReminderPage implements OnInit {
 
   async loadReminders(): Promise<void> {
     try {
-      const result = await this._reminderApi.getAllReminder(this._authService.user()!.id, this.currentPage(), this.pageSize());
+      const result = await this._reminderApi.getAllReminder(
+        this._authService.user()!.id,
+        this.currentPage(),
+        this.pageSize(),
+      );
 
       const content = result.content.map((reminder) => ({
         ...reminder,
