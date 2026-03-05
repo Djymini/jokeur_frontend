@@ -95,7 +95,6 @@ export class HealthRecordFacade {
 
       this._store.updateHealthRecord(healthRecord);
       return healthRecord;
-
     } catch (error) {
       if (error instanceof Error) throw error;
       throw new Error('Une erreur est survenue lors de la modification');

@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { ZardBadgeComponent } from '@/shared/components/badge';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardButtonComponent } from '@/shared/components/button';
@@ -9,19 +9,13 @@ import { ZardButtonComponent } from '@/shared/components/button';
   templateUrl: './health-record-header.component.html',
   styleUrl: './health-record-header.component.scss',
 })
-export class HealthRecordHeaderComponent implements OnInit {
+export class HealthRecordHeaderComponent {
   healthRecord = input.required<HealthRecord>();
-  date = new Date(Date.now()).getFullYear();
-
   readonly editClicked = output<void>();
 
-  badgeContainer: string[] = [];
-
-  ngOnInit(): void {
-    const age =
-      new Date(Date.now()).getFullYear() - new Date(this.healthRecord().birthDate).getFullYear();
-    this.badgeContainer.push(age.toString() + ' ans');
-    this.badgeContainer.push(this.healthRecord().sex);
-    this.badgeContainer.push(this.healthRecord().currentWeight.toString() + ' kg');
-  }
+  protected readonly badges = computed(() => {
+    const r = this.healthRecord();
+    const age = new Date().getFullYear() - new Date(r.birthDate).getFullYear();
+    return [age + ' ans', r.sex, r.currentWeight + ' kg'];
+  });
 }

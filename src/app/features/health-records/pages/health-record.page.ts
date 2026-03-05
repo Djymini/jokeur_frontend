@@ -1,4 +1,4 @@
-import { Component, inject, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordHeaderComponent } from '@/features/health-records/components/health-record-header.component/health-record-header.component';
@@ -60,6 +60,7 @@ import { toast } from 'ngx-sonner';
       font-weight: bold;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export default class HealthRecordPage {
   private readonly route = inject(ActivatedRoute);
@@ -71,7 +72,7 @@ export default class HealthRecordPage {
   isEditOpen = signal(false);
 
   healthRecord: HealthRecord = this.route.snapshot.data['healthRecord'];
-  protected readonly editInitialValues: Record<string, unknown>;
+  protected editInitialValues: Record<string, unknown>;
 
   constructor(private router: Router) {
     this.bootstrap.init();
@@ -79,20 +80,7 @@ export default class HealthRecordPage {
     const r = this.healthRecord as unknown as Record<string, unknown>;
     const animalType = (r['animalType'] ?? r['AnimalType']) as string | undefined;
 
-    this.editInitialValues = {
-      petName: this.healthRecord.petName,
-      animalType: animalType ?? null,
-      breed: this.healthRecord.breed,
-      sex: this.healthRecord.sex,
-      birthDate: this.healthRecord.birthDate
-        ? new Date(this.healthRecord.birthDate).toISOString().substring(0, 10)
-        : null,
-      currentWeight: this.healthRecord.currentWeight,
-      color: this.healthRecord.color,
-      identificationNumber: this.healthRecord.identificationNumber ?? null,
-      tattooNumber: this.healthRecord.tattoo ?? null,
-      allergy: this.healthRecord.allergy ?? null,
-    };
+    this.editInitialValues = this._buildInitialValues(this.healthRecord);
 
     if (!this.dashboardStore.metadata()) {
       this.healthRecordFacade.loadFormMetadata().then((m) => {
@@ -101,15 +89,36 @@ export default class HealthRecordPage {
     }
   }
 
+  private _buildInitialValues(r: HealthRecord): Record<string, unknown> {
+    const raw = r as unknown as Record<string, unknown>;
+    const animalType = (raw['animalType'] ?? raw['AnimalType']) as string | undefined;
+    return {
+      petName: r.petName,
+      animalType: animalType ?? null,
+      breed: r.breed,
+      sex: r.sex,
+      birthDate: r.birthDate
+        ? new Date(r.birthDate).toISOString().substring(0, 10)
+        : null,
+      currentWeight: r.currentWeight,
+      color: r.color,
+      identificationNumber: r.identificationNumber ?? null,
+      tattooNumber: r.tattoo ?? null,
+      allergy: r.allergy ?? null,
+    };
+  }
+
   returnToDashboard(): void {
     this.router.navigate(['/dashboard']);
   }
 
   async onEditSubmit(payload: Record<string, unknown>): Promise<void> {
     try {
-      await this.healthRecordFacade.updateFromFormPayload(payload, this.healthRecord.id);
+      const updated = await this.healthRecordFacade.updateFromFormPayload(payload, this.healthRecord.id);
+      this.healthRecord = updated;
+      this.editInitialValues = this._buildInitialValues(updated);
       this.isEditOpen.set(false);
-      toast.success('Données modifiées avec succès');
+      toast.success('Animal modifié avec succès');
     } catch (error: any) {
       if (error?.status === 409) {
         this.editModal()?.handleServerError(error);
