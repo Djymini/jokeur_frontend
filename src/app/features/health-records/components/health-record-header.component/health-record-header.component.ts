@@ -3,7 +3,10 @@ import { ZardBadgeComponent } from '@/shared/components/badge';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
-import { resolveBreedLabel, resolveLabel } from '@/features/health-records/utils/health-record-label.utils';
+import {
+  resolveBreedLabel,
+  resolveLabel,
+} from '@/features/health-records/utils/health-record-label.utils';
 
 @Component({
   selector: 'app-health-record-header',

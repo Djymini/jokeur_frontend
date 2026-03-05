@@ -72,10 +72,10 @@ export default class HealthRecordPage {
   isEditOpen = signal(false);
 
   healthRecord: HealthRecord = this._normalizeHealthRecord(
-    this.route.snapshot.data['healthRecord']
+    this.route.snapshot.data['healthRecord'],
   );
   protected editInitialValues: Record<string, unknown> = this._buildInitialValues(
-    this.healthRecord
+    this.healthRecord,
   );
 
   constructor(private router: Router) {
@@ -97,7 +97,9 @@ export default class HealthRecordPage {
 
   private _buildInitialValues(healthRecord: HealthRecord): Record<string, unknown> {
     const rawHealthRecord = healthRecord as unknown as Record<string, unknown>;
-    const animalType = (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as string | undefined;
+    const animalType = (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as
+      | string
+      | undefined;
     return {
       petName: healthRecord.petName,
       animalType: animalType ?? null,
