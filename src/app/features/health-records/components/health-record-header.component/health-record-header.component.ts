@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { ZardBadgeComponent } from '@/shared/components/badge';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardButtonComponent } from '@/shared/components/button';
@@ -12,6 +12,8 @@ import { ZardButtonComponent } from '@/shared/components/button';
 export class HealthRecordHeaderComponent implements OnInit {
   healthRecord = input.required<HealthRecord>();
   date = new Date(Date.now()).getFullYear();
+
+  readonly editClicked = output<void>();
 
   badgeContainer: string[] = [];
 

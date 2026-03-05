@@ -34,12 +34,14 @@ type FormPayload = Record<string, unknown>;
 })
 export class DynamicFormComponent {
   private readonly formBuilder = inject(FormBuilder);
+
   protected readonly serverErrors = signal<Record<string, string>>({});
   protected readonly isDragging = signal<Record<string, boolean>>({});
   protected readonly fileNames = signal<Record<string, string>>({});
-
   readonly definition = input.required<FormDefinition>();
   readonly metadata = input<HealthRecordFormMetadata | null>(null);
+  readonly initialValues = input<Record<string, unknown> | null>(null);
+
 
   readonly cancelled = output<void>();
   readonly submitted = output<FormPayload>();
@@ -61,7 +63,15 @@ export class DynamicFormComponent {
     });
 
     effect(() => {
-      applyBreedDependencyRule(this.formGroup(), this.metadata());
+      const metadata = this.metadata();
+      const form = this.formGroup();
+      const values = this.initialValues();
+
+      if (values) {
+        form.patchValue(values);
+      }
+
+      applyBreedDependencyRule(form, metadata);
     });
   }
 
