@@ -71,40 +71,46 @@ export default class HealthRecordPage {
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
 
-  healthRecord: HealthRecord = this.route.snapshot.data['healthRecord'];
-  protected editInitialValues: Record<string, unknown>;
+  healthRecord: HealthRecord = this._normalizeHealthRecord(
+    this.route.snapshot.data['healthRecord']
+  );
+  protected editInitialValues: Record<string, unknown> = this._buildInitialValues(
+    this.healthRecord
+  );
 
   constructor(private router: Router) {
     this.bootstrap.init();
 
-    const r = this.healthRecord as unknown as Record<string, unknown>;
-    const animalType = (r['animalType'] ?? r['AnimalType']) as string | undefined;
-
-    this.editInitialValues = this._buildInitialValues(this.healthRecord);
-
     if (!this.dashboardStore.metadata()) {
-      this.healthRecordFacade.loadFormMetadata().then((m) => {
-        this.dashboardStore.metadata.set(m);
+      this.healthRecordFacade.loadFormMetadata().then((metadata) => {
+        this.dashboardStore.metadata.set(metadata);
       });
     }
   }
 
-  private _buildInitialValues(r: HealthRecord): Record<string, unknown> {
-    const raw = r as unknown as Record<string, unknown>;
-    const animalType = (raw['animalType'] ?? raw['AnimalType']) as string | undefined;
+  private _normalizeHealthRecord(rawHealthRecord: Record<string, unknown>): HealthRecord {
     return {
-      petName: r.petName,
+      ...rawHealthRecord,
+      animalType: (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as string,
+    } as HealthRecord;
+  }
+
+  private _buildInitialValues(healthRecord: HealthRecord): Record<string, unknown> {
+    const rawHealthRecord = healthRecord as unknown as Record<string, unknown>;
+    const animalType = (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as string | undefined;
+    return {
+      petName: healthRecord.petName,
       animalType: animalType ?? null,
-      breed: r.breed,
-      sex: r.sex,
-      birthDate: r.birthDate
-        ? new Date(r.birthDate).toISOString().substring(0, 10)
+      breed: healthRecord.breed,
+      sex: healthRecord.sex,
+      birthDate: healthRecord.birthDate
+        ? new Date(healthRecord.birthDate).toISOString().substring(0, 10)
         : null,
-      currentWeight: r.currentWeight,
-      color: r.color,
-      identificationNumber: r.identificationNumber ?? null,
-      tattooNumber: r.tattoo ?? null,
-      allergy: r.allergy ?? null,
+      currentWeight: healthRecord.currentWeight,
+      color: healthRecord.color,
+      identificationNumber: healthRecord.identificationNumber ?? null,
+      tattooNumber: healthRecord.tattoo ?? null,
+      allergy: healthRecord.allergy ?? null,
     };
   }
 
@@ -114,9 +120,12 @@ export default class HealthRecordPage {
 
   async onEditSubmit(payload: Record<string, unknown>): Promise<void> {
     try {
-      const updated = await this.healthRecordFacade.updateFromFormPayload(payload, this.healthRecord.id);
-      this.healthRecord = updated;
-      this.editInitialValues = this._buildInitialValues(updated);
+      const updatedHealthRecord = await this.healthRecordFacade.updateFromFormPayload(
+        payload,
+        this.healthRecord.id,
+      );
+      this.healthRecord = updatedHealthRecord;
+      this.editInitialValues = this._buildInitialValues(updatedHealthRecord);
       this.isEditOpen.set(false);
       toast.success('Animal modifié avec succès');
     } catch (error: any) {

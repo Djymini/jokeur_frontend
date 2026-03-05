@@ -1,7 +1,9 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { ZardBadgeComponent } from '@/shared/components/badge';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardButtonComponent } from '@/shared/components/button';
+import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { resolveBreedLabel, resolveLabel } from '@/features/health-records/utils/health-record-label.utils';
 
 @Component({
   selector: 'app-health-record-header',
@@ -13,9 +15,19 @@ export class HealthRecordHeaderComponent {
   healthRecord = input.required<HealthRecord>();
   readonly editClicked = output<void>();
 
+  private readonly _dashboardStore = inject(DashboardStore);
+
+  protected readonly breedLabel = computed(() => {
+    const record = this.healthRecord();
+    console.log('breed:', record.breed, 'animalType:', record.animalType);
+    return resolveBreedLabel(record.breed, record.animalType, this._dashboardStore.metadata());
+  });
+
   protected readonly badges = computed(() => {
-    const r = this.healthRecord();
-    const age = new Date().getFullYear() - new Date(r.birthDate).getFullYear();
-    return [age + ' ans', r.sex, r.currentWeight + ' kg'];
+    const record = this.healthRecord();
+    const metadata = this._dashboardStore.metadata();
+    const age = new Date().getFullYear() - new Date(record.birthDate).getFullYear();
+    const sexLabel = resolveLabel(record.sex, metadata?.sexes ?? []);
+    return [age + ' ans', sexLabel, record.currentWeight + ' kg'];
   });
 }
