@@ -4,6 +4,10 @@
   padding: 10px;
   border-radius: 8px;
   margin: 10px 10px;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h4,

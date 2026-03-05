@@ -1,0 +1,13 @@
+<z-breadcrumb zWrap="wrap" zAlign="start">
+  <z-breadcrumb-item [routerLink]="['/dashboard']">
+    <z-icon zType="house" />
+    Tableau de bord
+  </z-breadcrumb-item>
+  @for (breadcrumbNode of breadcrumbRoad(); track $index){
+    @if ($index === breadcrumbRoad().length){
+      <z-breadcrumb-item>{{breadcrumbNode.name}}</z-breadcrumb-item>
+    } @else {
+      <z-breadcrumb-item [routerLink]="breadcrumbNode.link">{{breadcrumbNode.name}}</z-breadcrumb-item>
+    }
+  }
+</z-breadcrumb>
