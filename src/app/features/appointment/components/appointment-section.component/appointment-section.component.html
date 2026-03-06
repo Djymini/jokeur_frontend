@@ -1,11 +1,11 @@
 <section>
   <div class="section-header">
-    <h2>Mes Rappels</h2>
+    <h2>Mes Rendez-vous</h2>
   </div>
 
   <div class="section-body">
-    @for (reminder of reminderPage().content; track $index) {
-      <app-date-card [date]="reminder" [hasDescription]="false"></app-date-card>
+    @for (appointment of appointmentPage().content; track $index) {
+      <app-date-card [date]="appointment" [hasDescription]="true"></app-date-card>
     }
   </div>
 

@@ -1,19 +1,19 @@
 import { Component, input, output } from '@angular/core';
+import { PageModel } from '@/shared/models/page-model';
+import { Appointment } from '@/features/appointment/models/appointment.model';
 import { DateCardComponent } from '@/internal-shared/components/date-card.component/date-card.component';
 import { ZardButtonComponent } from '@/shared/components/button';
-import { PageModel } from '@/shared/models/page-model';
-import { Reminder } from '@/features/reminders/models/reminder.model';
 import { ZardIconComponent } from '@/shared/components/icon';
 
 @Component({
-  selector: 'app-reminder-section',
+  selector: 'app-appointment-section',
   imports: [DateCardComponent, ZardButtonComponent, ZardIconComponent],
-  templateUrl: './reminder-section.component.html',
-  styleUrl: './reminder-section.component.scss',
+  templateUrl: './appointment-section.component.html',
+  styleUrl: './appointment-section.component.scss',
 })
-export class ReminderSectionComponent {
+export class AppointmentSectionComponent {
   currentPage = input.required<number>();
-  reminderPage = input.required<PageModel<Reminder>>();
+  appointmentPage = input.required<PageModel<Appointment>>();
   totalPages = input.required<number>();
   pageSize = input.required<number>();
   totalElements = input.required<number>();

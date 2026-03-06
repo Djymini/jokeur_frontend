@@ -51,6 +51,12 @@ export const routes: Routes = [
   },
 
   {
+    path: 'appointment',
+    title: 'Rendez-vous',
+    loadComponent: () => import('@/features/appointment/pages/appointment.page'),
+  },
+
+  {
     path: 'health-record/:id',
     title: 'Carnet de santé',
     loadComponent: () => import('../features/health-records/pages/health-record.page'),
