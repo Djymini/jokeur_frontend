@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { DashboardNotificationPipe } from '@/internal-shared/pipes/dashboard-notification-pipe';
 
 @Component({
   selector: 'app-dashboard-reminder',
-  imports: [DatePipe, RouterLink, ZardButtonComponent],
+  imports: [RouterLink, ZardButtonComponent, DashboardNotificationPipe],
   templateUrl: './dashboard-reminder.component.html',
   styleUrl: './dashboard-reminder.component.scss',
 })
