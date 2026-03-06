@@ -18,6 +18,10 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client,
   },
   {
+    path: 'health-record/:id',
+    renderMode: RenderMode.Client,
+  },
+  {
     // Toutes les autres routes : rendu à la demande côté serveur
     path: '**',
     renderMode: RenderMode.Server,

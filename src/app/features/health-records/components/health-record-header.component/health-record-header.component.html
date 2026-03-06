@@ -1,16 +1,16 @@
 <div class="header">
   <div class="top">
     <h2>{{ healthRecord().petName }}</h2>
-    <z-button z-button zSize="lg" type="button">
+    <z-button z-button zSize="lg" type="button" (click)="editClicked.emit()">
       <span class="material-icons cursor-pointer">edit</span>
       Modifier
     </z-button>
   </div>
   <h3 class="desccription">
-    {{ healthRecord().breed }}
+    {{ breedLabel() }}
   </h3>
   <div class="flex w-full gap-2">
-    @for (badge of badgeContainer; track $index) {
+    @for (badge of badges(); track $index) {
       <z-badge zType="secondary" class="text-sm p-4">{{ badge }}</z-badge>
     }
   </div>

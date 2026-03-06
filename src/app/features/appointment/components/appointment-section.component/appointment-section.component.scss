@@ -1,0 +1,24 @@
+:host {
+  width: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+.section-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+h2 {
+  color: var(--secondary);
+}
+
+.section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
