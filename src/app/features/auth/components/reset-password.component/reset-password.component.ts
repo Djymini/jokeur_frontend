@@ -75,7 +75,7 @@ export class ResetPasswordComponent {
       toast.success('Mot de passe mis à jour.');
       await this._router.navigateByUrl('/login');
     } catch (error) {
-      // console.error('Probleme reset password:', error);
+      console.error('Probleme reset password:', error);
       toast.error('Impossible de réinitialiser le mot de passe.');
     }
   }
