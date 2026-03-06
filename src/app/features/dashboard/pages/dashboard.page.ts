@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-//import { DashboardComponent } from '@/features/dashboard/components/dashboard/dashboard.component';
 import { DashboardAnimalComponent } from '@/features/dashboard/components/dashboard-animal/dashboard-animal.component';
 import { DashboardAppointmentComponent } from '@/features/dashboard/components/dashboard-appointment/dashboard-appointment.component';
 import { DashboardNewsComponent } from '@/features/dashboard/components/dashboard-news/dashboard-news.component';

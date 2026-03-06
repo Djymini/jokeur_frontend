@@ -6,6 +6,7 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import { AuthService } from '@/core/services/auth.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard-animal',
@@ -26,6 +27,10 @@ export class DashboardAnimalComponent {
 
   authService = inject(AuthService);
 
+  getPhotoUrl(photoKey: string): string {
+    return `${environment.apiUrl}/uploads/${photoKey}`;
+  }
+
   async onSubmit(payload: Record<string, unknown>): Promise<void> {
     try {
       const newAnimal = await this._facade.createFromFormPayload(
@@ -35,7 +40,6 @@ export class DashboardAnimalComponent {
       this.dashboardStore.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
     } catch (error: any) {
-      console.log('catch error:', error, 'status:', error?.status, 'errorCode:', error?.errorCode);
       if (error?.status === 409) {
         this.modalRef()?.handleServerError(error);
       } else {
