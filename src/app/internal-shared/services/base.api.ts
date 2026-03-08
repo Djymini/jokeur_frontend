@@ -86,38 +86,32 @@ export abstract class BaseApi {
             ? error.error
             : null;
 
-      let message = backendMessage;
-
-      if (backendMessage) {
-        message = backendMessage;
-      } else {
-        switch (error.status) {
-          case 400:
-            message = 'Données invalides';
-            break;
-          case 401:
-            message = 'Non autorisé';
-            break;
-          case 403:
-            message = 'Accès interdit';
-            break;
-          case 404:
-            message = 'Ressource non trouvée';
-            break;
-          case 500:
-            message = 'Erreur serveur';
-            break;
-          default:
-            message = 'Erreur réseau';
+      switch (error.status) {
+        case 400:
+          return new Error(backendMessage ?? 'Données invalides');
+        case 401:
+          return new Error(backendMessage ?? 'Non autorisé');
+        case 403:
+          return new Error(backendMessage ?? 'Accès interdit');
+        case 404:
+          return new Error(backendMessage ?? 'Ressource non trouvée');
+        case 409: {
+          const err = new Error(error.error?.message ?? 'Conflit') as any;
+          err.status = 409;
+          err.errorCode = error.error?.error ?? 'UNKNOWN_CONFLICT';
+          return err;
+        }
+        case 500:
+          return new Error(backendMessage ?? 'Erreur serveur');
+        default: {
+          const message = backendMessage ?? 'Erreur réseau';
+          toast.error(message, { id: message });
+          return new Error(message);
         }
       }
-
-      toast.error(message, { id: message });
-      return new Error(message);
     }
 
     console.error('BASE_API unknown error shape:', error);
-
     toast.error('Erreur inconnue');
     return new Error('Erreur inconnue');
   }
