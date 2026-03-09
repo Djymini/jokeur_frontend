@@ -2,7 +2,6 @@ import { Component, inject, signal } from '@angular/core';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
-import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { AuthService } from '@/core/services/auth.service';
 
@@ -23,14 +22,12 @@ import { AuthService } from '@/core/services/auth.service';
 })
 export default class HealthRecordFormPage {
   private readonly _facade = inject(HealthRecordFacade);
-  private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
   protected readonly _user = inject(AuthService).user;
 
   protected readonly isOpen = signal(false);
   protected readonly metadata = signal<HealthRecordFormMetadata | null>(null);
 
   constructor() {
-    this._bootstrap.init();
     this._facade.loadFormMetadata().then((m) => this.metadata.set(m));
   }
 

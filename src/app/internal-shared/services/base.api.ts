@@ -77,6 +77,19 @@ export abstract class BaseApi {
     }
   }
 
+  protected async postBlob(endpoint: string, body: any): Promise<Blob> {
+    try {
+      return await firstValueFrom(
+        this.http.post(`${this.BASE_URL}${endpoint}`, body, {
+          headers: this.getHeaders(),
+          responseType: 'blob',
+        }),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
   protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
       const backendMessage =

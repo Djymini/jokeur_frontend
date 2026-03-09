@@ -2,7 +2,7 @@ import { ValidatorFn } from '@angular/forms';
 
 export type SelectOption = { code: string; label: string };
 
-export type FieldType = 'text' | 'number' | 'date' | 'textarea' | 'file' | 'select';
+export type FieldType = 'text' | 'number' | 'date' | 'textarea' | 'file' | 'select' | 'checkbox';
 
 export type SelectSource =
   | { kind: 'static'; options: SelectOption[] }
@@ -22,4 +22,5 @@ export type FormField = {
   accept?: string;
 
   selectSource?: SelectSource;
+  checkboxLabel?: string;
 };
