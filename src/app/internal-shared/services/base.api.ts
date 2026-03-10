@@ -80,10 +80,13 @@ export abstract class BaseApi {
   protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
       const backendMessage =
-        typeof error.error === 'object' && (error.error as any)?.message
+        error.error && typeof error.error === 'object' && (error.error as any)?.message
           ? String((error.error as any).message)
-          : null;
-      let message: string;
+          : typeof error.error === 'string'
+            ? error.error
+            : null;
+
+      let message = backendMessage;
 
       if (backendMessage) {
         message = backendMessage;
