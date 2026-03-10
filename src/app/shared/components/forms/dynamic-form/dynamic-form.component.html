@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="formGroup()" (ngSubmit)="onSubmit()">
   @for (field of fields(); track field.key) {
     <div class="field" [class.field--checkbox]="field.type === 'checkbox'">
-      @if (field.type !== 'checkbox') {
+      @if (field.type !== 'checkbox' && field.type !== 'radio') {
         <label class="label" [attr.for]="field.key">{{ field.label }}</label>
       }
 
@@ -118,6 +118,30 @@
             />
             <span class="checkbox-text">{{ field.checkboxLabel ?? field.label }}</span>
           </label>
+        }
+
+        @case ('radio') {
+          <fieldset
+            class="radio-group"
+            [class.radio-group--error]="isInvalid(field.key)"
+            [attr.aria-label]="field.label"
+          >
+            <legend class="label">{{ field.label }}</legend>
+            <div class="radio-options">
+              @for (option of field.radioOptions ?? []; track option.value) {
+                <label class="radio-label" [attr.for]="field.key + '_' + option.value">
+                  <input
+                    class="radio-input"
+                    [id]="field.key + '_' + option.value"
+                    type="radio"
+                    [value]="option.value"
+                    [formControlName]="field.key"
+                  />
+                  <span class="radio-text">{{ option.label }}</span>
+                </label>
+              }
+            </div>
+          </fieldset>
         }
 
       }

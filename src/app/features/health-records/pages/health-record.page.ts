@@ -12,6 +12,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { toast } from 'ngx-sonner';
 import { HealthRecordExportApi } from '@/features/health-record-export/services/health-record-export.api';
+import { ExportFormat } from '@/features/health-record-export/models/health-record-export.model';
 
 const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string[]);
 
@@ -163,22 +164,32 @@ export default class HealthRecordPage {
   async onExportSubmit(payload: Record<string, unknown>): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) return;
 
+    const format = payload['format'] as ExportFormat;
     const measureTypes = Object.keys(payload).filter(
       (key) => MEASURE_TYPE_VALUES.has(key) && payload[key] === true,
     ) as unknown as MeasureType[];
 
+    const exportRequest = {
+      from: payload['from'] as string,
+      to: payload['to'] as string,
+      measureTypes,
+      includeVaccines: payload['includeVaccines'] === true,
+      format,
+    };
+
     try {
-      const blob = await this.exportApi.exportPdf(this.healthRecord.id, {
-        from: payload['from'] as string,
-        to: payload['to'] as string,
-        measureTypes,
-        includeVaccines: payload['includeVaccines'] === true,
-      });
+      const blob = format === 'XLSX'
+        ? await this.exportApi.exportXlsx(this.healthRecord.id, exportRequest)
+        : await this.exportApi.exportPdf(this.healthRecord.id, exportRequest);
+
+      const fileName = format === 'XLSX'
+        ? `fiche-sante_${payload['from']}_${payload['to']}.xlsx`
+        : `fiche-sante_${payload['from']}_${payload['to']}.pdf`;
 
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
-      anchor.download = `fiche-sante_${payload['from']}_${payload['to']}.pdf`;
+      anchor.download = fileName;
       anchor.click();
       URL.revokeObjectURL(url);
 

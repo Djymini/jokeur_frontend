@@ -4,9 +4,7 @@ import { FooterComponent } from '@/core/layout/footer/footer.component';
 import { HeaderComponent } from '@/core/layout/header/header.component';
 import { ZardToastComponent } from '@/shared/components/toast';
 import { SidebarComponent } from '@/core/layout/sidebar/sidebar.component';
-import {
-  HealthRecordFormBootstrapService
-} from '@/features/health-records/services/health-record-form-bootstrap.service';
+import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 
 @Component({
   selector: 'app-root',

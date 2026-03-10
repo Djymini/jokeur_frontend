@@ -9,4 +9,8 @@ export class HealthRecordExportApi extends BaseApi {
   async exportPdf(healthRecordId: number, request: HealthRecordExportRequest): Promise<Blob> {
     return this.postBlob(`${this._endpoint}/${healthRecordId}/export/pdf`, request);
   }
+
+  async exportXlsx(healthRecordId: number, request: HealthRecordExportRequest): Promise<Blob> {
+    return this.postBlob(`${this._endpoint}/${healthRecordId}/export/xlsx`, request);
+  }
 }

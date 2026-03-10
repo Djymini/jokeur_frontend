@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormDefinition } from '@/shared/models/forms/form-definition.model';
+import { maxDateTodayValidator } from '@/shared/utils/forms/date-validators';
 
 @Injectable({ providedIn: 'root' })
 export class HealthRecordExportFormFactory {
@@ -12,20 +13,30 @@ export class HealthRecordExportFormFactory {
     return {
       id: 'health-record.export',
       title: 'Exporter la fiche santé',
-      submitLabel: 'Télécharger le PDF',
+      submitLabel: 'Télécharger',
       cancelLabel: 'Annuler',
       fields: [
+        {
+          key: 'format',
+          label: 'Format',
+          type: 'radio',
+          radioOptions: [
+            { value: 'PDF', label: 'PDF' },
+            { value: 'XLSX', label: 'XSLX' },
+          ],
+          validators: [Validators.required],
+        },
         {
           key: 'from',
           label: 'Du',
           type: 'date',
-          validators: [Validators.required],
+          validators: [Validators.required, maxDateTodayValidator()],
         },
         {
           key: 'to',
           label: 'Au',
           type: 'date',
-          validators: [Validators.required],
+          validators: [Validators.required, maxDateTodayValidator()],
         },
         {
           key: 'TEMPERATURE',
