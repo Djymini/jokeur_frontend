@@ -1,0 +1,108 @@
+.date-card {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--card);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.date-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.date-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.date-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+}
+
+/* Badge du décompte */
+.date-countdown {
+  background-color: #eff6ff; /* Bleu très clair */
+  color: #2563eb; /* Bleu pro */
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 9999px; /* Forme de pilule */
+  white-space: nowrap;
+}
+
+/* Corps : Date et Description */
+.date-body {
+  margin-bottom: 20px;
+}
+
+.date-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.date-description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Pied de page : Boutons */
+.date-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Styles de base pour les boutons */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Bouton Modifier (Primaire/Neutre) */
+.btn-edit {
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-edit:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Bouton Supprimer (Destructif) */
+.btn-delete {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid transparent;
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+}

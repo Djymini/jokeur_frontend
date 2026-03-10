@@ -44,9 +44,7 @@ export class LoginFormComponent {
 
       this._authService.updateUser(res);
       this._authService.setToken(res.token);
-
       toast.success('Connexion réussie.');
-
       await this._router.navigate(['/dashboard']);
     } catch {
       // BaseApi gère le toast.error(...)
