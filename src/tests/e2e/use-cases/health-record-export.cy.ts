@@ -4,13 +4,27 @@ Cypress.on('uncaught:exception', () => false);
 
 describe('Health record export', () => {
   beforeEach(() => {
-    cy.intercept('POST', `${environment.apiUrl}auth/login`, { fixture: 'auth.json' }).as('loginRequest');
-    cy.intercept('GET', environment.apiUrl + `appointment?userId=1&page=0&size=1`, { fixture: 'appointment.json' }).as('appointmentRequest');
-    cy.intercept('GET', environment.apiUrl + `/health-records?userId=1`, { fixture: 'health-record.json' }).as('healthRecordRequest');
-    cy.intercept('GET', environment.apiUrl + `reminder?userId=1&page=0&size=1`, { fixture: 'reminder.json' }).as('reminderRequest');
-    cy.intercept('GET', environment.apiUrl + `news?page=0&size=1`, { fixture: 'news.json' }).as('newsRequest');
-    cy.intercept('GET', environment.apiUrl + `form-options`, { fixture: 'form-option.json' }).as('formOptionRequest');
-    cy.intercept('GET', `${environment.apiUrl}/health-records/*`, { fixture: 'health-record-detail.json' }).as('healthRecordDetailRequest');
+    cy.intercept('POST', `${environment.apiUrl}auth/login`, { fixture: 'auth.json' }).as(
+      'loginRequest',
+    );
+    cy.intercept('GET', environment.apiUrl + `appointment?userId=1&page=0&size=1`, {
+      fixture: 'appointment.json',
+    }).as('appointmentRequest');
+    cy.intercept('GET', environment.apiUrl + `/health-records?userId=1`, {
+      fixture: 'health-record.json',
+    }).as('healthRecordRequest');
+    cy.intercept('GET', environment.apiUrl + `reminder?userId=1&page=0&size=1`, {
+      fixture: 'reminder.json',
+    }).as('reminderRequest');
+    cy.intercept('GET', environment.apiUrl + `news?page=0&size=1`, { fixture: 'news.json' }).as(
+      'newsRequest',
+    );
+    cy.intercept('GET', environment.apiUrl + `form-options`, { fixture: 'form-option.json' }).as(
+      'formOptionRequest',
+    );
+    cy.intercept('GET', `${environment.apiUrl}/health-records/*`, {
+      fixture: 'health-record-detail.json',
+    }).as('healthRecordDetailRequest');
   });
 
   const login = (): void => {
@@ -20,7 +34,13 @@ describe('Health record export', () => {
     cy.get('button[type="submit"]').click();
     cy.wait('@loginRequest');
     cy.url().should('include', '/dashboard');
-    cy.wait(['@appointmentRequest', '@healthRecordRequest', '@reminderRequest', '@newsRequest', '@formOptionRequest']);
+    cy.wait([
+      '@appointmentRequest',
+      '@healthRecordRequest',
+      '@reminderRequest',
+      '@newsRequest',
+      '@formOptionRequest',
+    ]);
   };
 
   const navigateToAnimalDetail = (): void => {
@@ -83,8 +103,12 @@ describe('Health record export', () => {
     cy.intercept('POST', `${environment.apiUrl}/health-records/*/export/xlsx`, (req) => {
       req.reply({
         statusCode: 200,
-        headers: { 'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' },
-        body: new Blob(['PK'], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
+        headers: {
+          'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        },
+        body: new Blob(['PK'], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        }),
       });
     }).as('exportXlsxRequest');
 

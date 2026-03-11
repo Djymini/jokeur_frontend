@@ -10,8 +10,7 @@
   "identificationNumber": "hin55ykondpoTLI",
   "tattoo": "ABC100",
   "allergy": "Aucune",
-  "image": null,
-  "imageType": null,
+  "photoKey": "",
   "AnimalType": "DOG",
   "measures": {
     "temperature": [],
