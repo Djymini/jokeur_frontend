@@ -22,5 +22,6 @@ function getInitialValue(field: FormField): unknown {
   if (field.type === 'number') return null;
   if (field.type === 'date') return null;
   if (field.type === 'file') return null;
+  if (field.type === 'checkbox') return false;
   return '';
 }
