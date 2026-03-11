@@ -1,13 +1,16 @@
 <section class="information-section">
   <h2>Informations générales</h2>
   <div class="information-container">
-    @for (item of healthRecordInformation; track $index){
-      <app-information-item [label]="item.label" [information]="item.information"></app-information-item>
+    @for (item of healthRecordInformation; track $index) {
+      <app-information-item
+        [label]="item.label"
+        [information]="item.information"
+      ></app-information-item>
     }
   </div>
   <h3>Allergies</h3>
   <div class="allergy-container">
-    <z-badge zType="destructive">{{healthRecord().allergy}}</z-badge>
+    <z-badge zType="destructive">{{ healthRecord().allergy }}</z-badge>
   </div>
   <z-button type="button">Ajouter Allergie</z-button>
 </section>

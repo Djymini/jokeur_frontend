@@ -2,9 +2,7 @@ import { Component, input, OnInit } from '@angular/core';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { HealthRecordInformation } from '@/features/health-records/models/health-record-information.model';
 import { HealthRecordRules } from '@/features/health-records/domain/health-record.rules';
-import {
-  InformationItemComponent
-} from '@/features/health-records/components/information-item.component/information-item.component';
+import { InformationItemComponent } from '@/features/health-records/components/information-item.component/information-item.component';
 import { ZardBadgeComponent } from '@/shared/components/badge';
 import { ZardButtonComponent } from '@/shared/components/button';
 
@@ -14,12 +12,12 @@ import { ZardButtonComponent } from '@/shared/components/button';
   templateUrl: './health-record-information-section.component.html',
   styleUrl: './health-record-information-section.component.scss',
 })
-export class HealthRecordInformationSectionComponent implements OnInit{
+export class HealthRecordInformationSectionComponent implements OnInit {
   healthRecord = input.required<HealthRecord>();
 
   healthRecordInformation: HealthRecordInformation[] = [];
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.healthRecordInformation = [
       {
         label: 'Nom',

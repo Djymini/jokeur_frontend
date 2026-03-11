@@ -29,13 +29,13 @@ export class HealthRecordRules {
     this.validateDate(birthDate);
     const currentYear = new Date().getFullYear();
     const birthYear = new Date(birthDate).getFullYear();
-    if((currentYear-birthYear) <= 1){
+    if (currentYear - birthYear <= 1) {
       return currentYear - birthYear + 'an';
     }
-    return currentYear - birthYear + "ans";
+    return currentYear - birthYear + 'ans';
   }
 
-  static displayWeight(weight: number): string{
-    return weight + "kg"
+  static displayWeight(weight: number): string {
+    return weight + 'kg';
   }
 }

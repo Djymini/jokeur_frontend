@@ -10,9 +10,7 @@ import { TabLink } from '@/internal-shared/models/tabLink.model';
 import { MeasureSectionComponent } from '@/features/measures/components/measure-section.component/measure-section.component';
 import { VaccinesSectionComponent } from '@/features/vaccines/components/vaccines-section.component/vaccines-section.component';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
-import {
-  HealthRecordInformationSectionComponent
-} from '@/features/health-records/components/health-record-information-section.component/health-record-information-section.component';
+import { HealthRecordInformationSectionComponent } from '@/features/health-records/components/health-record-information-section.component/health-record-information-section.component';
 
 @Component({
   selector: 'app-health-record-section',

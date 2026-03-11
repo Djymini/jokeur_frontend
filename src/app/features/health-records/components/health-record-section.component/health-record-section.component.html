@@ -2,7 +2,9 @@
 
 <div class="tab-content">
   @if (activeTab() === tabLinks[0].name) {
-    <app-health-record-information-section [healthRecord]="healthRecord()"></app-health-record-information-section>
+    <app-health-record-information-section
+      [healthRecord]="healthRecord()"
+    ></app-health-record-information-section>
   } @else if (activeTab() === tabLinks[1].name) {
     <p>En cours de construction</p>
   } @else if (activeTab() === tabLinks[2].name) {
