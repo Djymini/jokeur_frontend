@@ -71,7 +71,12 @@ export const routes: Routes = [
 
   {
     path: 'reset-password',
-    title: 'Reinitialisation du mot de passe',
+    title: 'Modification du mot de passe',
     loadComponent: () => import('@/features/auth/pages/reset-password.page'),
+  },
+  {
+    path: 'user-profile',
+    title: 'Modification des informations',
+    loadComponent: () => import('@/features/auth/pages/user-profile.page'),
   },
 ];

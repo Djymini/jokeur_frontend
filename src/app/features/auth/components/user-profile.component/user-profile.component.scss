@@ -24,48 +24,6 @@
   color: var(--secondary);
 }
 
-/* Container global */
-.auth-shell {
-  max-width: 920px;
-  margin: 24px auto;
-  padding: 24px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* NAVBAR */
-.auth-navbar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--blue);
-  border-radius: 999px;
-  padding: 6px;
-  gap: 6px;
-  margin-bottom: 24px;
-}
-
-.auth-navbar a,
-.auth-navbar button {
-  all: unset;
-  cursor: pointer;
-  text-align: center;
-  padding: 12px 10px;
-  border-radius: 999px;
-  font-weight: 600;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.auth-navbar .active {
-  background: #fff;
-  color: var(--blue);
-}
-
 .field {
   display: flex;
   flex-direction: column;
@@ -95,24 +53,6 @@ input:focus {
   border-color: var(--blue);
 }
 
-.field.cgu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.field.cgu label {
-  text-align: center;
-}
-
-.field.cgu input[type='checkbox'] {
-  margin: 0;
-  transform: translateY(-1px);
-}
-
 button[type='submit'] {
   display: inline-flex;
   align-items: center;
@@ -135,7 +75,6 @@ button[type='submit']:disabled {
   cursor: not-allowed;
 }
 
-/* (option) style Angular invalid */
 .ng-invalid.ng-touched {
   border-color: #dc2626 !important;
 }
@@ -152,33 +91,9 @@ button[type='submit']:disabled {
   justify-content: space-between;
 }
 
-.password-field {
-  .input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-
-  input {
-    width: 100%;
-    padding-right: 40px;
-  }
-
-  .eye {
-    position: absolute;
-    right: 10px;
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-
-    .material-icons {
-      font-size: 20px;
-      color: #666;
-    }
-  }
+input {
+  width: 100%;
+  padding-right: 40px;
 }
 
 form {
