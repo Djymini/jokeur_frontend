@@ -178,13 +178,15 @@ export default class HealthRecordPage {
     };
 
     try {
-      const blob = format === 'XLSX'
-        ? await this.exportApi.exportXlsx(this.healthRecord.id, exportRequest)
-        : await this.exportApi.exportPdf(this.healthRecord.id, exportRequest);
+      const blob =
+        format === 'XLSX'
+          ? await this.exportApi.exportXlsx(this.healthRecord.id, exportRequest)
+          : await this.exportApi.exportPdf(this.healthRecord.id, exportRequest);
 
-      const fileName = format === 'XLSX'
-        ? `fiche-sante_${payload['from']}_${payload['to']}.xlsx`
-        : `fiche-sante_${payload['from']}_${payload['to']}.pdf`;
+      const fileName =
+        format === 'XLSX'
+          ? `fiche-sante_${payload['from']}_${payload['to']}.xlsx`
+          : `fiche-sante_${payload['from']}_${payload['to']}.pdf`;
 
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');

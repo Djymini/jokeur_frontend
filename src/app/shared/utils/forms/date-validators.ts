@@ -25,7 +25,8 @@ export function maxDateTodayValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     if (!control.value) return null;
 
-    const selectedDate = new Date(control.value);
+    const [year, month, day] = (control.value as string).split('-').map(Number);
+    const selectedDate = new Date(year, month - 1, day);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 

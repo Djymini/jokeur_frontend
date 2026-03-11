@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "userId": 1,
+  "petName": "Medor",
+  "breed": "LABRADOR",
+  "sex": "MALE",
+  "birthDate": "2023-02-27",
+  "currentWeight": 30,
+  "color": "BROWN",
+  "identificationNumber": "hin55ykondpoTLI",
+  "tattoo": "ABC100",
+  "allergy": "Aucune",
+  "image": null,
+  "imageType": null,
+  "AnimalType": "DOG",
+  "measures": {
+    "temperature": [],
+    "weight": [],
+    "respiratoryRate": [],
+    "bpm": []
+  },
+  "vaccines": []
+}
