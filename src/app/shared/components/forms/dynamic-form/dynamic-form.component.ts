@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   computed,
   effect,
@@ -41,6 +41,7 @@ export class DynamicFormComponent {
   readonly definition = input.required<FormDefinition>();
   readonly metadata = input<HealthRecordFormMetadata | null>(null);
   readonly initialValues = input<Record<string, unknown> | null>(null);
+  private readonly _cdr = inject(ChangeDetectorRef);
 
 
   readonly cancelled = output<void>();
@@ -147,6 +148,7 @@ export class DynamicFormComponent {
     control.markAsTouched();
     control.setErrors({ serverError: message });
     this.serverErrors.update(errors => ({ ...errors, [fieldKey]: message }));
+    this._cdr.markForCheck();
 
     control.valueChanges.pipe(take(1)).subscribe(() => {
       const currentErrors = { ...control.errors };
@@ -157,6 +159,7 @@ export class DynamicFormComponent {
         delete next[fieldKey];
         return next;
       });
+      this._cdr.markForCheck();
     });
   }
 }

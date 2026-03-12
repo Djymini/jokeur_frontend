@@ -73,7 +73,6 @@ describe('Health record export', () => {
     cy.contains('Exporter').click();
     cy.get('input[id="from"]').type('2099-01-01');
     cy.get('button[type="submit"]').click();
-
     cy.contains('Du').parent().find('[data-error], .error, [class*="error"]').should('be.visible'); // eslint-disable-line newline-per-chained-call
   });
 

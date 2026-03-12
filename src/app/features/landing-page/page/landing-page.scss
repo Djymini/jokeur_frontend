@@ -1,0 +1,11 @@
+:host {
+  --l-radius-sm: 8px;
+  --l-radius-md: 16px;
+  --l-radius-lg: 24px;
+  --l-radius-xl: 40px;
+
+  display: block;
+  font-family: var(--font-display);
+  color: var(--text);
+  background: var(--main-background);
+}

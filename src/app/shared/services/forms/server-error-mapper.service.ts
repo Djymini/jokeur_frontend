@@ -11,9 +11,15 @@ export class ServerErrorMapperService {
       field: 'identificationNumber',
       message: "Ce numéro d'identification est déjà utilisé.",
     },
+    FILE_TOO_LARGE: {
+      field: 'photo',
+      message: 'Le fichier est trop volumineux (maximum 2MB).',
+    },
   };
 
-  resolve(errorCode: string): { field: string; message: string } | null {
-    return this.messages[errorCode] ?? null;
+  resolve(errorCode: string, fieldOverride?: string): { field: string; message: string } | null {
+    const entry = this.messages[errorCode] ?? null;
+    if (!entry) return null;
+    return fieldOverride ? { ...entry, field: fieldOverride } : entry;
   }
 }
