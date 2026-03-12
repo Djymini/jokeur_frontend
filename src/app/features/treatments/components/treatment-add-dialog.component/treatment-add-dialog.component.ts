@@ -14,7 +14,7 @@ import {
   styleUrl: './treatment-add-dialog.component.scss',
 })
 export class TreatmentAddDialogComponent {
-  frequency: string[] = ['DAYLI', 'MONTHLY', 'YEARLY'];
+  frequency: string[] = ['DAILY', 'MONTHLY', 'ANNUAL', 'ONETIME'];
 
   form = new FormGroup({
     name: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),

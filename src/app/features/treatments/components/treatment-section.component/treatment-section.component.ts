@@ -6,13 +6,12 @@ import { TreatmentStore } from '@/features/treatments/services/treatment-store';
 import { TreatmentFacade } from '@/features/treatments/services/treatment-facade';
 import { TreatmentAddDialogComponent } from '@/features/treatments/components/treatment-add-dialog.component/treatment-add-dialog.component';
 import { TreatmentRequest } from '@/features/treatments/models/treatmentRequest.model';
-import { VaccineItemComponent } from '@/features/vaccines/components/vaccine-item.component/vaccine-item.component';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { TreatmentItemComponent } from '@/features/treatments/components/treatment-item.component/treatment-item.component';
 
 @Component({
   selector: 'app-treatment-section',
-  imports: [VaccineItemComponent, ZardButtonComponent, TreatmentItemComponent],
+  imports: [ZardButtonComponent, TreatmentItemComponent],
   templateUrl: './treatment-section.component.html',
   styleUrl: './treatment-section.component.scss',
 })

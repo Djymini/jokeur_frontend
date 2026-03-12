@@ -8,11 +8,11 @@
 
   <div class="grid gap-2">
     <label for="frequency" class="text-sm font-medium">Fréquence</label>
-    <select z-input id="type" formControlName="typeAction">
+    <select z-input id="frequency" formControlName="frequency">
       <option value="" disabled>-- Sélectionnez une option --</option>
-      @for (frequency of frequency; track $index) {
-        <option [value]="frequency">
-          {{ frequency }}
+      @for (item of frequency; track item) {
+        <option [value]="item">
+          {{ item }}
         </option>
       }
     </select>

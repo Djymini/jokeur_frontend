@@ -18,7 +18,7 @@ import { Treatment } from '@/features/treatments/models/treatment.model';
 export class TreatmentModifyDialogComponent implements OnInit {
   private _fb = inject(FormBuilder);
 
-  frequency: string[] = ['DAYLI', 'MONTHLY', 'YEARLY'];
+  frequency: string[] = ['DAILY', 'MONTHLY', 'ANNUAL', 'ONETIME'];
   data: { treatment: Treatment } = inject(Z_MODAL_DATA);
 
   treatmentForm!: FormGroup;

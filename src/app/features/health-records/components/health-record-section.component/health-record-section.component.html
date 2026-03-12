@@ -6,7 +6,7 @@
       [healthRecord]="healthRecord()"
     ></app-health-record-information-section>
   } @else if (activeTab() === tabLinks[1].name) {
-    <p>En cours de construction</p>
+    <app-treatment-section [healthRecord]="healthRecord()"></app-treatment-section>
   } @else if (activeTab() === tabLinks[2].name) {
     <app-vaccines-section [healthRecord]="healthRecord()"></app-vaccines-section>
   } @else if (activeTab() === tabLinks[3].name) {
