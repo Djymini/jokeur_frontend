@@ -45,6 +45,12 @@ export const routes: Routes = [
   },
 
   {
+    path: 'calendar',
+    title: 'Agenda',
+    loadComponent: () => import('@/features/calendar/pages/calendar.page'),
+  },
+
+  {
     path: 'reminder',
     title: 'Rappels',
     loadComponent: () => import('@/features/reminders/pages/reminder.page'),
