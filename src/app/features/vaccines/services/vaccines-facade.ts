@@ -13,12 +13,8 @@ export class VaccinesFacade {
   private _vaccinesStore = inject(VaccinesStore);
 
   async getVaccine(healthRecordNumber: number): Promise<Vaccine[]> {
-    const currentData = this._vaccinesStore.vaccineArray();
-
-    if (!currentData || currentData.length === 0) {
-      const response = await this._vaccinesApi.getVaccine(healthRecordNumber.toString());
-      this._vaccinesStore.setVaccine(response);
-    }
+    const response = await this._vaccinesApi.getVaccine(healthRecordNumber.toString());
+    this._vaccinesStore.setVaccine(response);
 
     return this._vaccinesStore.vaccineArray();
   }

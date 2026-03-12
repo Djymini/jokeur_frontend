@@ -26,7 +26,7 @@ export class TreatmentSectionComponent {
 
   openDialogAdd(): void {
     this._dialogService.create({
-      zTitle: `Ajouter un vaccin`,
+      zTitle: `Ajouter un traitement`,
       zContent: TreatmentAddDialogComponent,
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {

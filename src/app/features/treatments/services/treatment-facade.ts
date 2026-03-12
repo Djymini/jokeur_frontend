@@ -13,12 +13,8 @@ export class TreatmentFacade {
   private _treatmentStore = inject(TreatmentStore);
 
   async getTreatment(healthRecordNumber: number): Promise<Treatment[]> {
-    const currentData = this._treatmentStore.treatmentArray();
-
-    if (!currentData || currentData.length === 0) {
-      const response = await this._treatmentApi.getTreatment(healthRecordNumber.toString());
-      this._treatmentStore.setTreatment(response);
-    }
+    const response = await this._treatmentApi.getTreatment(healthRecordNumber.toString());
+    this._treatmentStore.setTreatment(response);
 
     return this._treatmentStore.treatmentArray();
   }
