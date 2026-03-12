@@ -125,7 +125,7 @@ export abstract class BaseApi {
           return new Error(backendMessage ?? 'Erreur serveur');
         default: {
           const err = new Error('Erreur réseau') as any;
-          err.status = 0;  // ← ajoute cette ligne
+          err.status = 0;
           toast.error('Erreur réseau', { id: 'Erreur réseau' });
           return err;
         }
