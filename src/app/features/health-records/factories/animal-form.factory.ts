@@ -22,6 +22,7 @@ export class AnimalFormFactory {
           label: 'Photo',
           type: 'file',
           accept: 'image/*',
+          maxFileSizeMb: 2,
         },
       ],
     };
@@ -40,6 +41,7 @@ export class AnimalFormFactory {
           label: 'Changer la photo',
           type: 'file',
           accept: 'image/*',
+          maxFileSizeMb: 2,
         },
       ],
     };

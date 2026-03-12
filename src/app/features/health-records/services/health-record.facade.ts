@@ -62,7 +62,8 @@ export class HealthRecordFacade {
           return updated;
         } catch (error: any) {
           this._store.addHealthRecord(healthRecord);
-          if (error?.status === 413) {
+          console.log('UPLOAD ERROR:', JSON.stringify(error), 'status:', error?.status, 'message:', error?.message); // ← ici
+          if (error?.status === 413 || error?.status === 0) {
             throw new Error('FILE_TOO_LARGE');
           }
           throw new Error("Impossible d'uploader la photo");
@@ -101,11 +102,11 @@ export class HealthRecordFacade {
         try {
           healthRecord = await this._api.uploadPhoto(healthRecordNumber, photo);
         } catch (error: any) {
-          if (error?.status === 413) {
-            throw new Error('FILE_TOO_LARGE');
-          }
-          throw new Error("Impossible d'uploader la photo");
+        if (error?.status === 413 || error?.status === 0) {
+          throw new Error('FILE_TOO_LARGE');
         }
+        throw new Error("Impossible d'uploader la photo");
+      }
       }
 
       this._store.updateHealthRecord(healthRecord);
