@@ -56,9 +56,17 @@ export class HealthRecordFacade {
 
       const photo = payload['photo'];
       if (photo instanceof File) {
-        const updated = await this._api.uploadPhoto(healthRecord.id, photo);
-        this._store.addHealthRecord(updated);
-        return updated;
+        try {
+          const updated = await this._api.uploadPhoto(healthRecord.id, photo);
+          this._store.addHealthRecord(updated);
+          return updated;
+        } catch (error: any) {
+          this._store.addHealthRecord(healthRecord);
+          if (error?.status === 413) {
+            throw new Error('FILE_TOO_LARGE');
+          }
+          throw new Error("Impossible d'uploader la photo");
+        }
       }
 
       this._store.addHealthRecord(healthRecord);
@@ -90,7 +98,14 @@ export class HealthRecordFacade {
 
       const photo = payload['image'];
       if (photo instanceof File) {
-        healthRecord = await this._api.uploadPhoto(healthRecordNumber, photo);
+        try {
+          healthRecord = await this._api.uploadPhoto(healthRecordNumber, photo);
+        } catch (error: any) {
+          if (error?.status === 413) {
+            throw new Error('FILE_TOO_LARGE');
+          }
+          throw new Error("Impossible d'uploader la photo");
+        }
       }
 
       this._store.updateHealthRecord(healthRecord);
@@ -110,6 +125,15 @@ export class HealthRecordFacade {
     }
   }
 
+  async getHealthRecordById(id: number): Promise<HealthRecord> {
+    if (this._store.healthRecord() === undefined || this._store.healthRecord()!.id !== id) {
+      const newHealthRecord = await this._api.getHealthRecordById(id);
+      this._store.setHealthRecord(newHealthRecord);
+    }
+
+    return this._store.healthRecord()!;
+  }
+
   private _requiredString(payload: Record<string, unknown>, key: string): string {
     const value = String(payload[key] ?? '').trim();
     if (!value) throw new Error(`Le champ "${key}" est requis`);
@@ -127,14 +151,5 @@ export class HealthRecordFacade {
       throw new Error(`Le champ "${key}" doit être un nombre positif valide`);
     }
     return value;
-  }
-
-  async getHealthRecordById(id: number): Promise<HealthRecord> {
-    if (this._store.healthRecord() === undefined || this._store.healthRecord()!.id !== id) {
-      const newHealthRecord = await this._api.getHealthRecordById(id);
-      this._store.setHealthRecord(newHealthRecord);
-    }
-
-    return this._store.healthRecord()!;
   }
 }

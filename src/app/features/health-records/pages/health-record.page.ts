@@ -153,7 +153,10 @@ export default class HealthRecordPage {
       this.isEditOpen.set(false);
       toast.success('Animal modifié avec succès');
     } catch (error: any) {
-      if (error?.status === 409) {
+      if (error?.message === 'FILE_TOO_LARGE') {
+        this.editModal()?.handleServerError({ errorCode: 'FILE_TOO_LARGE' }, 'image');
+        toast.error('Le fichier est trop volumineux (maximum 2MB).');
+      } else if (error?.status === 409) {
         this.editModal()?.handleServerError(error);
       } else {
         console.error(error);
