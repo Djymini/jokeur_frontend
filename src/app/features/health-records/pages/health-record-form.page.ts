@@ -4,6 +4,7 @@ import { ZardButtonComponent } from '@/shared/components/button/button.component
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
 import { AuthService } from '@/core/services/auth.service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   standalone: true,
@@ -38,7 +39,12 @@ export default class HealthRecordFormPage {
       await this._facade.createFromFormPayload(payload, this._user()!.id);
       this.isOpen.set(false);
     } catch (error: any) {
-      this._modal()?.handleServerError({ errorCode: error?.message });
+      if (error?.message === 'FILE_TOO_LARGE') {
+        this._modal()?.handleServerError({ errorCode: 'FILE_TOO_LARGE' });
+        toast.error('Le fichier est trop volumineux (maximum 2MB).');
+      } else {
+        this._modal()?.handleServerError({ errorCode: error?.message });
+      }
     }
   }
 }

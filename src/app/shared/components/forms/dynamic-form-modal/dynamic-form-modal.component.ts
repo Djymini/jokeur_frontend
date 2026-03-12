@@ -69,8 +69,8 @@ export class DynamicFormModalComponent {
     this.submitted.emit(payload);
   }
 
-  public handleServerError(error: any): void {
-    const resolved = this.serverErrorMapper.resolve(error?.errorCode);
+  public handleServerError(error: any, fieldOverride?: string): void {
+    const resolved = this.serverErrorMapper.resolve(error?.errorCode, fieldOverride);
     if (resolved) {
       this.dynamicForm()?.setServerError(resolved.field, resolved.message);
     }
