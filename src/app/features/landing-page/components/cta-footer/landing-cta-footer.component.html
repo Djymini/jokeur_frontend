@@ -1,11 +1,18 @@
-<section class="cta-section">
+<section class="cta-section" aria-labelledby="cta-title">
   <div class="cta-section__inner">
-    <div class="cta-section__blob"></div>
-    <h2 class="cta-section__title">Vos animaux méritent<br />le meilleur suivi.</h2>
+    <div class="cta-section__blob" aria-hidden="true"></div>
+    <h2 class="cta-section__title" id="cta-title">Vos animaux méritent<br />le meilleur suivi.</h2>
     <p class="cta-section__subtitle">Rejoignez les propriétaires qui font confiance à Jokeur.</p>
     <a routerLink="/register" z-button zType="secondary" zShape="circle" zSize="lg">
       Commencer gratuitement
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+      >
         <path
           d="M3 8h10M9 4l4 4-4 4"
           stroke="currentColor"
@@ -18,18 +25,18 @@
   </div>
 </section>
 
-<footer class="footer">
+<!-- FOOTER -->
+<footer class="footer" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
       <span class="brand__wordmark">Jokeur</span>
       <p>La santé animale, numérisée.</p>
     </div>
-    <div class="footer__links">
+    <nav class="footer__links" aria-label="Liens du pied de page">
       <a routerLink="/login">Se connecter</a>
       <a routerLink="/register">S'inscrire</a>
       <a href="#">Mentions légales</a>
-      <a href="#">Contact</a>
-    </div>
-    <p class="footer__copy">© 2025 Jokeur. Tous droits réservés.</p>
+    </nav>
+    <p class="footer__copy">© 2026 Jokeur. Tous droits réservés.</p>
   </div>
 </footer>
