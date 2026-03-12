@@ -76,7 +76,8 @@ export default class LandingPageComponent implements OnInit {
     {
       icon: '🔔',
       title: 'Rappels automatiques',
-      description: 'Recevez des rappels pour les vaccins, vermifuges et visites vétérinaires de vos animaux.',
+      description:
+        'Recevez des rappels pour les vaccins, vermifuges et visites vétérinaires de vos animaux.',
       color: 'var(--orange)',
     },
     {

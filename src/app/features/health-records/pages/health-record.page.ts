@@ -37,16 +37,14 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       </z-button>
     </div>
 
-
-
     <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
 
     <div class="bottom-bar">
-    <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
-      <span class="material-icons">delete</span>
-      Supprimer
-    </z-button>
+      <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
+        <span class="material-icons">delete</span>
+        Supprimer
+      </z-button>
     </div>
 
     <z-dynamic-form-modal
@@ -70,7 +68,10 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       <div class="modal-overlay" (mousedown)="isDeleteOpen.set(false)">
         <div class="modal-box" (mousedown)="$event.stopPropagation()">
           <h2>Supprimer le carnet de santé</h2>
-          <p>Es-tu sûr(e) de vouloir supprimer le carnet de <strong>{{ healthRecord.petName }}</strong> ? Cette action est irréversible.</p>
+          <p>
+            Es-tu sûr(e) de vouloir supprimer le carnet de
+            <strong>{{ healthRecord.petName }}</strong> ? Cette action est irréversible.
+          </p>
           <div class="modal-actions">
             <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
             <z-button zType="destructive" (click)="onDeleteConfirm()">Supprimer</z-button>
