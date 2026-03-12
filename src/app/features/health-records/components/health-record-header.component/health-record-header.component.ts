@@ -32,6 +32,6 @@ export class HealthRecordHeaderComponent {
     const metadata = this._dashboardStore.metadata();
     const age = HealthRecordRules.calculateAge(record.birthDate);
     const sexLabel = resolveLabel(record.sex, metadata?.sexes ?? []);
-    return [age + ' ans', sexLabel, record.currentWeight + ' kg'];
+    return [age, sexLabel, record.currentWeight + ' kg'];
   });
 }

@@ -31,4 +31,8 @@ export class CalendarStore {
       ]),
     );
   }
+
+  public addEvent(event: CalendarEvent): void {
+    this._calendarEventsSignal.update((events) => [...events, event]);
+  }
 }

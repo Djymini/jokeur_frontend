@@ -1,0 +1,40 @@
+<form [formGroup]="form" class="grid gap-4 p-4">
+  <h2 class="text-lg font-bold">Ajouter un rendez-vous</h2>
+
+  <div class="grid gap-2">
+    <label for="reason" class="text-sm font-medium">Motif du rendez-vous</label>
+    <input
+      z-input
+      id="reason"
+      formControlName="reason"
+      placeholder="ex: Consultation annuelle, Vaccin..."
+    />
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="grid gap-2">
+      <label for="dateTime" class="text-sm font-medium">Date et heure</label>
+      <input
+        z-input
+        id="dateTime"
+        type="datetime-local"
+        formControlName="dateTime"
+      />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="duration" class="text-sm font-medium">Durée (minutes)</label>
+      <input
+        z-input
+        id="duration"
+        type="number"
+        formControlName="duration"
+        placeholder="30"
+      />
+    </div>
+  </div>
+
+  <p class="text-xs text-gray-500">
+    L'identifiant utilisateur est automatiquement lié à votre compte.
+  </p>
+</form>
