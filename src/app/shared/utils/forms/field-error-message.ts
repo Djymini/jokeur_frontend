@@ -6,7 +6,7 @@ export function getFieldErrorMessage(control: any, fieldLabel: string): string {
   }
 
   if (control.errors['required']) {
-    return `Le champ "${fieldLabel}" est requis`;
+    return 'Ce champ est requis';
   }
 
   if (control.errors['maxlength']) {

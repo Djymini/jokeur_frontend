@@ -2,37 +2,22 @@ import { Injectable } from '@angular/core';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { BaseApi } from '@/internal-shared/services/base.api';
 import { UserModel } from '@/core/models/user-model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { toast } from 'ngx-sonner';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApi extends BaseApi {
-  // protected errorService = inject(ErrorService);
-
-  async register(payload: RegisterUserPayload): Promise<{ message: string }> {
-    try {
-      return this.post<{ message: string }>(`/auth/register`, payload);
-    } catch (error: unknown) {
-      if (error instanceof HttpErrorResponse) {
-        const backendMessage = (error.error as any)?.message;
-
-        if (backendMessage) {
-          toast.error(String(backendMessage));
-          throw new Error(String(backendMessage));
-        }
-      }
-
-      const err = this._handleError(error);
-      toast.error(err.message);
-      throw err;
-    }
+  register(payload: RegisterUserPayload): Promise<{ message: string }> {
+    return this.post<{ message: string }>('/auth/register', payload);
   }
 
-  async login(payload: { email: string; password: string }): Promise<UserModel> {
-    try {
-      return this.post<UserModel>(`/auth/login`, payload);
-    } catch (error) {
-      throw this._handleError(error);
-    }
+  login(payload: { email: string; password: string }): Promise<UserModel> {
+    return this.post<UserModel>('/auth/login', payload);
+  }
+
+  forgotPassword(payload: { email: string }): Promise<{ message: string }> {
+    return this.post<{ message: string }>('/auth/forgot-password', payload);
+  }
+
+  resetPassword(payload: { token: string; newPassword: string }): Promise<void> {
+    return this.post<void>('/auth/reset-password', payload);
   }
 }

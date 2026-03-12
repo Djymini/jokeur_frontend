@@ -6,9 +6,15 @@ import { HealthRecordSectionComponent } from '@/features/health-records/componen
 import { ZardButtonComponent } from '@/shared/components/button';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
-import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { MeasureType } from '@/features/measures/utils/measureTypeEnum';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 import { toast } from 'ngx-sonner';
+import { HealthRecordExportApi } from '@/features/health-record-export/services/health-record-export.api';
+import { ExportFormat } from '@/features/health-record-export/models/health-record-export.model';
+
+const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string[]);
 
 @Component({
   selector: 'app-health-record.page',
@@ -19,12 +25,18 @@ import { toast } from 'ngx-sonner';
     DynamicFormModalComponent,
   ],
   template: `
-    <div class="button-container">
+    <div class="top-bar">
       <z-button z-button zSize="lg" zType="link" (click)="returnToDashboard()">
         <span class="material-icons cursor-pointer">arrow_back</span>
         Retour à mon tableau de bord
       </z-button>
+
+      <z-button z-button zSize="lg" zType="outline" (click)="isExportOpen.set(true)">
+        <span class="material-icons">download</span>
+        Exporter
+      </z-button>
     </div>
+
     <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
 
@@ -37,6 +49,13 @@ import { toast } from 'ngx-sonner';
       (closed)="isEditOpen.set(false)"
       (submitted)="onEditSubmit($event)"
     />
+
+    <z-dynamic-form-modal
+      [isOpen]="isExportOpen()"
+      formId="health-record.export"
+      (closed)="isExportOpen.set(false)"
+      (submitted)="onExportSubmit($event)"
+    />
   `,
   styles: `
     :host {
@@ -46,7 +65,10 @@ import { toast } from 'ngx-sonner';
       align-items: center;
       padding: 48px;
     }
-    .button-container {
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
       margin-bottom: 32px;
     }
@@ -65,11 +87,13 @@ import { toast } from 'ngx-sonner';
 export default class HealthRecordPage {
   private readonly route = inject(ActivatedRoute);
   private readonly healthRecordFacade = inject(HealthRecordFacade);
-  private readonly bootstrap = inject(HealthRecordFormBootstrapService);
+  private readonly exportApi = inject(HealthRecordExportApi);
+  private readonly platformId = inject(PLATFORM_ID);
   protected readonly dashboardStore = inject(DashboardStore);
 
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
+  isExportOpen = signal(false);
 
   healthRecord: HealthRecord = this._normalizeHealthRecord(
     this.route.snapshot.data['healthRecord'],
@@ -79,8 +103,6 @@ export default class HealthRecordPage {
   );
 
   constructor(private router: Router) {
-    this.bootstrap.init();
-
     if (!this.dashboardStore.metadata()) {
       this.healthRecordFacade.loadFormMetadata().then((metadata) => {
         this.dashboardStore.metadata.set(metadata);
@@ -136,6 +158,47 @@ export default class HealthRecordPage {
       } else {
         console.error(error);
       }
+    }
+  }
+
+  async onExportSubmit(payload: Record<string, unknown>): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const format = payload['format'] as ExportFormat;
+    const measureTypes = Object.keys(payload).filter(
+      (key) => MEASURE_TYPE_VALUES.has(key) && payload[key] === true,
+    ) as unknown as MeasureType[];
+
+    const exportRequest = {
+      from: payload['from'] as string,
+      to: payload['to'] as string,
+      measureTypes,
+      includeVaccines: payload['includeVaccines'] === true,
+      format,
+    };
+
+    try {
+      const blob =
+        format === 'XLSX'
+          ? await this.exportApi.exportXlsx(this.healthRecord.id, exportRequest)
+          : await this.exportApi.exportPdf(this.healthRecord.id, exportRequest);
+
+      const fileName =
+        format === 'XLSX'
+          ? `fiche-sante_${payload['from']}_${payload['to']}.xlsx`
+          : `fiche-sante_${payload['from']}_${payload['to']}.pdf`;
+
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = fileName;
+      anchor.click();
+      URL.revokeObjectURL(url);
+
+      this.isExportOpen.set(false);
+      toast.success('Export généré avec succès');
+    } catch {
+      toast.error("Erreur lors de la génération de l'export");
     }
   }
 }

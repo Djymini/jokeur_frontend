@@ -4,7 +4,6 @@ import { DashboardAppointmentComponent } from '@/features/dashboard/components/d
 import { DashboardNewsComponent } from '@/features/dashboard/components/dashboard-news/dashboard-news.component';
 import { DashboardReminderComponent } from '@/features/dashboard/components/dashboard-reminder/dashboard-reminder.component';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
-import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { DashboardFacade } from '@/features/dashboard/facade/dashboard-facade';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 
@@ -39,13 +38,11 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 })
 export default class DashboardPage {
   private readonly _facade = inject(HealthRecordFacade);
-  private readonly _bootstrap = inject(HealthRecordFormBootstrapService);
   private readonly _dashbordFacade = inject(DashboardFacade);
   private readonly _dashboardStore = inject(DashboardStore);
 
   constructor() {
     this._dashbordFacade.loadDashbooardData();
-    this._bootstrap.init();
     this._facade.loadFormMetadata().then((m) => this._dashboardStore.metadata.set(m));
   }
 }
