@@ -132,6 +132,7 @@
     box-shadow: var(--shadow-lg);
     border: 1.5px solid rgba(255, 255, 255, 0.8);
     animation: float 6s ease-in-out infinite;
+    border-radius: 20px;
   }
 
   &__floating-tag {
