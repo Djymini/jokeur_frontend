@@ -1,0 +1,21 @@
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Fonctionnalités</span>
+      <h2 class="section-title">Tout ce dont vous avez besoin,<br />rien de superflu.</h2>
+      <p class="section-subtitle">
+        Conçu pour les propriétaires exigeants qui veulent le meilleur pour leur animal.
+      </p>
+    </div>
+
+    <div class="features__grid">
+      @for (feature of features(); track feature.title) {
+        <div class="feature-card" [style.--accent]="feature.color">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-desc">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

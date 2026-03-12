@@ -1,0 +1,13 @@
+<app-landing-navbar
+  [activeSection]="activeSection()"
+  [menuOpen]="menuOpen()"
+  (menuToggled)="toggleMenu()"
+/>
+
+<app-landing-hero />
+
+<app-landing-features [features]="features" />
+
+<app-landing-how-it-works />
+
+<app-landing-cta-footer />
