@@ -15,7 +15,7 @@
     (submitted)="onSubmit($event)"
   />
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-14 my-6">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 px-14 my-6">
     @for (animal of dashboardStore.animals(); track animal.id) {
       <div
         class="animal-card rounded-2xl bg-card shadow-md hover:shadow-lg transition flex flex-col"
