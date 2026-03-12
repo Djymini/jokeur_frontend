@@ -3,7 +3,6 @@ import { authGuard } from '@/router/guards/auth-guard';
 import { healthRecordResolver } from '@/router/resolvers/health-record/health-record-resolver';
 
 export const routes: Routes = [
-  // ── Sans layout
   {
     path: '',
     redirectTo: 'landing',
@@ -37,7 +36,7 @@ export const routes: Routes = [
 
   // ── Avec layout
   {
-    path: 'app',
+    path: '',
     loadComponent: () => import('@/core/layout/main-layout/main-layout.component'),
     children: [
       {

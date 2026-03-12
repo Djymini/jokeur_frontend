@@ -14,11 +14,11 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
   },
   {
-    path: 'app/dashboard',
+    path: 'dashboard',
     renderMode: RenderMode.Client,
   },
   {
-    path: 'app/health-record/:id',
+    path: 'health-record/:id',
     renderMode: RenderMode.Client,
   },
   {
