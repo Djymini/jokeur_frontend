@@ -40,7 +40,9 @@ export class DashboardAnimalComponent {
       this.dashboardStore.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
     } catch (error: any) {
-      if (error?.status === 409) {
+      if (error?.message === 'FILE_TOO_LARGE') {
+        this.modalRef()?.handleServerError({ errorCode: 'FILE_TOO_LARGE' });
+      } else if (error?.status === 409) {
         this.modalRef()?.handleServerError(error);
       } else {
         console.error(error);
