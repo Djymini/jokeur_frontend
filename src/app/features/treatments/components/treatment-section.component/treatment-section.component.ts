@@ -4,15 +4,11 @@ import { HealthRecord } from '@/features/health-records/models/health-record.mod
 import { toast } from 'ngx-sonner';
 import { TreatmentStore } from '@/features/treatments/services/treatment-store';
 import { TreatmentFacade } from '@/features/treatments/services/treatment-facade';
-import {
-  TreatmentAddDialogComponent
-} from '@/features/treatments/components/treatment-add-dialog.component/treatment-add-dialog.component';
+import { TreatmentAddDialogComponent } from '@/features/treatments/components/treatment-add-dialog.component/treatment-add-dialog.component';
 import { TreatmentRequest } from '@/features/treatments/models/treatmentRequest.model';
 import { VaccineItemComponent } from '@/features/vaccines/components/vaccine-item.component/vaccine-item.component';
 import { ZardButtonComponent } from '@/shared/components/button';
-import {
-  TreatmentItemComponent
-} from '@/features/treatments/components/treatment-item.component/treatment-item.component';
+import { TreatmentItemComponent } from '@/features/treatments/components/treatment-item.component/treatment-item.component';
 
 @Component({
   selector: 'app-treatment-section',

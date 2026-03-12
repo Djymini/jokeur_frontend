@@ -11,7 +11,7 @@
       <label for="frequency" class="text-sm font-medium">Fréquence</label>
       <select z-input id="type" formControlName="typeAction">
         <option value="" disabled>-- Sélectionnez une option --</option>
-        @for (frequency of frequency; track $index){
+        @for (frequency of frequency; track $index) {
           <option [value]="frequency">
             {{ frequency }}
           </option>
@@ -32,8 +32,15 @@
 
     <div class="grid grid-cols-2 gap-4">
       <div class="grid gap-2">
-        <label for="treatmentReminderDate" class="text-sm font-medium">Date de rappel du traitement</label>
-        <input z-input id="treatmentReminderDate" type="date" formControlName="treatmentReminderDate" />
+        <label for="treatmentReminderDate" class="text-sm font-medium"
+          >Date de rappel du traitement</label
+        >
+        <input
+          z-input
+          id="treatmentReminderDate"
+          type="date"
+          formControlName="treatmentReminderDate"
+        />
       </div>
     </div>
 

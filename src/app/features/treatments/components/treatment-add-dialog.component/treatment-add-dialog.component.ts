@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-treatment-add-dialog',

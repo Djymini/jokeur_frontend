@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './treatment-delete-dialog.component.html',
   styleUrl: './treatment-delete-dialog.component.scss',
 })
-export class TreatmentDeleteDialogComponent {
-
-}
+export class TreatmentDeleteDialogComponent {}

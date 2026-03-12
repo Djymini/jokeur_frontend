@@ -1,5 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Z_MODAL_DATA } from '@/shared/components/dialog';
 import { Treatment } from '@/features/treatments/models/treatment.model';
 

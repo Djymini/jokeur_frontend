@@ -18,12 +18,16 @@ export class TreatmentStore {
   }
 
   public removeTreatment(id: number): void {
-    this._treatmentArraySignal.update((treatments) => treatments!.filter((treatment) => treatment.id !== id));
+    this._treatmentArraySignal.update((treatments) =>
+      treatments!.filter((treatment) => treatment.id !== id),
+    );
   }
 
   public modifyTreatment(treatmentNewValue: Treatment): void {
     this._treatmentArraySignal.update((treatments) => {
-      return treatments.map((v) => (v.id === treatmentNewValue.id ? { ...v, ...treatmentNewValue } : v));
+      return treatments.map((v) =>
+        v.id === treatmentNewValue.id ? { ...v, ...treatmentNewValue } : v,
+      );
     });
   }
 }
