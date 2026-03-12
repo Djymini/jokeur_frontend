@@ -46,7 +46,6 @@
 }
 
 .section-title {
-  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--primary);
@@ -64,7 +63,7 @@
 
 .feature-card {
   background: #ffffff;
-  border-radius: var(--l-radius-md);
+  border-radius: 20px;
   padding: 2rem;
   border: 1.5px solid rgba(0, 0, 0, 0.06);
   transition: all 0.25s ease;
