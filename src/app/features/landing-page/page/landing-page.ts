@@ -1,9 +1,10 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
 import { LandingNavbarComponent } from '@/features/landing-page/components/navbar/landing-navbar.component';
 import { LandingHeroComponent } from '@/features/landing-page/components/hero/landing-hero.component';
 import { LandingFeaturesComponent } from '@/features/landing-page/components/features/landing-features.component';
 import { LandingHowItWorksComponent } from '@/features/landing-page/components/how-it-works/landing-how-it-works.component';
 import { LandingCtaFooterComponent } from '@/features/landing-page/components/cta-footer/landing-cta-footer.component';
+import { isPlatformBrowser } from '@angular/common';
 
 export interface Feature {
   icon: string;
@@ -22,10 +23,24 @@ export interface Feature {
     LandingHowItWorksComponent,
     LandingCtaFooterComponent,
   ],
-  templateUrl: './landing-page.html',
-  styleUrl: './landing-page.scss',
+  template: `
+    <app-landing-navbar
+      [activeSection]="activeSection()"
+      [menuOpen]="menuOpen()"
+      (menuToggled)="toggleMenu()"
+    />
+
+    <main id="main-content">
+      <app-landing-hero />
+      <app-landing-features [features]="features" />
+      <app-landing-how-it-works />
+      <app-landing-cta-footer />
+    </main>
+  `,
 })
 export default class LandingPageComponent implements OnInit {
+  private readonly _platformId = inject(PLATFORM_ID);
+
   readonly menuOpen = signal(false);
   readonly activeSection = signal('hero');
 
@@ -69,7 +84,7 @@ export default class LandingPageComponent implements OnInit {
       icon: '📋',
       title: 'Dossiers dynamiques',
       description:
-        'Formulaires intelligents adaptés à chaque espèce. Chiens, chats, NAC — chaque profil est unique.',
+        'Formulaires intelligents adaptés à chaque espèce. Chiens et chats — chaque profil est unique.',
       color: 'var(--navy)',
     },
   ];
@@ -83,7 +98,7 @@ export default class LandingPageComponent implements OnInit {
   }
 
   private _initScrollSpy(): void {
-    if (typeof window === 'undefined') return;
+    if (!isPlatformBrowser(this._platformId)) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
