@@ -12,7 +12,10 @@ export class AppointmentFacade {
   private _appointmentPageStore = inject(AppointmentPageStore);
 
   async modify(appointmentForUpdate: Appointment, userId: number): Promise<void> {
-    const newAppointment = await this._appointmentApi.modifyAppointment(appointmentForUpdate, userId.toString());
+    const newAppointment = await this._appointmentApi.modifyAppointment(
+      appointmentForUpdate,
+      userId.toString(),
+    );
     this._appointmentPageStore.updateAppointment(newAppointment);
 
     toast.success('Rendez-vous modifiée', {
@@ -21,7 +24,10 @@ export class AppointmentFacade {
   }
 
   async remove(appointment: Appointment, userId: number): Promise<void> {
-    const msgConfirmation = await this._appointmentApi.deleteAppointment(appointment, userId.toString());
+    const msgConfirmation = await this._appointmentApi.deleteAppointment(
+      appointment,
+      userId.toString(),
+    );
     this._appointmentPageStore.deleteAppointment(appointment.id);
 
     toast.success(msgConfirmation, {

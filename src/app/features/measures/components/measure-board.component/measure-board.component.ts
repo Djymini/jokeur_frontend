@@ -10,12 +10,7 @@ import { ZardSkeletonComponent } from '@/shared/components/skeleton';
 
 @Component({
   selector: 'app-measure-board',
-  imports: [
-    ZardButtonComponent,
-    MeasureChartComponent,
-    ZardIconComponent,
-    ZardSkeletonComponent,
-  ],
+  imports: [ZardButtonComponent, MeasureChartComponent, ZardIconComponent, ZardSkeletonComponent],
   templateUrl: './measure-board.component.html',
   styleUrl: './measure-board.component.scss',
 })

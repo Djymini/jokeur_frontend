@@ -33,8 +33,6 @@ export class AppointmentApi extends BaseApi {
   }
 
   async deleteAppointment(appointmentNewValue: Appointment, userId: string): Promise<string> {
-    return this.delete<string>(
-      `/appointment/${userId}/${appointmentNewValue.id}`,
-    );
+    return this.delete<string>(`/appointment/${userId}/${appointmentNewValue.id}`);
   }
 }

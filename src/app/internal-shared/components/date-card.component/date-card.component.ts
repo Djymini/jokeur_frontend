@@ -7,14 +7,10 @@ import { DateCounterPipe } from '@/internal-shared/pipes/date-counter-pipe';
 import { Appointment } from '@/features/appointment/models/appointment.model';
 import { toast } from 'ngx-sonner';
 import { ZardDialogService } from '@/shared/components/dialog';
-import {
-  AppointmentDeleteDialogComponent
-} from '@/features/appointment/components/appointment-delete-dialog.component/appointment-delete-dialog.component';
+import { AppointmentDeleteDialogComponent } from '@/features/appointment/components/appointment-delete-dialog.component/appointment-delete-dialog.component';
 import { AppointmentFacade } from '@/features/appointment/services/appointment-facade';
 import { AuthService } from '@/core/services/auth.service';
-import {
-  AppointmentModifyDialogComponent
-} from '@/features/appointment/components/appointment-modify-dialog.component/appointment-modify-dialog.component';
+import { AppointmentModifyDialogComponent } from '@/features/appointment/components/appointment-modify-dialog.component/appointment-modify-dialog.component';
 
 @Component({
   selector: 'app-date-card',

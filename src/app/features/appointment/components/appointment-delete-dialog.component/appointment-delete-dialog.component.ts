@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './appointment-delete-dialog.component.html',
   styleUrl: './appointment-delete-dialog.component.scss',
 })
-export class AppointmentDeleteDialogComponent {
-
-}
+export class AppointmentDeleteDialogComponent {}

@@ -19,9 +19,7 @@ import { AuthService } from '@/core/services/auth.service';
 import { CalendarFacade } from '@/features/calendar/services/calendar-facade';
 import { toast } from 'ngx-sonner';
 import { ZardDialogService } from '@/shared/components/dialog';
-import {
-  AppointmentAddDialogComponent
-} from '@/features/appointment/components/appointment-add-dialog.component/appointment-add-dialog.component';
+import { AppointmentAddDialogComponent } from '@/features/appointment/components/appointment-add-dialog.component/appointment-add-dialog.component';
 import { AppointmentRequest } from '@/features/appointment/models/appointmentRequest.model';
 
 @Component({
