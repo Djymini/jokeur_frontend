@@ -5,11 +5,11 @@ import { healthRecordResolver } from '@/router/resolvers/health-record/health-re
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'landing',
+    path: 'home',
     title: "Page d'accueil",
     loadComponent: () => import('@/features/landing-page/page/landing-page'),
   },
