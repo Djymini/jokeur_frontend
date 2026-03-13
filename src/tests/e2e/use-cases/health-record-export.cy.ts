@@ -44,7 +44,7 @@ describe('Health record export', () => {
   };
 
   const navigateToAnimalDetail = (): void => {
-    cy.contains('Medor').closest('div.rounded-lg').find('a[title="Voir les détails"]').click();
+    cy.contains('Medor').closest('div.rounded-lg').find('a[title="Voir les détails"]').click(); // eslint-disable-line newline-per-chained-call
     cy.wait('@healthRecordDetailRequest');
     cy.contains('Exporter').should('be.visible');
   };
@@ -73,7 +73,7 @@ describe('Health record export', () => {
     cy.contains('Exporter').click();
     cy.get('input[id="from"]').type('2099-01-01');
     cy.get('button[type="submit"]').click();
-    cy.contains('Du').parent().find('[data-error], .error, [class*="error"]').should('be.visible');
+    cy.contains('Du').parent().find('[data-error], .error, [class*="error"]').should('be.visible'); // eslint-disable-line newline-per-chained-call
   });
 
   it('should trigger PDF download when form is valid and PDF selected', () => {
