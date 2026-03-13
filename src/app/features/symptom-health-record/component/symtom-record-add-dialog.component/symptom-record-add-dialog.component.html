@@ -1,0 +1,30 @@
+<form [formGroup]="form" class="grid gap-4 p-4">
+  <h2 class="text-lg font-bold">Ajouter une symptôme</h2>
+
+  <div class="grid gap-2">
+    <label for="symptomSelectName" class="text-sm font-medium">Nom du symptôme</label>
+    <select id="symptomSelectName" formControlName="symptomId" class="border p-2 rounded">
+      @for (symptom of symptomArray(); track symptom.id) {
+        <option value="{{ symptom.id }}">{{ symptom.name }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="grid gap-2">
+      <label for="observationDate" class="text-sm font-medium">Date d'observation</label>
+      <input z-input id="observationDate" type="date" formControlName="observationDate" />
+    </div>
+  </div>
+
+  <div class="grid gap-2">
+    <label for="observation" class="text-sm font-medium">Observation</label>
+    <textarea
+      z-input
+      id="observation"
+      formControlName="observation"
+      rows="3"
+      class="border p-2 rounded"
+    ></textarea>
+  </div>
+</form>
