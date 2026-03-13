@@ -146,6 +146,7 @@ export class DynamicFormComponent {
     if (!control) return;
 
     control.markAsTouched();
+    control.markAsDirty();
     control.setErrors({ serverError: message });
     this.serverErrors.update(errors => ({ ...errors, [fieldKey]: message }));
     this._cdr.markForCheck();

@@ -29,7 +29,6 @@
   }
 
   &__title {
-    font-family: var(--font-display);
     font-size: clamp(2rem, 4.5vw, 3.25rem);
     font-weight: 900;
     color: #ffffff;
@@ -111,7 +110,6 @@
 }
 
 .brand__wordmark {
-  font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 900;
 }

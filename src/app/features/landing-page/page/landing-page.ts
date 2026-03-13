@@ -56,7 +56,7 @@ export default class LandingPageComponent implements OnInit {
       icon: '🤒',
       title: 'Suivi des symptômes',
       description:
-        'Consignez les symptômes de votre animal et recevez des conseils de premiers gestes non-médicaux. Rien ne remplace un vétérinaire, mais vous aurez les bons réflexes.',
+        'Notez les symptômes et accédez aux bons gestes pour réagir vite avant la consultation vétérinaire.',
       color: 'var(--orange)',
     },
     {
@@ -74,10 +74,10 @@ export default class LandingPageComponent implements OnInit {
       color: 'var(--teal)',
     },
     {
-      icon: '🔒',
-      title: 'Données sécurisées',
+      icon: '🔔',
+      title: 'Rappels automatiques',
       description:
-        'Vos données sont hébergées en France, chiffrées et accessibles uniquement par vous.',
+        'Recevez des rappels pour les vaccins, vermifuges et visites vétérinaires de vos animaux.',
       color: 'var(--orange)',
     },
     {
