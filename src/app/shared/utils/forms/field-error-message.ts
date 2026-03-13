@@ -36,5 +36,9 @@ export function getFieldErrorMessage(control: any, fieldLabel: string): string {
     return 'La date de naissance semble incorrecte';
   }
 
+  if (control.errors['fileSize']) {
+    return `Le fichier est trop volumineux (maximum ${control.errors['fileSize']}MB).`;
+  }
+
   return 'Ce champ est invalide';
 }

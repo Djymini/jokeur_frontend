@@ -2,21 +2,7 @@
   margin: 10px 50px;
   color: var(--secondary);
 }
-.parent {
-  margin: 50px;
-}
 
-.my-animals {
-  margin: 40px 60px;
-}
-
-.animal {
-  padding: 0px;
-}
-
-.animal-infos {
-  margin-left: 10px;
-}
 .nav-btn {
   font-size: large;
   padding-left: 50px;
@@ -26,12 +12,49 @@ button[z-button] {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-.nav-btn {
-  font-size: large;
-  padding-left: 50px;
+
+.animal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  img {
+    width: 72px;
+    height: 72px;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  .content {
+    padding: 16px;
+    flex: 1;
+  }
 }
 
-button[z-button] {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+.badge {
+  background-color: #f97316;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+
+.see-record-btn {
+  display: block;
+  margin: 0 12px 12px 12px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #4db6ac;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.75rem;
+
+  &:hover {
+    background-color: #38a89d;
+  }
 }

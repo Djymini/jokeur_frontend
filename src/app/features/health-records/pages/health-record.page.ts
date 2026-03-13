@@ -26,12 +26,12 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
   ],
   template: `
     <div class="top-bar">
-      <z-button z-button zSize="lg" zType="link" (click)="returnToDashboard()">
+      <z-button zSize="lg" zType="link" (click)="returnToDashboard()">
         <span class="material-icons cursor-pointer">arrow_back</span>
         Retour à mon tableau de bord
       </z-button>
 
-      <z-button z-button zSize="lg" zType="outline" (click)="isExportOpen.set(true)">
+      <z-button zSize="lg" zType="outline" (click)="isExportOpen.set(true)">
         <span class="material-icons">download</span>
         Exporter
       </z-button>
@@ -39,6 +39,13 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
 
     <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
+
+    <div class="bottom-bar">
+      <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
+        <span class="material-icons">delete</span>
+        Supprimer
+      </z-button>
+    </div>
 
     <z-dynamic-form-modal
       #editModal
@@ -56,6 +63,22 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       (closed)="isExportOpen.set(false)"
       (submitted)="onExportSubmit($event)"
     />
+
+    @if (isDeleteOpen()) {
+      <div class="modal-overlay" (mousedown)="isDeleteOpen.set(false)">
+        <div class="modal-box" (mousedown)="$event.stopPropagation()">
+          <h2>Supprimer le carnet de santé</h2>
+          <p>
+            Es-tu sûr(e) de vouloir supprimer le carnet de
+            <strong>{{ healthRecord.petName }}</strong> ? Cette action est irréversible.
+          </p>
+          <div class="modal-actions">
+            <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
+            <z-button zType="destructive" (click)="onDeleteConfirm()">Supprimer</z-button>
+          </div>
+        </div>
+      </div>
+    }
   `,
   styles: `
     :host {
@@ -81,6 +104,44 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     button span {
       font-weight: bold;
     }
+
+    .bottom-bar {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 32px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .modal-box h2 {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
   `,
   changeDetection: ChangeDetectionStrategy.Default,
 })
@@ -94,6 +155,7 @@ export default class HealthRecordPage {
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
   isExportOpen = signal(false);
+  isDeleteOpen = signal(false);
 
   healthRecord: HealthRecord = this._normalizeHealthRecord(
     this.route.snapshot.data['healthRecord'],
@@ -202,6 +264,16 @@ export default class HealthRecordPage {
       toast.success('Export généré avec succès');
     } catch {
       toast.error("Erreur lors de la génération de l'export");
+    }
+  }
+
+  async onDeleteConfirm(): Promise<void> {
+    try {
+      await this.healthRecordFacade.deleteHealthRecord(this.healthRecord.id);
+      toast.success('Carnet de santé supprimé');
+      this.router.navigate(['/dashboard']);
+    } catch {
+      toast.error('Erreur lors de la suppression');
     }
   }
 }

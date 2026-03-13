@@ -38,6 +38,7 @@ export default class HealthRecordFormPage {
     try {
       await this._facade.createFromFormPayload(payload, this._user()!.id);
       this.isOpen.set(false);
+      toast.success('Carnet de santé créé avec succès');
     } catch (error: any) {
       if (error?.message === 'FILE_TOO_LARGE') {
         this._modal()?.handleServerError({ errorCode: 'FILE_TOO_LARGE' });

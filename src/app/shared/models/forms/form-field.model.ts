@@ -21,6 +21,7 @@ export type FormField = {
   inputMode?: 'text' | 'numeric' | 'decimal';
   validators?: ValidatorFn[];
   accept?: string;
+  maxFileSizeMb?: number;
   selectSource?: SelectSource;
   checkboxLabel?: string;
   radioOptions?: RadioOption[];

@@ -124,9 +124,10 @@ export abstract class BaseApi {
         case 500:
           return new Error(backendMessage ?? 'Erreur serveur');
         default: {
-          const message = 'Erreur réseau';
-          toast.error(message, { id: message });
-          return new Error(message);
+          const err = new Error('Erreur réseau') as any;
+          err.status = 0;
+          toast.error('Erreur réseau', { id: 'Erreur réseau' });
+          return err;
         }
       }
     }
