@@ -36,7 +36,7 @@ describe('VaccinesFacade (integration)', () => {
       name: 'Pfizer',
       description: 'Covid-19',
       vaccinator: 'Dr. Smith',
-      vaccineDate: new Date('2026-02-17'),
+      observationDate: new Date('2026-02-17'),
       healthRecordId: 1,
       reminder: mockReminder1
     },
@@ -45,7 +45,7 @@ describe('VaccinesFacade (integration)', () => {
       name: 'Moderna',
       description: 'Covid-19',
       vaccinator: 'Dr. Doe',
-      vaccineDate: new Date('2026-02-17'),
+      observationDate: new Date('2026-02-17'),
       healthRecordId: 1,
       reminder: mockReminder2
     }
@@ -89,7 +89,7 @@ describe('VaccinesFacade (integration)', () => {
       name: 'Pfizer',
       description: 'Covid-19',
       vaccinator: 'Dr. Smith',
-      vaccineDate: new Date('2026-02-17'),
+      observationDate: new Date('2026-02-17'),
       vaccineReminderDate: new Date('2026-12-01'),
       healthRecordId: 1
     };
