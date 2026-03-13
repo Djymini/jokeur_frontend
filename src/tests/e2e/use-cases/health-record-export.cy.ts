@@ -44,7 +44,7 @@ describe('Health record export', () => {
   };
 
   const navigateToAnimalDetail = (): void => {
-    cy.contains('Medor').closest('div.rounded-lg').find('a[title="Voir les détails"]').click(); // eslint-disable-line newline-per-chained-call
+    cy.contains('Medor').closest('div.animal-card').find('a').click(); // eslint-disable-line newline-per-chained-call
     cy.wait('@healthRecordDetailRequest');
     cy.contains('Exporter').should('be.visible');
   };
@@ -54,7 +54,7 @@ describe('Health record export', () => {
     navigateToAnimalDetail();
 
     cy.contains('Exporter').click();
-    cy.contains('Exporter la fiche santé').should('be.visible');
+    cy.get('h2.title').should('be.visible').and('contain', 'Exporter la fiche santé');
   });
 
   it('should show validation errors when submitting empty export form', () => {
@@ -62,8 +62,8 @@ describe('Health record export', () => {
     navigateToAnimalDetail();
 
     cy.contains('Exporter').click();
-    cy.get('button[type="submit"]').click();
-    cy.contains('Format').should('be.visible');
+    cy.get('form').should('be.visible').submit();
+    cy.contains('Format').closest('.field').find('.error').should('be.visible'); // eslint-disable-line newline-per-chained-call
   });
 
   it('should show error when date is in the future', () => {
@@ -71,9 +71,11 @@ describe('Health record export', () => {
     navigateToAnimalDetail();
 
     cy.contains('Exporter').click();
+    cy.contains('label', 'PDF').click();
     cy.get('input[id="from"]').type('2099-01-01');
-    cy.get('button[type="submit"]').click();
-    cy.contains('Du').parent().find('[data-error], .error, [class*="error"]').should('be.visible'); // eslint-disable-line newline-per-chained-call
+    cy.get('input[id="to"]').type('2099-01-01');
+    cy.get('form').submit();
+    cy.contains('Du').closest('.field').find('.error').should('be.visible'); // eslint-disable-line newline-per-chained-call
   });
 
   it('should trigger PDF download when form is valid and PDF selected', () => {
