@@ -20,3 +20,16 @@ export function birthDateValidator(): ValidatorFn {
     return null;
   };
 }
+
+export function maxDateTodayValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value) return null;
+
+    const [year, month, day] = (control.value as string).split('-').map(Number);
+    const selectedDate = new Date(year, month - 1, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return selectedDate > today ? { maxDate: true } : null;
+  };
+}

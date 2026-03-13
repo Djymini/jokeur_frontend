@@ -5,6 +5,7 @@ import { HealthRecordFacade } from '@/features/health-records/services/health-re
 import { VaccinesFacade } from '@/features/vaccines/services/vaccines-facade';
 import { SymptomHealthRecordFacade } from '@/features/symptom-health-record/service/symptom-health-record.facade';
 import { SymptomFacade } from '@/features/symptom/services/symptom.facade';
+import { TreatmentFacade } from '@/features/treatments/services/treatment-facade';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const healthRecordResolver: ResolveFn<HealthRecord | null> = (route, state) => {
@@ -16,5 +17,6 @@ export const healthRecordResolver: ResolveFn<HealthRecord | null> = (route, stat
   inject(VaccinesFacade).getVaccine(id);
   inject(SymptomHealthRecordFacade).getSymptomRecord(id);
   inject(SymptomFacade).getSymptoms();
+  inject(TreatmentFacade).getTreatment(id);
   return healthRecordFacade.getHealthRecordById(id);
 };

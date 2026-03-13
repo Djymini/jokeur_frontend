@@ -1,0 +1,74 @@
+import { Component, inject, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Z_MODAL_DATA } from '@/shared/components/dialog';
+import { Treatment } from '@/features/treatments/models/treatment.model';
+
+@Component({
+  selector: 'app-treatment-modify-dialog',
+  imports: [FormsModule, ReactiveFormsModule],
+  templateUrl: './treatment-modify-dialog.component.html',
+  styleUrl: './treatment-modify-dialog.component.scss',
+})
+export class TreatmentModifyDialogComponent implements OnInit {
+  private _fb = inject(FormBuilder);
+
+  frequency: string[] = ['DAILY', 'MONTHLY', 'ANNUAL', 'ONETIME'];
+  data: { treatment: Treatment } = inject(Z_MODAL_DATA);
+
+  treatmentForm!: FormGroup;
+
+  ngOnInit(): void {
+    const formattedTreatmentBeginDate = this._formatDate(this.data.treatment.beginDate);
+    const formattedTreatmentEndDate = this._formatDate(this.data.treatment.beginDate);
+    const formattedReminderDate = this.data.treatment.reminder?.reminderDate
+      ? this._formatDate(this.data.treatment.reminder.reminderDate)
+      : null;
+
+    this.treatmentForm = this._fb.group({
+      name: [this.data.treatment.name, [Validators.required]],
+      description: [this.data.treatment.description],
+      frequency: [this.data.treatment.frequency, [Validators.required]],
+      beginDate: [formattedTreatmentBeginDate, [Validators.required]],
+      endDate: [formattedTreatmentEndDate, [Validators.required]],
+      reminder: this._fb.group({
+        type: [this.data.treatment.reminder?.type || ''],
+        description: [this.data.treatment.reminder?.description || ''],
+        reminderDate: [formattedReminderDate],
+        status: [this.data.treatment.reminder?.status || 'PENDING'],
+      }),
+    });
+  }
+
+  getUpdatedTreatment(): Treatment {
+    const formValue = this.treatmentForm.value;
+    return {
+      ...this.data.treatment,
+      ...formValue,
+      beginDate: new Date(formValue.beginDate),
+      endDate: new Date(formValue.endDate),
+      reminder: {
+        ...this.data.treatment.reminder,
+        ...formValue.reminder,
+        reminderDate: formValue.reminder.reminderDate
+          ? new Date(formValue.reminder.reminderDate)
+          : null,
+      },
+    };
+  }
+
+  isValid(): boolean {
+    return this.treatmentForm.valid;
+  }
+
+  private _formatDate(date: Date | string): string {
+    if (!date) return '';
+    const d = new Date(date);
+    return d.toISOString().split('T')[0];
+  }
+}

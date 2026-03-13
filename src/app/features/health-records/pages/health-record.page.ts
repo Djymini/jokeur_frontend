@@ -6,9 +6,15 @@ import { HealthRecordSectionComponent } from '@/features/health-records/componen
 import { ZardButtonComponent } from '@/shared/components/button';
 import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-form-modal/dynamic-form-modal.component';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
-import { HealthRecordFormBootstrapService } from '@/features/health-records/services/health-record-form-bootstrap.service';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { MeasureType } from '@/features/measures/utils/measureTypeEnum';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 import { toast } from 'ngx-sonner';
+import { HealthRecordExportApi } from '@/features/health-record-export/services/health-record-export.api';
+import { ExportFormat } from '@/features/health-record-export/models/health-record-export.model';
+
+const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string[]);
 
 @Component({
   selector: 'app-health-record.page',
@@ -19,14 +25,27 @@ import { toast } from 'ngx-sonner';
     DynamicFormModalComponent,
   ],
   template: `
-    <div class="button-container">
-      <z-button z-button zSize="lg" zType="link" (click)="returnToDashboard()">
+    <div class="top-bar">
+      <z-button zSize="lg" zType="link" (click)="returnToDashboard()">
         <span class="material-icons cursor-pointer">arrow_back</span>
         Retour à mon tableau de bord
       </z-button>
+
+      <z-button zSize="lg" zType="outline" (click)="isExportOpen.set(true)">
+        <span class="material-icons">download</span>
+        Exporter
+      </z-button>
     </div>
+
     <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
+
+    <div class="bottom-bar">
+      <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
+        <span class="material-icons">delete</span>
+        Supprimer
+      </z-button>
+    </div>
 
     <z-dynamic-form-modal
       #editModal
@@ -37,6 +56,29 @@ import { toast } from 'ngx-sonner';
       (closed)="isEditOpen.set(false)"
       (submitted)="onEditSubmit($event)"
     />
+
+    <z-dynamic-form-modal
+      [isOpen]="isExportOpen()"
+      formId="health-record.export"
+      (closed)="isExportOpen.set(false)"
+      (submitted)="onExportSubmit($event)"
+    />
+
+    @if (isDeleteOpen()) {
+      <div class="modal-overlay" (mousedown)="isDeleteOpen.set(false)">
+        <div class="modal-box" (mousedown)="$event.stopPropagation()">
+          <h2>Supprimer le carnet de santé</h2>
+          <p>
+            Es-tu sûr(e) de vouloir supprimer le carnet de
+            <strong>{{ healthRecord.petName }}</strong> ? Cette action est irréversible.
+          </p>
+          <div class="modal-actions">
+            <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
+            <z-button zType="destructive" (click)="onDeleteConfirm()">Supprimer</z-button>
+          </div>
+        </div>
+      </div>
+    }
   `,
   styles: `
     :host {
@@ -46,7 +88,10 @@ import { toast } from 'ngx-sonner';
       align-items: center;
       padding: 48px;
     }
-    .button-container {
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
       margin-bottom: 32px;
     }
@@ -59,17 +104,58 @@ import { toast } from 'ngx-sonner';
     button span {
       font-weight: bold;
     }
+
+    .bottom-bar {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 32px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .modal-box h2 {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
   `,
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export default class HealthRecordPage {
   private readonly route = inject(ActivatedRoute);
   private readonly healthRecordFacade = inject(HealthRecordFacade);
-  private readonly bootstrap = inject(HealthRecordFormBootstrapService);
+  private readonly exportApi = inject(HealthRecordExportApi);
+  private readonly platformId = inject(PLATFORM_ID);
   protected readonly dashboardStore = inject(DashboardStore);
 
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
+  isExportOpen = signal(false);
+  isDeleteOpen = signal(false);
 
   healthRecord: HealthRecord = this._normalizeHealthRecord(
     this.route.snapshot.data['healthRecord'],
@@ -79,8 +165,6 @@ export default class HealthRecordPage {
   );
 
   constructor(private router: Router) {
-    this.bootstrap.init();
-
     if (!this.dashboardStore.metadata()) {
       this.healthRecordFacade.loadFormMetadata().then((metadata) => {
         this.dashboardStore.metadata.set(metadata);
@@ -131,11 +215,65 @@ export default class HealthRecordPage {
       this.isEditOpen.set(false);
       toast.success('Animal modifié avec succès');
     } catch (error: any) {
-      if (error?.status === 409) {
+      if (error?.message === 'FILE_TOO_LARGE') {
+        this.editModal()?.handleServerError({ errorCode: 'FILE_TOO_LARGE' }, 'image');
+        toast.error('Le fichier est trop volumineux (maximum 2MB).');
+      } else if (error?.status === 409) {
         this.editModal()?.handleServerError(error);
       } else {
         console.error(error);
       }
+    }
+  }
+
+  async onExportSubmit(payload: Record<string, unknown>): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const format = payload['format'] as ExportFormat;
+    const measureTypes = Object.keys(payload).filter(
+      (key) => MEASURE_TYPE_VALUES.has(key) && payload[key] === true,
+    ) as unknown as MeasureType[];
+
+    const exportRequest = {
+      from: payload['from'] as string,
+      to: payload['to'] as string,
+      measureTypes,
+      includeVaccines: payload['includeVaccines'] === true,
+      format,
+    };
+
+    try {
+      const blob =
+        format === 'XLSX'
+          ? await this.exportApi.exportXlsx(this.healthRecord.id, exportRequest)
+          : await this.exportApi.exportPdf(this.healthRecord.id, exportRequest);
+
+      const fileName =
+        format === 'XLSX'
+          ? `fiche-sante_${payload['from']}_${payload['to']}.xlsx`
+          : `fiche-sante_${payload['from']}_${payload['to']}.pdf`;
+
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = fileName;
+      anchor.click();
+      URL.revokeObjectURL(url);
+
+      this.isExportOpen.set(false);
+      toast.success('Export généré avec succès');
+    } catch {
+      toast.error("Erreur lors de la génération de l'export");
+    }
+  }
+
+  async onDeleteConfirm(): Promise<void> {
+    try {
+      await this.healthRecordFacade.deleteHealthRecord(this.healthRecord.id);
+      toast.success('Carnet de santé supprimé');
+      this.router.navigate(['/dashboard']);
+    } catch {
+      toast.error('Erreur lors de la suppression');
     }
   }
 }

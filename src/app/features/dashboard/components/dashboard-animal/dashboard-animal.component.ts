@@ -7,6 +7,7 @@ import { HealthRecordFacade } from '@/features/health-records/services/health-re
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import { AuthService } from '@/core/services/auth.service';
 import { environment } from '../../../../../environments/environment';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-dashboard-animal',
@@ -27,8 +28,29 @@ export class DashboardAnimalComponent {
 
   authService = inject(AuthService);
 
+  sexMap: Record<string, string> = {
+    MALE: 'Mâle',
+    FEMALE: 'Femelle',
+  };
+
   getPhotoUrl(photoKey: string): string {
     return `${environment.apiUrl}/uploads/${photoKey}`;
+  }
+
+  getAge(birthDate: Date): number {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+    return age;
+  }
+
+  formatBreed(breed: string): string {
+    return breed
+      .toLowerCase()
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
   }
 
   async onSubmit(payload: Record<string, unknown>): Promise<void> {
@@ -39,8 +61,12 @@ export class DashboardAnimalComponent {
       );
       this.dashboardStore.animals.update((list) => [...list, newAnimal]);
       this.isOpen.set(false);
+      toast.success('Carnet de santé créé avec succès');
     } catch (error: any) {
-      if (error?.status === 409) {
+      if (error?.message === 'FILE_TOO_LARGE') {
+        this.modalRef()?.handleServerError({ errorCode: 'FILE_TOO_LARGE' });
+        toast.error('Le fichier est trop volumineux (maximum 2MB).');
+      } else if (error?.status === 409) {
         this.modalRef()?.handleServerError(error);
       } else {
         console.error(error);

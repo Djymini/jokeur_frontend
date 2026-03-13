@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>jokeur-frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">jokeur-frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LandingHowItWorksComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/landing-page/components/how-it-works/landing-how-it-works.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-landing-how-it-works</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./landing-how-it-works.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./landing-how-it-works.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-landing-how-it-works&#x27;,
+  standalone: true,
+  imports: [],
+  templateUrl: &#x27;./landing-how-it-works.component.html&#x27;,
+  styleUrl: &#x27;./landing-how-it-works.component.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class LandingHowItWorksComponent {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section id&#x3D;&quot;how&quot; class&#x3D;&quot;how&quot; aria-labelledby&#x3D;&quot;how-title&quot;&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;section-header&quot;&gt;
+      &lt;span class&#x3D;&quot;section-tag&quot;&gt;Simple comme bonjour&lt;/span&gt;
+      &lt;h2 class&#x3D;&quot;section-title&quot; id&#x3D;&quot;how-title&quot;&gt;Prêt en 3 étapes&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;how__steps&quot; role&#x3D;&quot;list&quot;&gt;
+      &lt;div class&#x3D;&quot;step&quot; role&#x3D;&quot;listitem&quot;&gt;
+        &lt;div class&#x3D;&quot;step__number&quot; aria-label&#x3D;&quot;Étape 1&quot;&gt;01&lt;/div&gt;
+        &lt;div class&#x3D;&quot;step__content&quot;&gt;
+          &lt;h3&gt;Créez votre compte&lt;/h3&gt;
+          &lt;p&gt;Inscription gratuite en moins de 2 minutes.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;step__connector&quot; role&#x3D;&quot;separator&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;step&quot; role&#x3D;&quot;listitem&quot;&gt;
+        &lt;div class&#x3D;&quot;step__number&quot; aria-label&#x3D;&quot;Étape 2&quot;&gt;02&lt;/div&gt;
+        &lt;div class&#x3D;&quot;step__content&quot;&gt;
+          &lt;h3&gt;Ajoutez vos animaux&lt;/h3&gt;
+          &lt;p&gt;
+            Renseignez les informations de base. Jokeur adapte le formulaire à chaque espèce
+            automatiquement.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;step__connector&quot; role&#x3D;&quot;separator&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;step&quot; role&#x3D;&quot;listitem&quot;&gt;
+        &lt;div class&#x3D;&quot;step__number&quot; aria-label&#x3D;&quot;Étape 3&quot;&gt;03&lt;/div&gt;
+        &lt;div class&#x3D;&quot;step__content&quot;&gt;
+          &lt;h3&gt;Suivez leur santé&lt;/h3&gt;
+          &lt;p&gt;
+            Consultations, vaccins, rappels — tout est centralisé. Exportez les données de votre
+            animal pour votre vétérinaire.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section id="how" class="how" aria-labelledby="how-title">  <div class="container">    <div class="section-header">      <span class="section-tag">Simple comme bonjour</span>      <h2 class="section-title" id="how-title">Prêt en 3 étapes</h2>    </div>    <div class="how__steps" role="list">      <div class="step" role="listitem">        <div class="step__number" aria-label="Étape 1">01</div>        <div class="step__content">          <h3>Créez votre compte</h3>          <p>Inscription gratuite en moins de 2 minutes.</p>        </div>      </div>      <div class="step__connector" role="separator" aria-hidden="true"></div>      <div class="step" role="listitem">        <div class="step__number" aria-label="Étape 2">02</div>        <div class="step__content">          <h3>Ajoutez vos animaux</h3>          <p>            Renseignez les informations de base. Jokeur adapte le formulaire à chaque espèce            automatiquement.          </p>        </div>      </div>      <div class="step__connector" role="separator" aria-hidden="true"></div>      <div class="step" role="listitem">        <div class="step__number" aria-label="Étape 3">03</div>        <div class="step__content">          <h3>Suivez leur santé</h3>          <p>            Consultations, vaccins, rappels — tout est centralisé. Exportez les données de votre            animal pour votre vétérinaire.          </p>        </div>      </div>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentAddDialogComponent', 'selector': 'app-appointment-add-dialog'},{'name': 'AppointmentDeleteDialogComponent', 'selector': 'app-appointment-delete-dialog.component'},{'name': 'AppointmentModifyDialogComponent', 'selector': 'app-appointment-modify-dialog.component'},{'name': 'AppointmentPage', 'selector': 'app-reminder.page'},{'name': 'AppointmentSectionComponent', 'selector': 'app-appointment-section'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CalendarPage', 'selector': 'app-calendar.page'},{'name': 'DashboardAnimalComponent', 'selector': 'app-dashboard-animal'},{'name': 'DashboardAppointmentComponent', 'selector': 'app-dashboard-appointment'},{'name': 'DashboardNewsComponent', 'selector': 'app-dashboard-news'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'DashboardPage', 'selector': 'app-home.page'},{'name': 'DashboardReminderComponent', 'selector': 'app-dashboard-reminder'},{'name': 'DateCardComponent', 'selector': 'app-date-card'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HealthRecordFormPage', 'selector': ''},{'name': 'HealthRecordHeaderComponent', 'selector': 'app-health-record-header'},{'name': 'HealthRecordInformationSectionComponent', 'selector': 'app-health-record-information-section'},{'name': 'HealthRecordPage', 'selector': 'app-health-record.page'},{'name': 'HealthRecordSectionComponent', 'selector': 'app-health-record-section'},{'name': 'InformationItemComponent', 'selector': 'app-information-item'},{'name': 'LandingCtaFooterComponent', 'selector': 'app-landing-cta-footer'},{'name': 'LandingFeaturesComponent', 'selector': 'app-landing-features'},{'name': 'LandingHeroComponent', 'selector': 'app-landing-hero'},{'name': 'LandingHowItWorksComponent', 'selector': 'app-landing-how-it-works'},{'name': 'LandingNavbarComponent', 'selector': 'app-landing-navbar'},{'name': 'LandingPageComponent', 'selector': 'app-landing'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MeasureAddDialogComponent', 'selector': 'app-measure-add-dialog.component'},{'name': 'MeasureBoardComponent', 'selector': 'app-measure-board'},{'name': 'MeasureChartComponent', 'selector': 'app-measure-chart'},{'name': 'MeasureDeleteDialogComponent', 'selector': 'app-measure-delete-dialog.component'},{'name': 'MeasureDetailsDialogComponent', 'selector': 'app-measure-details-dialog.component'},{'name': 'MeasureModifyDialogComponent', 'selector': 'app-measure-modify-dialog.component'},{'name': 'MeasureResumeComponent', 'selector': 'app-measure-resume'},{'name': 'MeasureResumeItemComponent', 'selector': 'app-measure-resume-item'},{'name': 'MeasureSectionComponent', 'selector': 'app-measure-section'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'PetFeedingComponent', 'selector': 'app-pet-feeding.component'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'ReminderPage', 'selector': 'app-reminder.page'},{'name': 'ReminderSectionComponent', 'selector': 'app-reminder-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResetPasswordPage', 'selector': 'app-reset'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TabBarComponent', 'selector': 'app-tab-bar'},{'name': 'TreatmentAddDialogComponent', 'selector': 'app-treatment-add-dialog'},{'name': 'TreatmentDeleteDialogComponent', 'selector': 'app-treatment-delete-dialog'},{'name': 'TreatmentItemComponent', 'selector': 'app-treatment-item'},{'name': 'TreatmentModifyDialogComponent', 'selector': 'app-treatment-modify-dialog'},{'name': 'TreatmentSectionComponent', 'selector': 'app-treatment-section'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'},{'name': 'VaccineAddDialogComponent', 'selector': 'app-vaccine-add-dialog'},{'name': 'VaccineDeleteDialogComponent', 'selector': 'app-vaccine-delete-dialog.component'},{'name': 'VaccineItemComponent', 'selector': 'app-vaccine-item'},{'name': 'VaccineModifyDialogComponent', 'selector': 'app-vaccine-modify-dialog.component'},{'name': 'VaccinesSectionComponent', 'selector': 'app-vaccines-section'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LandingHowItWorksComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LandingHowItWorksComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
