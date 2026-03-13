@@ -7,6 +7,7 @@ import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { passwordMatchValidator } from '@/features/auth/validators/pass-match-validators';
 import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from '@/features/auth/domain/password.rules';
 import { toast } from 'ngx-sonner';
+import { NAME_REGEX } from '@/features/auth/domain/name.rules';
 
 @Component({
   selector: 'app-register-form',
@@ -25,8 +26,8 @@ export class RegisterFormComponent {
   registerForm: FormGroup<RegisterFormUserModel> = this._fb.group(
     {
       username: this._fb.control('', Validators.required),
-      name: this._fb.control('', Validators.required),
-      firstname: this._fb.control('', Validators.required),
+      name: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
+      firstname: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
       phone: this._fb.control('', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]),
       email: this._fb.control('', [
         Validators.required,

@@ -275,5 +275,8 @@
     <label for="acceptCGU">Accepter les Conditions Générales d'Utilisation</label>
   </div>
 
-  <button type="submit" [disabled]="registerForm.invalid">S'enregistrer</button>
+  <button type="submit" [disabled]="registerForm.invalid">
+    S'enregistrer
+    <span class="material-icons" aria-hidden="true">save</span>
+  </button>
 </form>

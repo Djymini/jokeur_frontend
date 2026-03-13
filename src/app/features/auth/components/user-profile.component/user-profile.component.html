@@ -1,0 +1,116 @@
+@if (userHeader()) {
+  <app-user-profile-header
+    [user]="userHeader()!"
+    (editClicked)="activeTab.set(tabLinks[0].name)"
+  ></app-user-profile-header>
+}
+
+<app-tab-bar [tabLinks]="tabLinks" (activeTab)="selectTab($event)"></app-tab-bar>
+
+<div class="tab-content">
+  @if (activeTab() === tabLinks[0].name) {
+    <!-- <h1 class="title">Modifier mes informations</h1> -->
+
+    <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+      <div class="field flex">
+        <div class="div_label">
+          <label for="name">Nom :</label>
+          <span class="material-icons">person</span>
+        </div>
+
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="ex. Doe"
+          [attr.aria-invalid]="
+            userProfileForm.controls.name.invalid && userProfileForm.controls.name.touched
+              ? 'true'
+              : null
+          "
+          [attr.aria-describedby]="
+            userProfileForm.controls.name.invalid && userProfileForm.controls.name.touched
+              ? 'name-error'
+              : null
+          "
+        />
+
+        @if (
+          userProfileForm.controls.name.errors?.['required'] &&
+          userProfileForm.controls.name.touched
+        ) {
+          <p class="error" id="name-error" role="alert">Un nom est requis.</p>
+        } @else if (
+          userProfileForm.controls.name.errors?.['pattern'] && userProfileForm.controls.name.touched
+        ) {
+          <p class="error" id="name-error" role="alert">
+            Le nom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
+          </p>
+        }
+      </div>
+
+      <div class="field flex">
+        <div class="div_label">
+          <label for="firstname">Prénom :</label>
+          <span class="material-icons">person</span>
+        </div>
+
+        <input
+          id="firstname"
+          type="text"
+          formControlName="firstname"
+          placeholder="ex. John"
+          [attr.aria-invalid]="
+            userProfileForm.controls.firstname.invalid && userProfileForm.controls.firstname.touched
+              ? 'true'
+              : null
+          "
+          [attr.aria-describedby]="
+            userProfileForm.controls.firstname.invalid && userProfileForm.controls.firstname.touched
+              ? 'firstname-error'
+              : null
+          "
+        />
+
+        @if (
+          userProfileForm.controls.firstname.errors?.['required'] &&
+          userProfileForm.controls.firstname.touched
+        ) {
+          <p class="error" id="firstname-error" role="alert">Un prénom est requis.</p>
+        } @else if (
+          userProfileForm.controls.firstname.errors?.['pattern'] &&
+          userProfileForm.controls.firstname.touched
+        ) {
+          <p class="error" id="firstname-error" role="alert">
+            Le prénom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
+          </p>
+        }
+      </div>
+
+      <div class="field flex">
+        <div class="div_label">
+          <label for="address">Adresse (optionnelle) :</label>
+          <span class="material-icons">home</span>
+        </div>
+
+        <input
+          id="address"
+          type="text"
+          formControlName="address"
+          placeholder="ex. 2 rue des hortensias..."
+        />
+      </div>
+
+      <button type="submit" [disabled]="userProfileForm.invalid">
+        Sauvegarder
+        <span class="material-icons" aria-hidden="true">save</span>
+      </button>
+    </form>
+  } @else if (activeTab() === tabLinks[1].name) {
+    <!-- <h1 class="title">Sécurité</h1> -->
+    <p>En cours de construction</p>
+  } @else if (activeTab() === tabLinks[2].name) {
+    <!-- <h1 class="title">Mon vétérinaire</h1> -->
+    <p>En cours de construction</p>
+  }
+</div>

@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="top">
+    <h2>{{ fullName() }}</h2>
+    <z-button z-button zSize="lg" type="button" (click)="editClicked.emit()">
+      <span class="material-icons cursor-pointer">edit</span>
+      Modifier
+    </z-button>
+  </div>
+  <h3 class="description">
+    {{ roleLabel() }}
+  </h3>
+  <h1 class="title">Modifier mes informations</h1>
+</div>
