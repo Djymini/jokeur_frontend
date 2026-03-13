@@ -1,0 +1,24 @@
+<section class="card">
+  <div class="card-header">
+    <div class="title-group">
+      <span class="material-icons">medication</span>
+      <h2>Traitements</h2>
+    </div>
+    <z-button type="button" (click)="openDialogAdd()">
+      <span class="material-icons">add</span>
+      Ajouter un traitement
+    </z-button>
+  </div>
+
+  <div class="vaccine-list">
+    @if (treatmentArray().length > 0) {
+      @for (treatment of treatmentArray(); track $index) {
+        <app-treatment-item [treatment]="treatment"></app-treatment-item>
+      }
+    } @else {
+      <p>Aucun Vaccin</p>
+    }
+  </div>
+
+  <div class="card-footer"></div>
+</section>

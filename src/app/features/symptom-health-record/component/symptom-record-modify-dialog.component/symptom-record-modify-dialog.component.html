@@ -1,0 +1,44 @@
+<form [formGroup]="symptoRecordForm" class="flex flex-col gap-4">
+  <fieldset class="border p-4 rounded-md">
+    <legend class="font-semibold text-gray-700">Modifier une symptôme</legend>
+
+    <div class="flex flex-col mb-3">
+      <label for="symptomSelectName" class="text-sm font-medium">Nom du symptôme</label>
+      <select id="symptomSelectName" formControlName="symptomId" class="border p-2 rounded">
+        @for (symptom of symptomArray(); track symptom.id) {
+          <option value="{{ symptom.id }}">{{ symptom.name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="observationDate" class="text-sm font-medium">Date d'observation</label>
+      <input
+        id="observationDate"
+        type="date"
+        formControlName="observationDate"
+        class="border p-2 rounded"
+      />
+    </div>
+
+    <div class="grid gap-2" [hidden]="symptoRecordForm.get('active')?.value">
+      <label for="endDate" class="text-sm font-medium"> Date de fin de symptôme </label>
+
+      <input z-input id="endDate" type="date" formControlName="endDate" />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="active" class="text-sm font-medium"> Symptôme en cours ? </label>
+      <z-switch id="active" formControlName="active" />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="observation" class="text-sm font-medium">Observation</label>
+      <textarea
+        id="observation"
+        formControlName="observation"
+        class="border p-2 rounded"
+      ></textarea>
+    </div>
+  </fieldset>
+</form>

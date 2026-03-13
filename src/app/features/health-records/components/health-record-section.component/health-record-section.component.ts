@@ -10,10 +10,20 @@ import { TabLink } from '@/internal-shared/models/tabLink.model';
 import { MeasureSectionComponent } from '@/features/measures/components/measure-section.component/measure-section.component';
 import { VaccinesSectionComponent } from '@/features/vaccines/components/vaccines-section.component/vaccines-section.component';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
+import { SymptomsRecordSectionComponent } from '@/features/symptom-health-record/component/symptoms-record-section.component/symptoms-record-section.component';
+import { HealthRecordInformationSectionComponent } from '@/features/health-records/components/health-record-information-section.component/health-record-information-section.component';
+import { TreatmentSectionComponent } from '@/features/treatments/components/treatment-section.component/treatment-section.component';
 
 @Component({
   selector: 'app-health-record-section',
-  imports: [TabBarComponent, MeasureSectionComponent, VaccinesSectionComponent],
+  imports: [
+    TabBarComponent,
+    MeasureSectionComponent,
+    VaccinesSectionComponent,
+    SymptomsRecordSectionComponent,
+    HealthRecordInformationSectionComponent,
+    TreatmentSectionComponent,
+  ],
   templateUrl: './health-record-section.component.html',
   styleUrl: './health-record-section.component.scss',
 })

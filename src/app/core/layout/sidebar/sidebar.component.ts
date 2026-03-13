@@ -17,9 +17,8 @@ export class SidebarComponent {
 
   menuItems = signal<MenuItemModel[]>([
     { id: 'dashboard', label: 'Tableau de bord', icon: 'dashboard', path: '/dashboard' },
-    { id: 'animals', label: 'Mes animaux', icon: 'pets', path: '/construction' },
-    { id: 'calendar', label: 'Agenda', icon: 'calendar_today', path: '/construction' },
     { id: 'settings', label: 'Paramètres', icon: 'settings', path: '/user-profile' },
+    { id: 'calendar', label: 'Agenda', icon: 'calendar_today', path: '/calendar' },
   ]);
 
   // Méthodes

@@ -18,4 +18,24 @@ export class HealthRecordRules {
       throw new Error('Le poids doit être un nombre positif');
     }
   }
+
+  static validateDate(birthDate: Date): void {
+    if (new Date(birthDate).getFullYear() > new Date().getFullYear()) {
+      throw new Error("Date de naissance supérieur à l'année en cours");
+    }
+  }
+
+  static calculateAge(birthDate: Date): string {
+    this.validateDate(birthDate);
+    const currentYear = new Date().getFullYear();
+    const birthYear = new Date(birthDate).getFullYear();
+    if (currentYear - birthYear <= 1) {
+      return currentYear - birthYear + 'an';
+    }
+    return currentYear - birthYear + 'ans';
+  }
+
+  static displayWeight(weight: number): string {
+    return weight + 'kg';
+  }
 }

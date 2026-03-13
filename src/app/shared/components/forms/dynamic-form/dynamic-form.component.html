@@ -157,7 +157,7 @@
     <button z-button zType="outline" type="button" (click)="onCancel()">
       {{ definition().cancelLabel }}
     </button>
-    <button z-button zType="default" type="submit">
+    <button z-button zType="default" type="submit" [zDisabled]="formGroup().invalid">
       {{ definition().submitLabel }}
     </button>
   </div>

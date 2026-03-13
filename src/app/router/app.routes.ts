@@ -71,6 +71,11 @@ export const routes: Routes = [
         loadComponent: () => import('@/features/appointment/pages/appointment.page'),
       },
       {
+        path: 'calendar',
+        title: 'Agenda',
+        loadComponent: () => import('@/features/calendar/pages/calendar.page'),
+      },
+      {
         path: 'health-record/:id',
         title: 'Carnet de santé',
         loadComponent: () => import('../features/health-records/pages/health-record.page'),

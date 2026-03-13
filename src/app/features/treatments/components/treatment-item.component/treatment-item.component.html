@@ -1,0 +1,31 @@
+<div class="treatment-item">
+  <div class="item-top">
+    <div class="text-block">
+      <h3>{{ treatment().name }}</h3>
+      <p class="label">Date du début du traitement : {{ treatment().beginDate }}</p>
+      <p class="label">Date de fin du traitement : {{ treatment().endDate }}</p>
+    </div>
+  </div>
+  <div class="item-bottom">
+    <div class="text-block">
+      <p class="label">Frequence</p>
+      <p class="value">{{ treatment().frequency }}</p>
+    </div>
+    <div class="text-block">
+      <p class="label">Description</p>
+      <p class="value">{{ treatment().description }}</p>
+    </div>
+    <div class="text-block">
+      <p class="label">Date de rappel</p>
+      <p class="value">{{ treatment().reminder.reminderDate }}</p>
+    </div>
+    <div class="button-container">
+      <z-button type="button" (click)="openDialogModify()">
+        <span class="material-icons">edit</span>
+      </z-button>
+      <z-button type="button" (click)="openDialogDelete()">
+        <span class="material-icons">delete</span>
+      </z-button>
+    </div>
+  </div>
+</div>

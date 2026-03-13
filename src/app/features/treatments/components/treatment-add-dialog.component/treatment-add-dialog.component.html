@@ -1,0 +1,50 @@
+<form [formGroup]="form" class="grid gap-4 p-4">
+  <h2 class="text-lg font-bold">Ajouter un vaccin</h2>
+
+  <div class="grid gap-2">
+    <label for="name" class="text-sm font-medium">Nom du traitement</label>
+    <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
+  </div>
+
+  <div class="grid gap-2">
+    <label for="frequency" class="text-sm font-medium">Fréquence</label>
+    <select z-input id="frequency" formControlName="frequency">
+      <option value="" disabled>-- Sélectionnez une option --</option>
+      @for (item of frequency; track item) {
+        <option [value]="item">
+          {{ item }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="grid gap-2">
+      <label for="beginDate" class="text-sm font-medium">Date du début du traitement</label>
+      <input z-input id="beginDate" type="date" formControlName="beginDate" />
+    </div>
+    <div class="grid gap-2">
+      <label for="endDate" class="text-sm font-medium">Date de fin du traitement</label>
+      <input z-input id="endDate" type="date" formControlName="endDate" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="grid gap-2">
+      <label for="treatmentReminderDate" class="text-sm font-medium"
+        >Date de rappel du traitement</label
+      >
+      <input
+        z-input
+        id="treatmentReminderDate"
+        type="date"
+        formControlName="treatmentReminderDate"
+      />
+    </div>
+  </div>
+
+  <div class="grid gap-2">
+    <label for="description" class="text-sm font-medium">Description / Notes</label>
+    <textarea z-input id="description" formControlName="description" rows="3"></textarea>
+  </div>
+</form>
