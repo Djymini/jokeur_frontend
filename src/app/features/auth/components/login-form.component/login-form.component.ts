@@ -44,12 +44,13 @@ export class LoginFormComponent {
 
       this._authService.updateUser(res);
       this._authService.setToken(res.token);
-
       toast.success('Connexion réussie.');
-
       await this._router.navigate(['/dashboard']);
-    } catch {
-      // BaseApi gère le toast.error(...)
+    } catch (error: any) {
+      if (error?.message === 'Email ou mot de passe incorrect') {
+        toast.error('Email ou mot de passe incorrect.');
+      }
+      console.error('Login error:', error);
     }
   }
 }

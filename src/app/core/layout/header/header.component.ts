@@ -29,11 +29,11 @@ export class HeaderComponent {
   }
 
   onSettings(): void {
-    this._router.navigate(['/construction']);
+    this._router.navigate(['/user-profile']);
   }
 
   onLogout(): void {
     this._authService.logout();
-    this._router.navigate(['/']);
+    this._router.navigate(['/login']);
   }
 }

@@ -1,12 +1,1 @@
-<div class="layout-container">
-  <div class="layout-content">
-    <app-sidebar [collapsed]="sidebarCollapsed()" />
-    <main class="main-content">
-      <app-header [sidebarCollapsed]="sidebarCollapsed()" (toggleSidebar)="toggleSidebar()" />
-      <!-- <z-toast position="top-right" [richColors]="true"></z-toast> -->
-      <router-outlet />
-      <z-toaster></z-toaster>
-      <app-footer />
-    </main>
-  </div>
-</div>
+<router-outlet />

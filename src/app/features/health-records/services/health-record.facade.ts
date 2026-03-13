@@ -53,8 +53,31 @@ export class HealthRecordFacade {
       HealthRecordRules.validate(dto);
 
       const healthRecord = await this._api.createHealthRecord(dto);
-      this._store.addHealthRecord(healthRecord);
 
+      const photo = payload['photo'];
+      if (photo instanceof File) {
+        try {
+          const updated = await this._api.uploadPhoto(healthRecord.id, photo);
+          this._store.addHealthRecord(updated);
+          return updated;
+        } catch (error: any) {
+          this._store.addHealthRecord(healthRecord);
+          console.log(
+            'UPLOAD ERROR:',
+            JSON.stringify(error),
+            'status:',
+            error?.status,
+            'message:',
+            error?.message,
+          ); // ← ici
+          if (error?.status === 413 || error?.status === 0) {
+            throw new Error('FILE_TOO_LARGE');
+          }
+          throw new Error("Impossible d'uploader la photo");
+        }
+      }
+
+      this._store.addHealthRecord(healthRecord);
       return healthRecord;
     } catch (error) {
       if (error instanceof Error) throw error;
@@ -79,13 +102,25 @@ export class HealthRecordFacade {
         allergy: this._optionalString(payload, 'allergy'),
       };
 
-      const healthRecord = await this._api.updateHealthRecord(healthRecordNumber, dto);
-      this._store.updateHealthRecord(healthRecord);
+      let healthRecord = await this._api.updateHealthRecord(healthRecordNumber, dto);
 
+      const photo = payload['image'];
+      if (photo instanceof File) {
+        try {
+          healthRecord = await this._api.uploadPhoto(healthRecordNumber, photo);
+        } catch (error: any) {
+          if (error?.status === 413 || error?.status === 0) {
+            throw new Error('FILE_TOO_LARGE');
+          }
+          throw new Error("Impossible d'uploader la photo");
+        }
+      }
+
+      this._store.updateHealthRecord(healthRecord);
       return healthRecord;
     } catch (error) {
       if (error instanceof Error) throw error;
-      throw new Error('Une erreur inattendue est survenue');
+      throw new Error('Une erreur est survenue lors de la modification');
     }
   }
 
@@ -96,6 +131,15 @@ export class HealthRecordFacade {
     } catch {
       throw new Error('Impossible de supprimer le carnet de santé');
     }
+  }
+
+  async getHealthRecordById(id: number): Promise<HealthRecord> {
+    if (this._store.healthRecord() === undefined || this._store.healthRecord()!.id !== id) {
+      const newHealthRecord = await this._api.getHealthRecordById(id);
+      this._store.setHealthRecord(newHealthRecord);
+    }
+
+    return this._store.healthRecord()!;
   }
 
   private _requiredString(payload: Record<string, unknown>, key: string): string {
@@ -115,14 +159,5 @@ export class HealthRecordFacade {
       throw new Error(`Le champ "${key}" doit être un nombre positif valide`);
     }
     return value;
-  }
-
-  async getHealthRecordById(id: number): Promise<HealthRecord> {
-    if (this._store.healthRecord() === undefined || this._store.healthRecord()!.id !== id) {
-      const newHealthRecord = await this._api.getHealthRecordById(id);
-      this._store.setHealthRecord(newHealthRecord);
-    }
-
-    return this._store.healthRecord()!;
   }
 }

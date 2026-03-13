@@ -1,0 +1,33 @@
+<div class="date-card">
+  <div class="date-header">
+    <h3 class="date-title">{{ displayData().title }}</h3>
+    <z-badge zType="secondary" zShape="pill" class="text-sm p-4">{{
+      displayData().timestamp | dateCounter
+    }}</z-badge>
+  </div>
+
+  @if (hasDescription()) {
+    <div class="date-body">
+      <div class="date-date">
+        <span class="material-icons">calendar_today</span>
+        {{ displayData().timestamp | date: 'medium' }}
+      </div>
+    </div>
+
+    <div class="date-footer">
+      <z-button type="button" (click)="openDialogModify()">
+        <span class="material-icons">edit</span>
+      </z-button>
+      <z-button type="button" (click)="openDialogDelete()">
+        <span class="material-icons">delete</span>
+      </z-button>
+    </div>
+  } @else {
+    <div class="date-body">
+      <div class="date-date">
+        <span class="material-icons">calendar_today</span>
+        {{ displayData().timestamp | date: 'fullDate' }}
+      </div>
+    </div>
+  }
+</div>

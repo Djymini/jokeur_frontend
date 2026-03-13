@@ -1,0 +1,86 @@
+<form [formGroup]="treatmentForm" class="flex flex-col gap-4">
+  <fieldset class="border p-4 rounded-md">
+    <legend class="font-semibold text-gray-700">Informations du vaccin</legend>
+
+    <div class="grid gap-2">
+      <label for="name" class="text-sm font-medium">Nom du traitement</label>
+      <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="frequency" class="text-sm font-medium">Fréquence</label>
+      <select z-input id="type" formControlName="typeAction">
+        <option value="" disabled>-- Sélectionnez une option --</option>
+        @for (frequency of frequency; track $index) {
+          <option [value]="frequency">
+            {{ frequency }}
+          </option>
+        }
+      </select>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div class="grid gap-2">
+        <label for="beginDate" class="text-sm font-medium">Date du début du traitement</label>
+        <input z-input id="beginDate" type="date" formControlName="beginDate" />
+      </div>
+      <div class="grid gap-2">
+        <label for="endDate" class="text-sm font-medium">Date de fin du traitement</label>
+        <input z-input id="endDate" type="date" formControlName="endDate" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div class="grid gap-2">
+        <label for="treatmentReminderDate" class="text-sm font-medium"
+          >Date de rappel du traitement</label
+        >
+        <input
+          z-input
+          id="treatmentReminderDate"
+          type="date"
+          formControlName="treatmentReminderDate"
+        />
+      </div>
+    </div>
+
+    <div class="grid gap-2">
+      <label for="description" class="text-sm font-medium">Description / Notes</label>
+      <textarea z-input id="description" formControlName="description" rows="3"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset formGroupName="reminder" class="border p-4 rounded-md mt-2">
+    <legend class="font-semibold text-gray-700">Programmer un rappel</legend>
+
+    <div class="flex flex-col mb-3">
+      <label for="reminderType" class="text-sm font-medium">Type de rappel</label>
+      <input
+        id="reminderType"
+        type="text"
+        formControlName="type"
+        class="border p-2 rounded"
+        placeholder="Ex: Rappel annuel"
+      />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="reminderDate" class="text-sm font-medium">Date du rappel</label>
+      <input
+        id="reminderDate"
+        type="date"
+        formControlName="reminderDate"
+        class="border p-2 rounded"
+      />
+    </div>
+
+    <div class="flex flex-col mb-3">
+      <label for="reminderStatus" class="text-sm font-medium">Statut</label>
+      <select id="reminderStatus" formControlName="status" class="border p-2 rounded">
+        <option value="PENDING">En attente</option>
+        <option value="DONE">Réalisé</option>
+        <option value="CANCELLED">Annulé</option>
+      </select>
+    </div>
+  </fieldset>
+</form>

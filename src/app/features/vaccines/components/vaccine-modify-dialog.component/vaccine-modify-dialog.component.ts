@@ -42,7 +42,7 @@ export class VaccineModifyDialogComponent implements OnInit {
     return {
       ...this.data.vaccine,
       ...formValue,
-      vaccineDate: new Date(formValue.vaccineDate),
+      observationDate: new Date(formValue.vaccineDate),
       reminder: {
         ...this.data.vaccine.reminder,
         ...formValue.reminder,

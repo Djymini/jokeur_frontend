@@ -1,0 +1,36 @@
+<header class="navbar" [class.scrolled]="activeSection() !== 'hero'">
+  <div class="navbar__inner">
+    <a class="navbar__brand" routerLink="/" aria-label="Jokeur — Accueil">
+      <span class="brand__wordmark" aria-hidden="true">Jokeur</span>
+      <span class="brand__dot" aria-hidden="true"></span>
+    </a>
+
+    <nav class="navbar__actions" aria-label="Navigation principale">
+      <a routerLink="/login" z-button zType="ghost">Se connecter</a>
+      <a routerLink="/register" z-button zType="default" zShape="circle">Commencer</a>
+    </nav>
+
+    <button
+      type="button"
+      class="hamburger"
+      (click)="toggle()"
+      [class.open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Ouvrir le menu de navigation"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Navigation mobile">
+      <a routerLink="/login" class="mobile-link" (click)="toggle()">Se connecter</a>
+      <a routerLink="/register" z-button zType="default" zFull (click)="toggle()">
+        Commencer gratuitement
+      </a>
+    </nav>
+  }
+</header>

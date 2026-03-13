@@ -6,6 +6,8 @@ import { AuthApi } from '@/core/auth.api';
 import { RegisterUserPayload } from '@/core/models/register-user-payload';
 import { passwordMatchValidator } from '@/features/auth/validators/pass-match-validators';
 import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from '@/features/auth/domain/password.rules';
+import { toast } from 'ngx-sonner';
+import { NAME_REGEX } from '@/features/auth/domain/name.rules';
 
 @Component({
   selector: 'app-register-form',
@@ -17,14 +19,15 @@ export class RegisterFormComponent {
   private _fb = inject(NonNullableFormBuilder);
   private _authApi = inject(AuthApi);
   private _router = inject(Router);
+
   showPassword = false;
   showConfirmPassword = false;
 
   registerForm: FormGroup<RegisterFormUserModel> = this._fb.group(
     {
       username: this._fb.control('', Validators.required),
-      name: this._fb.control('', Validators.required),
-      firstname: this._fb.control('', Validators.required),
+      name: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
+      firstname: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
       phone: this._fb.control('', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]),
       email: this._fb.control('', [
         Validators.required,
@@ -71,6 +74,7 @@ export class RegisterFormComponent {
         console.log('message result', result);
       });
 
+      toast.success('Inscription réussie.');
       await this._router.navigateByUrl('/login');
     } catch (error) {
       console.error("Probleme d'inscription:", error);

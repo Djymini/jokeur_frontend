@@ -18,8 +18,7 @@ const mockRecord = (overrides: Partial<HealthRecord> = {}): HealthRecord => ({
   identificationNumber: '',
   tattoo: 0,
   allergy: 0,
-  image: '',
-  imageType: '',
+  photoKey: '',
   userId: 1,
   measures: { weight: [], bpm: [], temperature: [], respiratoryRate: [] },
   ...overrides

@@ -15,45 +15,42 @@
     (submitted)="onSubmit($event)"
   />
 
-  <div class="my-animals grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
-    @for (animal of dashboardStore.animals(); track animal) {
-      <div class="rounded-lg bg-card shadow-md hover:shadow-lg transition">
-        <div class="flex items-center justify-between pr-4">
-          <div class="flex items-center gap-4">
-            <img
-              class="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
-              [src]="
-                animal.image
-                  ? 'data:' + animal.imageType + ';base64,' + animal.image
-                  : 'images/jokeur_face.webp'
-              "
-              alt="animal image"
-            />
-
-            <div>
-              <h4 class="font-semibold text-base md:text-lg">
-                {{ animal.petName }}
-              </h4>
-
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 px-14 my-6">
+    @for (animal of dashboardStore.animals(); track animal.id) {
+      <div
+        class="animal-card rounded-2xl bg-card shadow-md hover:shadow-lg transition flex flex-col"
+      >
+        <div class="flex items-center gap-4 p-4 flex-1">
+          <img
+            class="w-16 h-16 object-cover rounded-full flex-shrink-0 border-2 border-muted"
+            [src]="animal.photoKey ? getPhotoUrl(animal.photoKey) : 'images/jokeur_face.webp'"
+            [alt]="'Photo de ' + animal.petName"
+          />
+          <div class="flex flex-col gap-1">
+            <h4 class="font-bold text-lg leading-tight">{{ animal.petName }}</h4>
+            @if (animal.breed) {
+              <p class="text-sm text-muted-foreground">{{ formatBreed(animal.breed) }}</p>
+            }
+            <div class="flex flex-wrap gap-2 mt-1">
               @if (animal.animalType) {
-                <p class="text-sm text-muted-foreground">
-                  {{ animalTypeMap[animal.animalType] }}
-                </p>
+                <span class="badge">{{ animalTypeMap[animal.animalType] }}</span>
+              }
+              @if (animal.sex) {
+                <span class="badge">{{ sexMap[animal.sex] }}</span>
+              }
+              @if (animal.birthDate) {
+                <span class="badge">{{ getAge(animal.birthDate) }} ans</span>
               }
             </div>
           </div>
-
-          <a
-            [routerLink]="['/health-record/', animal.id]"
-            class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full hover:bg-accent m-px transition"
-            title="Voir les détails"
-          >
-            <span class="material-icons text-xl md:text-2xl"> chevron_right </span>
-          </a>
         </div>
+        <a
+          [routerLink]="['/health-record/', animal.id]"
+          class="see-record-btn block text-center py-3 text-sm font-semibold transition"
+        >
+          Voir le carnet de santé
+        </a>
       </div>
     }
   </div>
-
-  <a class="nav-btn" z-button zType="link" routerLink="/"> Accéder à mes animaux </a>
 </section>

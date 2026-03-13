@@ -1,0 +1,36 @@
+<div class="symptom-item">
+  <div class="item-top">
+    <div class="text-block">
+      <h3>{{ sypmtomsRecord().symptom?.name }}</h3>
+      <p class="label">Date d'observation : {{ sypmtomsRecord().observationDate }}</p>
+    </div>
+  </div>
+  <div class="item-bottom">
+    <div class="text-block">
+      <p class="label">Observation</p>
+      <p class="value">{{ sypmtomsRecord().observation }}</p>
+    </div>
+    @if (sypmtomsRecord().active?.valueOf()) {
+      <div class="text-block">
+        <p class="label">Status</p>
+        <p class="value">
+          {{ sypmtomsRecord().active?.valueOf() === true ? 'Encours' : 'Terminé' }}
+        </p>
+      </div>
+    } @else {
+      <div class="text-block">
+        <p class="label">Date de fin</p>
+        <p class="value">{{ sypmtomsRecord().endDate }}</p>
+      </div>
+    }
+
+    <div class="button-container">
+      <z-button type="button" (click)="openDialogModify()">
+        <span class="material-icons">edit</span>
+      </z-button>
+      <z-button type="button" (click)="openDialogDelete()">
+        <span class="material-icons">delete</span>
+      </z-button>
+    </div>
+  </div>
+</div>

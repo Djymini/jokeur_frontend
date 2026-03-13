@@ -15,7 +15,16 @@ export class AnimalFormFactory {
       title: 'Ajouter un animal',
       submitLabel: 'Ajouter',
       cancelLabel: 'Annuler',
-      fields: this._createAnimalFields(),
+      fields: [
+        ...this._createAnimalFields(),
+        {
+          key: 'photo',
+          label: 'Photo',
+          type: 'file',
+          accept: 'image/*',
+          maxFileSizeMb: 2,
+        },
+      ],
     };
   }
 
@@ -25,7 +34,16 @@ export class AnimalFormFactory {
       title: 'Modifier les informations',
       submitLabel: 'Modifier',
       cancelLabel: 'Annuler',
-      fields: this._createAnimalFields(),
+      fields: [
+        ...this._createAnimalFields(),
+        {
+          key: 'image',
+          label: 'Changer la photo',
+          type: 'file',
+          accept: 'image/*',
+          maxFileSizeMb: 2,
+        },
+      ],
     };
   }
 

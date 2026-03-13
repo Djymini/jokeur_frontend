@@ -31,4 +31,20 @@ export class HealthRecordApi extends BaseApi {
   async deleteHealthRecord(id: number): Promise<void> {
     return this.delete(`${this._endpoint}/${id}`);
   }
+
+  async uploadPhoto(id: number, file: File): Promise<HealthRecord> {
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+      return await this.postFormData<HealthRecord>(`${this._endpoint}/${id}/photo`, formData);
+    } catch (error: any) {
+      if (error?.status === 0) {
+        const err = new Error('FILE_TOO_LARGE') as any;
+        err.status = 413;
+        err.errorCode = 'FILE_TOO_LARGE';
+        throw err;
+      }
+      throw error;
+    }
+  }
 }
