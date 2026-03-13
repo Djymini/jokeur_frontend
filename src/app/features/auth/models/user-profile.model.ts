@@ -4,4 +4,5 @@ export type UserProfileFormModel = {
   name: FormControl<string>;
   firstname: FormControl<string>;
   address: FormControl<string>;
+  role: FormControl<string>;
 };

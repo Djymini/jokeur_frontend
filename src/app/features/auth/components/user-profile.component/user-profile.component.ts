@@ -6,29 +6,39 @@ import { toast } from 'ngx-sonner';
 import { NAME_REGEX } from '@/features/auth/domain/name.rules';
 import { TabBarComponent } from '@/internal-shared/components/tab-bar.component/tab-bar.component';
 import { TabLink } from '@/internal-shared/models/tabLink.model';
+import {
+  UserHeader,
+  UserProfileHeaderComponent,
+} from '@/features/auth/components/user-profile-header.component/user-profile-header.component';
+import { AuthService } from '@/core/services/auth.service';
+import { UserModel } from '@/core/models/user-model';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [ReactiveFormsModule, TabBarComponent],
+  imports: [ReactiveFormsModule, TabBarComponent, UserProfileHeaderComponent],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss',
 })
 export class UserProfileComponent implements OnInit {
   private _fb = inject(NonNullableFormBuilder);
   private _userApi = inject(UserApi);
+  private _authService: AuthService = inject(AuthService);
 
   tabLinks: TabLink[] = [
     { name: 'Profil', icon: 'person' },
-    { name: 'Sécurité', icon: 'home' },
-    { name: 'Mon vétérinaire', icon: 'home' },
+    { name: 'Sécurité', icon: 'lock' },
+    { name: 'Mon vétérinaire', icon: 'medication' },
   ];
 
   activeTab = signal<string>(this.tabLinks[0].name);
+
+  userHeader = signal<UserHeader | null>(null);
 
   userProfileForm: FormGroup<UserProfileFormModel> = this._fb.group({
     name: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
     firstname: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
     address: this._fb.control(''),
+    role: this._fb.control(''),
   });
 
   selectTab(name: string): void {
@@ -44,6 +54,14 @@ export class UserProfileComponent implements OnInit {
           firstname: me.firstname ?? '',
           address: me.address ?? '',
         });
+
+        this.userHeader.set({
+          firstname: me.firstname ?? '',
+          name: me.name ?? '',
+          role: me.role ?? '',
+        });
+
+        console.log('userHeader set =', this.userHeader());
       })
       .catch((error) => {
         console.error('Le chargement du profil a échoué.', error);
@@ -65,11 +83,23 @@ export class UserProfileComponent implements OnInit {
       address: (address ?? '').trim(), // permet de vider l'adresse
     };
 
+    const userUpdated: UserModel = {
+      ...this._authService.user()!,
+      firstName: firstname.trim(),
+      name: name.trim(),
+    };
+    this._authService.updateUser(userUpdated);
+
     try {
       await this._userApi.updateUserProfile(payload);
       toast.success('Modification effectuée.');
       this.userProfileForm.markAsPristine();
       this.userProfileForm.markAsUntouched();
+
+      const current = this.userHeader();
+      if (current) {
+        this.userHeader.set({ ...current, name: payload.name, firstname: payload.firstname });
+      }
     } catch (error) {
       console.error('Modification échouée.', error);
       toast.error('Modification échouée.');

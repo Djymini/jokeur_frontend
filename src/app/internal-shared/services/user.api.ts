@@ -3,7 +3,7 @@ import { BaseApi } from './base.api';
 
 @Injectable({ providedIn: 'root' })
 export class UserApi extends BaseApi {
-  getMe(): Promise<{ name: string; firstname: string; address: string | null }> {
+  getMe(): Promise<{ name: string; firstname: string; address: string | null; role: string }> {
     return this.get('/user/me');
   }
 

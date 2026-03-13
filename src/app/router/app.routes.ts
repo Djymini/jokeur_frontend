@@ -77,6 +77,6 @@ export const routes: Routes = [
   {
     path: 'user-profile',
     title: 'Modification des informations',
-    loadComponent: () => import('@/features/auth/pages/user-profile.page'),
+    loadComponent: () => import('@/features/auth/pages/user-profile.page').then((m) => m.default),
   },
 ];

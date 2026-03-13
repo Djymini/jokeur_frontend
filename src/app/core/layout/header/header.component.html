@@ -17,7 +17,7 @@
       <div class="user-profile" z-dropdown [zDropdownMenu]="menu">
         <span class="material-icons">account_circle</span>
         <span class="user-name">
-          {{ user() ? user()!.name + ' ' + user()!.firstName : 'inconnue' }}
+          {{ user() ? user()!.firstName + ' ' + user()!.name : 'inconnue' }}
         </span>
         <z-dropdown-menu-content #menu="zDropdownMenuContent" class="w-56">
           <z-menu-label>Mon compte</z-menu-label>
