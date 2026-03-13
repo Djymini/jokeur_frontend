@@ -114,10 +114,17 @@ export abstract class BaseApi {
           err.errorCode = error.error?.error ?? 'UNKNOWN_CONFLICT';
           return err;
         }
+        case 413: {
+          const err = new Error('FILE_TOO_LARGE') as any;
+          err.status = 413;
+          err.errorCode = 'FILE_TOO_LARGE';
+          return err;
+        }
+
         case 500:
           return new Error(backendMessage ?? 'Erreur serveur');
         default: {
-          const message = backendMessage ?? 'Erreur réseau';
+          const message = 'Erreur réseau';
           toast.error(message, { id: message });
           return new Error(message);
         }
