@@ -163,6 +163,10 @@
                 <td class="col-md-9"><code>app-root</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
             <tr>
                 <td class="col-md-3">imports</td>
@@ -207,6 +211,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_bootstrap" >_bootstrap</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#title" >title</a>
@@ -224,6 +233,24 @@
     </table>
 </section>
 
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -235,6 +262,39 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_bootstrap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_bootstrap</b></span>
+                        <a href="#_bootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(HealthRecordFormBootstrapService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/app.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -261,7 +321,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -274,31 +334,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, signal } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, signal } from &#x27;@angular/core&#x27;;
 import { RouterOutlet } from &#x27;@angular/router&#x27;;
+import { HealthRecordFormBootstrapService } from &#x27;@/features/health-records/services/health-record-form-bootstrap.service&#x27;;
 
 @Component({
   selector: &#x27;app-root&#x27;,
+  standalone: true,
   imports: [RouterOutlet],
   templateUrl: &#x27;./app.component.html&#x27;,
   styleUrl: &#x27;./app.component.scss&#x27;,
 })
 export class AppComponent {
+  private readonly _bootstrap &#x3D; inject(HealthRecordFormBootstrapService);
   protected readonly title &#x3D; signal(&#x27;jokeur_frontend&#x27;);
+
+  constructor() {
+    this._bootstrap.init();
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;header&gt;
-  &lt;!--Make the header if it&#x27;s necessary--&gt;
-&lt;/header&gt;
-&lt;main&gt;
-  &lt;router-outlet /&gt;
-&lt;/main&gt;
-&lt;footer&gt;
-  &lt;!--Make the footer if it&#x27;s necessary--&gt;
-&lt;/footer&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;router-outlet /&gt;
 </code></pre>
     </div>
 
@@ -328,8 +387,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header>  <!--Make the header if it\'s necessary--></header><main>  <router-outlet /></main><footer>  <!--Make the footer if it\'s necessary--></footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'}];
+        var COMPONENT_TEMPLATE = '<div><router-outlet /></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppointmentAddDialogComponent', 'selector': 'app-appointment-add-dialog'},{'name': 'AppointmentDeleteDialogComponent', 'selector': 'app-appointment-delete-dialog.component'},{'name': 'AppointmentModifyDialogComponent', 'selector': 'app-appointment-modify-dialog.component'},{'name': 'AppointmentPage', 'selector': 'app-reminder.page'},{'name': 'AppointmentSectionComponent', 'selector': 'app-appointment-section'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CalendarPage', 'selector': 'app-calendar.page'},{'name': 'DashboardAnimalComponent', 'selector': 'app-dashboard-animal'},{'name': 'DashboardAppointmentComponent', 'selector': 'app-dashboard-appointment'},{'name': 'DashboardNewsComponent', 'selector': 'app-dashboard-news'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'DashboardPage', 'selector': 'app-home.page'},{'name': 'DashboardReminderComponent', 'selector': 'app-dashboard-reminder'},{'name': 'DateCardComponent', 'selector': 'app-date-card'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HealthRecordFormPage', 'selector': ''},{'name': 'HealthRecordHeaderComponent', 'selector': 'app-health-record-header'},{'name': 'HealthRecordInformationSectionComponent', 'selector': 'app-health-record-information-section'},{'name': 'HealthRecordPage', 'selector': 'app-health-record.page'},{'name': 'HealthRecordSectionComponent', 'selector': 'app-health-record-section'},{'name': 'InformationItemComponent', 'selector': 'app-information-item'},{'name': 'LandingCtaFooterComponent', 'selector': 'app-landing-cta-footer'},{'name': 'LandingFeaturesComponent', 'selector': 'app-landing-features'},{'name': 'LandingHeroComponent', 'selector': 'app-landing-hero'},{'name': 'LandingHowItWorksComponent', 'selector': 'app-landing-how-it-works'},{'name': 'LandingNavbarComponent', 'selector': 'app-landing-navbar'},{'name': 'LandingPageComponent', 'selector': 'app-landing'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MeasureAddDialogComponent', 'selector': 'app-measure-add-dialog.component'},{'name': 'MeasureBoardComponent', 'selector': 'app-measure-board'},{'name': 'MeasureChartComponent', 'selector': 'app-measure-chart'},{'name': 'MeasureDeleteDialogComponent', 'selector': 'app-measure-delete-dialog.component'},{'name': 'MeasureDetailsDialogComponent', 'selector': 'app-measure-details-dialog.component'},{'name': 'MeasureModifyDialogComponent', 'selector': 'app-measure-modify-dialog.component'},{'name': 'MeasureResumeComponent', 'selector': 'app-measure-resume'},{'name': 'MeasureResumeItemComponent', 'selector': 'app-measure-resume-item'},{'name': 'MeasureSectionComponent', 'selector': 'app-measure-section'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'PetFeedingComponent', 'selector': 'app-pet-feeding.component'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'ReminderPage', 'selector': 'app-reminder.page'},{'name': 'ReminderSectionComponent', 'selector': 'app-reminder-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResetPasswordPage', 'selector': 'app-reset'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TabBarComponent', 'selector': 'app-tab-bar'},{'name': 'TreatmentAddDialogComponent', 'selector': 'app-treatment-add-dialog'},{'name': 'TreatmentDeleteDialogComponent', 'selector': 'app-treatment-delete-dialog'},{'name': 'TreatmentItemComponent', 'selector': 'app-treatment-item'},{'name': 'TreatmentModifyDialogComponent', 'selector': 'app-treatment-modify-dialog'},{'name': 'TreatmentSectionComponent', 'selector': 'app-treatment-section'},{'name': 'UnderConstructionComponent', 'selector': 'app-under-construction'},{'name': 'UnderConstructionPage', 'selector': 'app-under-construction.page'},{'name': 'VaccineAddDialogComponent', 'selector': 'app-vaccine-add-dialog'},{'name': 'VaccineDeleteDialogComponent', 'selector': 'app-vaccine-delete-dialog.component'},{'name': 'VaccineItemComponent', 'selector': 'app-vaccine-item'},{'name': 'VaccineModifyDialogComponent', 'selector': 'app-vaccine-modify-dialog.component'},{'name': 'VaccinesSectionComponent', 'selector': 'app-vaccines-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

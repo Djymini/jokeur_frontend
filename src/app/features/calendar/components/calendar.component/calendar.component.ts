@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 //import { startOfDay, addHours } from 'date-fns';
 import {
   CalendarView,
-  CalendarEvent,
-  CalendarEventAction,
   CalendarMonthViewComponent,
   CalendarWeekViewComponent,
   CalendarDayViewComponent,
@@ -48,25 +46,6 @@ export class CalendarComponent implements OnInit {
 
   viewDate: Date = new Date();
   CalendarView = CalendarView;
-
-  actions: CalendarEventAction[] = [
-    {
-      label: '✏️',
-      a11yLabel: 'Éditer',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        //this.editEvent(event);
-        console.log(event);
-      },
-    },
-    {
-      label: '🗑️',
-      a11yLabel: 'Supprimer',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        //this.deleteEvent(event);
-        console.log(event);
-      },
-    },
-  ];
 
   ngOnInit(): void {
     this._calendarFacade.getCalendar(this.user()!.id.toString(), this.viewDate.toISOString());
