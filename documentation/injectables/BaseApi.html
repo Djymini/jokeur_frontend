@@ -174,7 +174,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Protected</span>
                                 <a href="#_handleError" >_handleError</a>
                             </li>
                             <li>
@@ -194,7 +194,22 @@
                             <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Async</span>
+                                <a href="#patch" >patch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#post" >post</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#postBlob" >postBlob</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#postFormData" >postFormData</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -225,7 +240,7 @@
                 <td class="col-md-4">
                     <a name="_handleError"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>_handleError</b></span>
                         <a href="#_handleError"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -234,15 +249,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_handleError(error: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <code>_handleError(error: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -265,7 +280,7 @@
                                         <tr>
                                                 <td>error</td>
                                             <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -311,8 +326,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -389,8 +404,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -466,8 +481,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -487,27 +502,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="post"></a>
+                    <a name="patch"></a>
                     <span class="name">
                             <span class="modifier">Protected</span>
                             <span class="modifier">Async</span>
-                        <span ><b>post</b></span>
-                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>patch</b></span>
+                        <a href="#patch"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>post(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <code>patch(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -577,6 +592,268 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>post</b></span>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>post(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:30</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postBlob"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>postBlob</b></span>
+                        <a href="#postBlob"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>postBlob(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Blob&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postFormData"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>postFormData</b></span>
+                        <a href="#postFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>postFormData(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, formData: FormData)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:72</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formData</td>
+                                            <td>
+                                                        <code>FormData</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="put"></a>
                     <span class="name">
                             <span class="modifier">Protected</span>
@@ -596,8 +873,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/internal-shared/services/base.api.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -695,7 +972,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/internal-shared/services/base.api.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/internal-shared/services/base.api.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -727,7 +1004,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/internal-shared/services/base.api.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/internal-shared/services/base.api.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -743,7 +1020,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpErrorResponse, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { inject, Injectable } from &#x27;@angular/core&#x27;;
 import { firstValueFrom } from &#x27;rxjs&#x27;;
-import { environment } from &#x27;src/environments/environment&#x27;;
+import { environment } from &#x27;../../../environments/environment&#x27;;
+import { toast } from &#x27;ngx-sonner&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
@@ -754,14 +1032,14 @@ export abstract class BaseApi {
 
   protected getHeaders(): HttpHeaders {
     return new HttpHeaders({
-      &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
+      &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
     });
   }
 
   protected async get&lt;T&gt;(endpoint: string): Promise&lt;T&gt; {
     try {
       return await firstValueFrom(
-        this.http.get&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, { headers: this.getHeaders() })
+        this.http.get&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, { headers: this.getHeaders() }),
       );
     } catch (error) {
       throw this._handleError(error);
@@ -770,8 +1048,10 @@ export abstract class BaseApi {
 
   protected async post&lt;T&gt;(endpoint: string, body: any): Promise&lt;T&gt; {
     try {
+      console.log(&#x27;environement : &#x27; + environment.name);
+      console.log(&#x27;BASE_API : &#x27; + this.BASE_URL);
       return await firstValueFrom(
-        this.http.post&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, body, { headers: this.getHeaders() })
+        this.http.post&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, body, { headers: this.getHeaders() }),
       );
     } catch (error) {
       throw this._handleError(error);
@@ -781,7 +1061,17 @@ export abstract class BaseApi {
   protected async put&lt;T&gt;(endpoint: string, body: any): Promise&lt;T&gt; {
     try {
       return await firstValueFrom(
-        this.http.put&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, body, { headers: this.getHeaders() })
+        this.http.put&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, body, { headers: this.getHeaders() }),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
+  protected async patch&lt;T&gt;(endpoint: string, body: any): Promise&lt;T&gt; {
+    try {
+      return await firstValueFrom(
+        this.http.patch&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, body, { headers: this.getHeaders() }),
       );
     } catch (error) {
       throw this._handleError(error);
@@ -791,24 +1081,77 @@ export abstract class BaseApi {
   protected async delete&lt;T&gt;(endpoint: string): Promise&lt;T&gt; {
     try {
       return await firstValueFrom(
-        this.http.delete&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, { headers: this.getHeaders() })
+        this.http.delete&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, { headers: this.getHeaders() }),
       );
     } catch (error) {
       throw this._handleError(error);
     }
   }
 
-  private _handleError(error: any): Error {
+  protected async postFormData&lt;T&gt;(endpoint: string, formData: FormData): Promise&lt;T&gt; {
+    try {
+      return await firstValueFrom(this.http.post&lt;T&gt;(&#x60;${this.BASE_URL}${endpoint}&#x60;, formData));
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
+  protected async postBlob(endpoint: string, body: any): Promise&lt;Blob&gt; {
+    try {
+      return await firstValueFrom(
+        this.http.post(&#x60;${this.BASE_URL}${endpoint}&#x60;, body, {
+          headers: this.getHeaders(),
+          responseType: &#x27;blob&#x27;,
+        }),
+      );
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
+  protected _handleError(error: unknown): Error {
     if (error instanceof HttpErrorResponse) {
+      const backendMessage &#x3D;
+        error.error &amp;&amp; typeof error.error &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; (error.error as any)?.message
+          ? String((error.error as any).message)
+          : typeof error.error &#x3D;&#x3D;&#x3D; &#x27;string&#x27;
+            ? error.error
+            : null;
+
       switch (error.status) {
-        case 400: return new Error(&#x27;Données invalides&#x27;);
-        case 401: return new Error(&#x27;Non autorisé&#x27;);
-        case 403: return new Error(&#x27;Accès interdit&#x27;);
-        case 404: return new Error(&#x27;Ressource non trouvée&#x27;);
-        case 500: return new Error(&#x27;Erreur serveur&#x27;);
-        default:  return new Error(&#x27;Erreur réseau&#x27;);
+        case 400:
+          return new Error(backendMessage ?? &#x27;Données invalides&#x27;);
+        case 401:
+          return new Error(backendMessage ?? &#x27;Non autorisé&#x27;);
+        case 403:
+          return new Error(backendMessage ?? &#x27;Accès interdit&#x27;);
+        case 404:
+          return new Error(backendMessage ?? &#x27;Ressource non trouvée&#x27;);
+        case 409: {
+          const err &#x3D; new Error(error.error?.message ?? &#x27;Conflit&#x27;) as any;
+          err.status &#x3D; 409;
+          err.errorCode &#x3D; error.error?.error ?? &#x27;UNKNOWN_CONFLICT&#x27;;
+          return err;
+        }
+        case 413: {
+          const err &#x3D; new Error(&#x27;FILE_TOO_LARGE&#x27;) as any;
+          err.status &#x3D; 413;
+          err.errorCode &#x3D; &#x27;FILE_TOO_LARGE&#x27;;
+          return err;
+        }
+
+        case 500:
+          return new Error(backendMessage ?? &#x27;Erreur serveur&#x27;);
+        default: {
+          const message &#x3D; &#x27;Erreur réseau&#x27;;
+          toast.error(message, { id: message });
+          return new Error(message);
+        }
       }
     }
+
+    console.error(&#x27;BASE_API unknown error shape:&#x27;, error);
+    toast.error(&#x27;Erreur inconnue&#x27;);
     return new Error(&#x27;Erreur inconnue&#x27;);
   }
 }

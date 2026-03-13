@@ -10,16 +10,15 @@
     <div class="date-body">
       <div class="date-date">
         <span class="material-icons">calendar_today</span>
-        {{ displayData().timestamp | date: 'fullDate' }}
+        {{ displayData().timestamp | date: 'medium' }}
       </div>
-      <p class="date-description">A faire</p>
     </div>
 
     <div class="date-footer">
-      <z-button type="button">
+      <z-button type="button" (click)="openDialogModify()">
         <span class="material-icons">edit</span>
       </z-button>
-      <z-button type="button">
+      <z-button type="button" (click)="openDialogDelete()">
         <span class="material-icons">delete</span>
       </z-button>
     </div>

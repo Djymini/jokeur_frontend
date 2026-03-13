@@ -7,6 +7,7 @@ import {
   resolveBreedLabel,
   resolveLabel,
 } from '@/features/health-records/utils/health-record-label.utils';
+import { HealthRecordRules } from '@/features/health-records/domain/health-record.rules';
 
 @Component({
   selector: 'app-health-record-header',
@@ -29,8 +30,8 @@ export class HealthRecordHeaderComponent {
   protected readonly badges = computed(() => {
     const record = this.healthRecord();
     const metadata = this._dashboardStore.metadata();
-    const age = new Date().getFullYear() - new Date(record.birthDate).getFullYear();
+    const age = HealthRecordRules.calculateAge(record.birthDate);
     const sexLabel = resolveLabel(record.sex, metadata?.sexes ?? []);
-    return [age + ' ans', sexLabel, record.currentWeight + ' kg'];
+    return [age, sexLabel, record.currentWeight + ' kg'];
   });
 }
