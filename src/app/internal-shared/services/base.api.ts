@@ -106,7 +106,7 @@ export abstract class BaseApi {
           const err = new Error(backendMessage ?? 'Non autorisé') as any;
           err.status = 401;
           return err;
-        };
+        }
         case 403:
           return new Error(backendMessage ?? 'Accès interdit');
         case 404:
