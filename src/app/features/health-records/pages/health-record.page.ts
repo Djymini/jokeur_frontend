@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordHeaderComponent } from '@/features/health-records/components/health-record-header.component/health-record-header.component';
@@ -13,6 +20,8 @@ import { PLATFORM_ID } from '@angular/core';
 import { toast } from 'ngx-sonner';
 import { HealthRecordExportApi } from '@/features/health-record-export/services/health-record-export.api';
 import { ExportFormat } from '@/features/health-record-export/models/health-record-export.model';
+import { BreadcrumbNode } from '@/internal-shared/models/breadcrumb-node.model';
+import { BreadcrumbComponent } from '@/internal-shared/components/breadcrumb.component/breadcrumb.component';
 
 const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string[]);
 
@@ -22,14 +31,12 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     HealthRecordHeaderComponent,
     HealthRecordSectionComponent,
     ZardButtonComponent,
+    BreadcrumbComponent,
     DynamicFormModalComponent,
   ],
   template: `
     <div class="top-bar">
-      <z-button zSize="lg" zType="link" (click)="returnToDashboard()">
-        <span class="material-icons cursor-pointer">arrow_back</span>
-        Retour à mon tableau de bord
-      </z-button>
+      <app-breadcrumb [breadcrumbRoad]="breadcrumbRoad"></app-breadcrumb>
 
       <z-button zSize="lg" zType="outline" (click)="isExportOpen.set(true)">
         <span class="material-icons">download</span>
@@ -145,12 +152,14 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
   `,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export default class HealthRecordPage {
+export default class HealthRecordPage implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly healthRecordFacade = inject(HealthRecordFacade);
   private readonly exportApi = inject(HealthRecordExportApi);
   private readonly platformId = inject(PLATFORM_ID);
   protected readonly dashboardStore = inject(DashboardStore);
+
+  breadcrumbRoad: BreadcrumbNode[] = [];
 
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
@@ -170,6 +179,10 @@ export default class HealthRecordPage {
         this.dashboardStore.metadata.set(metadata);
       });
     }
+  }
+
+  ngOnInit(): void {
+    this.breadcrumbRoad = [{ link: ['health-record/'+this.healthRecord.id], name: 'Carnet de santé de '+ this.healthRecord.petName}];
   }
 
   private _normalizeHealthRecord(rawHealthRecord: Record<string, unknown>): HealthRecord {
