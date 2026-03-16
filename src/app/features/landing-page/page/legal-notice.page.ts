@@ -23,8 +23,8 @@ import { ZardButtonComponent } from '@/shared/components/button';
       <section class="legal-section">
         <h2>1. Éditeur de l'application</h2>
         <p>
-          L'application <strong>Jokeur</strong> est éditée et exploitée par l'équipe Jokeur.
-          Pour toute question, vous pouvez nous contacter à l'adresse :
+          L'application <strong>Jokeur</strong> est éditée et exploitée par l'équipe Jokeur. Pour
+          toute question, vous pouvez nous contacter à l'adresse :
           <a href="mailto:contact@jokeur.ashleydev.fr">contact&#64;jokeur.ashleydev.fr</a>
         </p>
       </section>
@@ -45,15 +45,14 @@ import { ZardButtonComponent } from '@/shared/components/button';
           <h2>3. Avertissement médical vétérinaire</h2>
           <p>
             Les informations et conseils disponibles sur <strong>Jokeur</strong> sont fournis à
-            titre informatif uniquement. Ils <strong>ne constituent pas un diagnostic
-            vétérinaire</strong> et ne sauraient en aucun cas remplacer une consultation auprès
-            d'un vétérinaire qualifié.
+            titre informatif uniquement. Ils
+            <strong>ne constituent pas un diagnostic vétérinaire</strong> et ne sauraient en aucun
+            cas remplacer une consultation auprès d'un vétérinaire qualifié.
           </p>
           <p>
-            En cas de doute sur la santé de votre animal, consultez immédiatement un
-            professionnel de santé animale. Jokeur décline toute responsabilité en cas
-            d'utilisation des informations de l'application comme substitut à un avis
-            vétérinaire.
+            En cas de doute sur la santé de votre animal, consultez immédiatement un professionnel
+            de santé animale. Jokeur décline toute responsabilité en cas d'utilisation des
+            informations de l'application comme substitut à un avis vétérinaire.
           </p>
         </div>
       </section>
@@ -62,22 +61,22 @@ import { ZardButtonComponent } from '@/shared/components/button';
         <h2>4. Données personnelles</h2>
         <p>
           Jokeur collecte uniquement les données nécessaires au fonctionnement du service :
-          informations de compte (adresse e-mail, mot de passe chiffré) et données relatives
-          à vos animaux (nom, espèce, suivi de santé). Les données relatives à vos animaux
-          ne constituent pas des données personnelles au sens du RGPD.
+          informations de compte (adresse e-mail, mot de passe chiffré) et données relatives à vos
+          animaux (nom, espèce, suivi de santé). Les données relatives à vos animaux ne constituent
+          pas des données personnelles au sens du RGPD.
         </p>
         <p>
-          Vos données de compte ne sont jamais cédées à des tiers. Conformément au RGPD,
-          vous disposez d'un droit d'accès, de rectification et de suppression depuis votre
-          espace personnel ou en nous contactant directement.
+          Vos données de compte ne sont jamais cédées à des tiers. Conformément au RGPD, vous
+          disposez d'un droit d'accès, de rectification et de suppression depuis votre espace
+          personnel ou en nous contactant directement.
         </p>
       </section>
 
       <section class="legal-section">
         <h2>5. Propriété intellectuelle</h2>
         <p>
-          L'ensemble des contenus présents sur Jokeur — textes, visuels, logotype, structure
-          de l'application — sont la propriété exclusive de leurs auteurs. Toute reproduction,
+          L'ensemble des contenus présents sur Jokeur — textes, visuels, logotype, structure de
+          l'application — sont la propriété exclusive de leurs auteurs. Toute reproduction,
           représentation ou diffusion sans autorisation préalable est strictement interdite.
         </p>
       </section>
@@ -85,11 +84,11 @@ import { ZardButtonComponent } from '@/shared/components/button';
       <section class="legal-section">
         <h2>6. Limitation de responsabilité</h2>
         <p>
-          Jokeur fournit des conseils généraux de bien-être animal à titre non médical.
-          Ces informations ne remplacent en aucun cas l'avis d'un vétérinaire et ne doivent
-          pas être utilisées comme base de décision médicale. L'équipe Jokeur s'efforce
-          de maintenir des contenus fiables et à jour, mais ne saurait être tenue responsable
-          des conséquences liées à leur utilisation.
+          Jokeur fournit des conseils généraux de bien-être animal à titre non médical. Ces
+          informations ne remplacent en aucun cas l'avis d'un vétérinaire et ne doivent pas être
+          utilisées comme base de décision médicale. L'équipe Jokeur s'efforce de maintenir des
+          contenus fiables et à jour, mais ne saurait être tenue responsable des conséquences liées
+          à leur utilisation.
         </p>
       </section>
 
