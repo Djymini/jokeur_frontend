@@ -33,6 +33,11 @@ export const routes: Routes = [
     title: 'Réinitialisation du mot de passe',
     loadComponent: () => import('@/features/auth/pages/reset-password.page'),
   },
+  {
+    path: 'legal-notice',
+    title: 'Mention Légales',
+    loadComponent: () => import('@/features/landing-page/page/legal-notice.page'),
+  },
 
   // ── Avec layout
   {
