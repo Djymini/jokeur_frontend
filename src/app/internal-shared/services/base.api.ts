@@ -102,8 +102,11 @@ export abstract class BaseApi {
       switch (error.status) {
         case 400:
           return new Error(backendMessage ?? 'Données invalides');
-        case 401:
-          return new Error(backendMessage ?? 'Non autorisé');
+        case 401: {
+          const err = new Error(backendMessage ?? 'Non autorisé') as any;
+          err.status = 401;
+          return err;
+        }
         case 403:
           return new Error(backendMessage ?? 'Accès interdit');
         case 404:

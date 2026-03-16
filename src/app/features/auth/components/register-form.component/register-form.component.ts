@@ -76,7 +76,12 @@ export class RegisterFormComponent {
 
       toast.success('Inscription réussie.');
       await this._router.navigateByUrl('/login');
-    } catch (error) {
+    } catch (error: any) {
+      if (error?.status === 409) {
+        toast.error('Cette adresse email est déjà utilisée.');
+      } else {
+        toast.error(error?.message ?? 'Une erreur est survenue.');
+      }
       console.error("Probleme d'inscription:", error);
     }
   }
