@@ -17,7 +17,7 @@ import { ZardButtonComponent } from '@/shared/components/button';
       <header class="legal-header">
         <span class="material-icons legal-icon">gavel</span>
         <h1>Mentions légales</h1>
-        <p class="legal-subtitle">Dernière mise à jour : juin 2025</p>
+        <p class="legal-subtitle">Dernière mise à jour : Mars 2026</p>
       </header>
 
       <section class="legal-section">
@@ -25,14 +25,24 @@ import { ZardButtonComponent } from '@/shared/components/button';
         <p>
           L'application <strong>Jokeur</strong> est éditée et exploitée par l'équipe Jokeur.
           Pour toute question, vous pouvez nous contacter à l'adresse :
-          <a href="mailto:contact@jokeur.app">contact&#64;jokeur.ashleydev.fr</a>
+          <a href="mailto:contact@jokeur.ashleydev.fr">contact&#64;jokeur.ashleydev.fr</a>
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>2. Hébergement</h2>
+        <p>
+          L'application est hébergée par :<br />
+          <strong>OVH SAS</strong><br />
+          2 rue Kellermann — 59100 Roubaix, France<br />
+          <a href="https://www.ovh.com" target="_blank" rel="noopener">www.ovh.com</a>
         </p>
       </section>
 
       <section class="legal-section disclaimer-section">
         <span class="material-icons disclaimer-icon">info</span>
         <div>
-          <h2>2. Avertissement médical vétérinaire</h2>
+          <h2>3. Avertissement médical vétérinaire</h2>
           <p>
             Les informations et conseils disponibles sur <strong>Jokeur</strong> sont fournis à
             titre informatif uniquement. Ils <strong>ne constituent pas un diagnostic
@@ -49,7 +59,7 @@ import { ZardButtonComponent } from '@/shared/components/button';
       </section>
 
       <section class="legal-section">
-        <h2>3. Données personnelles</h2>
+        <h2>4. Données personnelles</h2>
         <p>
           Jokeur collecte uniquement les données nécessaires au fonctionnement du service :
           informations de compte (adresse e-mail, mot de passe chiffré) et données relatives
@@ -64,7 +74,7 @@ import { ZardButtonComponent } from '@/shared/components/button';
       </section>
 
       <section class="legal-section">
-        <h2>4. Propriété intellectuelle</h2>
+        <h2>5. Propriété intellectuelle</h2>
         <p>
           L'ensemble des contenus présents sur Jokeur — textes, visuels, logotype, structure
           de l'application — sont la propriété exclusive de leurs auteurs. Toute reproduction,
@@ -73,7 +83,7 @@ import { ZardButtonComponent } from '@/shared/components/button';
       </section>
 
       <section class="legal-section">
-        <h2>5. Limitation de responsabilité</h2>
+        <h2>6. Limitation de responsabilité</h2>
         <p>
           Jokeur fournit des conseils généraux de bien-être animal à titre non médical.
           Ces informations ne remplacent en aucun cas l'avis d'un vétérinaire et ne doivent
@@ -84,10 +94,10 @@ import { ZardButtonComponent } from '@/shared/components/button';
       </section>
 
       <section class="legal-section">
-        <h2>6. Contact</h2>
+        <h2>7. Contact</h2>
         <p>
           Pour toute question relative aux présentes mentions légales ou à vos données :
-          <a href="mailto:contact@jokeur.app">contact&#64;jokeur.ashleydev.fr</a>
+          <a href="mailto:contact@jokeur.ashleydev.fr">contact&#64;jokeur.ashleydev.fr</a>
         </p>
       </section>
     </div>
@@ -121,28 +131,25 @@ import { ZardButtonComponent } from '@/shared/components/button';
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 12px;
-      padding-bottom: 40px;
+      gap: 8px;
+      padding-bottom: 32px;
       border-bottom: 1px solid #e5e7eb;
     }
 
     .legal-icon {
-      font-size: 36px;
-      color: var(--primary);
-      opacity: 0.5;
+      font-size: 40px;
+      color: #6b7280;
     }
 
     .legal-header h1 {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--primary);
+      font-size: 28px;
+      font-weight: 700;
       margin: 0;
-      letter-spacing: -0.5px;
     }
 
     .legal-subtitle {
-      font-size: 13px;
-      color: var(--muted-foreground);
+      font-size: 14px;
+      color: #9ca3af;
       margin: 0;
     }
 
@@ -150,35 +157,25 @@ import { ZardButtonComponent } from '@/shared/components/button';
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .legal-section:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
     }
 
     .legal-section h2 {
-      font-size: 19px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--primary);
       margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
     }
 
     .legal-section p {
       font-size: 15px;
-      line-height: 1.75;
+      line-height: 1.7;
       color: #374151;
       margin: 0;
     }
 
     .legal-section a {
-      color: var(--primary);
+      color: inherit;
       text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
     .disclaimer-section {
@@ -199,7 +196,6 @@ import { ZardButtonComponent } from '@/shared/components/button';
 
     .disclaimer-section h2 {
       color: oklch(from var(--secondary) calc(l - 0.15) c h);
-      margin-bottom: 13px;
     }
 
     .disclaimer-section p {
