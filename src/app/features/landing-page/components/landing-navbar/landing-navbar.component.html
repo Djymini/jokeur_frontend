@@ -5,6 +5,8 @@
       <span class="brand__dot" aria-hidden="true"></span>
     </a>
 
+    <a routerLink="/home" class="navbar__home" z-button zType="ghost">Accueil</a>
+
     <nav class="navbar__actions" aria-label="Navigation principale">
       <a routerLink="/login" z-button zType="ghost">Se connecter</a>
       <a routerLink="/register" z-button zType="default" zShape="circle">Commencer</a>
@@ -28,7 +30,7 @@
   @if (menuOpen()) {
     <nav id="mobile-menu" class="mobile-menu" aria-label="Navigation mobile">
       <a routerLink="/login" class="mobile-link" (click)="toggle()">Se connecter</a>
-      <a routerLink="/register" z-button zType="default" zFull (click)="toggle()"> </a>
+      <a routerLink="/register" z-button zType="default" zFull (click)="toggle()">Commencer</a>
     </nav>
   }
 </header>
