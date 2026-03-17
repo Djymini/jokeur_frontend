@@ -55,28 +55,28 @@ export default class LandingPageComponent implements OnInit {
       icon: '📅',
       title: 'Agenda intégré',
       description:
-        'Rappels automatiques pour les vaccins, visites et traitements. Ne manquez plus aucun rendez-vous.',
+        'Rappels automatiques pour le vétérinaire et autres professionnels. Ne manquez plus aucune échéance.',
       color: 'var(--navy)',
     },
     {
       icon: '📄',
       title: 'Export PDF & tableur',
       description:
-        'Générez des carnets de santé complets à partager avec votre vétérinaire — en PDF ou en tableur — en un clic.',
+        'Générez des carnets de santé complets à partager avec votre vétérinaire (en PDF ou en tableur) en un clic.',
       color: 'var(--teal)',
     },
     {
       icon: '🔔',
       title: 'Rappels automatiques',
       description:
-        'Recevez des rappels pour les vaccins, vermifuges et visites vétérinaires de vos animaux.',
+        'Recevez des rappels pour les vaccins et vermifuges de vos animaux.',
       color: 'var(--orange)',
     },
     {
       icon: '📋',
       title: 'Dossiers dynamiques',
       description:
-        'Formulaires intelligents adaptés à chaque espèce. Chiens et chats — chaque profil est unique.',
+        'Formulaires intelligents adaptés à chaque espèce. Chiens et chats, chaque profil est unique.',
       color: 'var(--navy)',
     },
   ];
