@@ -7,10 +7,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Z_MODAL_DATA } from '@/shared/components/dialog';
-import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/symptom-record-dto';
+import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/model/symptom-record-dto';
 import { SymptomStore } from '@/features/symptom/services/symptom.store';
 import { ZardSwitchComponent } from '@/shared/components/switch';
-import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/domain/create-update-symptom-record-dto';
+import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/model/create-update-symptom-record-dto';
 
 @Component({
   selector: 'app-symptom-modify-dialog',
