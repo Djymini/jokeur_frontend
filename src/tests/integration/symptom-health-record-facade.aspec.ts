@@ -16,7 +16,7 @@ describe('SymptomHealthRecordRules (integration)', () => {
       id: 1,
       symptomId: {
         id: 2,
-        name: 'string',
+        name: 'Vomissement',
       },
       healthRecordId: 1,
       observationDate: new Date('2026-02-17').toISOString(),
