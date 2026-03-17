@@ -22,14 +22,30 @@
     }
   </div>
 
-  <div class="field">
-    <label for="password">Mot de passe :</label>
-    <input
-      id="password"
-      type="password"
-      formControlName="password"
-      placeholder="Votre mot de passe"
-    />
+  <div class="field password-field">
+    <div class="div_label">
+      <label for="password">Mot de passe :</label>
+      <span class="material-icons">password</span>
+    </div>
+
+    <div class="input-wrapper">
+      <input
+        id="password"
+        [type]="showPassword ? 'text' : 'password'"
+        formControlName="password"
+        placeholder="********"
+      />
+      <button
+        type="button"
+        class="eye"
+        (click)="togglePassword()"
+        [attr.aria-label]="showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'"
+      >
+        <span class="material-icons">
+          {{ showPassword ? 'visibility_off' : 'visibility' }}
+        </span>
+      </button>
+    </div>
   </div>
 
   <button type="submit" [disabled]="loginForm.invalid">Connexion</button>

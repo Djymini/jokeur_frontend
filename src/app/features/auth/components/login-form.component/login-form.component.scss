@@ -92,3 +92,46 @@ button[type='submit']:disabled {
   text-decoration: underline;
   font-weight: 600;
 }
+
+/* PASSWORD + oeil */
+.div_label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.password-field {
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    width: 100%;
+    padding-right: 40px; /* place pour l'icône */
+  }
+
+  /* garder le focus visuel quand on clique sur l'œil */
+  .input-wrapper:focus-within input {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--secondary) 20%, transparent);
+  }
+
+  .eye {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .material-icons {
+      font-size: 20px;
+      color: #666;
+    }
+  }
+}

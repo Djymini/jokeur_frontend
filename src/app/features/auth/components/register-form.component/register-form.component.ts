@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterFormUserModel } from '@/features/auth/models/register-form-user-model';
 import { AuthApi } from '@/core/auth.api';
@@ -11,7 +11,7 @@ import { NAME_REGEX } from '@/features/auth/domain/name.rules';
 
 @Component({
   selector: 'app-register-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })
