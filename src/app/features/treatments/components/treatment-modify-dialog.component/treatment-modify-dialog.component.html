@@ -36,7 +36,10 @@
       <div class="grid gap-2">
         <label for="endDate" class="text-sm font-medium">Date de fin du traitement</label>
         <input z-input id="endDate" type="date" formControlName="endDate" />
-        @if (treatmentForm.hasError('dateLimitNoMatch') && treatmentForm.get('endDate')?.touched) {
+        @if (
+          treatmentForm.get('endDate')?.hasError('dateLimitEndValidator') &&
+          treatmentForm.get('endDate')?.touched
+        ) {
           <p class="error">Date de fin ne peut-être inferieur à date du début</p>
         }
       </div>
@@ -77,7 +80,8 @@
         class="border p-2 rounded"
       />
       @if (
-        treatmentForm.hasError('dateLimitNoMatch') && treatmentForm.get('reminderDate')?.touched
+        treatmentForm.get('reminder.reminderDate')?.hasError('dateLimitReminderValidator') &&
+        treatmentForm.get('reminderDate')?.touched
       ) {
         <p class="error">La date de rappel ne peut-être inferieur à la date du début</p>
       }

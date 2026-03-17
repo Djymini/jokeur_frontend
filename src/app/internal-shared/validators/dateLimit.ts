@@ -1,15 +1,23 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export const dateLimitTreatmentValidator: ValidatorFn = (
+export const dateLimitEndValidator: ValidatorFn = (
   control: AbstractControl,
 ): ValidationErrors | null => {
-  const beginDate = control.get('beginDate')?.value;
-  const endDate = control.get('endDate')?.value;
-  const treatmentReminderDate = control.get('reminderDate')?.value;
+  const beginDate = control.parent?.get('beginDate')?.value;
+  const endDate = control.value;
 
-  return beginDate <= endDate || beginDate <= treatmentReminderDate
-    ? null
-    : { dateLimitNoMatch: true };
+  if (!beginDate || !endDate) return null;
+  return beginDate <= endDate ? null : { dateLimitEndValidator: true };
+};
+
+export const dateLimitReminderValidator: ValidatorFn = (
+  control: AbstractControl,
+): ValidationErrors | null => {
+  const beginDate = control.root.get('beginDate')?.value;
+  const reminderDate = control.value;
+
+  if (!beginDate || !reminderDate) return null;
+  return beginDate <= reminderDate ? null : { dateLimitReminderValidator: true };
 };
 
 export const dateLimitValidator: ValidatorFn = (

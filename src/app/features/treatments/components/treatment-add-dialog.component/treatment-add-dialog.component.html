@@ -1,7 +1,10 @@
-<form [formGroup]="form" class="grid gap-4 p-4">
+<form [formGroup]="treatmentForm" class="grid gap-4 p-4">
   <div class="grid gap-2">
     <label for="name" class="text-sm font-medium">Nom du traitement</label>
     <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
+    @if (treatmentForm.get('name')?.invalid && treatmentForm.get('name')?.touched) {
+      <p class="error">Nom requis</p>
+    }
   </div>
 
   <div class="grid gap-2">
@@ -14,16 +17,28 @@
         </option>
       }
     </select>
+    @if (treatmentForm.get('frequency')?.invalid && treatmentForm.get('frequency')?.touched) {
+      <p class="error">Frequence requise requis</p>
+    }
   </div>
 
   <div class="grid grid-cols-2 gap-4">
     <div class="grid gap-2">
       <label for="beginDate" class="text-sm font-medium">Date du début du traitement</label>
       <input z-input id="beginDate" type="date" formControlName="beginDate" />
+      @if (treatmentForm.get('beginDate')?.invalid && treatmentForm.get('beginDate')?.touched) {
+        <p class="error">Date de debut requise</p>
+      }
     </div>
     <div class="grid gap-2">
       <label for="endDate" class="text-sm font-medium">Date de fin du traitement</label>
       <input z-input id="endDate" type="date" formControlName="endDate" />
+      @if (
+        treatmentForm.get('endDate')?.hasError('dateLimitEndValidator') &&
+        treatmentForm.get('endDate')?.touched
+      ) {
+        <p class="error">Date de fin ne peut-être inferieur à date du début</p>
+      }
     </div>
   </div>
 
@@ -32,13 +47,14 @@
       <label for="treatmentReminderDate" class="text-sm font-medium"
         >Date de rappel du traitement</label
       >
-      <input
-        z-input
-        id="treatmentReminderDate"
-        type="date"
-        formControlName="treatmentReminderDate"
-      />
+      <input z-input id="treatmentReminderDate" type="date" formControlName="reminderDate" />
     </div>
+    @if (
+      treatmentForm.get('reminderDate')?.hasError('dateLimitReminderValidator') &&
+      treatmentForm.get('reminderDate')?.touched
+    ) {
+      <p class="error">La date de rappel ne peut-être inferieur à la date du début</p>
+    }
   </div>
 
   <div class="grid gap-2">

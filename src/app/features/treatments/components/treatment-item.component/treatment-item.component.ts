@@ -19,39 +19,6 @@ export class TreatmentItemComponent {
   private _treatmentFacade = inject(TreatmentFacade);
   treatment = input.required<Treatment>();
 
-  /*openDialogModify(): void {
-    this._dialogService.create({
-      zTitle: `Modifiez le traitement saisi`,
-      zContent: TreatmentModifyDialogComponent,
-      zOkText: 'Enregistrer',
-      zOnOk: async (instance) => {
-        if (!instance.isValid()) {
-          const hasDateError = instance.treatmentForm.hasError('dateLimitNoMatch');
-
-          if (hasDateError) {
-            console.log('Erreur détectée :', instance.treatmentForm.getError('dateLimitNoMatch'));
-          }
-          toast.error('Veuillez remplir correctement les champs obligatoires et les dates de de rappel et de fin ne peuvent être inferieur à la date de début');
-          return;
-        }
-
-        const updatedTreatment = instance.getUpdatedTreatment();
-
-        try {
-          await this._treatmentFacade.modify(updatedTreatment);
-        } catch (error) {
-          toast.error('Erreur lors de la modification de la donnée');
-          throw error;
-        }
-      },
-      zData: {
-        treatment: this.treatment(),
-      },
-      zCancelText: 'Annuler',
-      zWidth: '425px',
-    });
-  }*/
-
   openDialogModify(): void {
     this._dialogService.create({
       zTitle: `Modifiez le traitement saisi`,
@@ -59,14 +26,21 @@ export class TreatmentItemComponent {
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
         if (!instance.isValid()) {
-          const hasDateError = instance.treatmentForm.hasError('dateLimitNoMatch');
+          const form = instance.treatmentForm;
+          const hasEndDateError = form.get('endDate')?.hasError('dateLimitEndValidator');
+          const hasReminderError = form
+            .get('reminder.reminderDate')
+            ?.hasError('dateLimitReminderValidator');
 
-          if (hasDateError) {
-            toast.error('Date de fin et de rappel ne peuvent pas être inferieur au debut');
+          if (hasEndDateError && hasReminderError) {
+            toast.error('Date de fin et de rappel invalides ils doivent etre après le début');
+          } else if (hasEndDateError) {
+            toast.error('La date de fin doit être après le début');
+          } else if (hasReminderError) {
+            toast.error('La date de rappel doit être après le début');
           } else {
-            toast.error('Champ du formulaire incorrecte');
+            toast.error('Veuillez remplir correctement les champs obligatoires');
           }
-
           return;
         }
 
