@@ -1,46 +1,44 @@
 <form [formGroup]="treatmentForm" class="flex flex-col gap-4">
   <fieldset class="border p-4 rounded-md">
-    <legend class="font-semibold text-gray-700">Informations du vaccin</legend>
+    <legend class="font-semibold text-gray-700">Informations du traitement</legend>
 
     <div class="grid gap-2">
       <label for="name" class="text-sm font-medium">Nom du traitement</label>
       <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
+      @if (treatmentForm.get('name')?.invalid && treatmentForm.get('name')?.touched) {
+        <p class="error">Nom requis</p>
+      }
     </div>
 
     <div class="grid gap-2">
-      <label for="frequency" class="text-sm font-medium">Fréquence</label>
-      <select z-input id="type" formControlName="typeAction">
-        <option value="" disabled>-- Sélectionnez une option --</option>
-        @for (frequency of frequency; track $index) {
-          <option [value]="frequency">
-            {{ frequency }}
+      <label for="frequency" class="text-sm font-medium">Fréquence du traitement</label>
+      <select z-input id="type" formControlName="frequency">
+        <option value="" disabled>-- Sélectionnez une frequence --</option>
+        @for (frequency of frequency.types; track $index) {
+          <option [value]="frequency.name">
+            {{ frequency.label }}
           </option>
         }
       </select>
+      @if (treatmentForm.get('frequency')?.invalid && treatmentForm.get('frequency')?.touched) {
+        <p class="error">Frequence requise requis</p>
+      }
     </div>
 
     <div class="grid grid-cols-2 gap-4">
       <div class="grid gap-2">
         <label for="beginDate" class="text-sm font-medium">Date du début du traitement</label>
         <input z-input id="beginDate" type="date" formControlName="beginDate" />
+        @if (treatmentForm.get('beginDate')?.invalid && treatmentForm.get('beginDate')?.touched) {
+          <p class="error">Date de debut requise</p>
+        }
       </div>
       <div class="grid gap-2">
         <label for="endDate" class="text-sm font-medium">Date de fin du traitement</label>
         <input z-input id="endDate" type="date" formControlName="endDate" />
-      </div>
-    </div>
-
-    <div class="grid grid-cols-2 gap-4">
-      <div class="grid gap-2">
-        <label for="treatmentReminderDate" class="text-sm font-medium"
-          >Date de rappel du traitement</label
-        >
-        <input
-          z-input
-          id="treatmentReminderDate"
-          type="date"
-          formControlName="treatmentReminderDate"
-        />
+        @if (treatmentForm.hasError('dateLimitNoMatch') && treatmentForm.get('endDate')?.touched) {
+          <p class="error">Date de fin ne peut-être inferieur à date du début</p>
+        }
       </div>
     </div>
 
@@ -48,6 +46,9 @@
       <label for="description" class="text-sm font-medium">Description / Notes</label>
       <textarea z-input id="description" formControlName="description" rows="3"></textarea>
     </div>
+    @if (treatmentForm.get('description')?.invalid && treatmentForm.get('description')?.touched) {
+      <p class="error">Description requise</p>
+    }
   </fieldset>
 
   <fieldset formGroupName="reminder" class="border p-4 rounded-md mt-2">
@@ -62,6 +63,9 @@
         class="border p-2 rounded"
         placeholder="Ex: Rappel annuel"
       />
+      @if (treatmentForm.get('type')?.invalid && treatmentForm.get('Type')?.touched) {
+        <p class="error">Type requis</p>
+      }
     </div>
 
     <div class="flex flex-col mb-3">
@@ -72,6 +76,11 @@
         formControlName="reminderDate"
         class="border p-2 rounded"
       />
+      @if (
+        treatmentForm.hasError('dateLimitNoMatch') && treatmentForm.get('reminderDate')?.touched
+      ) {
+        <p class="error">La date de rappel ne peut-être inferieur à la date du début</p>
+      }
     </div>
 
     <div class="flex flex-col mb-3">
@@ -81,6 +90,9 @@
         <option value="DONE">Réalisé</option>
         <option value="CANCELLED">Annulé</option>
       </select>
+      @if (treatmentForm.get('status')?.invalid && treatmentForm.get('status')?.touched) {
+        <p class="error">Status requis</p>
+      }
     </div>
   </fieldset>
 </form>

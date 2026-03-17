@@ -1,18 +1,16 @@
 <form [formGroup]="form" class="grid gap-4 p-4">
-  <h2 class="text-lg font-bold">Ajouter un vaccin</h2>
-
   <div class="grid gap-2">
     <label for="name" class="text-sm font-medium">Nom du traitement</label>
     <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
   </div>
 
   <div class="grid gap-2">
-    <label for="frequency" class="text-sm font-medium">Fréquence</label>
+    <label for="frequency" class="text-sm font-medium">Fréquence du traitement</label>
     <select z-input id="frequency" formControlName="frequency">
-      <option value="" disabled>-- Sélectionnez une option --</option>
-      @for (item of frequency; track item) {
-        <option [value]="item">
-          {{ item }}
+      <option value="" disabled>-- Sélectionnez une frequence --</option>
+      @for (type of frequency.types; track $index) {
+        <option [value]="type.name">
+          {{ type.label }}
         </option>
       }
     </select>

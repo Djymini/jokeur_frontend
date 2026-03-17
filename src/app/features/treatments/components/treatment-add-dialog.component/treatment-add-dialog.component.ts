@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { FrequencyType } from '@/features/treatments/models/frequencyType';
 
 @Component({
   selector: 'app-treatment-add-dialog',
@@ -14,7 +15,7 @@ import {
   styleUrl: './treatment-add-dialog.component.scss',
 })
 export class TreatmentAddDialogComponent {
-  frequency: string[] = ['DAILY', 'MONTHLY', 'ANNUAL', 'ONETIME'];
+  frequency = new FrequencyType();
 
   form = new FormGroup({
     name: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),

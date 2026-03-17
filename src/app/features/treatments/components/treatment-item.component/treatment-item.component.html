@@ -2,8 +2,8 @@
   <div class="item-top">
     <div class="text-block">
       <h3>{{ treatment().name }}</h3>
-      <p class="label">Date du début du traitement : {{ treatment().beginDate }}</p>
-      <p class="label">Date de fin du traitement : {{ treatment().endDate }}</p>
+      <p class="label">Début du traitement : {{ treatment().beginDate | date: 'mediumDate' }}</p>
+      <p class="label">Fin du traitement : {{ treatment().endDate | date: 'mediumDate' }}</p>
     </div>
   </div>
   <div class="item-bottom">
@@ -17,7 +17,7 @@
     </div>
     <div class="text-block">
       <p class="label">Date de rappel</p>
-      <p class="value">{{ treatment().reminder.reminderDate }}</p>
+      <p class="value">{{ treatment().reminder.reminderDate | date: 'mediumDate' }}</p>
     </div>
     <div class="button-container">
       <z-button type="button" (click)="openDialogModify()">

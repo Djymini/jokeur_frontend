@@ -47,13 +47,6 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
 
-    <div class="bottom-bar">
-      <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
-        <span class="material-icons">delete</span>
-        Supprimer
-      </z-button>
-    </div>
-
     <z-dynamic-form-modal
       #editModal
       [isOpen]="isEditOpen()"
@@ -70,22 +63,6 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       (closed)="isExportOpen.set(false)"
       (submitted)="onExportSubmit($event)"
     />
-
-    @if (isDeleteOpen()) {
-      <div class="modal-overlay" (mousedown)="isDeleteOpen.set(false)">
-        <div class="modal-box" (mousedown)="$event.stopPropagation()">
-          <h2>Supprimer le carnet de santé</h2>
-          <p>
-            Es-tu sûr(e) de vouloir supprimer le carnet de
-            <strong>{{ healthRecord.petName }}</strong> ? Cette action est irréversible.
-          </p>
-          <div class="modal-actions">
-            <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
-            <z-button zType="destructive" (click)="onDeleteConfirm()">Supprimer</z-button>
-          </div>
-        </div>
-      </div>
-    }
   `,
   styles: `
     :host {
@@ -164,7 +141,6 @@ export default class HealthRecordPage implements OnInit {
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
   isExportOpen = signal(false);
-  isDeleteOpen = signal(false);
 
   healthRecord: HealthRecord = this._normalizeHealthRecord(
     this.route.snapshot.data['healthRecord'],
@@ -173,7 +149,7 @@ export default class HealthRecordPage implements OnInit {
     this.healthRecord,
   );
 
-  constructor(private router: Router) {
+  constructor() {
     if (!this.dashboardStore.metadata()) {
       this.healthRecordFacade.loadFormMetadata().then((metadata) => {
         this.dashboardStore.metadata.set(metadata);
@@ -182,7 +158,12 @@ export default class HealthRecordPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadcrumbRoad = [{ link: ['health-record/'+this.healthRecord.id], name: 'Carnet de santé de '+ this.healthRecord.petName}];
+    this.breadcrumbRoad = [
+      {
+        link: ['health-record/' + this.healthRecord.id],
+        name: 'Carnet de santé de ' + this.healthRecord.petName,
+      },
+    ];
   }
 
   private _normalizeHealthRecord(rawHealthRecord: Record<string, unknown>): HealthRecord {
@@ -211,10 +192,6 @@ export default class HealthRecordPage implements OnInit {
       tattooNumber: healthRecord.tattoo ?? null,
       allergy: healthRecord.allergy ?? null,
     };
-  }
-
-  returnToDashboard(): void {
-    this.router.navigate(['/dashboard']);
   }
 
   async onEditSubmit(payload: Record<string, unknown>): Promise<void> {
@@ -277,16 +254,6 @@ export default class HealthRecordPage implements OnInit {
       toast.success('Export généré avec succès');
     } catch {
       toast.error("Erreur lors de la génération de l'export");
-    }
-  }
-
-  async onDeleteConfirm(): Promise<void> {
-    try {
-      await this.healthRecordFacade.deleteHealthRecord(this.healthRecord.id);
-      toast.success('Carnet de santé supprimé');
-      this.router.navigate(['/dashboard']);
-    } catch {
-      toast.error('Erreur lors de la suppression');
     }
   }
 }
