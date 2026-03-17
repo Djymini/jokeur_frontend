@@ -81,12 +81,12 @@ export const routes: Routes = [
         loadComponent: () => import('../features/health-records/pages/health-record.page'),
         resolve: { healthRecord: healthRecordResolver },
       },
+      {
+        path: 'user-profile',
+        title: 'Modification des informations',
+        loadComponent: () =>
+          import('@/features/auth/pages/user-profile.page').then((m) => m.default),
+      },
     ],
-  },
-
-  {
-    path: 'user-profile',
-    title: 'Modification des informations',
-    loadComponent: () => import('@/features/auth/pages/user-profile.page').then((m) => m.default),
   },
 ];

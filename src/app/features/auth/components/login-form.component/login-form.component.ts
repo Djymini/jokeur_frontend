@@ -47,8 +47,10 @@ export class LoginFormComponent {
       toast.success('Connexion réussie.');
       await this._router.navigate(['/dashboard']);
     } catch (error: any) {
-      if (error?.message === 'Email ou mot de passe incorrect') {
+      if (error?.status === 401) {
         toast.error('Email ou mot de passe incorrect.');
+      } else {
+        toast.error(error?.message ?? 'Une erreur est survenue.');
       }
       console.error('Login error:', error);
     }
