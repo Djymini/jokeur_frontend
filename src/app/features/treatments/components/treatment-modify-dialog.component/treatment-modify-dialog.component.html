@@ -59,16 +59,7 @@
 
     <div class="flex flex-col mb-3">
       <label for="reminderType" class="text-sm font-medium">Type de rappel</label>
-      <input
-        id="reminderType"
-        type="text"
-        formControlName="type"
-        class="border p-2 rounded"
-        placeholder="Ex: Rappel annuel"
-      />
-      @if (treatmentForm.get('type')?.invalid && treatmentForm.get('Type')?.touched) {
-        <p class="error">Type requis</p>
-      }
+      <p>{{ reminderType }}</p>
     </div>
 
     <div class="flex flex-col mb-3">

@@ -42,7 +42,7 @@ export class HealthRecordInformationSectionComponent implements OnInit {
       },
       {
         label: 'Date de naissance',
-        information: DisplayDateRules.formatDate(this.healthRecord().birthDate),
+        information: DisplayDateRules.formatDateFromDate(this.healthRecord().birthDate),
       },
       {
         label: 'Couleur',

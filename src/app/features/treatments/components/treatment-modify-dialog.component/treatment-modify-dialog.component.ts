@@ -13,6 +13,7 @@ import {
   dateLimitEndValidator,
   dateLimitReminderValidator,
 } from '@/internal-shared/validators/dateLimit';
+import { ReminderRules } from '@/features/reminders/domain/reminder.rules';
 
 @Component({
   selector: 'app-treatment-modify-dialog',
@@ -27,6 +28,7 @@ export class TreatmentModifyDialogComponent implements OnInit {
   data: { treatment: Treatment } = inject(Z_MODAL_DATA);
 
   treatmentForm!: FormGroup;
+  reminderType: string = ReminderRules.displayReminderType(this.data.treatment.reminder.type);
 
   ngOnInit(): void {
     const formattedTreatmentBeginDate = this._formatDate(this.data.treatment.beginDate);

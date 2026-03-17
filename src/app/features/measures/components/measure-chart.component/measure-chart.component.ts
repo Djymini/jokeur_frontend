@@ -11,6 +11,7 @@ import {
 import { ChartManager } from '@/features/measures/utils/chartManager';
 import { ChartMeasureModel } from '@/internal-shared/models/chartMeasure.model';
 import { MeasureModel } from '@/features/measures/models/measureModel';
+import { DisplayDateRules } from '@/internal-shared/domain/display-date.rules';
 
 @Component({
   selector: 'app-measure-chart',
@@ -34,7 +35,7 @@ export class MeasureChartComponent implements OnDestroy {
       this._createChart();
 
       requestAnimationFrame(() => {
-        this.isLoading.emit(false); // 3. On déclenche le fondu enchaîné
+        this.isLoading.emit(false);
       });
     }, 3000);
 
@@ -56,7 +57,7 @@ export class MeasureChartComponent implements OnDestroy {
   private _createChart(): void {
     const dataMeasure: ChartMeasureModel = {
       name: this.title(),
-      labels: this.mesures().map((m) => m.creationDate),
+      labels: this.mesures().map((m) => DisplayDateRules.formatDateFromString(m.creationDate)),
       data: this.mesures().map((m) => m.value.toString()),
     };
 
@@ -65,7 +66,9 @@ export class MeasureChartComponent implements OnDestroy {
   }
 
   private _updateChart(chartInstance: any): void {
-    chartInstance.data.labels = this.mesures().map((m) => m.creationDate);
+    chartInstance.data.labels = this.mesures().map((m) =>
+      DisplayDateRules.formatDateFromString(m.creationDate),
+    );
     chartInstance.data.datasets[0].data = this.mesures().map((m) => m.value.toString());
     chartInstance.update();
   }

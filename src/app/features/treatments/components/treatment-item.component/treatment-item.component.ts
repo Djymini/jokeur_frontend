@@ -63,7 +63,7 @@ export class TreatmentItemComponent {
 
   openDialogDelete(): void {
     this._dialogService.create({
-      zTitle: `Supprimer le traitement ${this.treatment.name}`,
+      zTitle: `Supprimer le traitement ${this.treatment().name}`,
       zContent: TreatmentDeleteDialogComponent,
       zOkText: 'Supprimer',
       zOnOk: async () => {

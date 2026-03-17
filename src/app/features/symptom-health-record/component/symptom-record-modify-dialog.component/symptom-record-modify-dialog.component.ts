@@ -11,6 +11,7 @@ import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/
 import { SymptomStore } from '@/features/symptom/services/symptom.store';
 import { ZardSwitchComponent } from '@/shared/components/switch';
 import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/domain/create-update-symptom-record-dto';
+import { dateLimitEndValidator } from '@/internal-shared/validators/dateLimit';
 
 @Component({
   selector: 'app-symptom-modify-dialog',
@@ -33,9 +34,9 @@ export class SymptomRecordModifyDialogComponent implements OnInit {
     this.symptoRecordForm = this._fb.group({
       symptomId: [this.data.symptomRecord.symptom?.id, [Validators.required]],
       observation: [this.data.symptomRecord.observation],
-      observationDate: [formattedObservationDate, [Validators.required]],
+      beginDate: [formattedObservationDate, [Validators.required]],
       active: [this.data.symptomRecord.active],
-      endDate: [''],
+      endDate: ['', { validators: [dateLimitEndValidator] }],
     });
   }
 
@@ -48,9 +49,14 @@ export class SymptomRecordModifyDialogComponent implements OnInit {
     return this.symptoRecordForm.valid;
   }
 
-  private _formatDate(date: Date | string): string {
+  private _formatDate(date: Date | string | undefined | null): string {
     if (!date) return '';
     const d = new Date(date);
-    return d.toISOString().split('T')[0];
+
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
   }
 }
