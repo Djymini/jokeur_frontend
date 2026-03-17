@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ZardButtonComponent } from 'src/app/shared/components/button/button.component';
+import { ZardButtonComponent } from '@/shared/components/button/button.component';
 
 @Component({
   selector: 'app-landing-navbar',

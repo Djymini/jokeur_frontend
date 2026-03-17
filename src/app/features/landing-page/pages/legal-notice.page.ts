@@ -1,18 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { ZardButtonComponent } from '@/shared/components/button';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-legal-notice.page',
-  imports: [ZardButtonComponent],
+  imports: [],
   template: `
-    <div class="top-bar">
-      <z-button zSize="lg" zType="link" (click)="goBack()">
-        <span class="material-icons cursor-pointer">arrow_back</span>
-        Retour
-      </z-button>
-    </div>
-
     <div class="legal-container">
       <header class="legal-header">
         <span class="material-icons legal-icon">gavel</span>
@@ -106,23 +97,16 @@ import { ZardButtonComponent } from '@/shared/components/button';
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 48px;
-    }
-
-    .top-bar {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      max-width: 720px;
-      margin-bottom: 32px;
+      padding: 80px 48px 96px;
+      padding-top: calc(var(--navbar-height, 72px) + 80px);
     }
 
     .legal-container {
       width: 100%;
-      max-width: 720px;
+      max-width: 800px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 40px;
     }
 
     .legal-header {
@@ -130,8 +114,8 @@ import { ZardButtonComponent } from '@/shared/components/button';
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 8px;
-      padding-bottom: 32px;
+      gap: 12px;
+      padding-bottom: 48px;
       border-bottom: 1px solid #e5e7eb;
     }
 
@@ -203,10 +187,4 @@ import { ZardButtonComponent } from '@/shared/components/button';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LegalNoticePage {
-  private readonly router = inject(Router);
-
-  goBack(): void {
-    this.router.navigate(['/']);
-  }
-}
+export default class LegalNoticePage {}

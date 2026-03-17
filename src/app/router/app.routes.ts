@@ -8,11 +8,24 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+
   {
-    path: 'home',
-    title: "Page d'accueil",
-    loadComponent: () => import('@/features/landing-page/page/landing-page'),
+    path: '',
+    loadComponent: () => import('@/core/layout/landing-layout/landing-layout.component'),
+    children: [
+      {
+        path: 'home',
+        title: 'Jokeur',
+        loadComponent: () => import('@/features/landing-page/pages/landing-page'),
+      },
+      {
+        path: 'legal-notice',
+        title: 'Mentions légales',
+        loadComponent: () => import('@/features/landing-page/pages/legal-notice.page'),
+      },
+    ],
   },
+
   {
     path: 'login',
     title: 'Se connecter',
@@ -33,13 +46,7 @@ export const routes: Routes = [
     title: 'Réinitialisation du mot de passe',
     loadComponent: () => import('@/features/auth/pages/reset-password.page'),
   },
-  {
-    path: 'legal-notice',
-    title: 'Mention Légales',
-    loadComponent: () => import('@/features/landing-page/page/legal-notice.page'),
-  },
 
-  // ── Avec layout
   {
     path: '',
     loadComponent: () => import('@/core/layout/main-layout/main-layout.component'),
