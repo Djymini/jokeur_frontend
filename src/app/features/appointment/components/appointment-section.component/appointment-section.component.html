@@ -9,6 +9,9 @@
   </div>
 
   <div class="section-body">
+    @if (appointmentPage().content.length === 0) {
+      <div class="appointments-empty" role="status">Aucun rendez-vous à venir.</div>
+    }
     @for (appointment of appointmentPage().content; track $index) {
       <app-date-card [date]="appointment" [hasDescription]="true"></app-date-card>
     }
