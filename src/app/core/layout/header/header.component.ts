@@ -1,4 +1,4 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '@/core/services/auth.service';
 import { Router } from '@angular/router';
 import {
@@ -16,10 +16,6 @@ import { ZardMenuImports } from '@/shared/components/menu';
 export class HeaderComponent {
   private _router = inject(Router);
   private _authService = inject(AuthService);
-
-  sidebarCollapsed = input<boolean>(false);
-  category = input<string>();
-  toggleSidebar = output<void>();
 
   isVisible = this._authService.isLoggedIn;
   user = this._authService.user;

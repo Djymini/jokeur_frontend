@@ -2,6 +2,13 @@
   display: block;
 }
 
+.hero__cta {
+  [z-button] {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
 .hero {
   min-height: 100vh;
   display: grid;
