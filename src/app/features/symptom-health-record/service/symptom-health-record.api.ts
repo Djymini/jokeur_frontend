@@ -1,7 +1,7 @@
 import { BaseApi } from '@/internal-shared/services/base.api';
 import { Injectable } from '@angular/core';
-import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/domain/create-update-symptom-record-dto';
-import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/symptom-record-dto';
+import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/model/create-update-symptom-record-dto';
+import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/model/symptom-record-dto';
 
 @Injectable({ providedIn: 'root' })
 export class SymptomHealthRecordApi extends BaseApi {

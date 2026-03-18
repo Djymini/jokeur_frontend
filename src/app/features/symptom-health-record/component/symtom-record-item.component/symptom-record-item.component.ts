@@ -4,7 +4,7 @@ import { ZardDialogService } from '@/shared/components/dialog';
 import { toast } from 'ngx-sonner';
 import { SymptomRecordDeleteDialogComponent } from '@/features/symptom-health-record/component/symptom-record-delete-dialog.component/symptom-record-delete-dialog.component';
 import { SymptomRecordModifyDialogComponent } from '@/features/symptom-health-record/component/symptom-record-modify-dialog.component/symptom-record-modify-dialog.component';
-import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/symptom-record-dto';
+import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/model/symptom-record-dto';
 import { SymptomHealthRecordFacade } from '@/features/symptom-health-record/service/symptom-health-record.facade';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
 
