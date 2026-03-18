@@ -53,5 +53,4 @@ describe('Toasts - Login', () => {
     // toast existe
     cy.get('[data-sonner-toast]').contains('Email ou mot de passe incorrect.').should('exist');
   });
-
 });
