@@ -1,7 +1,13 @@
 <section>
-  <div class="flex items-center justify-between mb-6">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
     <h2 class="text-2xl font-semibold text-card-foreground title">Mes animaux</h2>
-    <button z-button type="button" zType="secondary" class="px-6 mr-14" (click)="isOpen.set(true)">
+    <button
+      z-button
+      type="button"
+      zType="secondary"
+      class="px-6 mr-4 md:mr-14"
+      (click)="isOpen.set(true)"
+    >
       <z-icon zType="plus" />
       Ajouter un animal
     </button>
@@ -15,7 +21,9 @@
     (submitted)="onSubmit($event)"
   />
 
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 px-14 my-6">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-4 md:px-14 my-6"
+  >
     @for (animal of dashboardStore.animals(); track animal.id) {
       <div
         class="animal-card rounded-2xl bg-card shadow-md hover:shadow-lg transition flex flex-col"

@@ -1,14 +1,14 @@
 <div class="bg-card rounded-lg shadow-sm border info-card">
-  <div class="flex items-center justify-between mb-4">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
     <h3 class="font-medium text-lg">Rendez-vous</h3>
-    <span class="px-2 py-1 text-md text-destructive bg-orange-100 rounded-full">
+    <span class="px-2 py-1 text-sm md:text-md text-destructive bg-orange-100 rounded-full">
       {{ dashboardStore.appointments().totalElements }}
     </span>
   </div>
   <div class="dashboard-info">
     @if (dashboardStore.appointments().totalElements > 0) {
       @for (appointment of dashboardStore.appointments().content; track appointment.id) {
-        <p class="">{{ appointment.reason }}</p>
+        <p class="break-words line-clamp-1">{{ appointment.reason }}</p>
         <p class="text-sm text-muted-foreground mb-4">
           {{ appointment.dateTime | date: 'dd/MM/yyyy' }}
         </p>
@@ -17,5 +17,7 @@
       <p class="text-muted-foreground mb-2">Auccun rendez-vous</p>
     }
   </div>
-  <a z-button zType="link" routerLink="/appointment"> Accéder à mes rendez-vous </a>
+  <a z-button zType="link" class="block w-full text-center mt-2" routerLink="/appointment">
+    Accéder à mes rendez-vous
+  </a>
 </div>
