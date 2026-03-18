@@ -1,7 +1,7 @@
 import { environment } from '../../../environments/environment';
 
 describe('Toasts - Register', () => {
-  const fillRegisterForm = (u: any) => {
+  const fillRegisterForm = (u: any): void => {
     cy.get('#name').should('not.be.disabled').type(u.name);
     cy.get('#firstname').should('not.be.disabled').type(u.firstname);
     cy.get('#phone').should('not.be.disabled').type('0612345678');
