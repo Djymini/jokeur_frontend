@@ -1,5 +1,5 @@
 export type RegisterFormValue = {
-  username: string;
+  // username: string;
   name: string;
   firstname: string;
   phone: string;
@@ -10,7 +10,7 @@ export type RegisterFormValue = {
 };
 
 export type RegisterUserPayload = {
-  username: string;
+  // username: string;
   name: string;
   firstname: string;
   phone: string;
@@ -21,7 +21,7 @@ export type RegisterUserPayload = {
 export class AuthRules {
   static toRegisterPayload(form: RegisterFormValue): RegisterUserPayload {
     return {
-      username: form.username,
+      // username: form.username,
       name: form.name,
       firstname: form.firstname,
       phone: form.phone,

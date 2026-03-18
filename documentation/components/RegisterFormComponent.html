@@ -267,7 +267,7 @@
 
 
     <section data-compodoc="block-methods">
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -386,7 +386,7 @@
     </table>
 </section>
     <section data-compodoc="block-properties">
-    
+
     <h3 id="inputs">
         Properties
     </h3>
@@ -507,7 +507,6 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>this._fb.group(
     {
-      username: this._fb.control(&#x27;&#x27;, Validators.required),
       name: this._fb.control(&#x27;&#x27;, Validators.required),
       firstname: this._fb.control(&#x27;&#x27;, Validators.required),
       phone: this._fb.control(&#x27;&#x27;, [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]),
@@ -630,7 +629,6 @@ export class RegisterFormComponent {
 
   registerForm: FormGroup&lt;RegisterFormUserModel&gt; &#x3D; this._fb.group(
     {
-      username: this._fb.control(&#x27;&#x27;, Validators.required),
       name: this._fb.control(&#x27;&#x27;, Validators.required),
       firstname: this._fb.control(&#x27;&#x27;, Validators.required),
       phone: this._fb.control(&#x27;&#x27;, [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]),
@@ -663,10 +661,9 @@ export class RegisterFormComponent {
       return;
     }
 
-    const { username, name, firstname, phone, email, password } &#x3D; this.registerForm.getRawValue();
+    const { name, firstname, phone, email, password } &#x3D; this.registerForm.getRawValue();
 
     const payload: RegisterUserPayload &#x3D; {
-      username,
       name,
       firstname,
       phone,
@@ -693,33 +690,6 @@ export class RegisterFormComponent {
         <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;title&quot;&gt;S&#x27;inscrire&lt;/h1&gt;
 
 &lt;form [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
-  &lt;div class&#x3D;&quot;field flex&quot;&gt;
-    &lt;div class&#x3D;&quot;div_label&quot;&gt;
-      &lt;label for&#x3D;&quot;username&quot;&gt;Pseudo :&lt;/label&gt;
-      &lt;span class&#x3D;&quot;material-icons&quot;&gt;person&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;input
-      id&#x3D;&quot;username&quot;
-      type&#x3D;&quot;text&quot;
-      formControlName&#x3D;&quot;username&quot;
-      placeholder&#x3D;&quot;johndoe12345&quot;
-      [attr.aria-invalid]&#x3D;&quot;
-        registerForm.controls.username.invalid &amp;&amp; registerForm.controls.username.touched
-          ? &#x27;true&#x27;
-          : null
-      &quot;
-      [attr.aria-describedby]&#x3D;&quot;
-        registerForm.controls.username.invalid &amp;&amp; registerForm.controls.username.touched
-          ? &#x27;username-error&#x27;
-          : null
-      &quot;
-    /&gt;
-
-    @if (registerForm.controls.username.invalid &amp;&amp; registerForm.controls.username.touched) {
-      &lt;p class&#x3D;&quot;error&quot; id&#x3D;&quot;username-error&quot; role&#x3D;&quot;alert&quot;&gt;Un pseudo est requis&lt;/p&gt;
-    }
-  &lt;/div&gt;
-
   &lt;div class&#x3D;&quot;field flex&quot;&gt;
     &lt;div class&#x3D;&quot;div_label&quot;&gt;
       &lt;label for&#x3D;&quot;name&quot;&gt;Nom :&lt;/label&gt;
@@ -991,7 +961,7 @@ export class RegisterFormComponent {
         </div>
     </div>
 
-    
+
 </div>
 
 <script src="../js/libs/vis-network.min.js"></script>

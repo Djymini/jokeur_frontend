@@ -3,33 +3,6 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="field flex">
     <div class="div_label">
-      <label for="username">Pseudo :</label>
-      <span class="material-icons">person</span>
-    </div>
-    <input
-      id="username"
-      type="text"
-      formControlName="username"
-      placeholder="johndoe12345"
-      [attr.aria-invalid]="
-        registerForm.controls.username.invalid && registerForm.controls.username.touched
-          ? 'true'
-          : null
-      "
-      [attr.aria-describedby]="
-        registerForm.controls.username.invalid && registerForm.controls.username.touched
-          ? 'username-error'
-          : null
-      "
-    />
-
-    @if (registerForm.controls.username.invalid && registerForm.controls.username.touched) {
-      <p class="error" id="username-error" role="alert">Un pseudo est requis</p>
-    }
-  </div>
-
-  <div class="field flex">
-    <div class="div_label">
       <label for="name">Nom :</label>
       <span class="material-icons">person</span>
     </div>
@@ -280,3 +253,8 @@
     <span class="material-icons" aria-hidden="true">save</span>
   </button>
 </form>
+
+<p class="bottom">
+  Déjà inscrit ?
+  <a routerLink="/login">Connectez-vous</a>
+</p>
