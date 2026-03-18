@@ -1,13 +1,13 @@
 import { environment } from '../../../environments/environment';
 
 describe('Toasts - Login', () => {
-  it('Display success toazst after navigate to dashboard', () => {
+  it('Displays successful toast after navigate to dashboard', () => {
     cy.intercept('POST', `${environment.apiUrl}auth/login`, {
       fixture: 'auth.json',
       statusCode: 200,
     }).as('login');
 
-    // stubs dashboard (évite les 401)
+    // évite les 401
     cy.intercept('GET', '**/appointment*', {
       statusCode: 200,
       body: { content: [], totalElements: 0 },
@@ -28,9 +28,30 @@ describe('Toasts - Login', () => {
 
     cy.wait('@login');
 
-    // attendre la navigation
     cy.location('pathname', { timeout: 10000 }).should('eq', '/dashboard');
 
     cy.get('[data-sonner-toast]').contains('Connexion réussie.').should('exist');
   });
+
+  it('Displays error toast when login failed', () => {
+    cy.intercept('POST', `${environment.apiUrl}/auth/login`, {
+      statusCode: 401,
+      body: { error: 'UNAUTHORIZED', message: 'Email ou mot de passe incorrect' },
+    }).as('loginFail');
+
+    cy.visit('/login');
+
+    cy.get('#email').should('not.be.disabled').type('test@mail.com');
+    cy.get('#password').should('not.be.disabled').type('wrongPassword!');
+    cy.contains('button', 'Connexion').click();
+
+    cy.wait('@loginFail');
+
+    // on reste sur la page login
+    cy.location('pathname').should('eq', '/login');
+
+    // toast existe
+    cy.get('[data-sonner-toast]').contains('Email ou mot de passe incorrect.').should('exist');
+  });
+
 });
