@@ -44,10 +44,10 @@
                 <span class="badge">{{ animalTypeMap[animal.animalType] }}</span>
               }
               @if (animal.sex) {
-                <span class="badge">{{ sexMap[animal.sex] }}</span>
+                <span class="badge">{{ animal.sex }}</span>
               }
               @if (animal.birthDate) {
-                <span class="badge">{{ getAge(animal.birthDate) }} ans</span>
+                <span class="badge">{{ DashboardRules.getAge(animal.birthDate) }}</span>
               }
             </div>
           </div>

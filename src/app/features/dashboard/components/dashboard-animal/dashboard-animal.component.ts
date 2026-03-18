@@ -8,6 +8,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import { AuthService } from '@/core/services/auth.service';
 import { environment } from '../../../../../environments/environment';
 import { toast } from 'ngx-sonner';
+import { DashboardRules } from '@/features/dashboard/domain/dashboard.rules';
 
 @Component({
   selector: 'app-dashboard-animal',
@@ -24,26 +25,13 @@ export class DashboardAnimalComponent {
   readonly modalRef = viewChild(DynamicFormModalComponent);
   private readonly _facade = inject(HealthRecordFacade);
   protected readonly dashboardStore = inject(DashboardStore);
+  protected readonly DashboardRules = DashboardRules;
   isOpen = signal(false);
 
   authService = inject(AuthService);
 
-  sexMap: Record<string, string> = {
-    MALE: 'Mâle',
-    FEMALE: 'Femelle',
-  };
-
   getPhotoUrl(photoKey: string): string {
     return `${environment.apiUrl}/uploads/${photoKey}`;
-  }
-
-  getAge(birthDate: Date): number {
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const m = today.getMonth() - birth.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-    return age;
   }
 
   formatBreed(breed: string): string {
