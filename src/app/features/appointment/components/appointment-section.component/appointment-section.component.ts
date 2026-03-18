@@ -4,9 +4,7 @@ import { Appointment } from '@/features/appointment/models/appointment.model';
 import { DateCardComponent } from '@/internal-shared/components/date-card.component/date-card.component';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardIconComponent } from '@/shared/components/icon';
-import {
-  AppointmentAddDialogComponent
-} from '@/features/appointment/components/appointment-add-dialog.component/appointment-add-dialog.component';
+import { AppointmentAddDialogComponent } from '@/features/appointment/components/appointment-add-dialog.component/appointment-add-dialog.component';
 import { AppointmentRequest } from '@/features/appointment/models/appointmentRequest.model';
 import { toast } from 'ngx-sonner';
 import { ZardDialogService } from '@/shared/components/dialog';

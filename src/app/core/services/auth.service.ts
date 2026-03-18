@@ -13,12 +13,11 @@ export class AuthService {
 
   constructor() {
     if (this._isBrowser()) {
-      this.isLoggedIn.set(this.isAuthenticated());
-
       const stored = localStorage.getItem(this._user);
       if (stored) {
         this.user.set(JSON.parse(stored));
       }
+      this.isLoggedIn.set(this.isAuthenticated());
     }
   }
 

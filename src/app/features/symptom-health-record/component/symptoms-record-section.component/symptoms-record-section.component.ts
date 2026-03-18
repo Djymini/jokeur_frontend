@@ -7,7 +7,7 @@ import { SymptomRecordAddDialogComponent } from '@/features/symptom-health-recor
 import { SymptomRecordItemComponent } from '@/features/symptom-health-record/component/symtom-record-item.component/symptom-record-item.component';
 import { SymptomHealthRecordStore } from '@/features/symptom-health-record/service/symptom-health-record.store';
 import { SymptomHealthRecordFacade } from '@/features/symptom-health-record/service/symptom-health-record.facade';
-import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/domain/create-update-symptom-record-dto';
+import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/model/create-update-symptom-record-dto';
 
 @Component({
   selector: 'app-symptoms-section',
