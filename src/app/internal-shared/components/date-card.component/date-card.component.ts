@@ -46,7 +46,7 @@ export class DateCardComponent {
     const data = this.date();
     if (this.isAppointment(data)) {
       this._dialogService.create({
-        zTitle: `Modifiez l'évènement'`,
+        zTitle: `Modifiez l'évènement`,
         zContent: AppointmentModifyDialogComponent,
         zOkText: 'Enregistrer',
         zOnOk: async (instance) => {

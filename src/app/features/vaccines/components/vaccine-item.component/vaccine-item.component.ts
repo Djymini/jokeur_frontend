@@ -6,10 +6,11 @@ import { ZardDialogService } from '@/shared/components/dialog';
 import { VaccinesFacade } from '@/features/vaccines/services/vaccines-facade';
 import { VaccineDeleteDialogComponent } from '@/features/vaccines/components/vaccine-delete-dialog.component/vaccine-delete-dialog.component';
 import { VaccineModifyDialogComponent } from '@/features/vaccines/components/vaccine-modify-dialog.component/vaccine-modify-dialog.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-vaccine-item',
-  imports: [ZardButtonComponent],
+  imports: [ZardButtonComponent, DatePipe],
   templateUrl: './vaccine-item.component.html',
   styleUrl: './vaccine-item.component.scss',
 })
@@ -25,7 +26,16 @@ export class VaccineItemComponent {
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
         if (!instance.isValid()) {
-          toast.error('Veuillez remplir correctement les champs obligatoires.');
+          const form = instance.vaccineForm;
+          const hasReminderError = form
+            .get('reminder.reminderDate')
+            ?.hasError('dateLimitReminderValidator');
+
+          if (hasReminderError) {
+            toast.error('La date de rappel doit être après la date de vaccin');
+          } else {
+            toast.error('Veuillez remplir correctement les champs obligatoires');
+          }
           return;
         }
 
@@ -48,7 +58,7 @@ export class VaccineItemComponent {
 
   openDialogDelete(): void {
     this._dialogService.create({
-      zTitle: `Supprimer le vaccin ${this.vaccine.name}`,
+      zTitle: `Supprimer le vaccin ${this.vaccine().name}`,
       zContent: VaccineDeleteDialogComponent,
       zOkText: 'Supprimer',
       zOnOk: async () => {

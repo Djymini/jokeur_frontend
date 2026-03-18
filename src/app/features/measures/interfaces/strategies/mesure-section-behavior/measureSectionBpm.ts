@@ -9,7 +9,7 @@ export class MeasureSectionBpm implements MeasureSectionBehavior {
   initSectionProperties(): MeasureSectionPropertiesModel {
     return {
       boardName: 'Suivi de la fréquence cardiaque',
-      resumeTitle: 'Dernières fréquences',
+      resumeTitle: 'Dernières fréquences cardiaques',
       boardIcon: 'heart',
     };
   }

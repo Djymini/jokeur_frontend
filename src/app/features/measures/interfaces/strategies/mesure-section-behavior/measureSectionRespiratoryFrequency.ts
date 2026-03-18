@@ -9,7 +9,7 @@ export class MeasureSectionRespiratoryFrequency implements MeasureSectionBehavio
   initSectionProperties(): MeasureSectionPropertiesModel {
     return {
       boardName: 'Suivi de la fréquence respiratoire',
-      resumeTitle: 'Dernières fréquences',
+      resumeTitle: 'Dernières fréquences respiratoires',
       boardIcon: 'activity',
     };
   }
