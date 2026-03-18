@@ -1,66 +1,60 @@
-<section class="p-8 min-h-screen" aria-labelledby="news-heading">
-  <div class="flex justify-between items-center mb-6">
-    <div>
-      <h2 id="news-heading" class="text-3xl font-bold text-orange-600">Actualités</h2>
-    </div>
+<section class="news-page" aria-labelledby="news-heading">
+  <div class="news-header">
+    <h2 id="news-heading" class="news-header__title">
+      Actualités
+      <span aria-hidden="true"></span>
+    </h2>
+    @if (totalElements() > 0) {
+      <span class="news-header__count"
+        >{{ totalElements() }} article{{ totalElements() > 1 ? 's' : '' }}</span
+      >
+    }
   </div>
 
-  <div class="grid gap-4" role="list" aria-label="Liste des actualités RSS">
+  <div class="news-grid" role="list" aria-label="Liste des actualités RSS">
     @if (newsStore.news().content.length === 0) {
-      <div class="bg-white p-6 rounded-2xl shadow text-center text-muted-foreground" role="status">
-        Aucune actualité disponible.
-      </div>
+      <div class="news-empty" role="status">Aucune actualité disponible.</div>
     }
 
     @for (notification of newsStore.news().content; track notification.id) {
       <article
         role="listitem"
-        class="bg-white rounded-2xl shadow p-6 border-l-4 transition"
-        [ngClass]="{
-          'border-secondary': !notification.sent,
-          'border-transparent opacity-80': notification.sent,
-        }"
+        class="news-card"
+        [class.is-new]="!notification.sent && (notification.publishedAt | isRecent)"
+        [class.is-read]="notification.sent"
         [attr.aria-labelledby]="'news-title-' + notification.id"
         [attr.aria-describedby]="'news-summary-' + notification.id"
       >
-        <div class="flex justify-between items-center mb-3 text-sm">
-          @if (!notification.sent) {
-            <span
-              class="bg-accent text-white px-3 py-1 rounded-full text-xs"
-              aria-label="Nouvelle actualité non lue"
-            >
-              Nouveau
-            </span>
+        <div class="news-card__meta">
+          @if (!notification.sent && (notification.publishedAt | isRecent)) {
+            <span class="news-card__badge" aria-label="Nouvelle actualité non lue">Nouveau</span>
           }
-
           <time
             [attr.datetime]="notification.publishedAt"
-            class="text-muted-foreground"
+            class="news-card__date"
             aria-label="Date de publication"
           >
             {{ notification.publishedAt | date: 'dd/MM/yyyy' }}
           </time>
         </div>
 
-        <h3 class="text-lg font-semibold mb-2" [id]="'news-title-' + notification.id">
+        <h3 class="news-card__title" [id]="'news-title-' + notification.id">
           {{ notification.title }}
         </h3>
 
-        <p class="text-sm text-gray-600 mb-4 line-clamp-3" [id]="'news-summary-' + notification.id">
+        <p class="news-card__summary" [id]="'news-summary-' + notification.id">
           {{ notification.summary }}
         </p>
 
-        <div class="flex justify-between items-center">
+        <div class="news-card__footer">
           <a
-            z-button
-            zType="link"
+            class="news-card__link"
             [href]="notification.link"
             target="_blank"
             rel="noopener noreferrer"
-            class="nav-btn"
             aria-label="Lire l'article complet dans un nouvel onglet"
           >
-            Lire l’article
+            Lire l'article
           </a>
         </div>
       </article>
@@ -68,38 +62,34 @@
   </div>
 
   @if (totalPages() > 1) {
-    <div class="mt-8 flex items-center justify-between">
-      <div class="flex items-center gap-2 text-sm text-gray-600">
-        <span>
-          Affichage {{ currentPage() * pageSize() + 1 }} -
-          {{ Math.min((currentPage() + 1) * pageSize(), totalElements()) }}
-          sur {{ totalElements() }} actualités
-        </span>
-      </div>
+    <div class="news-pagination">
+      <span class="news-pagination__info">
+        Affichage {{ currentPage() * pageSize() + 1 }} –
+        {{ Math.min((currentPage() + 1) * pageSize(), totalElements()) }}
+        sur {{ totalElements() }} actualités
+      </span>
 
-      <div class="flex gap-2">
+      <div class="news-pagination__controls">
         <button
-          z-button
-          zType="secondary"
+          class="pagination-btn"
           type="button"
           (click)="previousPage()"
           [disabled]="currentPage() === 0"
-          class="px-4 py-2 rounded-lg border bg-secondary text-sm disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Page précédente"
         >
           <z-icon zType="chevron-left" />
           Précédent
         </button>
 
-        <span class="px-4 py-2 text-sm"> Page {{ currentPage() + 1 }} / {{ totalPages() }} </span>
+        <span class="news-pagination__label">
+          Page {{ currentPage() + 1 }} / {{ totalPages() }}
+        </span>
 
         <button
-          z-button
-          zType="secondary"
+          class="pagination-btn"
           type="button"
           (click)="nextPage()"
           [disabled]="currentPage() === totalPages() - 1"
-          class="px-4 py-2 rounded-lg border bg-secondary text-sm disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Page suivante"
         >
           Suivant

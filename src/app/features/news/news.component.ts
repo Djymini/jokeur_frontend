@@ -4,10 +4,11 @@ import { ZardIconComponent } from '@/shared/components/icon';
 import { NewsStore } from '@/features/news/store/news-store';
 import { NewsApi } from '@/features/dashboard/services/news-api.service';
 import { DatePipe, NgClass } from '@angular/common';
+import { IsRecentPipe } from '@/features/news/pipes/is-recent.pipe';
 
 @Component({
   selector: 'app-news',
-  imports: [ZardButtonComponent, ZardIconComponent, NgClass, DatePipe],
+  imports: [ZardButtonComponent, ZardIconComponent, NgClass, DatePipe, IsRecentPipe],
   templateUrl: './news.component.html',
   styleUrl: './news.component.scss',
 })
