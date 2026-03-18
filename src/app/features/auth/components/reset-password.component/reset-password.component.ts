@@ -71,9 +71,8 @@ export class ResetPasswordComponent {
 
     try {
       await this._authApi.resetPassword({ token: this.token, newPassword: password });
-
-      toast.success('Mot de passe mis à jour.');
       await this._router.navigateByUrl('/login');
+      toast.success('Mot de passe mis à jour.');
     } catch (error) {
       console.error('Probleme reset password:', error);
       toast.error('Impossible de réinitialiser le mot de passe.');

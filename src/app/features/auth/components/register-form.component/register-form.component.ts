@@ -74,14 +74,11 @@ export class RegisterFormComponent {
         console.log('message result', result);
       });
 
-      toast.success('Inscription réussie.');
       await this._router.navigateByUrl('/login');
+      toast.success('Inscription réussie.');
     } catch (error: any) {
-      if (error?.status === 409) {
-        toast.error('Cette adresse email est déjà utilisée.');
-      } else {
-        toast.error(error?.message ?? 'Une erreur est survenue.');
-      }
+      const msg = error?.error?.message ?? error?.message ?? 'Une erreur est survenue.';
+      toast.error(msg);
       console.error("Probleme d'inscription:", error);
     }
   }
