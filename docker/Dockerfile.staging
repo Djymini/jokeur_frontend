@@ -11,7 +11,7 @@ RUN npm run build -- --configuration=staging
 # Step 2
 FROM node:20-alpine
 WORKDIR /app
-COPY --from=build /app/dist/jokeur_frontend/browser ./
+COPY --from=build /app/dist/jokeur_frontend ./
 
 EXPOSE 4000
 
