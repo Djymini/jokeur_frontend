@@ -2,7 +2,7 @@
   <div class="item-top">
     <div class="text-block">
       <h3>{{ vaccine().name }}</h3>
-      <p class="label">Date du vaccin : {{ vaccine().vaccineDate }}</p>
+      <p class="label">Date du vaccin : {{ vaccine().vaccineDate | date: 'mediumDate' }}</p>
     </div>
   </div>
   <div class="item-bottom">
@@ -16,7 +16,7 @@
     </div>
     <div class="text-block">
       <p class="label">Date de rappel</p>
-      <p class="value">{{ vaccine().reminder.reminderDate }}</p>
+      <p class="value">{{ vaccine().reminder.reminderDate | date: 'mediumDate' }}</p>
     </div>
     <div class="button-container">
       <z-button type="button" (click)="openDialogModify()">

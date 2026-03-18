@@ -21,7 +21,6 @@ export class TreatmentSectionComponent {
   private _treatmentFacade = inject(TreatmentFacade);
 
   healthRecord = input.required<HealthRecord>();
-
   treatmentArray = this._treatmentStore.treatmentArray;
 
   openDialogAdd(): void {
@@ -30,7 +29,24 @@ export class TreatmentSectionComponent {
       zContent: TreatmentAddDialogComponent,
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
-        const formValue = instance.form.getRawValue();
+        if (!instance.isValid()) {
+          const form = instance.treatmentForm;
+          const hasEndDateError = form.get('endDate')?.hasError('dateLimitEndValidator');
+          const hasReminderError = form.get('reminderDate')?.hasError('dateLimitReminderValidator');
+
+          if (hasEndDateError && hasReminderError) {
+            toast.error('Date de fin et de rappel invalides ils doivent etre après le début');
+          } else if (hasEndDateError) {
+            toast.error('La date de fin doit être après le début');
+          } else if (hasReminderError) {
+            toast.error('La date de rappel doit être après le début');
+          } else {
+            toast.error('Veuillez remplir correctement les champs obligatoires');
+          }
+          return;
+        }
+
+        const formValue = instance.treatmentForm.getRawValue();
 
         const addTreatment: TreatmentRequest = {
           name: formValue.name,
@@ -38,7 +54,7 @@ export class TreatmentSectionComponent {
           frequency: formValue.frequency,
           beginDate: new Date(formValue.beginDate),
           endDate: new Date(formValue.endDate!),
-          treatmentReminderDate: new Date(formValue.treatmentReminderDate),
+          treatmentReminderDate: new Date(formValue.reminderDate),
           healthRecordId: this.healthRecord().id,
         };
 

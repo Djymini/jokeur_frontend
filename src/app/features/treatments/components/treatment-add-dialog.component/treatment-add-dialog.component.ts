@@ -6,6 +6,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { FrequencyType } from '@/features/treatments/models/frequencyType';
+import {
+  dateLimitEndValidator,
+  dateLimitReminderValidator,
+} from '@/internal-shared/validators/dateLimit';
 
 @Component({
   selector: 'app-treatment-add-dialog',
@@ -14,9 +19,9 @@ import {
   styleUrl: './treatment-add-dialog.component.scss',
 })
 export class TreatmentAddDialogComponent {
-  frequency: string[] = ['DAILY', 'MONTHLY', 'ANNUAL', 'ONETIME'];
+  frequency = new FrequencyType();
 
-  form = new FormGroup({
+  treatmentForm = new FormGroup({
     name: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),
     description: new FormControl<string>('', { nonNullable: true }),
     frequency: new FormControl<string>('', {
@@ -28,9 +33,16 @@ export class TreatmentAddDialogComponent {
       validators: [Validators.required],
     }),
     endDate: new FormControl<string>(new Date().toISOString().split('T')[0], {
-      validators: [Validators.required],
+      validators: [dateLimitEndValidator],
     }),
-    treatmentReminderDate: new FormControl<string>('', { nonNullable: true }),
+    reminderDate: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, dateLimitReminderValidator],
+    }),
     healthRecordId: new FormControl<number>(0, { nonNullable: true }),
   });
+
+  isValid(): boolean {
+    return this.treatmentForm.valid;
+  }
 }

@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordHeaderComponent } from '@/features/health-records/components/health-record-header.component/health-record-header.component';
@@ -13,6 +20,8 @@ import { PLATFORM_ID } from '@angular/core';
 import { toast } from 'ngx-sonner';
 import { HealthRecordExportApi } from '@/features/health-record-export/services/health-record-export.api';
 import { ExportFormat } from '@/features/health-record-export/models/health-record-export.model';
+import { BreadcrumbNode } from '@/internal-shared/models/breadcrumb-node.model';
+import { BreadcrumbComponent } from '@/internal-shared/components/breadcrumb.component/breadcrumb.component';
 
 const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string[]);
 
@@ -22,14 +31,12 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     HealthRecordHeaderComponent,
     HealthRecordSectionComponent,
     ZardButtonComponent,
+    BreadcrumbComponent,
     DynamicFormModalComponent,
   ],
   template: `
     <div class="top-bar">
-      <z-button zSize="lg" zType="link" (click)="returnToDashboard()">
-        <span class="material-icons cursor-pointer">arrow_back</span>
-        Retour à mon tableau de bord
-      </z-button>
+      <app-breadcrumb [breadcrumbRoad]="breadcrumbRoad"></app-breadcrumb>
 
       <z-button zSize="lg" zType="outline" (click)="isExportOpen.set(true)">
         <span class="material-icons">download</span>
@@ -39,13 +46,6 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
 
     <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
     <app-health-record-section [healthRecord]="healthRecord" />
-
-    <div class="bottom-bar">
-      <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
-        <span class="material-icons">delete</span>
-        Supprimer
-      </z-button>
-    </div>
 
     <z-dynamic-form-modal
       #editModal
@@ -63,22 +63,6 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       (closed)="isExportOpen.set(false)"
       (submitted)="onExportSubmit($event)"
     />
-
-    @if (isDeleteOpen()) {
-      <div class="modal-overlay" (mousedown)="isDeleteOpen.set(false)">
-        <div class="modal-box" (mousedown)="$event.stopPropagation()">
-          <h2>Supprimer le carnet de santé</h2>
-          <p>
-            Es-tu sûr(e) de vouloir supprimer le carnet de
-            <strong>{{ healthRecord.petName }}</strong> ? Cette action est irréversible.
-          </p>
-          <div class="modal-actions">
-            <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
-            <z-button zType="destructive" (click)="onDeleteConfirm()">Supprimer</z-button>
-          </div>
-        </div>
-      </div>
-    }
   `,
   styles: `
     :host {
@@ -145,17 +129,18 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
   `,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export default class HealthRecordPage {
+export default class HealthRecordPage implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly healthRecordFacade = inject(HealthRecordFacade);
   private readonly exportApi = inject(HealthRecordExportApi);
   private readonly platformId = inject(PLATFORM_ID);
   protected readonly dashboardStore = inject(DashboardStore);
 
+  breadcrumbRoad: BreadcrumbNode[] = [];
+
   readonly editModal = viewChild<DynamicFormModalComponent>('editModal');
   isEditOpen = signal(false);
   isExportOpen = signal(false);
-  isDeleteOpen = signal(false);
 
   healthRecord: HealthRecord = this._normalizeHealthRecord(
     this.route.snapshot.data['healthRecord'],
@@ -164,12 +149,21 @@ export default class HealthRecordPage {
     this.healthRecord,
   );
 
-  constructor(private router: Router) {
+  constructor() {
     if (!this.dashboardStore.metadata()) {
       this.healthRecordFacade.loadFormMetadata().then((metadata) => {
         this.dashboardStore.metadata.set(metadata);
       });
     }
+  }
+
+  ngOnInit(): void {
+    this.breadcrumbRoad = [
+      {
+        link: ['health-record/' + this.healthRecord.id],
+        name: 'Carnet de santé de ' + this.healthRecord.petName,
+      },
+    ];
   }
 
   private _normalizeHealthRecord(rawHealthRecord: Record<string, unknown>): HealthRecord {
@@ -198,10 +192,6 @@ export default class HealthRecordPage {
       tattooNumber: healthRecord.tattoo ?? null,
       allergy: healthRecord.allergy ?? null,
     };
-  }
-
-  returnToDashboard(): void {
-    this.router.navigate(['/dashboard']);
   }
 
   async onEditSubmit(payload: Record<string, unknown>): Promise<void> {
@@ -264,16 +254,6 @@ export default class HealthRecordPage {
       toast.success('Export généré avec succès');
     } catch {
       toast.error("Erreur lors de la génération de l'export");
-    }
-  }
-
-  async onDeleteConfirm(): Promise<void> {
-    try {
-      await this.healthRecordFacade.deleteHealthRecord(this.healthRecord.id);
-      toast.success('Carnet de santé supprimé');
-      this.router.navigate(['/dashboard']);
-    } catch {
-      toast.error('Erreur lors de la suppression');
     }
   }
 }

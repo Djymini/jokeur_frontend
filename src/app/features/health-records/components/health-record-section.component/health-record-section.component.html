@@ -5,6 +5,28 @@
     <app-health-record-information-section
       [healthRecord]="healthRecord()"
     ></app-health-record-information-section>
+
+    @if (isDeleteOpen()) {
+      <div class="modal-overlay" (mousedown)="isDeleteOpen.set(false)">
+        <div class="modal-box" (mousedown)="$event.stopPropagation()">
+          <h2>Supprimer le carnet de santé</h2>
+          <p>
+            Es-tu sûr(e) de vouloir supprimer le carnet de
+            <strong>{{ healthRecord().petName }}</strong> ? Cette action est irréversible.
+          </p>
+          <div class="modal-actions">
+            <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
+            <z-button zType="destructive" (click)="onDeleteConfirm()">Supprimer</z-button>
+          </div>
+        </div>
+      </div>
+    }
+    <div class="bottom-bar">
+      <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
+        <span class="material-icons">delete</span>
+        Supprimer
+      </z-button>
+    </div>
   } @else if (activeTab() === tabLinks[1].name) {
     <app-treatment-section [healthRecord]="healthRecord()"></app-treatment-section>
   } @else if (activeTab() === tabLinks[2].name) {

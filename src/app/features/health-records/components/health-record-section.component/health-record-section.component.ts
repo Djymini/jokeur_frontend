@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 
 import { MeasureSectionBehavior } from '@/features/measures/interfaces/measureSectionBahavior';
 import { MeasureSectionWeight } from '@/features/measures/interfaces/strategies/mesure-section-behavior/measureSectionWeight';
@@ -13,6 +13,11 @@ import { HealthRecord } from '@/features/health-records/models/health-record.mod
 import { SymptomsRecordSectionComponent } from '@/features/symptom-health-record/component/symptoms-record-section.component/symptoms-record-section.component';
 import { HealthRecordInformationSectionComponent } from '@/features/health-records/components/health-record-information-section.component/health-record-information-section.component';
 import { TreatmentSectionComponent } from '@/features/treatments/components/treatment-section.component/treatment-section.component';
+import { toast } from 'ngx-sonner';
+import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
+import { Router } from '@angular/router';
+import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
+import { ZardButtonComponent } from '@/shared/components/button';
 
 @Component({
   selector: 'app-health-record-section',
@@ -23,12 +28,19 @@ import { TreatmentSectionComponent } from '@/features/treatments/components/trea
     SymptomsRecordSectionComponent,
     HealthRecordInformationSectionComponent,
     TreatmentSectionComponent,
+    ZardButtonComponent,
   ],
   templateUrl: './health-record-section.component.html',
   styleUrl: './health-record-section.component.scss',
 })
 export class HealthRecordSectionComponent {
+  private _healthRecordFacade = inject(HealthRecordFacade);
+  protected readonly dashboardStore = inject(DashboardStore);
+  private _router = inject(Router);
+
   healthRecord = input.required<HealthRecord>();
+  isDeleteOpen = signal(false);
+
   measureSectionArray: MeasureSectionBehavior[] = [
     new MeasureSectionWeight(),
     new MeasureSectionBpm(),
@@ -45,7 +57,25 @@ export class HealthRecordSectionComponent {
 
   activeTab = signal<string>(this.tabLinks[0].name);
 
+  constructor() {
+    if (!this.dashboardStore.metadata()) {
+      this._healthRecordFacade.loadFormMetadata().then((metadata) => {
+        this.dashboardStore.metadata.set(metadata);
+      });
+    }
+  }
+
   selectTab(name: string): void {
     this.activeTab.set(name);
+  }
+
+  async onDeleteConfirm(): Promise<void> {
+    try {
+      await this._healthRecordFacade.deleteHealthRecord(this.healthRecord().id);
+      toast.success('Carnet de santé supprimé');
+      this._router.navigate(['/dashboard']);
+    } catch {
+      toast.error('Erreur lors de la suppression');
+    }
   }
 }

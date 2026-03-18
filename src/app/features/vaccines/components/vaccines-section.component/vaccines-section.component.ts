@@ -30,14 +30,26 @@ export class VaccinesSectionComponent {
       zContent: VaccineAddDialogComponent,
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
-        const formValue = instance.form.getRawValue();
+        if (!instance.isValid()) {
+          const form = instance.vaccineForm;
+          const hasReminderError = form.get('reminderDate')?.hasError('dateLimitReminderValidator');
+
+          if (hasReminderError) {
+            toast.error('La date de rappel doit être après la date de vaccin');
+          } else {
+            toast.error('Veuillez remplir correctement les champs obligatoires');
+          }
+          return;
+        }
+
+        const formValue = instance.vaccineForm.getRawValue();
 
         const addVaccine: VaccineRequestDto = {
           name: formValue.name,
           description: formValue.description,
           vaccinator: formValue.vaccinator,
-          vaccineDate: new Date(formValue.vaccinDate),
-          vaccineReminderDate: new Date(formValue.vaccinReminderDate),
+          vaccineDate: new Date(formValue.beginDate),
+          vaccineReminderDate: new Date(formValue.reminderDate),
           healthRecordId: this.healthRecord().id,
         };
 
