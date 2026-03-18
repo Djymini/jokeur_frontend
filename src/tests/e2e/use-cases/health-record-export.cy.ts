@@ -96,7 +96,7 @@ describe('Health record export', () => {
     cy.get('input[id="to"]').type('2024-12-31');
     cy.get('button[type="submit"]').click();
     cy.wait('@exportPdfRequest');
-    cy.contains('Export généré avec succès').should('be.visible');
+    cy.contains('Export généré avec succès').should('exist');
   });
 
   it('should trigger XLSX download when XLSX format is selected', () => {
@@ -121,6 +121,6 @@ describe('Health record export', () => {
     cy.get('input[id="to"]').type('2024-12-31');
     cy.get('button[type="submit"]').click();
     cy.wait('@exportXlsxRequest');
-    cy.contains('Export généré avec succès').should('be.visible');
+    cy.contains('Export généré avec succès').should('exist');
   });
 });

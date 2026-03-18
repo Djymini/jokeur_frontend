@@ -6,7 +6,6 @@ import { VaccinesStore } from '@/features/vaccines/services/vaccines-store';
 import { VaccinesApi } from '@/features/vaccines/services/vaccines-api';
 import { Vaccine } from '@/features/vaccines/models/vaccine.model';
 import { VaccineRequestDto } from '@/features/vaccines/models/vaccineRequestDto';
-import { toast } from 'ngx-sonner';
 import { Reminder } from '@/features/reminders/models/reminder.model';
 
 describe('VaccinesFacade (integration)', () => {
@@ -36,7 +35,7 @@ describe('VaccinesFacade (integration)', () => {
       name: 'Pfizer',
       description: 'Covid-19',
       vaccinator: 'Dr. Smith',
-      observationDate: new Date('2026-02-17'),
+      vaccineDate: new Date('2026-02-17'),
       healthRecordId: 1,
       reminder: mockReminder1
     },
@@ -45,7 +44,7 @@ describe('VaccinesFacade (integration)', () => {
       name: 'Moderna',
       description: 'Covid-19',
       vaccinator: 'Dr. Doe',
-      observationDate: new Date('2026-02-17'),
+      vaccineDate: new Date('2026-02-17'),
       healthRecordId: 1,
       reminder: mockReminder2
     }
@@ -89,7 +88,7 @@ describe('VaccinesFacade (integration)', () => {
       name: 'Pfizer',
       description: 'Covid-19',
       vaccinator: 'Dr. Smith',
-      observationDate: new Date('2026-02-17'),
+      vaccineDate: new Date('2026-02-17'),
       vaccineReminderDate: new Date('2026-12-01'),
       healthRecordId: 1
     };
