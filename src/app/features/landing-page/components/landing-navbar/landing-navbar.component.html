@@ -1,0 +1,65 @@
+<header class="navbar" [class.scrolled]="activeSection() !== 'hero'">
+  <div class="navbar__inner">
+    <a class="navbar__brand" routerLink="/" aria-label="Jokeur — Accueil">
+      <span class="brand__wordmark" aria-hidden="true">Jokeur</span>
+      <span class="brand__dot" aria-hidden="true"></span>
+    </a>
+
+    <a routerLink="/home" class="navbar__home" z-button zType="ghost">Accueil</a>
+
+    <nav class="navbar__actions" aria-label="Navigation principale">
+      @if (isLoggedIn()) {
+        <div class="user-profile" z-dropdown [zDropdownMenu]="menu">
+          <span class="material-icons">account_circle</span>
+          <span class="user-name"> {{ user()?.firstName }} {{ user()?.name }} </span>
+          <z-dropdown-menu-content #menu="zDropdownMenuContent" class="w-56">
+            <z-menu-label>Mon compte</z-menu-label>
+            <z-dropdown-menu-item (click)="onDashboard()">
+              <span class="material-icons">dashboard</span>
+              Tableau de bord
+            </z-dropdown-menu-item>
+            <z-dropdown-menu-item (click)="onSettings()">
+              <span class="material-icons">settings</span>
+              Paramètres
+            </z-dropdown-menu-item>
+            <z-dropdown-menu-item (click)="onLogout()">
+              <span class="material-icons">logout</span>
+              Déconnexion
+            </z-dropdown-menu-item>
+          </z-dropdown-menu-content>
+        </div>
+      } @else {
+        <a routerLink="/login" z-button zType="ghost">Se connecter</a>
+        <a routerLink="/register" z-button zType="default">Commencer</a>
+      }
+    </nav>
+
+    <button
+      type="button"
+      class="hamburger"
+      (click)="toggle()"
+      [class.open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Ouvrir le menu de navigation"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Navigation mobile">
+      @if (isLoggedIn()) {
+        <a routerLink="/dashboard" class="mobile-link" (click)="toggle()">
+          <span class="material-icons">account_circle</span>
+          {{ user()?.firstName }} {{ user()?.name }}
+        </a>
+      } @else {
+        <a routerLink="/login" class="mobile-link" (click)="toggle()">Se connecter</a>
+        <a routerLink="/register" z-button zType="default" zFull (click)="toggle()">Commencer</a>
+      }
+    </nav>
+  }
+</header>

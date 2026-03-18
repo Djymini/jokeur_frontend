@@ -1,5 +1,5 @@
 import { ApplicationConfig, LOCALE_ID, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './router/app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideZard } from '@/shared/core/provider/providezard';
@@ -17,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideCalendar({ provide: DateAdapter, useFactory: adapterFactory }),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withInterceptors([authInterceptor]), withFetch()),
     provideZard(),

@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { SymptomHealthRecordApi } from '@/features/symptom-health-record/service/symptom-health-record.api';
-import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/domain/create-update-symptom-record-dto';
+import { CreateUpdateSymptomRecordDto } from '@/features/symptom-health-record/model/create-update-symptom-record-dto';
 import { SymptomHealthRecordStore } from '@/features/symptom-health-record/service/symptom-health-record.store';
-import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/symptom-record-dto';
+import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/model/symptom-record-dto';
 import { toast } from 'ngx-sonner';
+import { SymptomHealthRecordRules } from '@/features/symptom-health-record/domain/symptom-health-record-rules';
 
 @Injectable({ providedIn: 'root' })
 export class SymptomHealthRecordFacade {
@@ -11,8 +12,8 @@ export class SymptomHealthRecordFacade {
   private _symptomRecordStore: SymptomHealthRecordStore = inject(SymptomHealthRecordStore);
 
   async addSymptomRecord(id: number, addSymptom: CreateUpdateSymptomRecordDto): Promise<void> {
+    SymptomHealthRecordRules.validate(addSymptom);
     await this._symptomHealthRecordApi.createSymptomRecord(id, addSymptom);
-
     toast.success('Valeur ajoutée au carnet', {
       duration: 2000,
     });
@@ -20,11 +21,7 @@ export class SymptomHealthRecordFacade {
 
   async getSymptomRecord(healthRecordId: number): Promise<SymptomHealthRecordDTO[]> {
     const response = await this._symptomHealthRecordApi.getAllSymptomsRecord(healthRecordId);
-    console.log('avant : ', this._symptomRecordStore.symptomRecordArray());
-
     this._symptomRecordStore.setSymptomsRecord(response);
-    console.log('response : ', response);
-    console.log('après : ', this._symptomRecordStore.symptomRecordArray());
     return this._symptomRecordStore.symptomRecordArray();
   }
 
@@ -32,6 +29,8 @@ export class SymptomHealthRecordFacade {
     healthRecordId: number,
     updatedSymptom: CreateUpdateSymptomRecordDto,
   ): Promise<void> {
+    SymptomHealthRecordRules.validate(updatedSymptom);
+
     await this._symptomHealthRecordApi.updateSymptomRecord(healthRecordId, updatedSymptom);
 
     this._symptomRecordStore.setSymptomsRecord(await this.getSymptomRecord(healthRecordId));
