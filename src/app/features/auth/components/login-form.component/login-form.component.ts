@@ -44,8 +44,8 @@ export class LoginFormComponent {
 
       this._authService.updateUser(res);
       this._authService.setToken(res.token);
-      toast.success('Connexion réussie.');
       await this._router.navigate(['/dashboard']);
+      toast.success('Connexion réussie.');
     } catch (error: any) {
       if (error?.status === 401) {
         toast.error('Email ou mot de passe incorrect.');

@@ -8,11 +8,24 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+
   {
-    path: 'home',
-    title: "Page d'accueil",
-    loadComponent: () => import('@/features/landing-page/page/landing-page'),
+    path: '',
+    loadComponent: () => import('@/core/layout/landing-layout/landing-layout.component'),
+    children: [
+      {
+        path: 'home',
+        title: 'Jokeur',
+        loadComponent: () => import('@/features/landing-page/pages/landing-page'),
+      },
+      {
+        path: 'legal-notice',
+        title: 'Mentions légales',
+        loadComponent: () => import('@/features/landing-page/pages/legal-notice.page'),
+      },
+    ],
   },
+
   {
     path: 'login',
     title: 'Se connecter',
@@ -34,7 +47,6 @@ export const routes: Routes = [
     loadComponent: () => import('@/features/auth/pages/reset-password.page'),
   },
 
-  // ── Avec layout
   {
     path: '',
     loadComponent: () => import('@/core/layout/main-layout/main-layout.component'),

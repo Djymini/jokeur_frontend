@@ -1,9 +1,8 @@
 import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
-import { LandingNavbarComponent } from '@/features/landing-page/components/navbar/landing-navbar.component';
-import { LandingHeroComponent } from '@/features/landing-page/components/hero/landing-hero.component';
-import { LandingFeaturesComponent } from '@/features/landing-page/components/features/landing-features.component';
-import { LandingHowItWorksComponent } from '@/features/landing-page/components/how-it-works/landing-how-it-works.component';
-import { LandingCtaFooterComponent } from '@/features/landing-page/components/cta-footer/landing-cta-footer.component';
+import { LandingHeroComponent } from '@/features/landing-page/components/landing-hero/landing-hero.component';
+import { LandingFeaturesComponent } from '@/features/landing-page/components/landing-features/landing-features.component';
+import { LandingHowItWorksComponent } from '@/features/landing-page/components/landing-how-it-works/landing-how-it-works.component';
+import { LandingCtaSectionComponent } from '@/features/landing-page/components/landing-cta-section/landing-cta-section.component';
 import { isPlatformBrowser } from '@angular/common';
 
 export interface Feature {
@@ -17,24 +16,17 @@ export interface Feature {
   selector: 'app-landing',
   standalone: true,
   imports: [
-    LandingNavbarComponent,
     LandingHeroComponent,
     LandingFeaturesComponent,
     LandingHowItWorksComponent,
-    LandingCtaFooterComponent,
+    LandingCtaSectionComponent,
   ],
   template: `
-    <app-landing-navbar
-      [activeSection]="activeSection()"
-      [menuOpen]="menuOpen()"
-      (menuToggled)="toggleMenu()"
-    />
-
     <main id="main-content">
       <app-landing-hero />
       <app-landing-features [features]="features" />
       <app-landing-how-it-works />
-      <app-landing-cta-footer />
+      <app-landing-cta-section />
     </main>
   `,
 })

@@ -1,5 +1,5 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/symptom-record-dto';
+import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/model/symptom-record-dto';
 
 @Injectable({ providedIn: 'root' })
 export class SymptomHealthRecordStore {

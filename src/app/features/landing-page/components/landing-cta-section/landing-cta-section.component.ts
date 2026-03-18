@@ -3,11 +3,11 @@ import { RouterLink } from '@angular/router';
 import { ZardButtonComponent } from 'src/app/shared/components/button/button.component';
 
 @Component({
-  selector: 'app-landing-cta-footer',
+  selector: 'app-landing-cta-section',
   standalone: true,
   imports: [RouterLink, ZardButtonComponent],
-  templateUrl: './landing-cta-footer.component.html',
-  styleUrl: './landing-cta-footer.component.scss',
+  templateUrl: './landing-cta-section.component.html',
+  styleUrl: './landing-cta-section.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LandingCtaFooterComponent {}
+export class LandingCtaSectionComponent {}

@@ -26,9 +26,15 @@ export class ForgotPasswordComponent {
       return;
     }
 
-    const email = this.forgotPasswordForm.getRawValue();
-    await this._authApi.forgotPassword(email);
-    toast.success('Un email de réinitialisation a été envoyé à votre adresse.');
-    await this._router.navigate(['/forgot-password']);
+    try {
+      const email = this.forgotPasswordForm.getRawValue();
+      await this._authApi.forgotPassword(email);
+
+      await this._router.navigate(['/login']);
+      toast.success('Un email de réinitialisation a été envoyé à votre adresse.');
+    } catch (error) {
+      console.error(error);
+      toast.error("Impossible d'envoyer l'email.");
+    }
   }
 }
