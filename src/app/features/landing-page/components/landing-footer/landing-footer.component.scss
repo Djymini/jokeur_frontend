@@ -1,0 +1,75 @@
+:host {
+  display: block;
+}
+
+.footer {
+  background: var(--navy-dark);
+  padding: 3rem 2rem;
+
+  &__inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__brand {
+    .brand__wordmark {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+
+    p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 0.25rem;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+
+    a {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+      transition: color 0.2s;
+      text-decoration: none;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    @media (max-width: 600px) {
+      margin-left: 0;
+      justify-content: center;
+    }
+  }
+
+  &__copy {
+    width: 100%;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.25);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 0.5rem;
+  }
+}

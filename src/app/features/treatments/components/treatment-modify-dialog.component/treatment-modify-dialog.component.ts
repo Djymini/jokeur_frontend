@@ -8,6 +8,12 @@ import {
 } from '@angular/forms';
 import { Z_MODAL_DATA } from '@/shared/components/dialog';
 import { Treatment } from '@/features/treatments/models/treatment.model';
+import { FrequencyType } from '@/features/treatments/models/frequencyType';
+import {
+  dateLimitEndValidator,
+  dateLimitReminderValidator,
+} from '@/internal-shared/validators/dateLimit';
+import { ReminderRules } from '@/features/reminders/domain/reminder.rules';
 
 @Component({
   selector: 'app-treatment-modify-dialog',
@@ -18,28 +24,30 @@ import { Treatment } from '@/features/treatments/models/treatment.model';
 export class TreatmentModifyDialogComponent implements OnInit {
   private _fb = inject(FormBuilder);
 
-  frequency: string[] = ['DAILY', 'MONTHLY', 'ANNUAL', 'ONETIME'];
+  frequency = new FrequencyType();
   data: { treatment: Treatment } = inject(Z_MODAL_DATA);
 
   treatmentForm!: FormGroup;
+  reminderType: string = ReminderRules.displayReminderType(this.data.treatment.reminder.type);
 
   ngOnInit(): void {
     const formattedTreatmentBeginDate = this._formatDate(this.data.treatment.beginDate);
-    const formattedTreatmentEndDate = this._formatDate(this.data.treatment.beginDate);
-    const formattedReminderDate = this.data.treatment.reminder?.reminderDate
-      ? this._formatDate(this.data.treatment.reminder.reminderDate)
-      : null;
+    const formattedTreatmentEndDate = this._formatDate(this.data.treatment.endDate);
+    const formattedReminderDate = this._formatDate(this.data.treatment.reminder.reminderDate);
 
     this.treatmentForm = this._fb.group({
       name: [this.data.treatment.name, [Validators.required]],
       description: [this.data.treatment.description],
-      frequency: [this.data.treatment.frequency, [Validators.required]],
+      frequency: [
+        this.frequency.types.find((type) => type.label === this.data.treatment.frequency)?.name,
+        [Validators.required],
+      ],
       beginDate: [formattedTreatmentBeginDate, [Validators.required]],
-      endDate: [formattedTreatmentEndDate, [Validators.required]],
+      endDate: [formattedTreatmentEndDate, { validators: [dateLimitEndValidator] }],
       reminder: this._fb.group({
         type: [this.data.treatment.reminder?.type || ''],
         description: [this.data.treatment.reminder?.description || ''],
-        reminderDate: [formattedReminderDate],
+        reminderDate: [formattedReminderDate, { validators: [dateLimitReminderValidator] }],
         status: [this.data.treatment.reminder?.status || 'PENDING'],
       }),
     });
@@ -66,9 +74,14 @@ export class TreatmentModifyDialogComponent implements OnInit {
     return this.treatmentForm.valid;
   }
 
-  private _formatDate(date: Date | string): string {
+  private _formatDate(date: Date | string | undefined | null): string {
     if (!date) return '';
     const d = new Date(date);
-    return d.toISOString().split('T')[0];
+
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
   }
 }

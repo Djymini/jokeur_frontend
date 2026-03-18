@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "symptom": { "id": 1, "name": "Fièvre" },
+    "observation": "Température élevée",
+    "observationDate": "2026-02-17",
+    "active": true
+  }
+]

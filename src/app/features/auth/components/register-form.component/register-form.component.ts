@@ -74,9 +74,11 @@ export class RegisterFormComponent {
         console.log('message result', result);
       });
 
-      toast.success('Inscription réussie.');
       await this._router.navigateByUrl('/login');
-    } catch (error) {
+      toast.success('Inscription réussie.');
+    } catch (error: any) {
+      const msg = error?.error?.message ?? error?.message ?? 'Une erreur est survenue.';
+      toast.error(msg);
       console.error("Probleme d'inscription:", error);
     }
   }

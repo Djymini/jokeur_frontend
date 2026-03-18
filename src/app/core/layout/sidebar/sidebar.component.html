@@ -6,9 +6,23 @@
     aria-label="Menu principal"
   >
     <nav class="sidebar-nav">
-      <div class="logo">
-        <h1 [class.hide]="collapsed()">Jokeur</h1>
-        <span aria-hidden="true">logo</span>
+      <div class="logo-row">
+        @if (!collapsed()) {
+          <div class="logo-title">
+            <h1>Jokeur</h1>
+            <span aria-hidden="true">logo</span>
+          </div>
+        }
+        <button
+          type="button"
+          class="menu-toggle"
+          (click)="toggleSidebar.emit()"
+          aria-label="Toggle sidebar"
+        >
+          <span class="material-icons">
+            {{ collapsed() ? 'menu' : 'menu_open' }}
+          </span>
+        </button>
       </div>
       <hr />
       <ul>
@@ -21,7 +35,6 @@
                   item.label
                 }}</span>
               }
-
               @if (item.badge && !collapsed()) {
                 <span class="menu-badge">{{ item.badge }}</span>
               }

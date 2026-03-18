@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { MenuItemModel } from '@/core/layout/sidebar/model/MenuItem.model';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@/core/services/auth.service';
@@ -12,6 +12,7 @@ import { AuthService } from '@/core/services/auth.service';
 export class SidebarComponent {
   collapsed = input<boolean>(false);
   activeRoute = input<string>('/dashboard');
+  toggleSidebar = output<void>();
 
   isVisible = inject(AuthService).isLoggedIn;
 
@@ -20,9 +21,4 @@ export class SidebarComponent {
     { id: 'settings', label: 'Paramètres', icon: 'settings', path: '/user-profile' },
     { id: 'calendar', label: 'Agenda', icon: 'calendar_today', path: '/calendar' },
   ]);
-
-  // Méthodes
-  selectMenu(): void {
-    // todo
-  }
 }

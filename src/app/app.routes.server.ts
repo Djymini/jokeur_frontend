@@ -22,6 +22,14 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client,
   },
   {
+    path: 'user-profile',
+    renderMode: RenderMode.Client,
+  },
+  {
+    path: 'legal-notice',
+    renderMode: RenderMode.Client,
+  },
+  {
     path: '**',
     renderMode: RenderMode.Server,
   },

@@ -4,13 +4,14 @@ import { ZardDialogService } from '@/shared/components/dialog';
 import { toast } from 'ngx-sonner';
 import { SymptomRecordDeleteDialogComponent } from '@/features/symptom-health-record/component/symptom-record-delete-dialog.component/symptom-record-delete-dialog.component';
 import { SymptomRecordModifyDialogComponent } from '@/features/symptom-health-record/component/symptom-record-modify-dialog.component/symptom-record-modify-dialog.component';
-import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/domain/symptom-record-dto';
+import { SymptomHealthRecordDTO } from '@/features/symptom-health-record/model/symptom-record-dto';
 import { SymptomHealthRecordFacade } from '@/features/symptom-health-record/service/symptom-health-record.facade';
 import { HealthRecord } from '@/features/health-records/models/health-record.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-symtom-item',
-  imports: [ZardButtonComponent],
+  imports: [ZardButtonComponent, DatePipe],
   templateUrl: './symptom-record-item.component.html',
   styleUrl: './symptom-record-item.component.scss',
 })
@@ -28,7 +29,14 @@ export class SymptomRecordItemComponent {
       zOkText: 'Enregistrer',
       zOnOk: async (instance) => {
         if (!instance.isValid()) {
-          toast.error('Veuillez remplir correctement les champs obligatoires.');
+          const form = instance.symptoRecordForm;
+          const hasEndDateError = form.get('endDate')?.hasError('dateLimitEndValidator');
+
+          if (hasEndDateError) {
+            toast.error('La date de fin doit être après le début');
+          } else {
+            toast.error('Veuillez remplir correctement les champs obligatoires');
+          }
           return;
         }
 
