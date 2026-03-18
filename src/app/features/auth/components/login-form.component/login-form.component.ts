@@ -26,10 +26,16 @@ export class LoginFormComponent {
   private _authService = inject(AuthService);
   private _router = inject(Router);
 
+  showPassword: boolean = false;
+
   loginForm: FormGroup<LoginFormModel> = this._fb.group({
     email: this._fb.control('', [Validators.required, Validators.email]),
     password: this._fb.control('', Validators.required),
   });
+
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   async onSubmit(): Promise<void> {
     if (this.loginForm.invalid) {

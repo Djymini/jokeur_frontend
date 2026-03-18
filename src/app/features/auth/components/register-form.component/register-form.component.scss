@@ -183,6 +183,18 @@ form {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
 }
 
+.bottom {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.bottom a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 @media (max-width: 480px) {
   form {
     padding: 20px 16px;

@@ -15,4 +15,4 @@ COPY --from=build /app/dist/jokeur_frontend ./
 
 EXPOSE 4000
 
-CMD ["node", "dist/jokeur_frontend/server/server.mjs"]
+CMD ["node", "jokeur_frontend/server/server.mjs"]
