@@ -3,18 +3,19 @@
   border: 1px solid #68a69242;
   padding: 10px;
   border-radius: 8px;
-  margin: 10px 10px;
-  min-height: 104px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 10px 0;
 }
 
-h4,
-p {
-  padding: 5px 5px;
+.dashboard-info p {
+  margin-bottom: 4px;
 }
 
 .info-card {
-  padding: 20px;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .info-card {
+    padding: 20px;
+  }
 }
