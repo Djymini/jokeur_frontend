@@ -2,30 +2,31 @@ import { Component } from '@angular/core';
 import { CalendarComponent } from '@/features/calendar/components/calendar.component/calendar.component';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardIconComponent } from '@/shared/components/icon';
+import { CalendarLegendComponent } from '@/features/calendar/components/calendar-legend/calendar-legend.component';
 
 @Component({
   selector: 'app-calendar.page',
-  imports: [CalendarComponent, ZardButtonComponent, ZardIconComponent],
+  imports: [CalendarComponent, ZardButtonComponent, ZardIconComponent, CalendarLegendComponent],
   template: `
     <div class="page-header">
       <h2 class="page-title">Agenda</h2>
-      <button
-        z-button
-        type="button"
-        zType="ghost"
-        class="add-btn"
-        (click)="calendar.openDialogAdd()"
-      >
+      <button z-button type="button" zType="ghost" class="add-btn" (click)="calendar.openDialogAdd()">
         <z-icon zType="plus" />
         Ajouter un événement
       </button>
     </div>
     <app-calendar #calendar></app-calendar>
+    <app-calendar-legend />
   `,
   styles: `
     :host {
       display: block;
       padding: 3rem 2.5rem 4rem;
+    }
+
+    app-calendar-legend {
+      display: block;
+      margin-top: 25px;
     }
 
     .page-header {
@@ -38,6 +39,12 @@ import { ZardIconComponent } from '@/shared/components/icon';
     .page-title {
       margin: 0;
       color: var(--secondary);
+    }
+
+    .page-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .add-btn {

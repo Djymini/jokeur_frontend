@@ -1,7 +1,8 @@
 <form [formGroup]="form" class="grid gap-4">
-
   <div class="grid gap-1.5">
-    <label for="reason" class="text-xs font-semibold uppercase tracking-wider text-gray-500">Motif du rendez-vous</label>
+    <label for="reason" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+      >Motif du rendez-vous</label
+    >
     <input
       z-input
       id="reason"
@@ -11,13 +12,16 @@
   </div>
 
   <div class="grid gap-1.5">
-    <label for="dateTime" class="text-xs font-semibold uppercase tracking-wider text-gray-500">Date et heure</label>
+    <label for="dateTime" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+      >Date et heure</label
+    >
     <input z-input id="dateTime" type="datetime-local" formControlName="dateTime" />
   </div>
 
   <div class="grid gap-1.5">
-    <label for="duration" class="text-xs font-semibold uppercase tracking-wider text-gray-500">Durée (minutes)</label>
+    <label for="duration" class="text-xs font-semibold uppercase tracking-wider text-gray-500"
+      >Durée (minutes)</label
+    >
     <input z-input id="duration" type="number" formControlName="duration" placeholder="30" />
   </div>
-
 </form>
