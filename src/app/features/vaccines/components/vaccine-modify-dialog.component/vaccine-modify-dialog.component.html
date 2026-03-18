@@ -5,21 +5,25 @@
     <div class="flex flex-col mb-3">
       <label for="name" class="text-sm font-medium">Nom du vaccin</label>
       <input id="name" type="text" formControlName="name" class="border p-2 rounded" />
+      @if (vaccineForm.get('name')?.invalid && vaccineForm.get('name')?.touched) {
+        <p class="error">Nom requis</p>
+      }
     </div>
 
     <div class="flex flex-col mb-3">
       <label for="vaccinator" class="text-sm font-medium">Vaccinateur</label>
       <input id="vaccinator" type="text" formControlName="vaccinator" class="border p-2 rounded" />
+      @if (vaccineForm.get('vaccinator')?.invalid && vaccineForm.get('vaccinator')?.touched) {
+        <p class="error">Nom du vaccinateur requis requis</p>
+      }
     </div>
 
     <div class="flex flex-col mb-3">
       <label for="vaccineDate" class="text-sm font-medium">Date du vaccin</label>
-      <input
-        id="vaccineDate"
-        type="date"
-        formControlName="vaccineDate"
-        class="border p-2 rounded"
-      />
+      <input id="vaccineDate" type="date" formControlName="beginDate" class="border p-2 rounded" />
+      @if (vaccineForm.get('beginDate')?.invalid && vaccineForm.get('beginDate')?.touched) {
+        <p class="error">Date de debut requise</p>
+      }
     </div>
 
     <div class="flex flex-col mb-3">
@@ -29,6 +33,9 @@
         formControlName="description"
         class="border p-2 rounded"
       ></textarea>
+      @if (vaccineForm.get('description')?.invalid && vaccineForm.get('description')?.touched) {
+        <p class="error">Description requise</p>
+      }
     </div>
   </fieldset>
 
@@ -37,13 +44,7 @@
 
     <div class="flex flex-col mb-3">
       <label for="reminderType" class="text-sm font-medium">Type de rappel</label>
-      <input
-        id="reminderType"
-        type="text"
-        formControlName="type"
-        class="border p-2 rounded"
-        placeholder="Ex: Rappel annuel"
-      />
+      <p>{{ reminderType }}</p>
     </div>
 
     <div class="flex flex-col mb-3">
@@ -54,6 +55,12 @@
         formControlName="reminderDate"
         class="border p-2 rounded"
       />
+      @if (
+        vaccineForm.get('reminder.reminderDate')?.hasError('dateLimitReminderValidator') &&
+        vaccineForm.get('reminderDate')?.touched
+      ) {
+        <p class="error">La date de rappel ne peut-être inferieur à la date du début</p>
+      }
     </div>
 
     <div class="flex flex-col mb-3">
@@ -63,6 +70,9 @@
         <option value="DONE">Réalisé</option>
         <option value="CANCELLED">Annulé</option>
       </select>
+      @if (vaccineForm.get('status')?.invalid && vaccineForm.get('status')?.touched) {
+        <p class="error">Status requis</p>
+      }
     </div>
   </fieldset>
 </form>

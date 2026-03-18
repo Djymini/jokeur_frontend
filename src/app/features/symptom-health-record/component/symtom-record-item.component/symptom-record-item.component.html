@@ -2,7 +2,10 @@
   <div class="item-top">
     <div class="text-block">
       <h3>{{ sypmtomsRecord().symptom?.name }}</h3>
-      <p class="label">Date d'observation : {{ sypmtomsRecord().observationDate }}</p>
+      <p class="label">
+        Date d'apparition des premiers symptomes :
+        {{ sypmtomsRecord().observationDate | date: 'mediumDate' }}
+      </p>
     </div>
   </div>
   <div class="item-bottom">
@@ -20,7 +23,7 @@
     } @else {
       <div class="text-block">
         <p class="label">Date de fin</p>
-        <p class="value">{{ sypmtomsRecord().endDate }}</p>
+        <p class="value">{{ sypmtomsRecord().endDate | date: 'mediumDate' }}</p>
       </div>
     }
 

@@ -2,6 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Vaccine } from '@/features/vaccines/models/vaccine.model';
 import { Z_MODAL_DATA } from '@/shared/components/dialog';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { dateLimitReminderValidator } from '@/internal-shared/validators/dateLimit';
+import { ReminderRules } from '@/features/reminders/domain/reminder.rules';
 
 @Component({
   selector: 'app-vaccine-modify-dialog.component',
@@ -14,6 +16,7 @@ export class VaccineModifyDialogComponent implements OnInit {
   data: { vaccine: Vaccine } = inject(Z_MODAL_DATA);
 
   vaccineForm!: FormGroup;
+  reminderType: string = ReminderRules.displayReminderType(this.data.vaccine.reminder.type);
 
   ngOnInit(): void {
     const formattedVaccineDate = this._formatDate(this.data.vaccine.vaccineDate);
@@ -25,13 +28,12 @@ export class VaccineModifyDialogComponent implements OnInit {
       name: [this.data.vaccine.name, [Validators.required]],
       description: [this.data.vaccine.description],
       vaccinator: [this.data.vaccine.vaccinator, [Validators.required]],
-      vaccineDate: [formattedVaccineDate, [Validators.required]],
+      beginDate: [formattedVaccineDate, [Validators.required]],
 
-      // Sous-formulaire pour le rappel
       reminder: this._fb.group({
         type: [this.data.vaccine.reminder?.type || ''],
         description: [this.data.vaccine.reminder?.description || ''],
-        reminderDate: [formattedReminderDate],
+        reminderDate: [formattedReminderDate, { validators: [dateLimitReminderValidator] }],
         status: [this.data.vaccine.reminder?.status || 'PENDING'],
       }),
     });
@@ -57,9 +59,14 @@ export class VaccineModifyDialogComponent implements OnInit {
     return this.vaccineForm.valid;
   }
 
-  private _formatDate(date: Date | string): string {
+  private _formatDate(date: Date | string | undefined | null): string {
     if (!date) return '';
     const d = new Date(date);
-    return d.toISOString().split('T')[0];
+
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
   }
 }

@@ -5,6 +5,7 @@ import { HealthRecordRules } from '@/features/health-records/domain/health-recor
 import { InformationItemComponent } from '@/features/health-records/components/information-item.component/information-item.component';
 import { ZardBadgeComponent } from '@/shared/components/badge';
 import { ZardButtonComponent } from '@/shared/components/button';
+import { DisplayDateRules } from '@/internal-shared/domain/display-date.rules';
 
 @Component({
   selector: 'app-health-record-information-section',
@@ -41,7 +42,7 @@ export class HealthRecordInformationSectionComponent implements OnInit {
       },
       {
         label: 'Date de naissance',
-        information: this.healthRecord().birthDate.toString(),
+        information: DisplayDateRules.formatDateFromDate(this.healthRecord().birthDate),
       },
       {
         label: 'Couleur',

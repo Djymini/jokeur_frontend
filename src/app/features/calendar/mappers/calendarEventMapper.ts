@@ -7,8 +7,8 @@ export class CalendarEventMapper {
   public static appointmentToCalendarEvent(appointment: Appointment): CalendarEvent {
     const calendarEvent: CalendarEvent = {
       id: appointment.id,
-      start: appointment.dateTime,
-      end: addMinutes(appointment.dateTime, appointment.duration),
+      start: new Date(appointment.dateTime),
+      end: addMinutes(new Date(appointment.dateTime), appointment.duration),
       title: appointment.reason,
       color: { primary: '#004E8AFF', secondary: '#75C3FFFF' },
     };
@@ -21,8 +21,8 @@ export class CalendarEventMapper {
 
     const calendarEvent: CalendarEvent = {
       id: reminder.id,
-      start: reminder.reminderDate,
-      end: addMinutes(reminder.reminderDate, defaultDuration),
+      start: new Date(reminder.reminderDate),
+      end: addMinutes(new Date(reminder.reminderDate), defaultDuration),
       title: reminder.description,
       color: { primary: '#FF6933FF', secondary: '#CC360252' },
     };

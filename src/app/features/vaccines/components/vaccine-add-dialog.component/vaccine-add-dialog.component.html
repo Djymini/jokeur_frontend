@@ -1,9 +1,10 @@
-<form [formGroup]="form" class="grid gap-4 p-4">
-  <h2 class="text-lg font-bold">Ajouter un vaccin</h2>
-
+<form [formGroup]="vaccineForm" class="grid gap-4 p-4">
   <div class="grid gap-2">
     <label for="name" class="text-sm font-medium">Nom du vaccin</label>
     <input z-input id="name" formControlName="name" placeholder="ex: Pfizer, BCG..." />
+    @if (vaccineForm.get('name')?.invalid && vaccineForm.get('name')?.touched) {
+      <p class="error">Nom requis</p>
+    }
   </div>
 
   <div class="grid gap-2">
@@ -14,16 +15,28 @@
       formControlName="vaccinator"
       placeholder="Nom du médecin ou centre"
     />
+    @if (vaccineForm.get('vaccinator')?.invalid && vaccineForm.get('vaccinator')?.touched) {
+      <p class="error">Nom du vaccinateur requis</p>
+    }
   </div>
 
   <div class="grid grid-cols-2 gap-4">
     <div class="grid gap-2">
       <label for="vaccinDate" class="text-sm font-medium">Date de vaccination</label>
-      <input z-input id="vaccinDate" type="date" formControlName="vaccinDate" />
+      <input z-input id="vaccinDate" type="date" formControlName="beginDate" />
+      @if (vaccineForm.get('beginDate')?.invalid && vaccineForm.get('beginDate')?.touched) {
+        <p class="error">Date de vaccin requise</p>
+      }
     </div>
     <div class="grid gap-2">
       <label for="vaccinReminderDate" class="text-sm font-medium">Date de rappel</label>
-      <input z-input id="vaccinReminderDate" type="date" formControlName="vaccinReminderDate" />
+      <input z-input id="vaccinReminderDate" type="date" formControlName="reminderDate" />
+      @if (
+        vaccineForm.get('reminderDate')?.hasError('dateLimitReminderValidator') &&
+        vaccineForm.get('reminderDate')?.touched
+      ) {
+        <p class="error">Date de rappel ne peut-être inferieur à date du vaccin</p>
+      }
     </div>
   </div>
 
