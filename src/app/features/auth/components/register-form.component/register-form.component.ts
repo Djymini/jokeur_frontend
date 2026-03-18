@@ -25,7 +25,6 @@ export class RegisterFormComponent {
 
   registerForm: FormGroup<RegisterFormUserModel> = this._fb.group(
     {
-      username: this._fb.control('', Validators.required),
       name: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
       firstname: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
       phone: this._fb.control('', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]),
@@ -58,10 +57,9 @@ export class RegisterFormComponent {
       return;
     }
 
-    const { username, name, firstname, phone, email, password } = this.registerForm.getRawValue();
+    const { name, firstname, phone, email, password } = this.registerForm.getRawValue();
 
     const payload: RegisterUserPayload = {
-      username,
       name,
       firstname,
       phone,

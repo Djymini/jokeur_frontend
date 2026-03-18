@@ -6,7 +6,6 @@ describe('AuthRules (unit tests)', () => {
   // 1. Arrange
   beforeEach(() => {
     form = {
-      username: 'toto',
       name: 'toto',
       firstname: 'toto',
       phone: '0123456789',
@@ -21,7 +20,6 @@ describe('AuthRules (unit tests)', () => {
     const payload = AuthRules.toRegisterPayload(form);
 
     expect(payload).toEqual({
-      username: 'toto',
       name: 'toto',
       firstname: 'toto',
       phone: '0123456789',
