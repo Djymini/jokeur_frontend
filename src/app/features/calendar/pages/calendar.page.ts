@@ -29,7 +29,7 @@ import { CalendarLegendComponent } from '@/features/calendar/components/calendar
   styles: `
     :host {
       display: block;
-      padding: 3rem 6rem 4rem;
+      padding: 3rem 6.5rem 4rem;
     }
 
     app-calendar-legend {

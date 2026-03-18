@@ -29,7 +29,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
   styles: `
     :host {
       display: block;
-      padding: 3rem 6rem 4rem;
+      padding: 3rem 3rem 4rem;
     }
 
     .title {
