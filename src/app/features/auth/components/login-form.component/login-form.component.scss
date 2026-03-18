@@ -1,12 +1,15 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 16px;
 }
 
 /* Titre */
 .title {
   text-align: center;
-  margin-top: 48px;
   margin-bottom: 24px;
   color: var(--secondary);
 }

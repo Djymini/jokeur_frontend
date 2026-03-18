@@ -1,19 +1,6 @@
 @if (isVisible()) {
   <header class="header" role="banner">
-    <div class="header-left">
-      <button
-        type="button"
-        class="menu-toggle"
-        (click)="toggleSidebar.emit()"
-        aria-label="Toggle sidebar"
-      >
-        <span class="material-icons cursor-pointer">
-          {{ sidebarCollapsed() ? 'menu' : 'menu_open' }}
-        </span>
-      </button>
-    </div>
     <div class="header-right">
-      <!-- User Profile -->
       <div class="user-profile" z-dropdown [zDropdownMenu]="menu">
         <span class="material-icons">account_circle</span>
         <span class="user-name">
@@ -34,7 +21,7 @@
 
           <z-dropdown-menu-item (click)="onLogout()">
             <span class="material-icons">logout</span>
-            Deconnexion
+            Déconnexion
           </z-dropdown-menu-item>
         </z-dropdown-menu-content>
       </div>
