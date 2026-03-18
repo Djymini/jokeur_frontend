@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Feature } from '@/features/landing-page/page/landing-page';
+import { Feature } from '@/features/landing-page/pages/landing-page';
 
 @Component({
   selector: 'app-landing-features',
