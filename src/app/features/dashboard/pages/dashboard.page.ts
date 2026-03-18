@@ -16,8 +16,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     DashboardReminderComponent,
   ],
   template: `
-    <section class="mb-8">
-      <h2 class="title">Informations</h2>
+    <section class="mb-8 px-4 md:px-14">      <h2 class="title">Informations</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent">
         <app-dashboard-news></app-dashboard-news>
         <app-dashboard-reminder></app-dashboard-reminder>
@@ -29,7 +28,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
   styles: `
     :host {
       display: block;
-      padding: 3rem 2.5rem 4rem;
+      padding: 3rem 6rem 4rem;
     }
 
     .title {

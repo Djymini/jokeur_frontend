@@ -8,20 +8,28 @@ import { CalendarLegendComponent } from '@/features/calendar/components/calendar
   selector: 'app-calendar.page',
   imports: [CalendarComponent, ZardButtonComponent, ZardIconComponent, CalendarLegendComponent],
   template: `
-    <div class="page-header">
+    <section class="mb-8">
+      <div class="page-header">
       <h2 class="page-title">Agenda</h2>
-      <button z-button type="button" zType="ghost" class="add-btn" (click)="calendar.openDialogAdd()">
+      <button
+        z-button
+        type="button"
+        zType="ghost"
+        class="add-btn"
+        (click)="calendar.openDialogAdd()"
+      >
         <z-icon zType="plus" />
         Ajouter un événement
       </button>
     </div>
     <app-calendar #calendar></app-calendar>
     <app-calendar-legend />
+    </section>
   `,
   styles: `
     :host {
       display: block;
-      padding: 3rem 2.5rem 4rem;
+      padding: 3rem 6rem 4rem;
     }
 
     app-calendar-legend {
