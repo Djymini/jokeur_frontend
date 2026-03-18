@@ -4,12 +4,11 @@ import { HealthRecordInformation } from '@/features/health-records/models/health
 import { HealthRecordRules } from '@/features/health-records/domain/health-record.rules';
 import { InformationItemComponent } from '@/features/health-records/components/information-item.component/information-item.component';
 import { ZardBadgeComponent } from '@/shared/components/badge';
-import { ZardButtonComponent } from '@/shared/components/button';
 import { DisplayDateRules } from '@/internal-shared/domain/display-date.rules';
 
 @Component({
   selector: 'app-health-record-information-section',
-  imports: [InformationItemComponent, ZardBadgeComponent, ZardButtonComponent],
+  imports: [InformationItemComponent, ZardBadgeComponent],
   templateUrl: './health-record-information-section.component.html',
   styleUrl: './health-record-information-section.component.scss',
 })
