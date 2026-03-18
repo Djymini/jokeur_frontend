@@ -10,20 +10,20 @@ import { CalendarLegendComponent } from '@/features/calendar/components/calendar
   template: `
     <section class="mb-8">
       <div class="page-header">
-      <h2 class="page-title">Agenda</h2>
-      <button
-        z-button
-        type="button"
-        zType="ghost"
-        class="add-btn"
-        (click)="calendar.openDialogAdd()"
-      >
-        <z-icon zType="plus" />
-        Ajouter un événement
-      </button>
-    </div>
-    <app-calendar #calendar></app-calendar>
-    <app-calendar-legend />
+        <h2 class="page-title">Agenda</h2>
+        <button
+          z-button
+          type="button"
+          zType="ghost"
+          class="add-btn"
+          (click)="calendar.openDialogAdd()"
+        >
+          <z-icon zType="plus" />
+          Ajouter un événement
+        </button>
+      </div>
+      <app-calendar #calendar></app-calendar>
+      <app-calendar-legend />
     </section>
   `,
   styles: `
