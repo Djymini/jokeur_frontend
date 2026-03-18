@@ -18,7 +18,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
   template: `
     <section class="mb-8">
       <h2 class="text text-card-foreground title">Informations</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 parent">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent">
         <app-dashboard-news></app-dashboard-news>
         <app-dashboard-reminder></app-dashboard-reminder>
         <app-dashboard-appointment></app-dashboard-appointment>
@@ -28,11 +28,20 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
   `,
   styles: `
     .title {
-      margin: 10px 50px;
+      margin: 10px 16px;
       color: var(--secondary);
     }
     .parent {
-      margin: 50px;
+      margin: 16px;
+    }
+    @media (min-width: 768px) {
+      .title {
+        margin: 10px 50px;
+      }
+
+      .parent {
+        margin: 50px;
+      }
     }
   `,
 })

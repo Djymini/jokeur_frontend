@@ -19,12 +19,13 @@ button[z-button] {
   justify-content: space-between;
 
   img {
-    width: 72px;
-    height: 72px;
+    width: clamp(48px, 10vw, 72px);
+    height: clamp(48px, 10vw, 72px);
   }
 
   h4 {
     font-size: 1.1rem;
+    word-break: break-word;
   }
 
   .content {
