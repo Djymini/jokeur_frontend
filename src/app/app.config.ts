@@ -16,7 +16,8 @@ registerLocaleData(localeFr);
 export const appConfig: ApplicationConfig = {
   providers: [
     provideCalendar({ provide: DateAdapter, useFactory: adapterFactory }),
-    { provide: CalendarDateFormatter, useClass: CustomDateFormatter },    provideBrowserGlobalErrorListeners(),
+    { provide: CalendarDateFormatter, useClass: CustomDateFormatter },
+    provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
     provideClientHydration(withEventReplay()),

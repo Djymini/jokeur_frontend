@@ -9,7 +9,13 @@ import { ZardIconComponent } from '@/shared/components/icon';
   template: `
     <div class="page-header">
       <h2 class="page-title">Agenda</h2>
-      <button z-button type="button" zType="ghost" class="add-btn" (click)="calendar.openDialogAdd()">
+      <button
+        z-button
+        type="button"
+        zType="ghost"
+        class="add-btn"
+        (click)="calendar.openDialogAdd()"
+      >
         <z-icon zType="plus" />
         Ajouter un événement
       </button>
@@ -18,15 +24,15 @@ import { ZardIconComponent } from '@/shared/components/icon';
   `,
   styles: `
     :host {
-      padding: 48px;
       display: block;
+      padding: 3rem 2.5rem 4rem;
     }
 
     .page-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
+      margin-bottom: 1.75rem;
     }
 
     .page-title {

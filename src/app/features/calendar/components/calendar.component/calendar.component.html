@@ -33,17 +33,20 @@
         type="button"
         [zType]="view() === CalendarView.Month ? 'default' : 'outline'"
         (click)="setView(CalendarView.Month)"
-      >Mois</z-button>
+        >Mois</z-button
+      >
       <z-button
         type="button"
         [zType]="view() === CalendarView.Week ? 'default' : 'outline'"
         (click)="setView(CalendarView.Week)"
-      >Semaine</z-button>
+        >Semaine</z-button
+      >
       <z-button
         type="button"
         [zType]="view() === CalendarView.Day ? 'default' : 'outline'"
         (click)="setView(CalendarView.Day)"
-      >Jour</z-button>
+        >Jour</z-button
+      >
     </div>
   </div>
 
