@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterFormUserModel } from '@/features/auth/models/register-form-user-model';
 import { AuthApi } from '@/core/auth.api';
@@ -11,7 +11,7 @@ import { NAME_REGEX } from '@/features/auth/domain/name.rules';
 
 @Component({
   selector: 'app-register-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })
@@ -25,7 +25,6 @@ export class RegisterFormComponent {
 
   registerForm: FormGroup<RegisterFormUserModel> = this._fb.group(
     {
-      username: this._fb.control('', Validators.required),
       name: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
       firstname: this._fb.control('', [Validators.required, Validators.pattern(NAME_REGEX)]),
       phone: this._fb.control('', [Validators.required, Validators.pattern(/^0[0-9]{9}$/)]),
@@ -58,10 +57,9 @@ export class RegisterFormComponent {
       return;
     }
 
-    const { username, name, firstname, phone, email, password } = this.registerForm.getRawValue();
+    const { name, firstname, phone, email, password } = this.registerForm.getRawValue();
 
     const payload: RegisterUserPayload = {
-      username,
       name,
       firstname,
       phone,
