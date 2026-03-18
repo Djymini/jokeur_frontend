@@ -1,6 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//import { startOfDay, addHours } from 'date-fns';
 import {
   CalendarView,
   CalendarMonthViewComponent,
@@ -36,7 +35,7 @@ import { AppointmentRequest } from '@/features/appointment/models/appointmentReq
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
   private _dialogService = inject(ZardDialogService);
   private _calendarFacade = inject(CalendarFacade);
 
@@ -47,9 +46,7 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
   CalendarView = CalendarView;
 
-  ngOnInit(): void {
-    this._calendarFacade.getCalendar(this.user()!.id.toString(), this.viewDate.toISOString());
-  }
+  readonly addEventRequested = output<void>();
 
   setView(newView: CalendarView): void {
     this.view.set(newView);
@@ -83,37 +80,8 @@ export class CalendarComponent implements OnInit {
   }
 
   updateAgenda(): void {
-    this._calendarFacade.getCalendar(this.user()!.id.toString(), this.viewDate.toISOString());
+    const userId = this.user()?.id;
+    if (!userId) return;
+    this._calendarFacade.getCalendar(userId.toString(), this.viewDate.toISOString());
   }
-
-  /*addEvent(): void {
-    const newEvent: CalendarEvent = {
-      title: 'Nouvel événement',
-      start: startOfDay(this.viewDate), // Ajoute à la date actuellement regardée
-      end: addHours(startOfDay(this.viewDate), 1),
-      color: { primary: '#28a745', secondary: '#D4EDDA' },
-      actions: this.actions,
-      draggable: true,
-    };
-    this.events.update((currentEvents) => [...currentEvents, newEvent]);
-  }
-
-  editEvent(eventToEdit: CalendarEvent): void {
-    const newTitle = prompt('Modifier le titre :', eventToEdit.title);
-    if (newTitle) {
-      this.events.update((currentEvents) => {
-        return currentEvents.map((event) =>
-          event === eventToEdit ? { ...event, title: newTitle } : event,
-        );
-      });
-    }
-  }
-
-  deleteEvent(eventToDelete: CalendarEvent): void {
-    if (confirm('Voulez-vous vraiment supprimer cet événement ?')) {
-      this.events.update((currentEvents) =>
-        currentEvents.filter((event) => event !== eventToDelete),
-      );
-    }
-  }*/
 }
