@@ -1,20 +1,21 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { ZardButtonComponent } from '@/shared/components/button';
+import { Component, computed, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ZardIconComponent } from '@/shared/components/icon';
 import { NewsStore } from '@/features/news/store/news-store';
 import { NewsApi } from '@/features/dashboard/services/news-api.service';
-import { DatePipe, NgClass } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { IsRecentPipe } from '@/features/news/pipes/is-recent.pipe';
 
 @Component({
   selector: 'app-news',
-  imports: [ZardButtonComponent, ZardIconComponent, NgClass, DatePipe, IsRecentPipe],
+  imports: [ZardIconComponent, DatePipe, IsRecentPipe],
   templateUrl: './news.component.html',
   styleUrl: './news.component.scss',
 })
 export default class NewsComponent implements OnInit {
-  protected readonly Math = window.Math;
+  protected readonly Math = Math;
 
+  private readonly _platformId = inject(PLATFORM_ID);
   newsStore = inject(NewsStore);
   private _newsApi = inject(NewsApi);
 
@@ -24,7 +25,9 @@ export default class NewsComponent implements OnInit {
   totalElements = computed(() => this.newsStore.news().totalElements || 0);
 
   ngOnInit(): void {
-    this.loadNews();
+    if (isPlatformBrowser(this._platformId)) {
+      this.loadNews();
+    }
   }
 
   async loadNews(): Promise<void> {
