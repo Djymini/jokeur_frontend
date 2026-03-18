@@ -95,30 +95,21 @@ export class ZardDialogOptions<T, U> {
     </main>
 
     @if (!config.zHideFooter) {
-      <footer class="mt-5 flex flex-col-reverse gap- sm:flex-row sm:justify-end sm:gap-0 sm:space-x-2">
+      <footer class="mt-4 grid grid-cols-2 gap-2">
         @if (config.zCancelText !== null) {
-          <button type="button" data-testid="z-cancel-button" z-button zType="outline" (click)="onCloseClick()">
+          <button type="button" data-testid="z-cancel-button" z-button zFull zType="outline" zSize="lg" (click)="onCloseClick()">
             @if (config.zCancelIcon) {
               <z-icon [zType]="config.zCancelIcon" />
             }
-
             {{ config.zCancelText ?? 'Cancel' }}
           </button>
         }
 
         @if (config.zOkText !== null) {
-          <button
-            type="button"
-            data-testid="z-ok-button"
-            z-button
-            [zType]="config.zOkDestructive ? 'destructive' : 'default'"
-            [disabled]="config.zOkDisabled"
-            (click)="onOkClick()"
-          >
+          <button type="button" data-testid="z-ok-button" z-button zFull [zType]="config.zOkDestructive ? 'destructive' : 'default'" zSize="lg" [disabled]="config.zOkDisabled" (click)="onOkClick()">
             @if (config.zOkIcon) {
               <z-icon [zType]="config.zOkIcon" />
             }
-
             {{ config.zOkText ?? 'OK' }}
           </button>
         }
