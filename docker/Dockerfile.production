@@ -9,11 +9,10 @@ COPY ../ ./
 RUN npm run build
 
 # Step 2
-FROM nginx:1.27-alpine
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-WORKDIR /usr/share/nginx/html
-COPY --from=build /app/dist/jokeur_frontend/browser ./
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=build /app/dist/jokeur_frontend ./
 
-EXPOSE 80
+EXPOSE 4000
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "server/server.mjs"]
