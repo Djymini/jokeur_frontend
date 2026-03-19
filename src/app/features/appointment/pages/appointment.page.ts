@@ -25,12 +25,24 @@ import { AppointmentSectionComponent } from '@/features/appointment/components/a
     :host {
       display: block;
       padding: 3rem 6.4rem 4rem;
-      min-height: 100vh;
+      min-height: 100dvh;
+      @media (max-width: 1024px) {
+        padding: 2.5rem 3rem 3rem;
+      }
+      @media (max-width: 480px) {
+        padding: 1rem 0.75rem 1.5rem;
+      }
     }
 
     app-breadcrumb {
       display: block;
       margin-bottom: 32px;
+      @media (max-width: 768px) {
+        margin-bottom: 24px;
+      }
+      @media (max-width: 480px) {
+        margin-bottom: 20px;
+      }
     }
   `,
 })
