@@ -1,7 +1,7 @@
 <form [formGroup]="vaccineForm" class="grid gap-4 p-4">
   <div class="grid gap-2">
     <label for="name" class="text-sm font-medium">Nom du vaccin</label>
-    <input z-input id="name" formControlName="name" placeholder="ex: Pfizer, BCG..." />
+    <input z-input id="name" formControlName="name" placeholder="ex: Maladie de Carré et Calicivirus..." />
     @if (vaccineForm.get('name')?.invalid && vaccineForm.get('name')?.touched) {
       <p class="error">Nom requis</p>
     }

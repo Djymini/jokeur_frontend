@@ -1,7 +1,7 @@
 <form [formGroup]="treatmentForm" class="grid gap-4 p-4">
   <div class="grid gap-2">
     <label for="name" class="text-sm font-medium">Nom du traitement</label>
-    <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
+    <input z-input id="name" formControlName="name" placeholder="ex: Cardisure et Amoxicilline..." />
     @if (treatmentForm.get('name')?.invalid && treatmentForm.get('name')?.touched) {
       <p class="error">Nom requis</p>
     }
