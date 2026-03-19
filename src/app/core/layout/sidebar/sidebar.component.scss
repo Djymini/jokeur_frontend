@@ -1,10 +1,12 @@
 .sidebar {
   color: var(--sidebar-primary-foreground);
   width: 250px;
-  height: 100dvh;
+  height: 100%;
+  min-height: 100dvh;
   background: var(--primary);
   border-right: 1px solid var(--sidebar-border);
   display: flex;
+  align-self: flex-start;
   flex-direction: column;
   transition:
     width 0.3s ease,
