@@ -99,7 +99,7 @@ import { CalendarLegendComponent } from '@/features/calendar/components/calendar
     }
 
     .add-btn {
-      background-color: var(--accent) !important;
+      background-color: var(--teal-light) !important;
       color: white !important;
       padding: 0 24px !important;
       font-size: 0.95rem;

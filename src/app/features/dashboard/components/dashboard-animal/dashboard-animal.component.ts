@@ -3,6 +3,7 @@ import { DynamicFormModalComponent } from '@/shared/components/forms/dynamic-for
 import { RouterLink } from '@angular/router';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { ZardIconComponent } from '@/shared/components/icon';
+import { ZardBadgeComponent } from '@/shared/components/badge';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import { AuthService } from '@/core/services/auth.service';
@@ -12,7 +13,13 @@ import { DashboardRules } from '@/features/dashboard/domain/dashboard.rules';
 
 @Component({
   selector: 'app-dashboard-animal',
-  imports: [DynamicFormModalComponent, RouterLink, ZardButtonComponent, ZardIconComponent],
+  imports: [
+    DynamicFormModalComponent,
+    RouterLink,
+    ZardButtonComponent,
+    ZardIconComponent,
+    ZardBadgeComponent,
+  ],
   templateUrl: './dashboard-animal.component.html',
   styleUrl: './dashboard-animal.component.scss',
 })
