@@ -1,7 +1,5 @@
 @if (userHeader()) {
-  <app-user-profile-header
-    [user]="userHeader()!"
-  ></app-user-profile-header>
+  <app-user-profile-header [user]="userHeader()!"></app-user-profile-header>
 }
 
 <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
@@ -31,13 +29,12 @@
     />
 
     @if (
-      userProfileForm.controls.name.errors?.['required'] &&
-      userProfileForm.controls.name.touched
-      ) {
+      userProfileForm.controls.name.errors?.['required'] && userProfileForm.controls.name.touched
+    ) {
       <p class="error" id="name-error" role="alert">Un nom est requis.</p>
     } @else if (
       userProfileForm.controls.name.errors?.['pattern'] && userProfileForm.controls.name.touched
-      ) {
+    ) {
       <p class="error" id="name-error" role="alert">
         Le nom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
       </p>
@@ -70,12 +67,12 @@
     @if (
       userProfileForm.controls.firstname.errors?.['required'] &&
       userProfileForm.controls.firstname.touched
-      ) {
+    ) {
       <p class="error" id="firstname-error" role="alert">Un prénom est requis.</p>
     } @else if (
       userProfileForm.controls.firstname.errors?.['pattern'] &&
       userProfileForm.controls.firstname.touched
-      ) {
+    ) {
       <p class="error" id="firstname-error" role="alert">
         Le prénom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
       </p>
