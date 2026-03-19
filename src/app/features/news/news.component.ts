@@ -7,10 +7,11 @@ import { DatePipe } from '@angular/common';
 import { IsRecentPipe } from '@/features/news/pipes/is-recent.pipe';
 import { BreadcrumbComponent } from '@/internal-shared/components/breadcrumb.component/breadcrumb.component';
 import { BreadcrumbNode } from '@/internal-shared/models/breadcrumb-node.model';
+import { ZardButtonComponent } from '@/shared/components/button';
 
 @Component({
   selector: 'app-news',
-  imports: [ZardIconComponent, DatePipe, IsRecentPipe, BreadcrumbComponent],
+  imports: [ZardIconComponent, ZardButtonComponent, DatePipe, IsRecentPipe, BreadcrumbComponent],
   templateUrl: './news.component.html',
   styleUrl: './news.component.scss',
 })
@@ -64,13 +65,5 @@ export default class NewsComponent implements OnInit {
       this.currentPage.set(page);
       await this.loadNews();
     }
-  }
-
-  nextPage(): void {
-    this.onPageChange(this.currentPage() + 1);
-  }
-
-  previousPage(): void {
-    this.onPageChange(this.currentPage() - 1);
   }
 }
