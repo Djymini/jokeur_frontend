@@ -29,7 +29,7 @@
       <ul>
         @for (item of menuItems(); track item.id) {
           <li routerLinkActive="active" #rla="routerLinkActive">
-            <a [routerLink]="item.path" (click)="onMenuItemClick()">
+            <a [routerLink]="item.path" routerLinkActive="active" (click)="onMenuItemClick()">
               <span class="material-icons">{{ item.icon }}</span>
               @if (!collapsed()) {
                 <span class="menu-label">{{ item.label }}</span>

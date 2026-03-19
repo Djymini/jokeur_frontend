@@ -1,10 +1,12 @@
 .sidebar {
   color: var(--sidebar-primary-foreground);
   width: 250px;
-  height: 100dvh;
+  height: 100%;
+  min-height: 100dvh;
   background: var(--primary);
   border-right: 1px solid var(--sidebar-border);
   display: flex;
+  align-self: flex-start;
   flex-direction: column;
   transition:
     width 0.3s ease,
@@ -81,7 +83,6 @@ hr {
 
 .sidebar-nav {
   flex: 1;
-  // padding: 0;
   overflow-y: auto;
 
   ul {
@@ -100,29 +101,15 @@ hr {
     gap: 1rem;
     padding: 0.875rem 1.5rem;
     text-decoration: none;
+    color: var(--sidebar-primary-foreground);
     transition: all 0.2s;
     position: relative;
 
-    &:hover {
-      background: var(--accent);
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--primary);
-      }
-    }
-
+    &:hover,
     &.active {
-      background: var(--primary-light);
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--sidebar-primary-foreground);
       font-weight: 500;
-      border-left: 5px solid white;
-      margin-left: 2px;
-      font-size: large;
 
       &::before {
         content: '';
@@ -131,7 +118,7 @@ hr {
         top: 0;
         bottom: 0;
         width: 4px;
-        background: var(--primary);
+        background: white;
       }
     }
 

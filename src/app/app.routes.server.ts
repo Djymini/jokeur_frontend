@@ -22,7 +22,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client,
   },
   {
-    path: 'user-profile',
+    path: 'settings',
     renderMode: RenderMode.Client,
   },
   {
