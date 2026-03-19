@@ -18,3 +18,76 @@ textarea.ng-invalid.ng-touched {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
+
+.modify-form {
+  @media (max-width: 768px) {
+    gap: 1.25rem !important;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1rem !important;
+  }
+}
+
+.form-section {
+  @media (max-width: 768px) {
+    padding: 0.875rem !important;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem !important;
+  }
+}
+
+.section-legend {
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-label {
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 0.6rem !important;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem !important;
+  }
+}
+
+.info-text {
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+}
+
+.error-message {
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+}

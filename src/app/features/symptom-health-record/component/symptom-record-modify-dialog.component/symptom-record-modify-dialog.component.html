@@ -1,10 +1,14 @@
-<form [formGroup]="symptoRecordForm" class="flex flex-col gap-4">
-  <fieldset class="border p-4 rounded-md">
-    <legend class="font-semibold text-gray-700">Modifier une symptôme</legend>
+<form [formGroup]="symptoRecordForm" class="flex flex-col gap-4 symptom-modify-form">
+  <fieldset class="border p-4 rounded-md form-section">
+    <legend class="font-semibold text-gray-700 section-legend">Modifier une symptôme</legend>
 
-    <div class="flex flex-col mb-3">
-      <label for="symptomSelectName" class="text-sm font-medium">Nom du symptôme</label>
-      <select id="symptomSelectName" formControlName="symptomId" class="border p-2 rounded">
+    <div class="flex flex-col mb-3 form-group">
+      <label for="symptomSelectName" class="text-sm font-medium form-label">Nom du symptôme</label>
+      <select
+        id="symptomSelectName"
+        formControlName="symptomId"
+        class="border p-2 rounded form-select"
+      >
         @for (symptom of symptomArray(); track symptom.id) {
           <option value="{{ symptom.id }}">{{ symptom.name }}</option>
         }
@@ -12,53 +16,52 @@
       @if (
         symptoRecordForm.get('symptomId')?.invalid && symptoRecordForm.get('symptomId')?.touched
       ) {
-        <p class="error">Choisissez votre symptome</p>
+        <p class="error error-message">Choisissez votre symptome</p>
       }
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="observationDate" class="text-sm font-medium">Date d'observation</label>
+    <div class="flex flex-col mb-3 form-group">
+      <label for="observationDate" class="text-sm font-medium form-label">Date d'observation</label>
       <input
         id="observationDate"
         type="date"
         formControlName="beginDate"
-        class="border p-2 rounded"
+        class="border p-2 rounded form-input"
       />
       @if (
         symptoRecordForm.get('beginDate')?.invalid && symptoRecordForm.get('beginDate')?.touched
       ) {
-        <p class="error">Date de debut requise</p>
+        <p class="error error-message">Date de debut requise</p>
       }
     </div>
 
-    <div class="grid gap-2" [hidden]="symptoRecordForm.get('active')?.value">
-      <label for="endDate" class="text-sm font-medium"> Date de fin de symptôme </label>
-
-      <input z-input id="endDate" type="date" formControlName="endDate" />
+    <div class="grid gap-2 form-group" [hidden]="symptoRecordForm.get('active')?.value">
+      <label for="endDate" class="text-sm font-medium form-label"> Date de fin de symptôme </label>
+      <input z-input id="endDate" type="date" formControlName="endDate" class="form-input" />
       @if (
         symptoRecordForm.get('endDate')?.hasError('dateLimitEndValidator') &&
         symptoRecordForm.get('endDate')?.touched
       ) {
-        <p class="error">Date de fin ne peut-être inferieur à date du début</p>
+        <p class="error error-message">Date de fin ne peut-être inférieure à la date du début</p>
       }
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="active" class="text-sm font-medium"> Symptôme en cours ? </label>
-      <z-switch id="active" formControlName="active" />
+    <div class="flex flex-col mb-3 form-group switch-group">
+      <label for="active" class="text-sm font-medium form-label"> Symptôme en cours ? </label>
+      <z-switch id="active" formControlName="active" class="form-switch" />
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="observation" class="text-sm font-medium">Observation</label>
+    <div class="flex flex-col mb-3 form-group">
+      <label for="observation" class="text-sm font-medium form-label">Observation</label>
       <textarea
         id="observation"
         formControlName="observation"
-        class="border p-2 rounded"
+        class="border p-2 rounded form-textarea"
       ></textarea>
       @if (
         symptoRecordForm.get('observation')?.invalid && symptoRecordForm.get('observation')?.touched
       ) {
-        <p class="error">Observation requise</p>
+        <p class="error error-message">Observation requise</p>
       }
     </div>
   </fieldset>

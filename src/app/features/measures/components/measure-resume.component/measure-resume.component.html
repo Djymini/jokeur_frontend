@@ -1,20 +1,21 @@
-<div class="board">
+<div class="board measure-resume-board">
   <div class="board-header">
-    <h3 class="board-title">
+    <h3 class="board-title resume-title">
       {{ title() }}
     </h3>
-    <button type="button" z-button (click)="openDialogAdd()">
+    <button type="button" z-button class="add-measure-btn" (click)="openDialogAdd()">
       <i z-icon zType="plus"></i>
-      Ajouter une saisie
+      <span class="btn-text">Ajouter une saisie</span>
     </button>
   </div>
 
-  <div class="board-content">
+  <div class="board-content measures-grid">
     @for (measure of measures().slice(0, 10); track measure.id) {
       <app-measure-resume-item
         [value]="measure.value.toString()"
         [date]="measure.creationDate"
         [type]="measure.measureType"
+        class="measure-item"
       ></app-measure-resume-item>
     }
   </div>
