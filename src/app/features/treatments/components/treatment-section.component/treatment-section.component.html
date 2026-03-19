@@ -4,19 +4,19 @@
       <span class="material-icons">medication</span>
       <h2>Traitements</h2>
     </div>
-    <z-button type="button" (click)="openDialogAdd()">
+    <z-button type="button" class="add-treatment-btn" (click)="openDialogAdd()">
       <span class="material-icons">add</span>
-      Ajouter un traitement
+      <span class="btn-text">Ajouter un traitement</span>
     </z-button>
   </div>
 
-  <div class="vaccine-list">
+  <div class="vaccine-list treatment-list">
     @if (treatmentArray().length > 0) {
       @for (treatment of treatmentArray(); track $index) {
         <app-treatment-item [treatment]="treatment"></app-treatment-item>
       }
     } @else {
-      <p>Aucun Vaccin</p>
+      <p class="empty-message">Aucun Vaccin</p>
     }
   </div>
 

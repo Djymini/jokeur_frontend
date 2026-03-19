@@ -7,10 +7,54 @@
   border-radius: 8px;
   background-color: var(--card-background-second);
   color: var(--text);
+  transition: all 0.2s ease;
+
+  @media (max-width: 768px) {
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      transform: translateY(-1px);
+    }
+  }
 }
 
 .item-date {
   font-size: 12px;
   font-weight: 400;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+  }
+}
+
+.measure-value {
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+}
+
+.measure-date {
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
 }

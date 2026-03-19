@@ -1,29 +1,35 @@
-<div class="w-full p-[16px]">
-  <div class="overflow-hidden rounded-md border">
-    <table z-table>
+<div class="w-full p-[16px] measure-details-dialog">
+  <div class="overflow-hidden rounded-md border table-container">
+    <table z-table class="measures-table">
       <thead z-table-header>
         <tr z-table-row>
-          <th z-table-head>Date</th>
-          <th z-table-head>Valeur</th>
-          <th z-table-head class="w-16">Actions</th>
+          <th z-table-head class="date-column">Date</th>
+          <th z-table-head class="value-column">Valeur</th>
+          <th z-table-head class="w-16 actions-column">Actions</th>
         </tr>
       </thead>
       <tbody z-table-body>
         @for (measure of data.measuresSignal(); track measure.id) {
-          <tr z-table-row>
-            <td z-table-cell>
-              <div class="lowercase">{{ measure.creationDate }}</div>
+          <tr z-table-row class="measure-row">
+            <td z-table-cell class="date-cell">
+              <div class="lowercase date-text">{{ measure.creationDate }}</div>
             </td>
-            <td z-table-cell>
-              <div class="lowercase">{{ measure.value | measure: data.type }}</div>
+            <td z-table-cell class="value-cell">
+              <div class="lowercase value-text">{{ measure.value | measure: data.type }}</div>
             </td>
-            <td z-table-cell>
-              <div class="flex items-center gap-2">
-                <z-button zType="ghost" (click)="openDialogAdd(measure)" title="Modifier la valeur">
+            <td z-table-cell class="actions-cell">
+              <div class="flex items-center gap-2 action-buttons">
+                <z-button
+                  zType="ghost"
+                  class="action-btn edit-btn"
+                  (click)="openDialogAdd(measure)"
+                  title="Modifier la valeur"
+                >
                   <z-icon zType="book-open-text" />
                 </z-button>
                 <z-button
                   zType="ghost"
+                  class="action-btn delete-btn"
                   (click)="openDialogDelete(measure)"
                   title="Supprimer la valeur"
                 >
@@ -34,7 +40,9 @@
           </tr>
         } @empty {
           <tr z-table-row>
-            <td z-table-cell [attr.colspan]="4" class="h-24 text-center">No results.</td>
+            <td z-table-cell [attr.colspan]="4" class="h-24 text-center empty-state">
+              No results.
+            </td>
           </tr>
         }
       </tbody>

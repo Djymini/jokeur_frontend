@@ -1,12 +1,12 @@
-<section class="card">
+<section class="card vaccines-section">
   <div class="card-header">
     <div class="title-group">
       <span class="material-icons">vaccines</span>
       <h2>Vaccins</h2>
     </div>
-    <z-button type="button" (click)="openDialogAdd()">
+    <z-button type="button" class="add-vaccine-btn" (click)="openDialogAdd()">
       <span class="material-icons">add</span>
-      Ajouter un vaccin
+      <span class="btn-text">Ajouter un vaccin</span>
     </z-button>
   </div>
 
@@ -16,7 +16,7 @@
         <app-vaccine-item [vaccine]="vaccine"></app-vaccine-item>
       }
     } @else {
-      <p>Aucun Vaccin</p>
+      <p class="empty-message">Aucun Vaccin</p>
     }
   </div>
 

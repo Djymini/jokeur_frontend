@@ -26,17 +26,48 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
         <app-dashboard-appointment></app-dashboard-appointment>
       </div>
     </section>
-    <app-dashboard-animal></app-dashboard-animal>
+    <app-dashboard-animal class="dashboard-animal-section"></app-dashboard-animal>
   `,
   styles: `
     :host {
       display: block;
       padding: 3rem 3rem 4rem;
+
+      @media (max-width: 1024px) {
+        padding: 2.5rem 2rem 3rem;
+      }
+
+      @media (max-width: 768px) {
+        padding: 2rem 1.5rem 2.5rem;
+      }
+
+      @media (max-width: 640px) {
+        padding: 1.5rem 1rem 2rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 1rem 0.75rem 1.5rem;
+      }
     }
 
     .title {
       margin: 0 0 1.75rem 0;
       color: var(--secondary-dark);
+
+      @media (max-width: 768px) {
+        margin: 0 0 1.5rem 0;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 640px) {
+        margin: 0 0 1.25rem 0;
+        font-size: 1.35rem;
+      }
+
+      @media (max-width: 480px) {
+        margin: 0 0 1rem 0;
+        font-size: 1.25rem;
+      }
     }
 
     .parent {
@@ -46,6 +77,50 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     @media (max-width: 640px) {
       :host {
         padding: 3rem 0.5rem 4rem;
+    .dashboard-info-section {
+      width: 100%;
+
+      @media (max-width: 768px) {
+        margin-bottom: 1.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      @media (max-width: 480px) {
+        margin-bottom: 1rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+      }
+    }
+
+    .section-title {
+      @media (max-width: 768px) {
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    .info-grid {
+      @media (max-width: 640px) {
+        gap: 1rem !important;
+      }
+
+      @media (max-width: 480px) {
+        gap: 0.75rem !important;
+      }
+    }
+
+    .info-card {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .dashboard-animal-section {
+      display: block;
+      width: 100%;
+
+      @media (max-width: 768px) {
+        margin-top: 0.5rem;
       }
     }
   `,
