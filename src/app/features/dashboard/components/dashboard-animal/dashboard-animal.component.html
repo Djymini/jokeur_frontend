@@ -39,7 +39,7 @@
             @if (animal.breed) {
               <p class="text-sm text-muted-foreground truncate">{{ formatBreed(animal.breed) }}</p>
             }
-            <div class="flex flex-wrap gap-1 mt-1">
+            <div class="flex flex-nowrap gap-1 mt-1 overflow-hidden">
               @if (animal.animalType) {
                 <z-badge zType="secondary" class="text-sm p-3">{{
                   animalTypeMap[animal.animalType]
