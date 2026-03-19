@@ -1,9 +1,11 @@
 <div class="bg-card rounded-lg shadow-sm border info-card">
   <div class="flex flex-row items-center justify-between gap-2 mb-4">
     <h3 class="font-medium text-lg">Actualité</h3>
-    <span class="w-8 h-8 flex items-center justify-center text-sm text-destructive bg-orange-100 rounded-full">
-  {{ dashboardStore.news().totalElements }}
-</span>
+    <span
+      class="w-8 h-8 flex items-center justify-center text-sm text-destructive bg-orange-100 rounded-full"
+    >
+      {{ dashboardStore.news().totalElements }}
+    </span>
   </div>
   <div class="dashboard-info">
     @if (dashboardStore.news().totalElements > 0) {

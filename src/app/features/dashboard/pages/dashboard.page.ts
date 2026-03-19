@@ -18,7 +18,9 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
   template: `
     <section class="mb-8 px-4 md:px-14">
       <h2 class="title">Informations</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent items-stretch">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent items-stretch"
+      >
         <app-dashboard-news></app-dashboard-news>
         <app-dashboard-reminder></app-dashboard-reminder>
         <app-dashboard-appointment></app-dashboard-appointment>
