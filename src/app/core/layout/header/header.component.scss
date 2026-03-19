@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 6rem;
+  padding: 0 8rem;
   height: 64px;
   box-shadow: var(--shadow-sm);
   position: sticky;
@@ -37,16 +37,6 @@
   .user-name {
     font-weight: 500;
     color: var(--primary);
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 0 1rem;
-  }
-
-  .user-name {
-    display: none;
   }
 }
 
@@ -104,6 +94,7 @@ z-divider {
   background-color: var(--popover-foreground);
   margin: 4px 0;
 }
+
 @media (max-width: 768px) {
   .mobile-burger {
     display: block;
@@ -111,7 +102,18 @@ z-divider {
     background: none;
     border: none;
   }
+
   .header {
-    justify-content: space-between;
+    justify-content: start;
+    padding: 2rem 1rem;
+  }
+  .user-name {
+    display: none;
+    margin-left: 2rem;
+  }
+  z-menu-label {
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
 }

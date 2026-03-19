@@ -10,7 +10,7 @@
           {{ user() ? user()!.firstName + ' ' + user()!.name : 'inconnue' }}
         </span>
         <div></div>
-        <z-dropdown-menu-content #menu="zDropdownMenuContent" class="w-56">
+        <z-dropdown-menu-content id="user-menu" #menu="zDropdownMenuContent" class="w-56">
           <z-menu-label>Mon compte</z-menu-label>
 
           <z-dropdown-menu-item (click)="onDashboard()">
