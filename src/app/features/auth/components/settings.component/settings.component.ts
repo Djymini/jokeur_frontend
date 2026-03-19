@@ -11,6 +11,7 @@ import {
 } from '@/features/auth/components/settings-header.component/settings-header.component';
 import { AuthService } from '@/core/services/auth.service';
 import { UserModel } from '@/core/models/user-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,6 +23,7 @@ export class SettingsComponent implements OnInit {
   private _fb = inject(NonNullableFormBuilder);
   private _userApi = inject(UserApi);
   private _authService: AuthService = inject(AuthService);
+  private _router = inject(Router);
 
   tabLinks: TabLink[] = [
     { name: 'Profil', icon: 'person' },
@@ -102,6 +104,23 @@ export class SettingsComponent implements OnInit {
     } catch (error) {
       console.error('Modification échouée.', error);
       toast.error('Modification échouée.');
+    }
+  }
+
+  async deleteAccount(): Promise<void> {
+    const ok = confirm(
+      'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.',
+    );
+    if (!ok) return;
+
+    try {
+      await this._userApi.deleteMe();
+      this._authService.logout();
+      await this._router.navigate(['/register']);
+      toast.success('Compte supprimé.');
+    } catch (e) {
+      console.error(e);
+      toast.error('Impossible de supprimer le compte.');
     }
   }
 }
