@@ -79,6 +79,14 @@ export class HealthRecordStore {
         },
       });
     }
+
+    if (
+      newMeasure.measureType.toLowerCase() === 'weight' &&
+      newMeasure.id ===
+        this.healthRecord()?.measures.weight[this.healthRecord()!.measures.weight.length - 1]?.id
+    ) {
+      this.modifyCurrentWeight(newMeasure.value);
+    }
   }
 
   modifyCurrentWeight(newCurrentWeight: number): void {
