@@ -41,21 +41,26 @@
             }
             <div class="flex flex-wrap gap-2 mt-1">
               @if (animal.animalType) {
-                <z-badge zType="secondary" class="text-sm p-3">{{ animalTypeMap[animal.animalType] }}</z-badge>
+                <z-badge zType="secondary" class="text-sm p-3">{{
+                  animalTypeMap[animal.animalType]
+                }}</z-badge>
               }
               @if (animal.sex) {
                 <z-badge zType="secondary" class="text-sm p-3">{{ animal.sex }}</z-badge>
               }
               @if (animal.birthDate) {
-                <z-badge zType="secondary" class="text-sm p-3">{{ DashboardRules.getAge(animal.birthDate) }}</z-badge>
+                <z-badge zType="secondary" class="text-sm p-3">{{
+                  DashboardRules.getAge(animal.birthDate)
+                }}</z-badge>
               }
             </div>
           </div>
         </div>
-        <a [routerLink]="['/health-record/', animal.id]"
-        class="see-record-btn block text-center py-3 text-sm font-semibold transition"
+        <a
+          [routerLink]="['/health-record/', animal.id]"
+          class="see-record-btn block text-center py-3 text-sm font-semibold transition"
         >
-        Voir le carnet de santé
+          Voir le carnet de santé
         </a>
       </div>
     }

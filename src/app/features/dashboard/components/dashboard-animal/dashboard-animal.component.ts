@@ -13,7 +13,13 @@ import { DashboardRules } from '@/features/dashboard/domain/dashboard.rules';
 
 @Component({
   selector: 'app-dashboard-animal',
-  imports: [DynamicFormModalComponent, RouterLink, ZardButtonComponent, ZardIconComponent, ZardBadgeComponent],
+  imports: [
+    DynamicFormModalComponent,
+    RouterLink,
+    ZardButtonComponent,
+    ZardIconComponent,
+    ZardBadgeComponent,
+  ],
   templateUrl: './dashboard-animal.component.html',
   styleUrl: './dashboard-animal.component.scss',
 })
