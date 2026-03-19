@@ -16,12 +16,14 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     DashboardReminderComponent,
   ],
   template: `
-    <section class="mb-8 px-4 md:px-14 dashboard-info-section">
-      <h2 class="title section-title">Informations</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent info-grid">
-        <app-dashboard-news class="info-card"></app-dashboard-news>
-        <app-dashboard-reminder class="info-card"></app-dashboard-reminder>
-        <app-dashboard-appointment class="info-card"></app-dashboard-appointment>
+    <section class="mb-8 px-4 md:px-14">
+      <h2 class="title">Informations</h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent items-stretch"
+      >
+        <app-dashboard-news></app-dashboard-news>
+        <app-dashboard-reminder></app-dashboard-reminder>
+        <app-dashboard-appointment></app-dashboard-appointment>
       </div>
     </section>
     <app-dashboard-animal class="dashboard-animal-section"></app-dashboard-animal>
@@ -72,6 +74,9 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
       margin: 0;
     }
 
+    @media (max-width: 640px) {
+      :host {
+        padding: 3rem 0.5rem 4rem;
     .dashboard-info-section {
       width: 100%;
 

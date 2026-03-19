@@ -4,6 +4,12 @@
   padding: 10px;
   border-radius: 8px;
   margin: 10px 0;
+  flex: none;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .dashboard-info p {
@@ -12,6 +18,9 @@
 
 .info-card {
   padding: 16px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {

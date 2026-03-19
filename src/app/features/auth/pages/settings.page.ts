@@ -27,8 +27,10 @@ import { SettingsComponent } from '@/features/auth/components/settings.component
     }
 
     .title {
-      margin: 0 0 1.75rem 0;
+      max-width: 500px;
+      margin: 0 auto 3rem auto;
       color: var(--secondary-dark);
+      text-align: center;
     }
   `,
   changeDetection: ChangeDetectionStrategy.Default,
