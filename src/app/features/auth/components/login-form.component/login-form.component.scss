@@ -71,12 +71,16 @@ button[type='submit'] {
   min-height: 46px;
   margin-top: 20px;
   border: none;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-foreground);
+  border-radius: 0.45rem;
+  background: var(--teal-light);
+  color: white;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+
+  &:hover {
+    background: var(--teal-dark);
+  }
 }
 
 button[type='submit']:disabled {
