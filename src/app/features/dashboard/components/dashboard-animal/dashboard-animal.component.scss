@@ -35,15 +35,6 @@ button[z-button] {
   }
 }
 
-.badge {
-  background-color: var(--secondary);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 3px 12px;
-  border-radius: 999px;
-}
-
 .see-record-btn {
   display: block;
   margin: 0 12px 12px 12px;
@@ -54,7 +45,7 @@ button[z-button] {
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
 
   &:hover {
     background-color: var(--teal-dark);
