@@ -1,5 +1,4 @@
 import { Component, computed, input, output } from '@angular/core';
-import { ZardButtonComponent } from '@/shared/components/button';
 
 export type UserHeader = {
   firstname: string;
@@ -9,11 +8,11 @@ export type UserHeader = {
 
 @Component({
   selector: 'app-user-profile-header',
-  imports: [ZardButtonComponent],
-  templateUrl: './user-profile-header.component.html',
-  styleUrl: './user-profile-header.component.scss',
+  imports: [],
+  templateUrl: './settings-header.component.html',
+  styleUrl: './settings-header.component.scss',
 })
-export class UserProfileHeaderComponent {
+export class SettingsHeaderComponent {
   user = input.required<UserHeader>();
   readonly editClicked = output<void>();
 
@@ -21,6 +20,4 @@ export class UserProfileHeaderComponent {
     const u = this.user();
     return `${u.firstname} ${u.name}`.trim();
   });
-
-  protected readonly roleLabel = computed(() => this.user().role ?? '');
 }
