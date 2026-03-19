@@ -27,9 +27,13 @@
             : null
         "
       />
-      @if (userProfileForm.controls.name.errors?.['required'] && userProfileForm.controls.name.touched) {
+      @if (
+        userProfileForm.controls.name.errors?.['required'] && userProfileForm.controls.name.touched
+      ) {
         <p class="error" id="name-error" role="alert">Un nom est requis.</p>
-      } @else if (userProfileForm.controls.name.errors?.['pattern'] && userProfileForm.controls.name.touched) {
+      } @else if (
+        userProfileForm.controls.name.errors?.['pattern'] && userProfileForm.controls.name.touched
+      ) {
         <p class="error" id="name-error" role="alert">
           Le nom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
         </p>
@@ -57,9 +61,15 @@
             : null
         "
       />
-      @if (userProfileForm.controls.firstname.errors?.['required'] && userProfileForm.controls.firstname.touched) {
+      @if (
+        userProfileForm.controls.firstname.errors?.['required'] &&
+        userProfileForm.controls.firstname.touched
+      ) {
         <p class="error" id="firstname-error" role="alert">Un prénom est requis.</p>
-      } @else if (userProfileForm.controls.firstname.errors?.['pattern'] && userProfileForm.controls.firstname.touched) {
+      } @else if (
+        userProfileForm.controls.firstname.errors?.['pattern'] &&
+        userProfileForm.controls.firstname.touched
+      ) {
         <p class="error" id="firstname-error" role="alert">
           Le prénom ne peut contenir que des lettres, espaces, tirets (-) et apostrophes (').
         </p>
