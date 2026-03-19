@@ -1,8 +1,24 @@
 <div class="layout-container">
   <div class="layout-content">
-    <app-sidebar [collapsed]="sidebarCollapsed()" (toggleSidebar)="toggleSidebar()" />
+    <app-sidebar
+      [collapsed]="sidebarCollapsed()"
+      [mobileOpen]="sidebarMobileOpen()"
+      (toggleSidebar)="toggleSidebar()"
+    />
+    @if (sidebarMobileOpen()) {
+      <div
+        class="sidebar-overlay"
+        tabindex="0"
+        role="button"
+        aria-label="Fermer le menu"
+        (click)="sidebarMobileOpen.set(false)"
+        (keydown.enter)="sidebarMobileOpen.set(false)"
+        (keydown.space)="sidebarMobileOpen.set(false)"
+      ></div>
+    }
+
     <main class="main-content">
-      <app-header />
+      <app-header (toggleSidebar)="toggleSidebar()" />
       <router-outlet />
       <z-toaster></z-toaster>
       <app-footer />

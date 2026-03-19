@@ -124,9 +124,22 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       margin-bottom: 25px;
     }
 
-    app-health-record-section {
-      width: 100%;
-    }
+app-health-record-section {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  :host {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :host {
+    padding: 48px;
+  }
+}
+    
   `,
   changeDetection: ChangeDetectionStrategy.Default,
 })
