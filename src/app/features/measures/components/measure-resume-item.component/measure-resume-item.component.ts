@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 import { MeasurePipe } from '@/internal-shared/pipes/measure-pipe';
 import { DisplayDateRules } from '@/internal-shared/domain/display-date.rules';
 
-
 @Component({
   selector: 'app-measure-resume-item',
   imports: [MeasurePipe],

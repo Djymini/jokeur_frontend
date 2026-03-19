@@ -66,11 +66,8 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
   `,
   styles: `
     :host {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 48px 52px 48px 48px;
+      display: block;
+      padding: 3rem 6.5rem 4rem;
     }
     .top-bar {
       display: flex;
