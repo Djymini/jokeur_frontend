@@ -14,8 +14,13 @@ import { ZardToastComponent } from '@/shared/components/toast';
 })
 export default class MainLayoutComponent {
   sidebarCollapsed = signal(false);
+  sidebarMobileOpen = signal(false);
 
   toggleSidebar(): void {
-    this.sidebarCollapsed.update((state) => !state);
+    if (window.innerWidth <= 768) {
+      this.sidebarMobileOpen.update((state) => !state);
+    } else {
+      this.sidebarCollapsed.update((state) => !state);
+    }
   }
 }
