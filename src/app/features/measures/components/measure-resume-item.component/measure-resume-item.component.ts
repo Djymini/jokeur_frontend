@@ -1,5 +1,7 @@
 import { Component, input } from '@angular/core';
 import { MeasurePipe } from '@/internal-shared/pipes/measure-pipe';
+import { DisplayDateRules } from '@/internal-shared/domain/display-date.rules';
+
 
 @Component({
   selector: 'app-measure-resume-item',
@@ -13,4 +15,5 @@ export class MeasureResumeItemComponent {
   type = input.required<string>();
   protected readonly parseInt = parseInt;
   protected readonly parseFloat = parseFloat;
+  protected readonly formatDate = DisplayDateRules.formatDateShort;
 }
