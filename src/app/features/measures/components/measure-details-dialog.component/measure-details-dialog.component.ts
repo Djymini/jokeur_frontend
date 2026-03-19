@@ -21,7 +21,7 @@ export class MeasureDetailsDialogComponent {
   private _measuresFacade = inject(MeasuresFacade);
   data: { measuresSignal: InputSignal<MeasureModel[]>; type: string } = inject(Z_MODAL_DATA);
 
-  openDialogAdd(measure: MeasureModel): void {
+  openDialogModify(measure: MeasureModel): void {
     this._dialogService.create({
       zTitle: `Modifiez la donnée saisie`,
       zDescription: `Remplacez ${measure.value} saisie le ${measure.creationDate}`,
