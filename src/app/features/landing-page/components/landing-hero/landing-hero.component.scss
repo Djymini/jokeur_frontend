@@ -225,7 +225,7 @@
 
 .card-tag {
   padding: 0.2rem 0.7rem;
-  border-radius: 99px;
+  border-radius: 6px;
   font-size: 0.78rem;
   font-weight: 600;
   background: var(--secondary);
@@ -242,7 +242,7 @@
   border: none;
   transition: all 0.2s;
   cursor: pointer;
-  border-radius: 0.75rem;
+  border-radius: 0.45rem;
 
   &:hover {
     background: var(--teal-light);
