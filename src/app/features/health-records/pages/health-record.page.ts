@@ -70,7 +70,7 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 48px;
+      padding: 48px 52px 48px 48px;
     }
     .top-bar {
       display: flex;
@@ -125,6 +125,10 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     .modal-box h2 {
       font-size: 18px;
       margin-bottom: 25px;
+    }
+
+    app-health-record-section {
+      width: 100%;
     }
   `,
   changeDetection: ChangeDetectionStrategy.Default,
