@@ -1,5 +1,5 @@
 .news-page {
-  padding: 2rem 2.5rem 4rem;
+  padding: 3rem 6.4rem 4rem;
   min-height: 100vh;
 }
 
@@ -197,6 +197,11 @@
       transform: translateX(4px);
     }
   }
+}
+
+app-breadcrumb {
+  display: block;
+  margin-bottom: 32px;
 }
 
 .news-pagination {
