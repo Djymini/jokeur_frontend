@@ -9,10 +9,11 @@
         (click)="updateAgenda()"
       >
         <span class="material-icons">arrow_left</span>
-        Précédent
+        <span class="nav-text">Précédent</span>
       </z-button>
       <z-button type="button" zType="outline" mwlCalendarToday [(viewDate)]="viewDate">
-        Aujourd'hui
+        <span class="full-text">Aujourd'hui</span>
+        <span class="short-text">Auj</span>
       </z-button>
       <z-button
         type="button"
@@ -21,7 +22,7 @@
         [(viewDate)]="viewDate"
         (click)="updateAgenda()"
       >
-        Suivant
+        <span class="nav-text">Suivant</span>
         <span class="material-icons">arrow_right</span>
       </z-button>
     </div>
@@ -33,20 +34,26 @@
         type="button"
         [zType]="view() === CalendarView.Month ? 'default' : 'outline'"
         (click)="setView(CalendarView.Month)"
-        >Mois</z-button
       >
+        <span class="full-text">Mois</span>
+        <span class="short-text">M</span>
+      </z-button>
       <z-button
         type="button"
         [zType]="view() === CalendarView.Week ? 'default' : 'outline'"
         (click)="setView(CalendarView.Week)"
-        >Semaine</z-button
       >
+        <span class="full-text">Semaine</span>
+        <span class="short-text">S</span>
+      </z-button>
       <z-button
         type="button"
         [zType]="view() === CalendarView.Day ? 'default' : 'outline'"
         (click)="setView(CalendarView.Day)"
-        >Jour</z-button
       >
+        <span class="full-text">Jour</span>
+        <span class="short-text">J</span>
+      </z-button>
     </div>
   </div>
 

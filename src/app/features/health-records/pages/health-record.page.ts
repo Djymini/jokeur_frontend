@@ -66,11 +66,11 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
   `,
   styles: `
     :host {
-      display: flex;
+      display: block;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 48px;
+      padding: 16px;
     }
     .top-bar {
       display: flex;
@@ -125,6 +125,18 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     .modal-box h2 {
       font-size: 18px;
       margin-bottom: 25px;
+    }
+
+    @media (min-width: 768px) {
+      :host {
+        padding: 32px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      :host {
+        padding: 48px;
+      }
     }
   `,
   changeDetection: ChangeDetectionStrategy.Default,
