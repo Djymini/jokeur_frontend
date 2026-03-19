@@ -28,6 +28,9 @@ export class HealthRecordStore {
     this._healthRecords.update((records) =>
       records.map((r) => (r.id === updated.id ? updated : r)),
     );
+    if (this._healthRecordSignal()?.id === updated.id) {
+      this.setHealthRecord(updated);
+    }
   }
 
   clear(): void {
@@ -74,6 +77,16 @@ export class HealthRecordStore {
           ...current.measures,
           [type]: current.measures[type].map((m) => (m.id === newMeasure.id ? newMeasure : m)),
         },
+      });
+    }
+  }
+
+  modifyCurrentWeight(newCurrentWeight: number): void {
+    const current = this._healthRecordSignal();
+    if (current) {
+      this._healthRecordSignal.set({
+        ...current,
+        currentWeight: newCurrentWeight,
       });
     }
   }

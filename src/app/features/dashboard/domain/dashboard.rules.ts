@@ -10,7 +10,7 @@ export class DashboardRules {
     const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
     if (diffDays === 0) {
-      return "1 jour";
+      return '1 jour';
     }
 
     if (diffDays < 30) {
