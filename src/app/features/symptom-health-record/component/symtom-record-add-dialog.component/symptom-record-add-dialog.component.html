@@ -1,37 +1,47 @@
-<form [formGroup]="form" class="grid gap-4 p-4">
-  <div class="grid gap-2">
-    <label for="symptomSelectName" class="text-sm font-medium">Nom du symptôme</label>
-    <select id="symptomSelectName" formControlName="symptomId" class="border p-2 rounded">
+<form [formGroup]="form" class="grid gap-4 p-4 symptom-add-form">
+  <div class="grid gap-2 form-group">
+    <label for="symptomSelectName" class="text-sm font-medium form-label">Nom du symptôme</label>
+    <select
+      id="symptomSelectName"
+      formControlName="symptomId"
+      class="border p-2 rounded form-select"
+    >
       @for (symptom of symptomArray(); track symptom.id) {
         <option value="{{ symptom.id }}">{{ symptom.name }}</option>
       }
     </select>
     @if (form.get('symptomId')?.invalid && form.get('symptomId')?.touched) {
-      <p class="error">Choisissez votre symptome</p>
+      <p class="error error-message">Choisissez votre symptome</p>
     }
   </div>
 
-  <div class="grid grid-cols-2 gap-4">
-    <div class="grid gap-2">
-      <label for="observationDate" class="text-sm font-medium">Date d'observation</label>
-      <input z-input id="observationDate" type="date" formControlName="observationDate" />
+  <div class="grid grid-cols-2 gap-4 dates-row">
+    <div class="grid gap-2 form-group">
+      <label for="observationDate" class="text-sm font-medium form-label">Date d'observation</label>
+      <input
+        z-input
+        id="observationDate"
+        type="date"
+        formControlName="observationDate"
+        class="form-input"
+      />
+      @if (form.get('observationDate')?.invalid && form.get('observationDate')?.touched) {
+        <p class="error error-message">Date requise</p>
+      }
     </div>
-    @if (form.get('observationDate')?.invalid && form.get('observationDate')?.touched) {
-      <p class="error">Date requise</p>
-    }
   </div>
 
-  <div class="grid gap-2">
-    <label for="observation" class="text-sm font-medium">Observation</label>
+  <div class="grid gap-2 form-group">
+    <label for="observation" class="text-sm font-medium form-label">Observation</label>
     <textarea
       z-input
       id="observation"
       formControlName="observation"
       rows="3"
-      class="border p-2 rounded"
+      class="border p-2 rounded form-textarea"
     ></textarea>
     @if (form.get('observation')?.invalid && form.get('observation')?.touched) {
-      <p class="error">Observation requise</p>
+      <p class="error error-message">Observation requise</p>
     }
   </div>
 

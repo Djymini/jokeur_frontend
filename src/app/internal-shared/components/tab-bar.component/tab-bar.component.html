@@ -1,13 +1,13 @@
-<div class="tab">
+<div class="tab-container">
   @for (tabLink of tabLinks(); track $index) {
     <button
-      class="tablinks"
+      class="tablinks tab-button"
       [class.active]="activeTabLink() === tabLink.name"
       (click)="selectTab(tabLink.name)"
       type="button"
     >
       <span class="material-icons cursor-pointer">{{ tabLink.icon }}</span>
-      {{ tabLink.name }}
+      <span class="tab-label">{{ tabLink.name }}</span>
     </button>
   }
 </div>

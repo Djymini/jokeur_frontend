@@ -5,24 +5,28 @@
       <p class="label">Date du vaccin : {{ vaccine().vaccineDate | date: 'mediumDate' }}</p>
     </div>
   </div>
+
   <div class="item-bottom">
-    <div class="text-block">
-      <p class="label">Vaccinateur</p>
-      <p class="value">{{ vaccine().vaccinator }}</p>
+    <div class="info-grid">
+      <div class="text-block">
+        <p class="label">Vaccinateur</p>
+        <p class="value">{{ vaccine().vaccinator }}</p>
+      </div>
+      <div class="text-block">
+        <p class="label">Description</p>
+        <p class="value">{{ vaccine().description }}</p>
+      </div>
+      <div class="text-block">
+        <p class="label">Date de rappel</p>
+        <p class="value">{{ vaccine().reminder.reminderDate | date: 'mediumDate' }}</p>
+      </div>
     </div>
-    <div class="text-block">
-      <p class="label">Description</p>
-      <p class="value">{{ vaccine().description }}</p>
-    </div>
-    <div class="text-block">
-      <p class="label">Date de rappel</p>
-      <p class="value">{{ vaccine().reminder.reminderDate | date: 'mediumDate' }}</p>
-    </div>
-    <div class="button-container">
-      <z-button type="button" (click)="openDialogModify()">
+
+    <div class="button-container action-buttons">
+      <z-button type="button" class="action-btn" (click)="openDialogModify()">
         <span class="material-icons">edit</span>
       </z-button>
-      <z-button type="button" (click)="openDialogDelete()">
+      <z-button type="button" class="action-btn" (click)="openDialogDelete()">
         <span class="material-icons">delete</span>
       </z-button>
     </div>

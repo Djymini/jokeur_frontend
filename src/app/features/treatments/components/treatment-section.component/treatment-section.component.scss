@@ -1,5 +1,6 @@
 :host {
   width: 100%;
+  display: block;
 }
 
 .card {
@@ -9,26 +10,128 @@
   margin: 0 auto;
   padding: 24px;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 1024px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    border-radius: calc(var(--radius) - 4px);
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px;
+    border-radius: calc(var(--radius) - 8px);
+  }
 }
 
-/* Header */
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 16px;
+  }
 }
 
 .title-group {
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--text-main);
+
+    @media (max-width: 1024px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 18px;
+    }
+  }
+
+  .material-icons {
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
+  }
 }
 
-.title-group h2 {
-  font-size: 24px;
-  margin: 0;
-  color: var(--text-main);
+.add-treatment-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+
+  @media (max-width: 768px) {
+    padding: 0 16px !important;
+  }
+
+  @media (max-width: 640px) {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    justify-content: center;
+
+    .btn-text {
+      display: none;
+    }
+
+    .material-icons {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.treatment-list {
+  width: 100%;
+
+  app-treatment-item {
+    display: block;
+    width: 100%;
+  }
+}
+
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-style: italic;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
 }
 
 .btn-add {
@@ -41,7 +144,6 @@
   cursor: pointer;
 }
 
-/* Badges & Buttons */
 .badge {
   padding: 4px 12px;
   border-radius: 20px;
@@ -72,7 +174,6 @@
   transform: scale(1.1);
 }
 
-/* Footer */
 .card-footer {
   text-align: right;
   margin-top: 10px;
