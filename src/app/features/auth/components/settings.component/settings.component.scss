@@ -13,6 +13,13 @@
   font-weight: 700;
 }
 
+/* ✅ wrapper : même largeur que le form, centre form + bouton danger */
+.form-wrapper {
+  width: 100%;
+  max-width: 440px; /* même valeur que ton form */
+  margin: 0 auto; /* centre dans la page */
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -100,4 +107,25 @@ form {
     padding: 24px 16px;
     border-radius: var(--radius);
   }
+}
+
+button.danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 14px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #dc2626;
+  color: #fff;
+
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
 }

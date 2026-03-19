@@ -14,4 +14,8 @@ export class UserApi extends BaseApi {
   }): Promise<void> {
     return this.patch<void>('/user/me', payload);
   }
+
+  deleteMe(): Promise<void> {
+    return this.delete<void>('/user/me');
+  }
 }
