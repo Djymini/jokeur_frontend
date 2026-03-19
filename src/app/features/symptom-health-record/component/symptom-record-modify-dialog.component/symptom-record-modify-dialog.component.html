@@ -65,4 +65,9 @@
       }
     </div>
   </fieldset>
+
+  <div class="flex justify-end space-x-2 mt-4">
+    <z-button type="button" zType="ghost" (click)="closeDialog()"> Annuler </z-button>
+    <z-button type="submit" [zDisabled]="!isValid()" (click)="validate()"> Enregistrer </z-button>
+  </div>
 </form>

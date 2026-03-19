@@ -1,7 +1,7 @@
 <section class="information-section">
   <h2>Informations générales</h2>
   <div class="information-container">
-    @for (item of healthRecordInformation; track $index) {
+    @for (item of healthRecordInformation(); track $index) {
       <app-information-item
         [label]="item.label"
         [information]="item.information"

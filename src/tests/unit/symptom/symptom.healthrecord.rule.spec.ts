@@ -27,7 +27,7 @@ describe("SymptomHealthRecordRules (unite test)", () => {
   it('should throw error if observation date is missing', () => {
     const invalid = { ...symptomRecord, observationDate: undefined };
     expect(() => SymptomHealthRecordRules.validate(invalid))
-      .toThrow('La date du observation de symptôme est requis');
+      .toThrow("La date d'observation de symptôme est requise");
   })
   it('should throw error if endDate is before observationdate', () => {
     const invalid = { ...symptomRecord, endDate:  new Date('2026-03-01'), active: false };

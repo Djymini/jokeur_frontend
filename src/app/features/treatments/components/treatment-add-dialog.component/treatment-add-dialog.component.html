@@ -5,7 +5,7 @@
       z-input
       id="name"
       formControlName="name"
-      placeholder="ex: Doliprane, Smecta..."
+      placeholder="ex: ex: Cardisure et Amoxicilline..."
       class="form-input"
     />
     @if (treatmentForm.get('name')?.invalid && treatmentForm.get('name')?.touched) {
@@ -78,5 +78,10 @@
       rows="3"
       class="form-textarea"
     ></textarea>
+  </div>
+
+  <div class="flex justify-end space-x-2 mt-4">
+    <z-button type="button" zType="ghost" (click)="closeDialog()"> Annuler </z-button>
+    <z-button type="submit" [zDisabled]="!isValid()" (click)="validate()"> Enregistrer </z-button>
   </div>
 </form>

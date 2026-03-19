@@ -1,6 +1,6 @@
 <div class="header">
   <div class="top">
-    <h2>{{ healthRecord().petName }}</h2>
+    <h2>{{ healthRecord()!.petName }}</h2>
     <z-button z-button zSize="lg" type="button" (click)="editClicked.emit()" class="edit-btn">
       <span class="material-icons cursor-pointer">edit</span>
       <span class="btn-text">Modifier</span>

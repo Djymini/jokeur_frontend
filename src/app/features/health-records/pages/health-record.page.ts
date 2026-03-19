@@ -44,8 +44,8 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       </z-button>
     </div>
 
-    <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
-    <app-health-record-section [healthRecord]="healthRecord" />
+    <app-health-record-header (editClicked)="isEditOpen.set(true)" />
+    <app-health-record-section />
 
     <z-dynamic-form-modal
       #editModal
@@ -261,13 +261,20 @@ export default class HealthRecordPage implements OnInit {
     return {
       petName: healthRecord.petName,
       animalType: animalType ?? null,
-      breed: healthRecord.breed,
-      sex: healthRecord.sex,
+      breed: this.dashboardStore
+        .metadata()
+        ?.breedsByAnimalType[animalType!].filter((item) => item.label === healthRecord.breed)[0]
+        .code,
+      sex: this.dashboardStore
+        .metadata()
+        ?.sexes.filter((item) => item.label === healthRecord.sex)[0].code,
       birthDate: healthRecord.birthDate
         ? new Date(healthRecord.birthDate).toISOString().substring(0, 10)
         : null,
       currentWeight: healthRecord.currentWeight,
-      color: healthRecord.color,
+      color: this.dashboardStore
+        .metadata()
+        ?.colors.filter((item) => item.label === healthRecord.color)[0].code,
       identificationNumber: healthRecord.identificationNumber ?? null,
       tattooNumber: healthRecord.tattoo ?? null,
       allergy: healthRecord.allergy ?? null,

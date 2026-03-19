@@ -26,7 +26,7 @@ export class HeaderComponent {
   }
 
   onSettings(): void {
-    this._router.navigate(['/user-profile']);
+    this._router.navigate(['/settings']);
   }
 
   onLogout(): void {

@@ -7,7 +7,7 @@ export class SymptomHealthRecordRules {
     }
 
     if (!dto.observationDate) {
-      throw new Error('La date du observation de symptôme est requis');
+      throw new Error("La date d'observation de symptôme est requise");
     }
 
     if (dto.endDate && new Date(dto.endDate) < new Date(dto.observationDate)) {
