@@ -11,7 +11,10 @@
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-h2,
+h2 {
+  margin-bottom: 30px;
+}
+
 h3 {
   margin-bottom: 16px;
 }
@@ -38,5 +41,5 @@ h3 {
 
 z-badge {
   font-size: 80%;
-  padding: 0.7% 2%;
+  padding: 1% 2%;
 }
