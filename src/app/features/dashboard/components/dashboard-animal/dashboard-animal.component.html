@@ -34,12 +34,12 @@
             [src]="animal.photoKey ? getPhotoUrl(animal.photoKey) : 'images/jokeur_face.webp'"
             [alt]="'Photo de ' + animal.petName"
           />
-          <div class="flex flex-col gap-1">
-            <h4 class="font-bold text-lg leading-tight">{{ animal.petName }}</h4>
+          <div class="flex flex-col gap-1 min-w-0">
+            <h4 class="font-bold text-lg leading-tight truncate">{{ animal.petName }}</h4>
             @if (animal.breed) {
-              <p class="text-sm text-muted-foreground">{{ formatBreed(animal.breed) }}</p>
+              <p class="text-sm text-muted-foreground truncate">{{ formatBreed(animal.breed) }}</p>
             }
-            <div class="flex flex-wrap gap-2 mt-1">
+            <div class="flex flex-wrap gap-1 mt-1">
               @if (animal.animalType) {
                 <z-badge zType="secondary" class="text-sm p-3">{{
                   animalTypeMap[animal.animalType]
