@@ -1,27 +1,34 @@
-<form [formGroup]="appointmentForm" class="flex flex-col gap-4 p-2">
-  <div class="grid gap-4">
-    <div class="grid gap-2">
-      <label for="reason" class="text-sm font-medium">Motif du rendez-vous</label>
+<form [formGroup]="appointmentForm" class="flex flex-col gap-4 p-2 modify-form">
+  <div class="grid gap-4 form-content">
+    <div class="grid gap-2 form-group">
+      <label for="reason" class="text-sm font-medium form-label">Motif du rendez-vous</label>
       <input
         z-input
         id="reason"
         formControlName="reason"
         placeholder="ex: Consultation, Vaccin..."
+        class="form-input"
       />
       @if (appointmentForm.get('reason')?.invalid && appointmentForm.get('reason')?.touched) {
-        <span class="text-red-500 text-xs">Le motif est obligatoire</span>
+        <span class="text-red-500 text-xs error-message">Le motif est obligatoire</span>
       }
     </div>
 
-    <div class="grid grid-cols-2 gap-4">
-      <div class="grid gap-2">
-        <label for="dateTime" class="text-sm font-medium">Date et heure</label>
-        <input z-input id="dateTime" type="datetime-local" formControlName="dateTime" />
+    <div class="grid grid-cols-2 gap-4 datetime-group">
+      <div class="grid gap-2 form-group">
+        <label for="dateTime" class="text-sm font-medium form-label">Date et heure</label>
+        <input
+          z-input
+          id="dateTime"
+          type="datetime-local"
+          formControlName="dateTime"
+          class="form-input"
+        />
       </div>
 
-      <div class="grid gap-2">
-        <label for="duration" class="text-sm font-medium">Durée (minutes)</label>
-        <input z-input id="duration" type="number" formControlName="duration" />
+      <div class="grid gap-2 form-group">
+        <label for="duration" class="text-sm font-medium form-label">Durée (minutes)</label>
+        <input z-input id="duration" type="number" formControlName="duration" class="form-input" />
       </div>
     </div>
   </div>

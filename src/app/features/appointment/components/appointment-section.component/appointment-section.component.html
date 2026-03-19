@@ -4,7 +4,7 @@
 
     <z-button type="button" class="btn btn-primary add-button" (click)="openDialogAdd()">
       <span class="material-icons">add</span>
-      Ajouter un événement
+      <span class="btn-text">Ajouter un événement</span>
     </z-button>
   </div>
 
@@ -18,8 +18,8 @@
   </div>
 
   @if (totalPages() > 1) {
-    <div class="mt-8 flex items-center justify-between">
-      <div class="flex items-center gap-2 text-sm text-gray-600">
+    <div class="pagination-wrapper">
+      <div class="pagination-info">
         <span>
           Affichage {{ currentPage() * pageSize() + 1 }} -
           {{ Math.min((currentPage() + 1) * pageSize(), totalElements()) }}
@@ -27,21 +27,23 @@
         </span>
       </div>
 
-      <div class="flex gap-2">
+      <div class="pagination-controls">
         <button
           z-button
           zType="secondary"
           type="button"
           (click)="onPreviousPage()"
           [disabled]="currentPage() === 0"
-          class="px-4 py-2 rounded-lg border bg-secondary text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          class="pagination-btn"
           aria-label="Page précédente"
         >
           <z-icon zType="chevron-left" />
-          Précédent
+          <span class="btn-label">Précédent</span>
         </button>
 
-        <span class="px-4 py-2 text-sm"> Page {{ currentPage() + 1 }} / {{ totalPages() }} </span>
+        <span class="pagination-page-indicator">
+          Page {{ currentPage() + 1 }} / {{ totalPages() }}
+        </span>
 
         <button
           z-button
@@ -49,10 +51,10 @@
           type="button"
           (click)="onNextPage()"
           [disabled]="currentPage() === totalPages() - 1"
-          class="px-4 py-2 rounded-lg border bg-secondary text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          class="pagination-btn"
           aria-label="Page suivante"
         >
-          Suivant
+          <span class="btn-label">Suivant</span>
           <z-icon zType="chevron-right" />
         </button>
       </div>
