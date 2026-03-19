@@ -120,6 +120,7 @@ export class UserProfileComponent implements OnInit {
       await this._router.navigate(['/register']);
       toast.success('Compte supprimé.');
     } catch (e) {
+      console.error(e);
       toast.error('Impossible de supprimer le compte.');
     }
   }
