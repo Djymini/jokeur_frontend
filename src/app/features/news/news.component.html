@@ -7,7 +7,7 @@
     </h2>
     @if (totalElements() > 0) {
       <span class="news-header__count"
-      >{{ totalElements() }} article{{ totalElements() > 1 ? 's' : '' }}</span
+        >{{ totalElements() }} article{{ totalElements() > 1 ? 's' : '' }}</span
       >
     }
   </div>
@@ -48,14 +48,14 @@
         </p>
 
         <div class="news-card__footer">
-        <a
-          class="news-card__link"
-          [href]="notification.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Lire l'article complet dans un nouvel onglet"
+          <a
+            class="news-card__link"
+            [href]="notification.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Lire l'article complet dans un nouvel onglet"
           >
-          Lire l'article
+            Lire l'article
           </a>
         </div>
       </article>
