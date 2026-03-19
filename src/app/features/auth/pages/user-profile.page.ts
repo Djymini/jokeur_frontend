@@ -4,19 +4,19 @@ import { UserProfileComponent } from '@/features/auth/components/user-profile.co
 @Component({
   selector: 'app-user',
   imports: [UserProfileComponent],
-  template: ` <app-user-profile /> `,
+  template: `
+    <h2 class="title">Profil</h2>
+    <app-user-profile />
+  `,
   styles: `
     :host {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 48px;
-      width: 100%;
+      display: block;
+      padding: 3rem 6.5rem 4rem;
     }
 
-    .page {
-      width: 100%;
-      max-width: 1200px;
+    .title {
+      margin: 0 0 1.75rem 0;
+      color: var(--secondary-dark);
     }
   `,
   changeDetection: ChangeDetectionStrategy.Default,

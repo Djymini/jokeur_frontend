@@ -4,7 +4,6 @@ import { UserProfileFormModel } from '@/features/auth/models/user-profile.model'
 import { UserApi } from '@/internal-shared/services/user.api';
 import { toast } from 'ngx-sonner';
 import { NAME_REGEX } from '@/features/auth/domain/name.rules';
-import { TabBarComponent } from '@/internal-shared/components/tab-bar.component/tab-bar.component';
 import { TabLink } from '@/internal-shared/models/tabLink.model';
 import {
   UserHeader,
@@ -15,7 +14,7 @@ import { UserModel } from '@/core/models/user-model';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [ReactiveFormsModule, TabBarComponent, UserProfileHeaderComponent],
+  imports: [ReactiveFormsModule, UserProfileHeaderComponent],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss',
 })

@@ -1,33 +1,40 @@
 :host {
-  width: 100%;
+  display: block;
 }
 
 .header {
-  width: 100%;
-  padding: 16px;
-  margin-bottom: 64px;
-  background-color: var(--card);
-  border-radius: var(--radius);
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--muted-foreground);
-  margin-bottom: 32px;
-}
-
-.top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 4px;
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+  }
 }
 
-.title {
-  text-align: center;
-  margin-top: 48px;
-  margin-bottom: 24px;
-  color: var(--secondary);
+.avatar-icon {
+  font-size: 2.8rem;
+  color: var(--primary);
+  line-height: 1;
+  display: flex;
 }

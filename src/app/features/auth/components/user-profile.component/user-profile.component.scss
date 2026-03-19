@@ -1,28 +1,16 @@
 :host {
-  --blue: #004e89;
-  --green: #68a691;
-  --border: #e3e6ea;
-  --text: #1f2937;
-
   display: block;
   min-height: 100vh;
   width: 100%;
   margin: 16px auto;
-  color: var(--text);
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Arial,
-    sans-serif;
 }
 
-.title {
+.section-title {
   text-align: center;
-  margin-top: 48px;
-  margin-bottom: 24px;
+  margin: 0 0 24px 0;
   color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .field {
@@ -41,17 +29,17 @@ input[type='text'],
 input[type='email'],
 input[type='password'],
 input[type='tel'] {
-  padding: 12px 12px;
-  border: 1px solid #d6dbe1;
+  padding: 12px;
+  border: 1px solid var(--border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--background);
   font-size: 1rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
 }
 
 input:focus {
   outline: none;
-  border-color: var(--blue);
+  border-color: var(--primary);
 }
 
 button[type='submit'] {
@@ -64,7 +52,7 @@ button[type='submit'] {
   padding: 12px 14px;
   border: 0;
   border-radius: 999px;
-  background: var(--green);
+  background: var(--teal-light);
   color: #fff;
   font-weight: 700;
   font-size: 1.05rem;
@@ -77,11 +65,11 @@ button[type='submit']:disabled {
 }
 
 .ng-invalid.ng-touched {
-  border-color: #dc2626 !important;
+  border-color: var(--destructive) !important;
 }
 
 .error {
-  color: #dc2626; // rouge propre (tailwind red-600)
+  color: var(--destructive);
   font-size: 0.85rem;
   font-weight: 500;
   margin-top: 4px;
@@ -104,5 +92,5 @@ form {
   padding: 32px 28px;
   background: var(--card);
   border-radius: var(--radius-lg);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+  box-shadow: var(--shadow-md);
 }
