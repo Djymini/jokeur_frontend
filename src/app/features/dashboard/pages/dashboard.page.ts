@@ -16,8 +16,8 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     DashboardReminderComponent,
   ],
   template: `
-    <section class="mb-8">
-      <h2 class="text text-card-foreground title">Informations</h2>
+    <section class="mb-8 px-4 md:px-14">
+      <h2 class="title">Informations</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 parent">
         <app-dashboard-news></app-dashboard-news>
         <app-dashboard-reminder></app-dashboard-reminder>
@@ -27,21 +27,18 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     <app-dashboard-animal></app-dashboard-animal>
   `,
   styles: `
+    :host {
+      display: block;
+      padding: 3rem 3rem 4rem;
+    }
+
     .title {
-      margin: 10px 16px;
+      margin: 0 0 1.75rem 0;
       color: var(--secondary);
     }
-    .parent {
-      margin: 16px;
-    }
-    @media (min-width: 768px) {
-      .title {
-        margin: 10px 50px;
-      }
 
-      .parent {
-        margin: 50px;
-      }
+    .parent {
+      margin: 0;
     }
   `,
 })

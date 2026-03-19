@@ -2,7 +2,7 @@ import {
   PASSWORD_MAX_LENGTH,
   PASSWORD_MIN_LENGTH,
   PASSWORD_REGEX,
-} from '../../app/features/auth/domain/password.rules';
+} from '@/features/auth/domain/password.rules';
 
 describe('password.rules (unit tests)', () => {
   it('should accept a valid password', () => {
