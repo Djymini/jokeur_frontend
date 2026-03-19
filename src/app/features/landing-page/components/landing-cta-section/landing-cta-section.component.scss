@@ -47,4 +47,8 @@
     padding: 0.75rem 1.75rem;
     font-size: 1rem;
   }
+
+  a[z-button] {
+    background-color: var(--secondary-dark) !important;
+  }
 }

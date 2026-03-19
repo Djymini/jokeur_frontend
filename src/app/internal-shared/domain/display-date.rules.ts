@@ -14,4 +14,8 @@ export class DisplayDateRules {
       year: 'numeric',
     });
   }
+
+  static formatDateShort(date: string): string {
+    return new Date(date).toLocaleDateString('fr-FR');
+  }
 }

@@ -1,12 +1,16 @@
 @if (isVisible()) {
   <header class="header" role="banner">
+    <button type="button" (click)="toggleSidebar.emit()" class="mobile-burger">
+      <span class="material-icons">menu</span>
+    </button>
     <div class="header-right">
       <div class="user-profile" z-dropdown [zDropdownMenu]="menu">
         <span class="material-icons">account_circle</span>
         <span class="user-name">
           {{ user() ? user()!.firstName + ' ' + user()!.name : 'inconnue' }}
         </span>
-        <z-dropdown-menu-content #menu="zDropdownMenuContent" class="w-56">
+        <div></div>
+        <z-dropdown-menu-content id="user-menu" #menu="zDropdownMenuContent" class="w-56">
           <z-menu-label>Mon compte</z-menu-label>
 
           <z-dropdown-menu-item (click)="onDashboard()">

@@ -33,7 +33,7 @@
     <app-vaccines-section [healthRecord]="healthRecord()!"></app-vaccines-section>
     <app-symptoms-section [healthRecord]="healthRecord()!"></app-symptoms-section>
   } @else if (activeTab() === tabLinks[3].name) {
-    <div class="container">
+    <div class="measures-container">
       @for (section of measureSectionArray; track $index) {
         <app-measure-section [measureSection]="section"></app-measure-section>
       }

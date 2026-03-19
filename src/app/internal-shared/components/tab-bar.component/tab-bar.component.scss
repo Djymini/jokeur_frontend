@@ -16,9 +16,10 @@
   min-width: 0;
   justify-content: center;
   border-radius: 100px;
+  gap: 10px;
 }
 
 .tablinks.active {
-  color: var(--accent);
+  color: var(--teal-light);
   background-color: var(--card);
 }

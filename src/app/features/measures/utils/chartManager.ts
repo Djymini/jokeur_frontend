@@ -11,20 +11,35 @@ export class ChartManager {
   ): any {
     return new Chart(nameChart, {
       type: chartType,
-
       data: {
         labels: measureData.labels,
         datasets: [
           {
             label: measureData.name,
             data: measureData.data,
-            backgroundColor: '#68A692FF',
-            borderColor: '#68A692FF',
+            backgroundColor: '#4A786BFF',
+            borderColor: '#4A786BFF',
           },
         ],
       },
       options: {
-        aspectRatio: 2.5,
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              padding: 12,
+            },
+          },
+          y: {
+            offset: true,
+          },
+        },
       },
     });
   }

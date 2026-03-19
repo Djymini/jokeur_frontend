@@ -23,11 +23,14 @@ import { ReminderPageBehavior } from '@/features/reminders/interfaces/strategy/R
   `,
   styles: `
     :host {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 48px;
+      display: block;
+      padding: 3rem 6.4rem 4rem;
+      min-height: 100vh;
+    }
+
+    app-breadcrumb {
+      display: block;
+      margin-bottom: 32px;
     }
   `,
 })

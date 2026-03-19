@@ -18,3 +18,10 @@ textarea.ng-invalid.ng-touched {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
+}

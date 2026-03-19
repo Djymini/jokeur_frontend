@@ -4,6 +4,9 @@
   </div>
 
   <div class="section-body">
+    @if (reminderPage().content.length === 0) {
+      <div class="reminders-empty" role="status">Aucun rappel à venir.</div>
+    }
     @for (reminder of reminderPage().content; track $index) {
       <app-date-card [date]="reminder" [hasDescription]="false"></app-date-card>
     }

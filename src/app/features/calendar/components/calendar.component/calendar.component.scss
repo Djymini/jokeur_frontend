@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
 }
 
 .toolbar {
@@ -13,6 +17,16 @@
   padding: 12px 24px;
   box-shadow: var(--shadow-sm);
 
+  @media (max-width: 1024px) {
+    padding: 12px 16px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
   h2 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -20,6 +34,16 @@
     text-align: center;
     flex: 1;
     color: var(--navy-dark);
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      order: -1;
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -28,10 +52,41 @@
   align-items: center;
   gap: 8px;
 
+  .nav-text {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .full-text {
+    display: inline;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .short-text {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: inline;
+    }
+  }
+
   z-button[mwlCalendarToday] {
     pointer-events: none;
     cursor: default;
     opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    gap: 4px;
+
+    z-button {
+      min-width: 40px;
+      padding: 0 8px;
+    }
   }
 }
 
@@ -39,4 +94,72 @@
   display: flex;
   align-items: center;
   gap: 8px;
+
+  .full-text {
+    display: inline;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .short-text {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: inline;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 4px;
+    width: 100%;
+    justify-content: center;
+
+    z-button {
+      min-width: 40px;
+      padding: 0 8px;
+      flex: 1;
+      max-width: 60px;
+    }
+  }
+}
+
+::ng-deep {
+  // Adaptation des cellules du calendrier
+  .cal-month-view .cal-cell-row .cal-cell {
+    @media (max-width: 768px) {
+      min-height: 40px;
+      font-size: 12px;
+      padding: 2px;
+    }
+  }
+
+  .cal-day-headers {
+    @media (max-width: 768px) {
+      .cal-header {
+        font-size: 11px;
+        padding: 4px 0;
+      }
+    }
+  }
+
+  .cal-week-view,
+  .cal-day-view {
+    @media (max-width: 768px) {
+      .cal-hour-segment {
+        height: 25px;
+      }
+
+      .cal-time {
+        font-size: 10px;
+        width: 40px;
+      }
+
+      .cal-event-title {
+        font-size: 11px;
+      }
+    }
+  }
 }
