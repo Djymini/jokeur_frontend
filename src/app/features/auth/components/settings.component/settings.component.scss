@@ -66,6 +66,10 @@ button[type='submit'] {
   font-weight: 700;
   font-size: 1.05rem;
   cursor: pointer;
+
+  &:hover {
+    background: var(--teal-dark);
+  }
 }
 
 button[type='submit']:disabled {
@@ -147,4 +151,8 @@ button.danger {
   font-weight: 700;
   font-size: 1.05rem;
   cursor: pointer;
+
+  &:hover {
+    background: #5e010c;
+  }
 }

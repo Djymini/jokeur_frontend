@@ -9,7 +9,7 @@ export const badgeVariants = cva(
         secondary: 'border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 h-5',
         'secondary-dark': 'border-transparent text-white h-5 [a&]:hover:opacity-90 bg-[var(--secondary-dark)]',
         destructive:
-          'border-transparent bg-[oklch(0.53_0.222_22.5)] text-white [a&]:hover:bg-[oklch(0.53_0.222_22.5)]/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 h-5',
+          'border-transparent bg-[oklch(0.365_0.148_26.751)] text-white focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 h-5',
         outline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
       },
       zShape: {
