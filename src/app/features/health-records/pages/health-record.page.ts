@@ -6,7 +6,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { HealthRecordFacade } from '@/features/health-records/services/health-record.facade';
 import { HealthRecordHeaderComponent } from '@/features/health-records/components/health-record-header.component/health-record-header.component';
 import { HealthRecordSectionComponent } from '@/features/health-records/components/health-record-section.component/health-record-section.component';
@@ -22,6 +22,8 @@ import { HealthRecordExportApi } from '@/features/health-record-export/services/
 import { ExportFormat } from '@/features/health-record-export/models/health-record-export.model';
 import { BreadcrumbNode } from '@/internal-shared/models/breadcrumb-node.model';
 import { BreadcrumbComponent } from '@/internal-shared/components/breadcrumb.component/breadcrumb.component';
+import { HealthRecordFormMetadata } from '@/features/health-records/services/health-record-metadata.api';
+import { SelectOption } from '@/shared/models/forms/form-field.model';
 
 const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string[]);
 
@@ -44,7 +46,7 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       </z-button>
     </div>
 
-    <app-health-record-header [healthRecord]="healthRecord" (editClicked)="isEditOpen.set(true)" />
+    <app-health-record-header [healthRecord]="healthRecord" (editClicked)="onEditOpen()" />
     <app-health-record-section [healthRecord]="healthRecord" />
 
     <z-dynamic-form-modal
@@ -85,14 +87,12 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
     button span {
       font-weight: bold;
     }
-
     .bottom-bar {
       display: flex;
       justify-content: flex-end;
       width: 100%;
       margin-top: 32px;
     }
-
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -102,14 +102,12 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       justify-content: center;
       z-index: 1000;
     }
-
     .modal-actions {
       display: flex;
       justify-content: flex-end;
       gap: 12px;
       margin-top: 16px;
     }
-
     .modal-box {
       background: white;
       border-radius: 12px;
@@ -118,22 +116,18 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       width: 100%;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     }
-
     .modal-box h2 {
       font-size: 18px;
       margin-bottom: 25px;
     }
-
     app-health-record-section {
       width: 100%;
     }
-
     @media (min-width: 768px) {
       :host {
         padding: 32px;
       }
     }
-
     @media (min-width: 1200px) {
       :host {
         padding: 48px;
@@ -158,9 +152,7 @@ export default class HealthRecordPage implements OnInit {
   healthRecord: HealthRecord = this._normalizeHealthRecord(
     this.route.snapshot.data['healthRecord'],
   );
-  protected editInitialValues: Record<string, unknown> = this._buildInitialValues(
-    this.healthRecord,
-  );
+  protected editInitialValues: Record<string, unknown> | null = null;
 
   constructor() {
     if (!this.dashboardStore.metadata()) {
@@ -179,6 +171,14 @@ export default class HealthRecordPage implements OnInit {
     ];
   }
 
+  protected onEditOpen(): void {
+    const metadata = this.dashboardStore.metadata();
+    if (metadata) {
+      this.editInitialValues = this._buildInitialValues(this.healthRecord, metadata);
+    }
+    this.isEditOpen.set(true);
+  }
+
   private _normalizeHealthRecord(rawHealthRecord: Record<string, unknown>): HealthRecord {
     return {
       ...rawHealthRecord,
@@ -186,21 +186,30 @@ export default class HealthRecordPage implements OnInit {
     } as HealthRecord;
   }
 
-  private _buildInitialValues(healthRecord: HealthRecord): Record<string, unknown> {
+  private _buildInitialValues(
+    healthRecord: HealthRecord,
+    metadata: HealthRecordFormMetadata,
+  ): Record<string, unknown> {
     const rawHealthRecord = healthRecord as unknown as Record<string, unknown>;
     const animalType = (rawHealthRecord['animalType'] ?? rawHealthRecord['AnimalType']) as
       | string
       | undefined;
+
+    const findCode = (options: SelectOption[], labelOrCode: string | null | undefined) =>
+      options.find((o) => o.code === labelOrCode || o.label === labelOrCode)?.code ?? null;
+
+    const breedsForType = animalType ? (metadata.breedsByAnimalType[animalType] ?? []) : [];
+
     return {
       petName: healthRecord.petName,
       animalType: animalType ?? null,
-      breed: healthRecord.breed,
-      sex: healthRecord.sex,
+      breed: findCode(breedsForType, healthRecord.breed),
+      sex: findCode(metadata.sexes, healthRecord.sex),
       birthDate: healthRecord.birthDate
         ? new Date(healthRecord.birthDate).toISOString().substring(0, 10)
         : null,
       currentWeight: healthRecord.currentWeight,
-      color: healthRecord.color,
+      color: findCode(metadata.colors, healthRecord.color),
       identificationNumber: healthRecord.identificationNumber ?? null,
       tattooNumber: healthRecord.tattoo ?? null,
       allergy: healthRecord.allergy ?? null,
@@ -214,7 +223,10 @@ export default class HealthRecordPage implements OnInit {
         this.healthRecord.id,
       );
       this.healthRecord = updatedHealthRecord;
-      this.editInitialValues = this._buildInitialValues(updatedHealthRecord);
+      const metadata = this.dashboardStore.metadata();
+      if (metadata) {
+        this.editInitialValues = this._buildInitialValues(updatedHealthRecord, metadata);
+      }
       this.isEditOpen.set(false);
       toast.success('Animal modifié avec succès');
     } catch (error: any) {

@@ -69,7 +69,7 @@ export class HealthRecordFacade {
             error?.status,
             'message:',
             error?.message,
-          ); // ← ici
+          );
           if (error?.status === 413 || error?.status === 0) {
             throw new Error('FILE_TOO_LARGE');
           }

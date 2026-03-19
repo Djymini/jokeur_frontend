@@ -55,24 +55,36 @@ export class DynamicFormComponent {
     this.formBuilder.group({})
   );
 
+  protected readonly selectOptionsMap = computed<Record<string, SelectOption[]>>(() => {
+    const metadata = this.metadata();
+    const form = this.formGroup();
+    const result: Record<string, SelectOption[]> = {};
+    for (const field of this.fields()) {
+      if (field.type === 'select') {
+        result[field.key] = resolveSelectOptions(field, form, metadata);
+      }
+    }
+    return result;
+  });
+
   protected readonly debugPayload = signal<FormPayload | null>(null);
 
   constructor() {
     effect(() => {
       const form = buildDynamicForm(this.formBuilder, this.fields());
-      this.formGroup.set(form);
-    });
-
-    effect(() => {
-      const metadata = this.metadata();
-      const form = this.formGroup();
       const values = this.initialValues();
+      const metadata = this.metadata();
 
-      if (values) {
-        form.patchValue(values);
-      }
-
+      this.formGroup.set(form);
       applyBreedDependencyRule(form, metadata);
+
+      if (values && metadata) {
+        form.patchValue(values);
+        setTimeout(() => {
+          form.patchValue(values);
+          this._cdr.markForCheck();
+        }, 0);
+      }
     });
   }
 

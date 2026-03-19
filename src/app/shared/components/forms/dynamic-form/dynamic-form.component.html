@@ -102,7 +102,7 @@
             [formControlName]="field.key"
           >
             <option value="" disabled>— Sélectionner —</option>
-            @for (opt of getSelectOptions(field); track opt.code) {
+            @for (opt of selectOptionsMap()[field.key]; track opt.code) {
               <option [value]="opt.code">{{ opt.label }}</option>
             }
           </select>
