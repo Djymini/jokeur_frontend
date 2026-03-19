@@ -23,35 +23,10 @@ export class VaccineItemComponent {
     this._dialogService.create({
       zTitle: `Modifiez le vaccin saisi`,
       zContent: VaccineModifyDialogComponent,
-      zOkText: 'Enregistrer',
-      zOnOk: async (instance) => {
-        if (!instance.isValid()) {
-          const form = instance.vaccineForm;
-          const hasReminderError = form
-            .get('reminder.reminderDate')
-            ?.hasError('dateLimitReminderValidator');
-
-          if (hasReminderError) {
-            toast.error('La date de rappel doit être après la date de vaccin');
-          } else {
-            toast.error('Veuillez remplir correctement les champs obligatoires');
-          }
-          return;
-        }
-
-        const updatedVaccine = instance.getUpdatedVaccine();
-
-        try {
-          await this._vaccineFacade.modify(updatedVaccine);
-        } catch (error) {
-          toast.error('Erreur lors de la modification de la donnée');
-          throw error;
-        }
-      },
+      zHideFooter: true,
       zData: {
         vaccine: this.vaccine(),
       },
-      zCancelText: 'Annuler',
       zWidth: '425px',
     });
   }

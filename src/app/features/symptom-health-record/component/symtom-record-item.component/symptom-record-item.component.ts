@@ -26,34 +26,10 @@ export class SymptomRecordItemComponent {
     this._dialogService.create({
       zTitle: `Modifiez le symptôme saisi`,
       zContent: SymptomRecordModifyDialogComponent,
-      zOkText: 'Enregistrer',
-      zOnOk: async (instance) => {
-        if (!instance.isValid()) {
-          const form = instance.symptoRecordForm;
-          const hasEndDateError = form.get('endDate')?.hasError('dateLimitEndValidator');
-
-          if (hasEndDateError) {
-            toast.error('La date de fin doit être après le début');
-          } else {
-            toast.error('Veuillez remplir correctement les champs obligatoires');
-          }
-          return;
-        }
-
-        const updatedSymptom = instance.getUpdatedSymptomRecord();
-
-        try {
-          await this._symptomRecordFacade.modify(this.sypmtomsRecord().id!, updatedSymptom);
-          await this._symptomRecordFacade.getSymptomRecord(this.healthRecord().id!);
-        } catch (error) {
-          toast.error('Erreur lors de la modification de la donnée');
-          throw error;
-        }
-      },
+      zHideFooter: true,
       zData: {
         symptomRecord: this.sypmtomsRecord(),
       },
-      zCancelText: 'Annuler',
       zWidth: '425px',
     });
   }

@@ -1,19 +1,24 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Vaccine } from '@/features/vaccines/models/vaccine.model';
-import { Z_MODAL_DATA } from '@/shared/components/dialog';
+import { Z_MODAL_DATA, ZardDialogRef } from '@/shared/components/dialog';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { dateLimitReminderValidator } from '@/internal-shared/validators/dateLimit';
 import { ReminderRules } from '@/features/reminders/domain/reminder.rules';
+import { toast } from 'ngx-sonner';
+import { VaccinesFacade } from '@/features/vaccines/services/vaccines-facade';
+import { ZardButtonComponent } from '@/shared/components/button';
 
 @Component({
   selector: 'app-vaccine-modify-dialog.component',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ZardButtonComponent],
   templateUrl: './vaccine-modify-dialog.component.html',
   styleUrl: './vaccine-modify-dialog.component.scss',
 })
 export class VaccineModifyDialogComponent implements OnInit {
   private _fb = inject(FormBuilder);
   data: { vaccine: Vaccine } = inject(Z_MODAL_DATA);
+  dialogRef = inject(ZardDialogRef);
+  private _vaccineFacade = inject(VaccinesFacade);
 
   vaccineForm!: FormGroup;
   reminderType: string = ReminderRules.displayReminderType(this.data.vaccine.reminder.type);
@@ -55,8 +60,39 @@ export class VaccineModifyDialogComponent implements OnInit {
     };
   }
 
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
+
   isValid(): boolean {
     return this.vaccineForm.valid;
+  }
+
+  async validate(): Promise<void> {
+    if (!this.isValid()) {
+      const form = this.vaccineForm;
+      const hasReminderError = form
+        .get('reminder.reminderDate')
+        ?.hasError('dateLimitReminderValidator');
+
+      if (hasReminderError) {
+        toast.error('La date de rappel doit être après la date de vaccin');
+      } else {
+        toast.error('Veuillez remplir correctement les champs obligatoires');
+      }
+      return;
+    }
+
+    const updatedVaccine = this.getUpdatedVaccine();
+
+    try {
+      await this._vaccineFacade.modify(updatedVaccine);
+    } catch (error) {
+      toast.error('Erreur lors de la modification de la donnée');
+      throw error;
+    }
+
+    this.closeDialog();
   }
 
   private _formatDate(date: Date | string | undefined | null): string {
