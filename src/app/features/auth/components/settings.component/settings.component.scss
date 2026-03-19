@@ -51,7 +51,7 @@ button[type='submit'] {
   margin-top: 14px;
   padding: 12px 14px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0.45rem !important;
   background: var(--teal-light);
   color: #fff;
   font-weight: 700;
@@ -83,6 +83,7 @@ button[type='submit']:disabled {
 input {
   width: 100%;
   padding-right: 40px;
+  box-sizing: border-box;
 }
 
 form {
@@ -93,4 +94,10 @@ form {
   background: var(--card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+    padding: 24px 16px;
+    border-radius: var(--radius);
+  }
 }

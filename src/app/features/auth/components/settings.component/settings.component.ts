@@ -7,18 +7,18 @@ import { NAME_REGEX } from '@/features/auth/domain/name.rules';
 import { TabLink } from '@/internal-shared/models/tabLink.model';
 import {
   UserHeader,
-  UserProfileHeaderComponent,
-} from '@/features/auth/components/user-profile-header.component/user-profile-header.component';
+  SettingsHeaderComponent,
+} from '@/features/auth/components/settings-header.component/settings-header.component';
 import { AuthService } from '@/core/services/auth.service';
 import { UserModel } from '@/core/models/user-model';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [ReactiveFormsModule, UserProfileHeaderComponent],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss',
+  imports: [ReactiveFormsModule, SettingsHeaderComponent],
+  templateUrl: './settings.component.html',
+  styleUrl: './settings.component.scss',
 })
-export class UserProfileComponent implements OnInit {
+export class SettingsComponent implements OnInit {
   private _fb = inject(NonNullableFormBuilder);
   private _userApi = inject(UserApi);
   private _authService: AuthService = inject(AuthService);

@@ -9,10 +9,10 @@ export type UserHeader = {
 @Component({
   selector: 'app-user-profile-header',
   imports: [],
-  templateUrl: './user-profile-header.component.html',
-  styleUrl: './user-profile-header.component.scss',
+  templateUrl: './settings-header.component.html',
+  styleUrl: './settings-header.component.scss',
 })
-export class UserProfileHeaderComponent {
+export class SettingsHeaderComponent {
   user = input.required<UserHeader>();
   readonly editClicked = output<void>();
 
