@@ -34,7 +34,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 
     .title {
       margin: 0 0 1.75rem 0;
-      color: var(--secondary);
+      color: var(--secondary-dark);
     }
 
     .parent {

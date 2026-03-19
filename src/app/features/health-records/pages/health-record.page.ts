@@ -67,10 +67,7 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
   styles: `
     :host {
       display: block;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
+      padding: 3rem 6.5rem 4rem;
     }
     .top-bar {
       display: flex;
@@ -127,17 +124,22 @@ const MEASURE_TYPE_VALUES = new Set<string>(Object.values(MeasureType) as string
       margin-bottom: 25px;
     }
 
-    @media (min-width: 768px) {
-      :host {
-        padding: 32px;
-      }
-    }
+app-health-record-section {
+  width: 100%;
+}
 
-    @media (min-width: 1200px) {
-      :host {
-        padding: 48px;
-      }
-    }
+@media (min-width: 768px) {
+  :host {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :host {
+    padding: 48px;
+  }
+}
+    
   `,
   changeDetection: ChangeDetectionStrategy.Default,
 })
