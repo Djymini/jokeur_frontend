@@ -6,4 +6,25 @@
   width: 100%;
   gap: 16px;
   margin-bottom: 64px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 48px;
+    gap: 14px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 32px;
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 24px;
+    gap: 10px;
+  }
+}
+
+.measure-board-wrapper,
+.measure-resume-wrapper {
+  width: 100%;
+  display: block;
 }
