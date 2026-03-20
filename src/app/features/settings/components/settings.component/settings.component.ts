@@ -4,11 +4,11 @@ import { UserProfileFormModel } from '@/features/auth/models/user-profile.model'
 import { UserApi } from '@/internal-shared/services/user.api';
 import { toast } from 'ngx-sonner';
 import { NAME_REGEX } from '@/features/auth/domain/name.rules';
-import { TabLink } from '@/internal-shared/models/tabLink.model';
+
 import {
   UserHeader,
   SettingsHeaderComponent,
-} from '@/features/auth/components/settings-header.component/settings-header.component';
+} from '@/features/settings/components/settings-header.component/settings-header.component';
 import { AuthService } from '@/core/services/auth.service';
 import { UserModel } from '@/core/models/user-model';
 import { Router } from '@angular/router';
@@ -25,14 +25,6 @@ export class SettingsComponent implements OnInit {
   private _authService: AuthService = inject(AuthService);
   private _router = inject(Router);
 
-  tabLinks: TabLink[] = [
-    { name: 'Profil', icon: 'person' },
-    { name: 'Sécurité', icon: 'lock' },
-    { name: 'Mon vétérinaire', icon: 'medication' },
-  ];
-
-  activeTab = signal<string>(this.tabLinks[0].name);
-
   userHeader = signal<UserHeader | null>(null);
 
   userProfileForm: FormGroup<UserProfileFormModel> = this._fb.group({
@@ -42,9 +34,6 @@ export class SettingsComponent implements OnInit {
     role: this._fb.control(''),
   });
 
-  selectTab(name: string): void {
-    this.activeTab.set(name);
-  }
 
   ngOnInit(): void {
     this._userApi
@@ -116,7 +105,7 @@ export class SettingsComponent implements OnInit {
     try {
       await this._userApi.deleteMe();
       this._authService.logout();
-      await this._router.navigate(['/register']);
+      await this._router.navigate(['/home']);
       toast.success('Compte supprimé.');
     } catch (e) {
       console.error(e);

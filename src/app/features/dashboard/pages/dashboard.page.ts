@@ -77,6 +77,8 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     @media (max-width: 640px) {
       :host {
         padding: 3rem 0.5rem 4rem;
+      }
+    }
     .dashboard-info-section {
       width: 100%;
 
