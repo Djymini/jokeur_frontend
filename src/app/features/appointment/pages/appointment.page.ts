@@ -18,16 +18,32 @@ import { AppointmentSectionComponent } from '@/features/appointment/components/a
       [totalElements]="totalElements()"
       (currentPageAreNext)="nextPage()"
       (currentPageArePrevious)="previousPage()"
+      (updatePage)="onUpdatePage()"
     >
     </app-appointment-section>
   `,
   styles: `
     :host {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 48px;
+      display: block;
+      padding: 3rem 6.4rem 4rem;
+      min-height: 100dvh;
+      @media (max-width: 1024px) {
+        padding: 2.5rem 3rem 3rem;
+      }
+      @media (max-width: 480px) {
+        padding: 1rem 0.75rem 1.5rem;
+      }
+    }
+
+    app-breadcrumb {
+      display: block;
+      margin-bottom: 32px;
+      @media (max-width: 768px) {
+        margin-bottom: 24px;
+      }
+      @media (max-width: 480px) {
+        margin-bottom: 20px;
+      }
     }
   `,
 })
@@ -45,6 +61,14 @@ export default class AppointmentPage extends DatePageBase implements OnInit {
 
   ngOnInit(): void {
     this.breadcrumbRoad = [{ link: ['appointment'], name: 'Rendez-vous' }];
+    this.datePageManager.loadReminders(
+      this.currentPage(),
+      this.pageSize(),
+      this._authService.user()!,
+    );
+  }
+
+  onUpdatePage(): void {
     this.datePageManager.loadReminders(
       this.currentPage(),
       this.pageSize(),

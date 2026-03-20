@@ -1,5 +1,6 @@
 :host {
   width: 100%;
+  display: block;
 }
 
 .board {
@@ -12,16 +13,51 @@
   gap: 24px;
   box-sizing: border-box;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 1024px) {
+    padding: 28px 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px 16px;
+    gap: 20px;
+    border-radius: 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 12px;
+    gap: 16px;
+    border-radius: 12px;
+  }
 }
 
 .board-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 button {
   padding: 16px;
+
+  @media (max-width: 768px) {
+    padding: 12px !important;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 12px !important;
+    width: 100%;
+  }
 }
 
 .board-title {
@@ -29,10 +65,77 @@ button {
   align-items: center;
   gap: 4px;
   color: var(--text);
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
+
+.add-measure-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+
+  @media (max-width: 768px) {
+    padding: 0 16px !important;
+  }
+
+  @media (max-width: 640px) {
+    .btn-text {
+      display: none;
+    }
+
+    i {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+
+    .btn-text {
+      display: inline;
+    }
+  }
 }
 
 .board-content {
   width: 100%;
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 4px;
+  }
+}
+
+.measures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 6px;
+  }
+}
+
+.measure-item {
+  width: 100%;
 }

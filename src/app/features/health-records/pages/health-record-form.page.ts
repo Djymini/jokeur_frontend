@@ -10,7 +10,10 @@ import { toast } from 'ngx-sonner';
   standalone: true,
   imports: [DynamicFormModalComponent, ZardButtonComponent],
   template: `
-    <button z-button (click)="isOpen.set(true)">Ajouter un animal</button>
+    <button z-button (click)="isOpen.set(true)" class="add-animal-btn">
+      <span class="material-icons">add</span>
+      <span class="btn-text">Ajouter un animal</span>
+    </button>
 
     <z-dynamic-form-modal
       #modal
@@ -20,6 +23,39 @@ import { toast } from 'ngx-sonner';
       (closed)="isOpen.set(false)"
       (submitted)="onSubmit($event)"
     />
+  `,
+  styles: `
+    :host {
+      display: block;
+      width: 100%;
+    }
+
+    .add-animal-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+
+      @media (max-width: 768px) {
+        padding: 0 16px !important;
+      }
+
+      @media (max-width: 480px) {
+        width: 40px !important;
+        height: 40px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        justify-content: center;
+
+        .btn-text {
+          display: none;
+        }
+
+        .material-icons {
+          margin: 0;
+          font-size: 1.25rem;
+        }
+      }
+    }
   `,
 })
 export default class HealthRecordFormPage {

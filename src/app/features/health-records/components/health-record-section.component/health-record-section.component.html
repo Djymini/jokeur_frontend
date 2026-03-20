@@ -3,7 +3,7 @@
 <div class="tab-content">
   @if (activeTab() === tabLinks[0].name) {
     <app-health-record-information-section
-      [healthRecord]="healthRecord()"
+      [healthRecord]="healthRecord()!"
     ></app-health-record-information-section>
 
     @if (isDeleteOpen()) {
@@ -12,7 +12,7 @@
           <h2>Supprimer le carnet de santé</h2>
           <p>
             Es-tu sûr(e) de vouloir supprimer le carnet de
-            <strong>{{ healthRecord().petName }}</strong> ? Cette action est irréversible.
+            <strong>{{ healthRecord()!.petName }}</strong> ? Cette action est irréversible.
           </p>
           <div class="modal-actions">
             <z-button zType="outline" (click)="isDeleteOpen.set(false)">Annuler</z-button>
@@ -24,16 +24,16 @@
     <div class="bottom-bar">
       <z-button class="btn-delete" zSize="lg" zType="destructive" (click)="isDeleteOpen.set(true)">
         <span class="material-icons">delete</span>
-        Supprimer
+        <span class="btn-text">Supprimer</span>
       </z-button>
     </div>
   } @else if (activeTab() === tabLinks[1].name) {
-    <app-treatment-section [healthRecord]="healthRecord()"></app-treatment-section>
+    <app-treatment-section [healthRecord]="healthRecord()!"></app-treatment-section>
   } @else if (activeTab() === tabLinks[2].name) {
-    <app-vaccines-section [healthRecord]="healthRecord()"></app-vaccines-section>
-    <app-symptoms-section [healthRecord]="healthRecord()"></app-symptoms-section>
+    <app-vaccines-section [healthRecord]="healthRecord()!"></app-vaccines-section>
+    <app-symptoms-section [healthRecord]="healthRecord()!"></app-symptoms-section>
   } @else if (activeTab() === tabLinks[3].name) {
-    <div class="container">
+    <div class="measures-container">
       @for (section of measureSectionArray; track $index) {
         <app-measure-section [measureSection]="section"></app-measure-section>
       }

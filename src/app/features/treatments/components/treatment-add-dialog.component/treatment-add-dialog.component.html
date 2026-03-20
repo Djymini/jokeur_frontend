@@ -1,15 +1,21 @@
-<form [formGroup]="treatmentForm" class="grid gap-4 p-4">
-  <div class="grid gap-2">
-    <label for="name" class="text-sm font-medium">Nom du traitement</label>
-    <input z-input id="name" formControlName="name" placeholder="ex: Doliprane, Smecta..." />
+<form [formGroup]="treatmentForm" class="grid gap-4 p-4 treatment-form">
+  <div class="grid gap-2 form-group">
+    <label for="name" class="text-sm font-medium form-label">Nom du traitement</label>
+    <input
+      z-input
+      id="name"
+      formControlName="name"
+      placeholder="ex: ex: Cardisure et Amoxicilline..."
+      class="form-input"
+    />
     @if (treatmentForm.get('name')?.invalid && treatmentForm.get('name')?.touched) {
-      <p class="error">Nom requis</p>
+      <p class="error error-message">Nom requis</p>
     }
   </div>
 
-  <div class="grid gap-2">
-    <label for="frequency" class="text-sm font-medium">Fréquence du traitement</label>
-    <select z-input id="frequency" formControlName="frequency">
+  <div class="grid gap-2 form-group">
+    <label for="frequency" class="text-sm font-medium form-label">Fréquence du traitement</label>
+    <select z-input id="frequency" formControlName="frequency" class="form-select">
       <option value="" disabled>-- Sélectionnez une frequence --</option>
       @for (type of frequency.types; track $index) {
         <option [value]="type.name">
@@ -22,43 +28,60 @@
     }
   </div>
 
-  <div class="grid grid-cols-2 gap-4">
-    <div class="grid gap-2">
-      <label for="beginDate" class="text-sm font-medium">Date du début du traitement</label>
-      <input z-input id="beginDate" type="date" formControlName="beginDate" />
+  <div class="grid grid-cols-2 gap-4 dates-row">
+    <div class="grid gap-2 form-group">
+      <label for="beginDate" class="text-sm font-medium form-label form-label"
+        >Date du début du traitement</label
+      >
+      <input z-input id="beginDate" type="date" formControlName="beginDate" class="form-input" />
       @if (treatmentForm.get('beginDate')?.invalid && treatmentForm.get('beginDate')?.touched) {
-        <p class="error">Date de debut requise</p>
+        <p class="error error-message">Date de debut requise</p>
       }
     </div>
-    <div class="grid gap-2">
-      <label for="endDate" class="text-sm font-medium">Date de fin du traitement</label>
-      <input z-input id="endDate" type="date" formControlName="endDate" />
+    <div class="grid gap-2 form-group">
+      <label for="endDate" class="text-sm font-medium form-label">Date de fin du traitement</label>
+      <input z-input id="endDate" type="date" formControlName="endDate" class="form-input" />
       @if (
         treatmentForm.get('endDate')?.hasError('dateLimitEndValidator') &&
         treatmentForm.get('endDate')?.touched
       ) {
-        <p class="error">Date de fin ne peut-être inferieur à date du début</p>
+        <p class="error error-message">Date de fin ne peut-être inférieure à date du début</p>
       }
     </div>
   </div>
 
-  <div class="grid grid-cols-2 gap-4">
-    <div class="grid gap-2">
-      <label for="treatmentReminderDate" class="text-sm font-medium"
-        >Date de rappel du traitement</label
-      >
-      <input z-input id="treatmentReminderDate" type="date" formControlName="reminderDate" />
-    </div>
-    @if (
-      treatmentForm.get('reminderDate')?.hasError('dateLimitReminderValidator') &&
-      treatmentForm.get('reminderDate')?.touched
-    ) {
-      <p class="error">La date de rappel ne peut-être inferieur à la date du début</p>
-    }
+  <div class="grid gap-2 form-group">
+    <label for="treatmentReminderDate" class="text-sm font-medium form-label"
+      >Date de rappel du traitement</label
+    >
+    <input
+      z-input
+      id="treatmentReminderDate"
+      type="date"
+      formControlName="reminderDate"
+      class="form-input"
+    />
+  </div>
+  @if (
+    treatmentForm.get('reminderDate')?.hasError('dateLimitReminderValidator') &&
+    treatmentForm.get('reminderDate')?.touched
+  ) {
+    <p class="error">La date de rappel ne peut-être inférieure à la date du début</p>
+  }
+
+  <div class="grid gap-2 form-group">
+    <label for="description" class="text-sm font-medium form-label">Description / Notes</label>
+    <textarea
+      z-input
+      id="description"
+      formControlName="description"
+      rows="3"
+      class="form-textarea"
+    ></textarea>
   </div>
 
-  <div class="grid gap-2">
-    <label for="description" class="text-sm font-medium">Description / Notes</label>
-    <textarea z-input id="description" formControlName="description" rows="3"></textarea>
+  <div class="flex justify-end space-x-2 mt-4">
+    <z-button type="button" zType="ghost" (click)="closeDialog()"> Annuler </z-button>
+    <z-button type="submit" [zDisabled]="!isValid()" (click)="validate()"> Enregistrer </z-button>
   </div>
 </form>

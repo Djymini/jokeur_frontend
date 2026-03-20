@@ -1,23 +1,171 @@
-.nav-button {
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+
+  @media (max-width: 1024px) {
+    padding: 12px 16px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    color: var(--navy-dark);
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+      position: static;
+      transform: none;
+      font-size: 1.2rem;
+      order: -1;
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
 }
 
-h2 {
-  margin-bottom: 16px;
-  text-align: center;
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .nav-text {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .full-text {
+    display: inline;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .short-text {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: inline;
+    }
+  }
+
+  z-button[mwlCalendarToday] {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    gap: 4px;
+
+    z-button {
+      min-width: 40px;
+      padding: 0 8px;
+    }
+  }
 }
 
 .format-button {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 8px;
+  gap: 8px;
+  justify-content: flex-end;
+
+  .full-text {
+    display: inline;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .short-text {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: inline;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 4px;
+    width: 100%;
+    justify-content: center;
+
+    z-button {
+      min-width: 40px;
+      padding: 0 8px;
+      flex: 1;
+      max-width: 60px;
+    }
+  }
 }
 
-.add-button {
-  margin-top: 16px;
+::ng-deep {
+  // Adaptation des cellules du calendrier
+  .cal-month-view .cal-cell-row .cal-cell {
+    @media (max-width: 768px) {
+      min-height: 40px;
+      font-size: 12px;
+      padding: 2px;
+    }
+  }
+
+  .cal-day-headers {
+    @media (max-width: 768px) {
+      .cal-header {
+        font-size: 11px;
+        padding: 4px 0;
+      }
+    }
+  }
+
+  .cal-week-view,
+  .cal-day-view {
+    @media (max-width: 768px) {
+      .cal-hour-segment {
+        height: 25px;
+      }
+
+      .cal-time {
+        font-size: 10px;
+        width: 40px;
+      }
+
+      .cal-event-title {
+        font-size: 11px;
+      }
+    }
+  }
 }

@@ -1,10 +1,13 @@
-import { computed, Injectable, signal, WritableSignal } from '@angular/core';
+import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { MeasureModel } from '@/features/measures/models/measureModel';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MeasuresStore {
+  private _healthRecordStore = inject(HealthRecordStore);
+
   private _weightArraySignal = signal<MeasureModel[]>([]);
   private _bpmArraySignal = signal<MeasureModel[]>([]);
   private _temperatureArraySignal = signal<MeasureModel[]>([]);
@@ -47,6 +50,7 @@ export class MeasuresStore {
 
   addWeight(weight: MeasureModel): void {
     this._addMeasure(weight, this._weightArraySignal);
+    this._healthRecordStore.modifyCurrentWeight(weight.value);
   }
 
   addBpm(bpm: MeasureModel): void {

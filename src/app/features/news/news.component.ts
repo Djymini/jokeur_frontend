@@ -5,10 +5,13 @@ import { NewsStore } from '@/features/news/store/news-store';
 import { NewsApi } from '@/features/dashboard/services/news-api.service';
 import { DatePipe } from '@angular/common';
 import { IsRecentPipe } from '@/features/news/pipes/is-recent.pipe';
+import { BreadcrumbComponent } from '@/internal-shared/components/breadcrumb.component/breadcrumb.component';
+import { BreadcrumbNode } from '@/internal-shared/models/breadcrumb-node.model';
+import { ZardButtonComponent } from '@/shared/components/button';
 
 @Component({
   selector: 'app-news',
-  imports: [ZardIconComponent, DatePipe, IsRecentPipe],
+  imports: [ZardIconComponent, ZardButtonComponent, DatePipe, IsRecentPipe, BreadcrumbComponent],
   templateUrl: './news.component.html',
   styleUrl: './news.component.scss',
 })
@@ -23,6 +26,8 @@ export default class NewsComponent implements OnInit {
   pageSize = signal<number>(5);
   totalPages = computed(() => this.newsStore.news().totalPages || 0);
   totalElements = computed(() => this.newsStore.news().totalElements || 0);
+
+  breadcrumbRoad: BreadcrumbNode[] = [{ link: ['/news'], name: 'Actualités' }];
 
   ngOnInit(): void {
     if (isPlatformBrowser(this._platformId)) {
@@ -60,13 +65,5 @@ export default class NewsComponent implements OnInit {
       this.currentPage.set(page);
       await this.loadNews();
     }
-  }
-
-  nextPage(): void {
-    this.onPageChange(this.currentPage() + 1);
-  }
-
-  previousPage(): void {
-    this.onPageChange(this.currentPage() - 1);
   }
 }

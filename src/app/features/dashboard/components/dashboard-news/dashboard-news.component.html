@@ -1,7 +1,9 @@
 <div class="bg-card rounded-lg shadow-sm border info-card">
-  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+  <div class="flex flex-row items-center justify-between gap-2 mb-4">
     <h3 class="font-medium text-lg">Actualité</h3>
-    <span class="px-2 py-1 text-sm md:text-md text-destructive bg-orange-100 rounded-full">
+    <span
+      class="w-8 h-8 flex items-center justify-center text-sm text-destructive bg-orange-100 rounded-full"
+    >
       {{ dashboardStore.news().totalElements }}
     </span>
   </div>
@@ -14,10 +16,10 @@
         </p>
       }
     } @else {
-      <p class="text-muted-foreground mb-2">Auccun actualité</p>
+      <p class="text-muted-foreground mb-2">Aucune actualité</p>
     }
   </div>
-  <a z-button zType="link" class="block w-full text-center mt-2" routerLink="/news">
+  <a z-button zType="link" class="block w-full !pl-0" routerLink="/news">
     Accéder à aux actualités
   </a>
 </div>

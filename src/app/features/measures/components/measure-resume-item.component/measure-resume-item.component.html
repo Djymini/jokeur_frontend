@@ -1,4 +1,4 @@
-<div class="item">
-  <h4 class="item-title">{{ parseFloat(value()) | measure: type() }}</h4>
-  <div class="item-date">{{ date() }}</div>
+<div class="item measure-item-card">
+  <h4 class="item-title measure-value">{{ parseFloat(value()) | measure: type() }}</h4>
+  <div class="item-date measure-date">{{ formatDate(date()) }}</div>
 </div>

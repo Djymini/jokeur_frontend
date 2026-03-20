@@ -1,3 +1,39 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.information-item {
+  width: 100%;
+}
+
 .label {
-  color: var(--muted-foreground);
+  color: var(--muted-fssstoreground);
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+  }
+}
+
+.information {
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: break-word;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 }

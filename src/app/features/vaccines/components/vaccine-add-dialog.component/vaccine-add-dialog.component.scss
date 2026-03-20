@@ -18,3 +18,65 @@ textarea.ng-invalid.ng-touched {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.vaccine-form {
+  @media (max-width: 768px) {
+    gap: 1.25rem;
+    padding: 0.75rem !important;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+    padding: 0.5rem !important;
+  }
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-label {
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+}
+
+.form-input,
+.form-textarea {
+  @media (max-width: 768px) {
+    font-size: 16px; // Évite le zoom automatique sur iOS
+    padding: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.6rem;
+  }
+}
+
+.dates-row {
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+}
+
+.error-message {
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+}

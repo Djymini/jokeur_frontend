@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Z_MODAL_DATA } from '@/shared/components/dialog';
+import { Z_MODAL_DATA, ZardDialogRef } from '@/shared/components/dialog';
 import { Treatment } from '@/features/treatments/models/treatment.model';
 import { FrequencyType } from '@/features/treatments/models/frequencyType';
 import {
@@ -14,15 +14,20 @@ import {
   dateLimitReminderValidator,
 } from '@/internal-shared/validators/dateLimit';
 import { ReminderRules } from '@/features/reminders/domain/reminder.rules';
+import { toast } from 'ngx-sonner';
+import { TreatmentFacade } from '@/features/treatments/services/treatment-facade';
+import { ZardButtonComponent } from '@/shared/components/button';
 
 @Component({
   selector: 'app-treatment-modify-dialog',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, ZardButtonComponent],
   templateUrl: './treatment-modify-dialog.component.html',
   styleUrl: './treatment-modify-dialog.component.scss',
 })
 export class TreatmentModifyDialogComponent implements OnInit {
   private _fb = inject(FormBuilder);
+  dialogRef = inject(ZardDialogRef);
+  private _treatmentFacade = inject(TreatmentFacade);
 
   frequency = new FrequencyType();
   data: { treatment: Treatment } = inject(Z_MODAL_DATA);
@@ -35,11 +40,18 @@ export class TreatmentModifyDialogComponent implements OnInit {
     const formattedTreatmentEndDate = this._formatDate(this.data.treatment.endDate);
     const formattedReminderDate = this._formatDate(this.data.treatment.reminder.reminderDate);
 
+    console.log(this.data.treatment.frequency);
+
+    console.log(this.frequency.types);
+    console.log(
+      this.frequency.types.filter((type) => type.label === this.data.treatment.frequency)[0].name,
+    );
+
     this.treatmentForm = this._fb.group({
       name: [this.data.treatment.name, [Validators.required]],
       description: [this.data.treatment.description],
       frequency: [
-        this.frequency.types.find((type) => type.label === this.data.treatment.frequency)?.name,
+        this.frequency.types.filter((type) => type.label === this.data.treatment.frequency)[0].name,
         [Validators.required],
       ],
       beginDate: [formattedTreatmentBeginDate, [Validators.required]],
@@ -70,8 +82,43 @@ export class TreatmentModifyDialogComponent implements OnInit {
     };
   }
 
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
+
   isValid(): boolean {
     return this.treatmentForm.valid;
+  }
+
+  async validate(): Promise<void> {
+    if (!this.isValid()) {
+      const hasEndDateError = this.treatmentForm.get('endDate')?.hasError('dateLimitEndValidator');
+      const hasReminderError = this.treatmentForm
+        .get('reminder.reminderDate')
+        ?.hasError('dateLimitReminderValidator');
+
+      if (hasEndDateError && hasReminderError) {
+        toast.error('Date de fin et de rappel invalides ils doivent etre après le début');
+      } else if (hasEndDateError) {
+        toast.error('La date de fin doit être après le début');
+      } else if (hasReminderError) {
+        toast.error('La date de rappel doit être après le début');
+      } else {
+        toast.error('Veuillez remplir correctement les champs obligatoires');
+      }
+      return;
+    }
+
+    const updatedTreatment = this.getUpdatedTreatment();
+
+    try {
+      await this._treatmentFacade.modify(updatedTreatment);
+    } catch (error) {
+      toast.error('Erreur lors de la modification de la donnée');
+      throw error;
+    }
+
+    this.closeDialog();
   }
 
   private _formatDate(date: Date | string | undefined | null): string {

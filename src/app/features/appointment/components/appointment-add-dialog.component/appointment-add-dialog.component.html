@@ -1,25 +1,47 @@
-<form [formGroup]="form" class="grid gap-4 p-4">
-  <h2 class="text-lg font-bold">Ajouter un rendez-vous</h2>
-
-  <div class="grid gap-2">
-    <label for="reason" class="text-sm font-medium">Motif du rendez-vous</label>
+<form [formGroup]="form" class="grid gap-4 form-container">
+  <div class="grid gap-1.5 form-field">
+    <label
+      for="reason"
+      class="text-xs font-semibold uppercase tracking-wider text-gray-500 field-label"
+      >Motif du rendez-vous</label
+    >
     <input
       z-input
       id="reason"
       formControlName="reason"
       placeholder="ex: Consultation annuelle, Vaccin..."
+      class="field-input"
     />
   </div>
 
-  <div class="grid grid-cols-2 gap-4">
-    <div class="grid gap-2">
-      <label for="dateTime" class="text-sm font-medium">Date et heure</label>
-      <input z-input id="dateTime" type="datetime-local" formControlName="dateTime" />
-    </div>
+  <div class="grid gap-1.5 form-field">
+    <label
+      for="dateTime"
+      class="text-xs font-semibold uppercase tracking-wider text-gray-500 field-label"
+      >Date et heure</label
+    >
+    <input
+      z-input
+      id="dateTime"
+      type="datetime-local"
+      formControlName="dateTime"
+      class="field-input"
+    />
+  </div>
 
-    <div class="grid gap-2">
-      <label for="duration" class="text-sm font-medium">Durée (minutes)</label>
-      <input z-input id="duration" type="number" formControlName="duration" placeholder="30" />
-    </div>
+  <div class="grid gap-1.5 form-field">
+    <label
+      for="duration"
+      class="text-xs font-semibold uppercase tracking-wider text-gray-500 field-label"
+      >Durée (minutes)</label
+    >
+    <input
+      z-input
+      id="duration"
+      type="number"
+      formControlName="duration"
+      placeholder="30"
+      class="fiel-input"
+    />
   </div>
 </form>

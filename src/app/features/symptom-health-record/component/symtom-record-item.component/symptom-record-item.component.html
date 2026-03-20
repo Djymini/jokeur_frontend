@@ -8,30 +8,37 @@
       </p>
     </div>
   </div>
-  <div class="item-bottom">
-    <div class="text-block">
-      <p class="label">Observation</p>
-      <p class="value">{{ sypmtomsRecord().observation }}</p>
-    </div>
-    @if (sypmtomsRecord().active?.valueOf()) {
-      <div class="text-block">
-        <p class="label">Status</p>
-        <p class="value">
-          {{ sypmtomsRecord().active?.valueOf() === true ? 'Encours' : 'Terminé' }}
-        </p>
-      </div>
-    } @else {
-      <div class="text-block">
-        <p class="label">Date de fin</p>
-        <p class="value">{{ sypmtomsRecord().endDate | date: 'mediumDate' }}</p>
-      </div>
-    }
 
-    <div class="button-container">
-      <z-button type="button" (click)="openDialogModify()">
+  <div class="item-bottom">
+    <div class="info-grid">
+      <div class="text-block">
+        <p class="label">Observation</p>
+        <p class="value">{{ sypmtomsRecord().observation }}</p>
+      </div>
+
+      @if (sypmtomsRecord().active?.valueOf()) {
+        <div class="text-block">
+          <p class="label">Status</p>
+          <p
+            class="value status-badge"
+            [class.active-status]="sypmtomsRecord().active?.valueOf() === true"
+          >
+            {{ sypmtomsRecord().active?.valueOf() === true ? 'En cours' : 'Terminé' }}
+          </p>
+        </div>
+      } @else {
+        <div class="text-block">
+          <p class="label">Date de fin</p>
+          <p class="value">{{ sypmtomsRecord().endDate | date: 'mediumDate' }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="button-container action-buttons">
+      <z-button type="button" class="action-btn" (click)="openDialogModify()">
         <span class="material-icons">edit</span>
       </z-button>
-      <z-button type="button" (click)="openDialogDelete()">
+      <z-button type="button" class="action-btn" (click)="openDialogDelete()">
         <span class="material-icons">delete</span>
       </z-button>
     </div>

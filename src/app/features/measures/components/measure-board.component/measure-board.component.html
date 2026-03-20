@@ -1,22 +1,23 @@
-<div class="board">
+<div class="board measure-board">
   <div class="board-header">
     <h3 class="board-title">
-      <z-icon [zType]="icon()" zSize="xl" />
-      {{ title() }}
+      <z-icon [zType]="icon()" zSize="xl" class="board-icon" />
+      <span class="board-title-text">{{ title() }}</span>
     </h3>
   </div>
+
   <div
     class="loader-overlay transition-opacity duration-700 ease-in-out"
     [class.opacity-0]="!showingLoader()"
     [class.pointer-events-none]="!showingLoader()"
   >
     <div class="flex flex-col space-y-3">
-      <z-skeleton class="rounded-xll h-[400px] w-full" />
+      <z-skeleton class="rounded-xll h-[400px] w-full skeleton-loader" />
     </div>
   </div>
 
   <app-measure-chart
-    class="chart-fade transition-opacity duration-700 ease-in-out"
+    class="chart-fade transition-opacity duration-700 ease-in-out measure-chart"
     [title]="title()"
     [type]="type()"
     [mesures]="measures()"
@@ -24,6 +25,15 @@
   ></app-measure-chart>
 
   <div class="board-footer">
-    <button type="button" z-button zSize="sm" zType="link" (click)="openDialog()">Voir plus</button>
+    <button
+      type="button"
+      z-button
+      zSize="sm"
+      zType="link"
+      class="view-more-btn"
+      (click)="openDialog()"
+    >
+      Voir plus
+    </button>
   </div>
 </div>

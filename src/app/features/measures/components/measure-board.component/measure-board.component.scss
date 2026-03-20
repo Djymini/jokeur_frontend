@@ -1,5 +1,6 @@
 :host {
   width: 100%;
+  display: block;
 }
 
 .board {
@@ -9,16 +10,37 @@
   flex-direction: column;
   background-color: var(--background);
   border-radius: 20px;
-  padding: 34px 24px;
+  padding: 34px 40px;
   gap: 24px;
   box-sizing: border-box;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 1024px) {
+    padding: 28px 32px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px 24px;
+    gap: 20px;
+    border-radius: 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+    gap: 16px;
+    border-radius: 12px;
+  }
 }
 
 .board-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
 
 .board-title {
@@ -26,12 +48,56 @@
   align-items: center;
   gap: 4px;
   color: var(--text);
+  margin-bottom: 16px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 8px;
+  }
+}
+
+.board-title-text {
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
+
+.board-icon {
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }
 
 .board-footer {
   width: 100%;
   display: flex;
   justify-content: end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.view-more-btn {
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.5rem !important;
+  }
 }
 
 .relative {
@@ -40,15 +106,54 @@
 
 .loader-overlay {
   position: absolute;
-  width: 95%;
+  width: calc(100% - 48px);
   top: 70px;
   left: 24px;
+  right: 24px;
   z-index: 15;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 32px);
+    top: 60px;
+    left: 16px;
+    right: 16px;
+  }
+
+  @media (max-width: 480px) {
+    width: calc(100% - 24px);
+    top: 50px;
+    left: 12px;
+    right: 12px;
+  }
+}
+
+.skeleton-loader {
+  @media (max-width: 768px) {
+    height: 300px !important;
+  }
+
+  @media (max-width: 480px) {
+    height: 250px !important;
+  }
 }
 
 .chart-fade {
   display: block;
   opacity: 1;
+}
+
+.measure-chart {
+  @media (max-width: 768px) {
+    ::ng-deep .chart-container {
+      height: 300px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    ::ng-deep .chart-container {
+      height: 250px !important;
+    }
+  }
 }
 
 .opacity-0 {

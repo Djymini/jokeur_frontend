@@ -1,6 +1,6 @@
 .title {
   margin: 10px 50px;
-  color: var(--secondary);
+  color: var(--secondary-dark);
 }
 
 .nav-btn {
@@ -11,6 +11,12 @@
 button[z-button] {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  background-color: var(--secondary) !important;
+
+  &:hover {
+    background: var(--secondary-dark) !important;
+    transition: background 0.2s ease;
+  }
 }
 
 .animal-card {
@@ -32,15 +38,12 @@ button[z-button] {
     padding: 16px;
     flex: 1;
   }
-}
 
-.badge {
-  background-color: #f97316;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 3px 12px;
-  border-radius: 999px;
+  z-badge {
+    font-size: 0.75rem !important;
+    padding: 0.2rem 0.5rem !important;
+    white-space: nowrap;
+  }
 }
 
 .see-record-btn {
@@ -48,14 +51,14 @@ button[z-button] {
   margin: 0 12px 12px 12px;
   text-align: center;
   padding: 10px 0;
-  background-color: #4db6ac;
+  background-color: var(--teal-light);
   color: white;
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 0.75rem;
+  border-radius: 0.45rem;
 
   &:hover {
-    background-color: #38a89d;
+    background-color: var(--teal-dark);
   }
 }

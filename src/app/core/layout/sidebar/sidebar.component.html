@@ -1,5 +1,6 @@
 @if (isVisible()) {
   <aside
+    [class.mobile-open]="mobileOpen()"
     class="sidebar"
     [class.collapsed]="collapsed()"
     role="navigation"
@@ -10,14 +11,13 @@
         @if (!collapsed()) {
           <div class="logo-title">
             <h1>Jokeur</h1>
-            <span aria-hidden="true">logo</span>
           </div>
         }
         <button
           type="button"
           class="menu-toggle"
           (click)="toggleSidebar.emit()"
-          aria-label="Toggle sidebar"
+          [attr.aria-label]="collapsed() ? 'Ouvrir le menu' : 'Fermer le menu'"
         >
           <span class="material-icons">
             {{ collapsed() ? 'menu' : 'menu_open' }}
@@ -27,13 +27,11 @@
       <hr />
       <ul>
         @for (item of menuItems(); track item.id) {
-          <li routerLinkActive="active">
-            <a [routerLink]="item.path" routerLinkActive="active">
+          <li routerLinkActive="active" #rla="routerLinkActive">
+            <a [routerLink]="item.path" routerLinkActive="active" (click)="onMenuItemClick()">
               <span class="material-icons">{{ item.icon }}</span>
               @if (!collapsed()) {
-                <span class="menu-label" [attr.aria-label]="collapsed() ? item.label : null">{{
-                  item.label
-                }}</span>
+                <span class="menu-label">{{ item.label }}</span>
               }
               @if (item.badge && !collapsed()) {
                 <span class="menu-badge">{{ item.badge }}</span>

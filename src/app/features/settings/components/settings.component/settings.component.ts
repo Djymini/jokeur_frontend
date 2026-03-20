@@ -4,33 +4,26 @@ import { UserProfileFormModel } from '@/features/auth/models/user-profile.model'
 import { UserApi } from '@/internal-shared/services/user.api';
 import { toast } from 'ngx-sonner';
 import { NAME_REGEX } from '@/features/auth/domain/name.rules';
-import { TabBarComponent } from '@/internal-shared/components/tab-bar.component/tab-bar.component';
-import { TabLink } from '@/internal-shared/models/tabLink.model';
+
 import {
   UserHeader,
-  UserProfileHeaderComponent,
-} from '@/features/auth/components/user-profile-header.component/user-profile-header.component';
+  SettingsHeaderComponent,
+} from '@/features/settings/components/settings-header.component/settings-header.component';
 import { AuthService } from '@/core/services/auth.service';
 import { UserModel } from '@/core/models/user-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [ReactiveFormsModule, TabBarComponent, UserProfileHeaderComponent],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss',
+  imports: [ReactiveFormsModule, SettingsHeaderComponent],
+  templateUrl: './settings.component.html',
+  styleUrl: './settings.component.scss',
 })
-export class UserProfileComponent implements OnInit {
+export class SettingsComponent implements OnInit {
   private _fb = inject(NonNullableFormBuilder);
   private _userApi = inject(UserApi);
   private _authService: AuthService = inject(AuthService);
-
-  tabLinks: TabLink[] = [
-    { name: 'Profil', icon: 'person' },
-    { name: 'Sécurité', icon: 'lock' },
-    { name: 'Mon vétérinaire', icon: 'medication' },
-  ];
-
-  activeTab = signal<string>(this.tabLinks[0].name);
+  private _router = inject(Router);
 
   userHeader = signal<UserHeader | null>(null);
 
@@ -41,9 +34,6 @@ export class UserProfileComponent implements OnInit {
     role: this._fb.control(''),
   });
 
-  selectTab(name: string): void {
-    this.activeTab.set(name);
-  }
 
   ngOnInit(): void {
     this._userApi
@@ -103,6 +93,23 @@ export class UserProfileComponent implements OnInit {
     } catch (error) {
       console.error('Modification échouée.', error);
       toast.error('Modification échouée.');
+    }
+  }
+
+  async deleteAccount(): Promise<void> {
+    const ok = confirm(
+      'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.',
+    );
+    if (!ok) return;
+
+    try {
+      await this._userApi.deleteMe();
+      this._authService.logout();
+      await this._router.navigate(['/home']);
+      toast.success('Compte supprimé.');
+    } catch (e) {
+      console.error(e);
+      toast.error('Impossible de supprimer le compte.');
     }
   }
 }

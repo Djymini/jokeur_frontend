@@ -1,78 +1,95 @@
-<form [formGroup]="vaccineForm" class="flex flex-col gap-4">
-  <fieldset class="border p-4 rounded-md">
-    <legend class="font-semibold text-gray-700">Informations du vaccin</legend>
+<form [formGroup]="vaccineForm" class="flex flex-col gap-4 modify-form">
+  <fieldset class="border p-4 rounded-md form-section">
+    <legend class="font-semibold text-gray-700 section-legend">Informations du vaccin</legend>
 
-    <div class="flex flex-col mb-3">
-      <label for="name" class="text-sm font-medium">Nom du vaccin</label>
-      <input id="name" type="text" formControlName="name" class="border p-2 rounded" />
+    <div class="flex flex-col mb-3 form-group">
+      <label for="name" class="text-sm font-medium form-label">Nom du vaccin</label>
+      <input id="name" type="text" formControlName="name" class="border p-2 rounded form-input" />
       @if (vaccineForm.get('name')?.invalid && vaccineForm.get('name')?.touched) {
-        <p class="error">Nom requis</p>
+        <p class="error error-message">Nom requis</p>
       }
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="vaccinator" class="text-sm font-medium">Vaccinateur</label>
-      <input id="vaccinator" type="text" formControlName="vaccinator" class="border p-2 rounded" />
+    <div class="flex flex-col mb-3 form-group">
+      <label for="vaccinator" class="text-sm font-medium form-label">Vaccinateur</label>
+      <input
+        id="vaccinator"
+        type="text"
+        formControlName="vaccinator"
+        class="border p-2 rounded form-input"
+      />
       @if (vaccineForm.get('vaccinator')?.invalid && vaccineForm.get('vaccinator')?.touched) {
-        <p class="error">Nom du vaccinateur requis requis</p>
+        <p class="error error-message">Nom du vaccinateur requis</p>
       }
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="vaccineDate" class="text-sm font-medium">Date du vaccin</label>
-      <input id="vaccineDate" type="date" formControlName="beginDate" class="border p-2 rounded" />
+    <div class="flex flex-col mb-3 form-group">
+      <label for="vaccineDate" class="text-sm font-medium form-label">Date du vaccin</label>
+      <input
+        id="vaccineDate"
+        type="date"
+        formControlName="beginDate"
+        class="border p-2 rounded form-input"
+      />
       @if (vaccineForm.get('beginDate')?.invalid && vaccineForm.get('beginDate')?.touched) {
-        <p class="error">Date de debut requise</p>
+        <p class="error error-message">Date de debut requise</p>
       }
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="description" class="text-sm font-medium">Description / Notes</label>
+    <div class="flex flex-col mb-3 form-group">
+      <label for="description" class="text-sm font-medium form-label">Description / Notes</label>
       <textarea
         id="description"
         formControlName="description"
-        class="border p-2 rounded"
+        class="border p-2 rounded form-textarea"
       ></textarea>
       @if (vaccineForm.get('description')?.invalid && vaccineForm.get('description')?.touched) {
-        <p class="error">Description requise</p>
+        <p class="error error-message">Description requise</p>
       }
     </div>
   </fieldset>
 
-  <fieldset formGroupName="reminder" class="border p-4 rounded-md mt-2">
-    <legend class="font-semibold text-gray-700">Programmer un rappel</legend>
+  <fieldset formGroupName="reminder" class="border p-4 rounded-md mt-2 form-section">
+    <legend class="font-semibold text-gray-700 section-legend">Programmer un rappel</legend>
 
-    <div class="flex flex-col mb-3">
-      <label for="reminderType" class="text-sm font-medium">Type de rappel</label>
-      <p>{{ reminderType }}</p>
+    <div class="flex flex-col mb-3 form-group">
+      <label for="reminderType" class="text-sm font-medium form-label">Type de rappel</label>
+      <p class="info-text">{{ reminderType }}</p>
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="reminderDate" class="text-sm font-medium">Date du rappel</label>
+    <div class="flex flex-col mb-3 form-group">
+      <label for="reminderDate" class="text-sm font-medium form-label">Date du rappel</label>
       <input
         id="reminderDate"
         type="date"
         formControlName="reminderDate"
-        class="border p-2 rounded"
+        class="border p-2 rounded form-input"
       />
       @if (
         vaccineForm.get('reminder.reminderDate')?.hasError('dateLimitReminderValidator') &&
         vaccineForm.get('reminderDate')?.touched
       ) {
-        <p class="error">La date de rappel ne peut-être inferieur à la date du début</p>
+        <p class="error error-message">
+          La date de rappel ne peut-être inférieure à la date du début
+        </p>
       }
     </div>
 
-    <div class="flex flex-col mb-3">
-      <label for="reminderStatus" class="text-sm font-medium">Statut</label>
-      <select id="reminderStatus" formControlName="status" class="border p-2 rounded">
+    <div class="flex flex-col mb-3 form-group">
+      <label for="reminderStatus" class="text-sm font-medium form-label">Statut</label>
+      <select id="reminderStatus" formControlName="status" class="border p-2 rounded form-select">
         <option value="PENDING">En attente</option>
         <option value="DONE">Réalisé</option>
         <option value="CANCELLED">Annulé</option>
       </select>
       @if (vaccineForm.get('status')?.invalid && vaccineForm.get('status')?.touched) {
-        <p class="error">Status requis</p>
+        <p class="error error-message">Status requis</p>
       }
     </div>
   </fieldset>
+
+  <div class="flex justify-end space-x-2 mt-4">
+    <z-button type="button" zType="ghost" (click)="closeDialog()"> Annuler </z-button>
+    <z-button type="submit" [zDisabled]="!isValid()" (click)="validate()"> Enregistrer </z-button>
+  </div>
 </form>

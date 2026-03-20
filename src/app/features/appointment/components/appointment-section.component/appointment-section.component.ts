@@ -28,6 +28,8 @@ export class AppointmentSectionComponent {
   totalElements = input.required<number>();
   user = inject(AuthService).user;
 
+  updatePage = output<void>();
+
   protected readonly Math = window.Math;
 
   currentPageArePrevious = output<number>();
@@ -50,6 +52,7 @@ export class AppointmentSectionComponent {
 
         try {
           await this._calendarFacade.addAppointment(addAppointment);
+          this.updatePage.emit();
         } catch (error) {
           toast.error('Erreur lors de la création');
           throw error;

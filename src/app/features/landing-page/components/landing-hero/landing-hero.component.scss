@@ -225,33 +225,27 @@
 
 .card-tag {
   padding: 0.2rem 0.7rem;
-  border-radius: 99px;
+  border-radius: 6px;
   font-size: 0.78rem;
   font-weight: 600;
   background: var(--secondary);
   color: #ffffff;
 }
 
-.card-divider {
-  height: 1px;
-  background: var(--cream-dark);
-  margin-bottom: 1.25rem;
-}
-
 .card-btn-main {
   width: 100%;
   padding: 0.75rem;
-  border-radius: var(--l-radius-sm);
   font-size: 0.95rem;
   font-weight: 600;
-  background: var(--accent);
+  background: var(--teal-light);
   color: #ffffff;
   border: none;
   transition: all 0.2s;
   cursor: pointer;
+  border-radius: 0.45rem;
 
   &:hover {
-    background: var(--teal-dark);
+    background: var(--teal-light);
     transform: translateY(-1px);
   }
 }

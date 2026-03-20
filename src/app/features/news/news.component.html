@@ -1,4 +1,5 @@
 <section class="news-page" aria-labelledby="news-heading">
+  <app-breadcrumb [breadcrumbRoad]="breadcrumbRoad"></app-breadcrumb>
   <div class="news-header">
     <h2 id="news-heading" class="news-header__title">
       Actualités
@@ -71,10 +72,10 @@
 
       <div class="news-pagination__controls">
         <button
-          class="pagination-btn"
+          z-button
+          zType="secondary"
           type="button"
-          (click)="previousPage()"
-          [disabled]="currentPage() === 0"
+          (click)="onPageChange(currentPage() - 1)"
           aria-label="Page précédente"
         >
           <z-icon zType="chevron-left" />
@@ -86,10 +87,10 @@
         </span>
 
         <button
-          class="pagination-btn"
+          z-button
+          zType="secondary"
           type="button"
-          (click)="nextPage()"
-          [disabled]="currentPage() === totalPages() - 1"
+          (click)="onPageChange(currentPage() + 1)"
           aria-label="Page suivante"
         >
           Suivant

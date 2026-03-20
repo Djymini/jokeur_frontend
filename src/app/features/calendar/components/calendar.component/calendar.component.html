@@ -3,27 +3,26 @@
     <div class="nav-button">
       <z-button
         type="button"
-        class="btn"
         mwlCalendarPreviousView
         [view]="view()"
         [(viewDate)]="viewDate"
         (click)="updateAgenda()"
       >
         <span class="material-icons">arrow_left</span>
-        Précédent
+        <span class="nav-text">Précédent</span>
       </z-button>
-      <z-button type="button" class="btn btn-outline" mwlCalendarToday [(viewDate)]="viewDate"
-        >Aujourd'hui</z-button
-      >
+      <z-button type="button" zType="outline" mwlCalendarToday [(viewDate)]="viewDate">
+        <span class="full-text">Aujourd'hui</span>
+        <span class="short-text">Auj</span>
+      </z-button>
       <z-button
         type="button"
-        class="btn"
         mwlCalendarNextView
         [view]="view()"
         [(viewDate)]="viewDate"
         (click)="updateAgenda()"
       >
-        Suivant
+        <span class="nav-text">Suivant</span>
         <span class="material-icons">arrow_right</span>
       </z-button>
     </div>
@@ -33,42 +32,40 @@
     <div class="format-button">
       <z-button
         type="button"
-        class="btn"
+        [zType]="view() === CalendarView.Month ? 'default' : 'outline'"
         (click)="setView(CalendarView.Month)"
-        [class.active]="view() === CalendarView.Month"
-        >Mois</z-button
       >
+        <span class="full-text">Mois</span>
+        <span class="short-text">M</span>
+      </z-button>
       <z-button
         type="button"
-        class="btn"
+        [zType]="view() === CalendarView.Week ? 'default' : 'outline'"
         (click)="setView(CalendarView.Week)"
-        [class.active]="view() === CalendarView.Week"
-        >Semaine</z-button
       >
+        <span class="full-text">Semaine</span>
+        <span class="short-text">S</span>
+      </z-button>
       <z-button
         type="button"
-        class="btn"
+        [zType]="view() === CalendarView.Day ? 'default' : 'outline'"
         (click)="setView(CalendarView.Day)"
-        [class.active]="view() === CalendarView.Day"
-        >Jour</z-button
       >
+        <span class="full-text">Jour</span>
+        <span class="short-text">J</span>
+      </z-button>
     </div>
   </div>
 
   @switch (view()) {
     @case (CalendarView.Month) {
-      <mwl-calendar-month-view [viewDate]="viewDate" [events]="events()"> </mwl-calendar-month-view>
+      <mwl-calendar-month-view [viewDate]="viewDate" [events]="events()"></mwl-calendar-month-view>
     }
     @case (CalendarView.Week) {
-      <mwl-calendar-week-view [viewDate]="viewDate" [events]="events()"> </mwl-calendar-week-view>
+      <mwl-calendar-week-view [viewDate]="viewDate" [events]="events()"></mwl-calendar-week-view>
     }
     @case (CalendarView.Day) {
-      <mwl-calendar-day-view [viewDate]="viewDate" [events]="events()"> </mwl-calendar-day-view>
+      <mwl-calendar-day-view [viewDate]="viewDate" [events]="events()"></mwl-calendar-day-view>
     }
   }
-
-  <z-button type="button" class="btn btn-primary add-button" (click)="openDialogAdd()">
-    <span class="material-icons">add</span>
-    Ajouter un événement
-  </z-button>
 </div>

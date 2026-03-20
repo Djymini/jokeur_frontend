@@ -1,13 +1,13 @@
-import { Component, computed, inject, input, output } from '@angular/core';
+import { Component, computed, inject, output } from '@angular/core';
 import { ZardBadgeComponent } from '@/shared/components/badge';
-import { HealthRecord } from '@/features/health-records/models/health-record.model';
 import { ZardButtonComponent } from '@/shared/components/button';
 import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
 import {
   resolveBreedLabel,
   resolveLabel,
 } from '@/features/health-records/utils/health-record-label.utils';
-import { HealthRecordRules } from '@/features/health-records/domain/health-record.rules';
+import { DashboardRules } from '@/features/dashboard/domain/dashboard.rules';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 @Component({
   selector: 'app-health-record-header',
@@ -16,21 +16,21 @@ import { HealthRecordRules } from '@/features/health-records/domain/health-recor
   styleUrl: './health-record-header.component.scss',
 })
 export class HealthRecordHeaderComponent {
-  healthRecord = input.required<HealthRecord>();
+  healthRecord = inject(HealthRecordStore).healthRecord;
   readonly editClicked = output<void>();
 
   private readonly _dashboardStore = inject(DashboardStore);
 
   protected readonly breedLabel = computed(() => {
-    const record = this.healthRecord();
+    const record = this.healthRecord()!;
     console.log('breed:', record.breed, 'animalType:', record.animalType);
     return resolveBreedLabel(record.breed, record.animalType, this._dashboardStore.metadata());
   });
 
   protected readonly badges = computed(() => {
-    const record = this.healthRecord();
+    const record = this.healthRecord()!;
     const metadata = this._dashboardStore.metadata();
-    const age = HealthRecordRules.calculateAge(record.birthDate);
+    const age = DashboardRules.getAge(record.birthDate);
     const sexLabel = resolveLabel(record.sex, metadata?.sexes ?? []);
     return [age, sexLabel, record.currentWeight + ' kg'];
   });

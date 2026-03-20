@@ -1,0 +1,158 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  width: 100%;
+  margin: 16px auto;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 24px 0;
+  color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='tel'] {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--background);
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+button[type='submit'] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 0.45rem !important;
+  background: var(--teal-light);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--teal-dark);
+  }
+}
+
+button[type='submit']:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ng-invalid.ng-touched {
+  border-color: var(--destructive) !important;
+}
+
+.error {
+  color: var(--destructive);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.div_label {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  width: 100%;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  padding: 32px 28px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+
+  @media (max-width: 600px) {
+    padding: 24px 16px;
+    border-radius: var(--radius);
+  }
+}
+
+.danger-zone {
+  width: 100%;
+  padding: 20px 24px;
+  border: 1px solid #dc262640;
+  border-radius: var(--radius-lg);
+  background: #dc26260a;
+  margin-top: 2rem;
+
+  &__title {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--destructive);
+  }
+
+  &__description {
+    margin: 0 0 16px 0;
+    color: var(--muted-foreground);
+  }
+
+  @media (max-width: 600px) {
+    padding: 16px;
+  }
+}
+
+button.danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 0.45rem;
+  background: var(--destructive);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #5e010c;
+  }
+}
