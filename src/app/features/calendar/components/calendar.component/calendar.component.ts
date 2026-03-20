@@ -1,4 +1,4 @@
-import { Component, inject, output, signal } from '@angular/core';
+import { Component, inject, OnInit, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   CalendarView,
@@ -35,7 +35,7 @@ import { AppointmentRequest } from '@/features/appointment/models/appointmentReq
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit {
   private _dialogService = inject(ZardDialogService);
   private _calendarFacade = inject(CalendarFacade);
 
@@ -47,6 +47,10 @@ export class CalendarComponent {
   CalendarView = CalendarView;
 
   readonly addEventRequested = output<void>();
+
+  ngOnInit(): void {
+    this._calendarFacade.getCalendar(this.user()!.id.toString(), this.viewDate.toISOString());
+  }
 
   setView(newView: CalendarView): void {
     this.view.set(newView);

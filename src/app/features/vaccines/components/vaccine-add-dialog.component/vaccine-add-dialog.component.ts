@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { dateLimitReminderValidator } from '@/internal-shared/validators/dateLimit';
 import { ZardButtonComponent } from '@/shared/components/button';
@@ -6,7 +6,7 @@ import { toast } from 'ngx-sonner';
 import { VaccineRequestDto } from '@/features/vaccines/models/vaccineRequestDto';
 import { ZardDialogRef } from '@/shared/components/dialog';
 import { VaccinesFacade } from '@/features/vaccines/services/vaccines-facade';
-import { HealthRecord } from '@/features/health-records/models/health-record.model';
+import { HealthRecordStore } from '@/features/health-records/services/health-record.store';
 
 @Component({
   selector: 'app-vaccine-add-dialog',
@@ -17,7 +17,7 @@ import { HealthRecord } from '@/features/health-records/models/health-record.mod
 export class VaccineAddDialogComponent {
   dialogRef = inject(ZardDialogRef);
   private _vaccineFacade = inject(VaccinesFacade);
-  healthRecord = input.required<HealthRecord>();
+  healthRecord = inject(HealthRecordStore).healthRecord;
 
   vaccineForm = new FormGroup({
     name: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),
@@ -66,7 +66,7 @@ export class VaccineAddDialogComponent {
       vaccinator: formValue.vaccinator,
       vaccineDate: new Date(formValue.beginDate),
       vaccineReminderDate: new Date(formValue.reminderDate),
-      healthRecordId: this.healthRecord().id,
+      healthRecordId: this.healthRecord()!.id,
     };
 
     try {
