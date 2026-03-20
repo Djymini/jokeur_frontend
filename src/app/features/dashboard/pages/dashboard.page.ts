@@ -32,6 +32,22 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     :host {
       display: block;
       padding: 3rem 3rem 4rem;
+
+      @media (max-width: 1024px) {
+        padding: 2.5rem 2rem 3rem;
+      }
+
+      @media (max-width: 768px) {
+        padding: 2rem 1.5rem 2.5rem;
+      }
+
+      @media (max-width: 640px) {
+        padding: 1.5rem 1rem 2rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 1rem 0.75rem 1.5rem;
+      }
     }
 
     .title {
@@ -42,8 +58,13 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     .parent {
       margin: 0;
     }
-    .info-card {
-      display: block;
+
+    @media (max-width: 640px) {
+      :host {
+        padding: 3rem 0.5rem 4rem;
+      }
+    }
+    .dashboard-info-section {
       width: 100%;
       height: 100%;
     }
@@ -52,7 +73,6 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
       width: 100%;
     }
 
-    /* Media Queries mises à plat (Standard CSS) */
     @media (max-width: 1024px) {
       :host {
         padding: 2.5rem 2rem 3rem;
@@ -62,7 +82,7 @@ import { DashboardStore } from '@/features/dashboard/store/dashboard-store';
     @media (max-width: 768px) {
       :host {
         padding: 2rem 1.5rem 2.5rem;
-        margin-bottom: 1.5rem !important; /* Ajout du sélecteur manquant */
+        margin-bottom: 1.5rem !important;
       }
       .title {
         margin: 0 0 1.5rem 0;

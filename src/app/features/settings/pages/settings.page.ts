@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SettingsComponent } from '@/features/auth/components/settings.component/settings.component';
+import { SettingsComponent } from '@/features/settings/components/settings.component/settings.component';
 
 @Component({
   selector: 'app-user',
