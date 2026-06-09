@@ -18,7 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideCalendar({ provide: DateAdapter, useFactory: adapterFactory }),
     { provide: CalendarDateFormatter, useClass: CustomDateFormatter },
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
     provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withInterceptors([authInterceptor]), withFetch()),
