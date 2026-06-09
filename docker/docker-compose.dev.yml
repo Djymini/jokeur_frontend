@@ -1,0 +1,11 @@
+name: jokeur-dev-front
+
+services:
+  jokeur-frontend-dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.staging
+    container_name: jokeur-frontend-dev
+    restart: unless-stopped
+    ports:
+      - "4200:4000"

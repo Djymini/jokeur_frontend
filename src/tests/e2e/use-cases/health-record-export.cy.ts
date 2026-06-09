@@ -68,7 +68,12 @@ describe('Health record export', () => {
   const navigateToAnimalDetail = (): void => {
     cy.contains('Medor').closest('div.animal-card').find('a').click(); // eslint-disable-line newline-per-chained-call
     cy.wait('@healthRecordDetailRequest');
-    cy.wait(['@vaccinesRequest', '@symptomRecordsRequest', '@symptomsRequest', '@treatmentsRequest']);
+    cy.wait([
+      '@vaccinesRequest',
+      '@symptomRecordsRequest',
+      '@symptomsRequest',
+      '@treatmentsRequest',
+    ]);
     cy.contains('Exporter').should('be.visible');
   };
 
