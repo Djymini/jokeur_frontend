@@ -3,7 +3,7 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
   {
     path: 'home',
-    renderMode: RenderMode.Client,
+    renderMode: RenderMode.Server,
   },
   {
     path: 'login',
@@ -27,7 +27,7 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'legal-notice',
-    renderMode: RenderMode.Client,
+    renderMode: RenderMode.Server,
   },
   {
     path: '**',
