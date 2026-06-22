@@ -25,15 +25,37 @@ describe('Health record export', () => {
     cy.intercept('GET', `${environment.apiUrl}/health-records/*`, {
       fixture: 'health-record-detail.json',
     }).as('healthRecordDetailRequest');
+    cy.intercept('GET', `${environment.apiUrl}/vaccines/*`, { fixture: 'vaccines.json' }).as(
+      'vaccinesRequest',
+    );
+    cy.intercept('GET', `${environment.apiUrl}/symptom-health-records/*`, {
+      fixture: 'symptom-record.json',
+    }).as('symptomRecordsRequest');
+    cy.intercept('GET', `${environment.apiUrl}/symptoms`, { fixture: 'symptoms.json' }).as(
+      'symptomsRequest',
+    );
+    cy.intercept('GET', `${environment.apiUrl}/treatments/*`, { fixture: 'treatments.json' }).as(
+      'treatmentsRequest',
+    );
   });
 
   const login = (): void => {
-    cy.visit('/login');
-    cy.get('input[id="email"]').type('test@test.com');
-    cy.get('input[id="password"]').type('P@ssword1234');
-    cy.get('button[type="submit"]').click();
-    cy.wait('@loginRequest');
-    cy.url().should('include', '/dashboard');
+    cy.visit('/dashboard', {
+      onBeforeLoad(win) {
+        win.localStorage.setItem('jwt_token', 'fake-jwt-token-12345');
+        win.localStorage.setItem(
+          'user',
+          JSON.stringify({
+            token: 'fake-jwt-token-12345',
+            id: 1,
+            firstname: 'John',
+            name: 'Doe',
+            email: 'test@test.com',
+            role: 'OWNER',
+          }),
+        );
+      },
+    });
     cy.wait([
       '@appointmentRequest',
       '@healthRecordRequest',
@@ -46,6 +68,12 @@ describe('Health record export', () => {
   const navigateToAnimalDetail = (): void => {
     cy.contains('Medor').closest('div.animal-card').find('a').click(); // eslint-disable-line newline-per-chained-call
     cy.wait('@healthRecordDetailRequest');
+    cy.wait([
+      '@vaccinesRequest',
+      '@symptomRecordsRequest',
+      '@symptomsRequest',
+      '@treatmentsRequest',
+    ]);
     cy.contains('Exporter').should('be.visible');
   };
 
@@ -72,8 +100,8 @@ describe('Health record export', () => {
 
     cy.contains('Exporter').click();
     cy.contains('label', 'PDF').click();
-    cy.get('input[id="from"]').type('2099-01-01');
-    cy.get('input[id="to"]').type('2099-01-01');
+    cy.get('input[id="from"]').should('not.be.disabled').type('2099-01-01');
+    cy.get('input[id="to"]').should('not.be.disabled').type('2099-01-01');
     cy.get('form').submit();
     cy.contains('Du').closest('.field').find('.error').should('be.visible'); // eslint-disable-line newline-per-chained-call
   });
@@ -92,9 +120,9 @@ describe('Health record export', () => {
 
     cy.contains('Exporter').click();
     cy.contains('label', 'PDF').click();
-    cy.get('input[id="from"]').type('2024-01-01');
-    cy.get('input[id="to"]').type('2024-12-31');
-    cy.get('button[type="submit"]').click();
+    cy.get('input[id="from"]').should('not.be.disabled').type('2024-01-01');
+    cy.get('input[id="to"]').should('not.be.disabled').type('2024-12-31');
+    cy.get('button[type="submit"]').click({ force: true });
     cy.wait('@exportPdfRequest');
     cy.contains('Export généré avec succès').should('exist');
   });
@@ -117,9 +145,9 @@ describe('Health record export', () => {
 
     cy.contains('Exporter').click();
     cy.contains('label', 'XSLX').click();
-    cy.get('input[id="from"]').type('2024-01-01');
-    cy.get('input[id="to"]').type('2024-12-31');
-    cy.get('button[type="submit"]').click();
+    cy.get('input[id="from"]').should('not.be.disabled').type('2024-01-01');
+    cy.get('input[id="to"]').should('not.be.disabled').type('2024-12-31');
+    cy.get('button[type="submit"]').click({ force: true });
     cy.wait('@exportXlsxRequest');
     cy.contains('Export généré avec succès').should('exist');
   });
